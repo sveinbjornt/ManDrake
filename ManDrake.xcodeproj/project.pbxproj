@@ -31,9 +31,6 @@
 		F487F504141EAEAC0093D633 /* UKTextDocGoToBox.m in Sources */ = {isa = PBXBuildFile; fileRef = F487F4FB141EAEAC0093D633 /* UKTextDocGoToBox.m */; };
 		F487F506141EAF8A0093D633 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F487F505141EAF8A0093D633 /* WebKit.framework */; };
 		F487F535141EB2560093D633 /* ManDrakeApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F487F534141EB2560093D633 /* ManDrakeApplicationDelegate.m */; };
-		F487F53E141EDD560093D633 /* cat2html.c in Sources */ = {isa = PBXBuildFile; fileRef = F487F539141EDD560093D633 /* cat2html.c */; };
-		F487F53F141EDD560093D633 /* cat2html.l in Sources */ = {isa = PBXBuildFile; fileRef = F487F53A141EDD560093D633 /* cat2html.l */; };
-		F487F540141EDD560093D633 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = F487F53B141EDD560093D633 /* Makefile */; };
 		F487F541141EDD560093D633 /* Makefile.postamble in Resources */ = {isa = PBXBuildFile; fileRef = F487F53C141EDD560093D633 /* Makefile.postamble */; };
 		F487F542141EDD560093D633 /* Makefile.preamble in Resources */ = {isa = PBXBuildFile; fileRef = F487F53D141EDD560093D633 /* Makefile.preamble */; };
 		F487F544141EDE590093D633 /* ManDocument.icns in Resources */ = {isa = PBXBuildFile; fileRef = F487F543141EDE590093D633 /* ManDocument.icns */; };
@@ -310,9 +307,6 @@
 				F487F503141EAEAC0093D633 /* UKSyntaxColoredTextViewController.m in Sources */,
 				F487F504141EAEAC0093D633 /* UKTextDocGoToBox.m in Sources */,
 				F487F535141EB2560093D633 /* ManDrakeApplicationDelegate.m in Sources */,
-				F487F53E141EDD560093D633 /* cat2html.c in Sources */,
-				F487F53F141EDD560093D633 /* cat2html.l in Sources */,
-				F487F540141EDD560093D633 /* Makefile in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,25 +316,22 @@
 		F487F4C6141EADEF0093D633 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				COPY_PHASE_STRIP = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = macosx10.6;
 			};
 			name = Debug;
@@ -348,12 +339,13 @@
 		F487F4C7141EADEF0093D633 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;

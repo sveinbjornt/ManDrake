@@ -3,7 +3,7 @@
 //  UKSyntaxColoredDocument
 //
 //  Created by Uli Kusterer on 13.03.10.
-//  Copyright 2010 Uli Kusterer.
+//  Copyright 2011 Uli Kusterer.
 //
 //	This software is provided 'as-is', without any express or implied
 //	warranty. In no event will the authors be held liable for any damages

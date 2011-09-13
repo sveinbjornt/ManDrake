@@ -1156,7 +1156,7 @@
 				<string key="NSFrameAutosaveName">UKSCTDPrefsWindow</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
-			<object class="NSCustomObject" id="7833144">
+			<object class="NSCustomObject" id="347893185">
 				<string key="NSClassName">ManDrakeApplicationDelegate</string>
 			</object>
 		</array>
@@ -1582,7 +1582,7 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">delegate</string>
 						<reference key="source" ref="1050"/>
-						<reference key="destination" ref="7833144"/>
+						<reference key="destination" ref="347893185"/>
 					</object>
 					<int key="connectionID">653</int>
 				</object>
@@ -2350,7 +2350,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">652</int>
-						<reference key="object" ref="7833144"/>
+						<reference key="object" ref="347893185"/>
 						<reference key="parent" ref="0"/>
 					</object>
 				</array>
