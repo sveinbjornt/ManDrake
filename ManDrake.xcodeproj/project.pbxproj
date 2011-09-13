@@ -31,6 +31,12 @@
 		F487F504141EAEAC0093D633 /* UKTextDocGoToBox.m in Sources */ = {isa = PBXBuildFile; fileRef = F487F4FB141EAEAC0093D633 /* UKTextDocGoToBox.m */; };
 		F487F506141EAF8A0093D633 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F487F505141EAF8A0093D633 /* WebKit.framework */; };
 		F487F535141EB2560093D633 /* ManDrakeApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F487F534141EB2560093D633 /* ManDrakeApplicationDelegate.m */; };
+		F487F53E141EDD560093D633 /* cat2html.c in Sources */ = {isa = PBXBuildFile; fileRef = F487F539141EDD560093D633 /* cat2html.c */; };
+		F487F53F141EDD560093D633 /* cat2html.l in Sources */ = {isa = PBXBuildFile; fileRef = F487F53A141EDD560093D633 /* cat2html.l */; };
+		F487F540141EDD560093D633 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = F487F53B141EDD560093D633 /* Makefile */; };
+		F487F541141EDD560093D633 /* Makefile.postamble in Resources */ = {isa = PBXBuildFile; fileRef = F487F53C141EDD560093D633 /* Makefile.postamble */; };
+		F487F542141EDD560093D633 /* Makefile.preamble in Resources */ = {isa = PBXBuildFile; fileRef = F487F53D141EDD560093D633 /* Makefile.preamble */; };
+		F487F544141EDE590093D633 /* ManDocument.icns in Resources */ = {isa = PBXBuildFile; fileRef = F487F543141EDE590093D633 /* ManDocument.icns */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +83,12 @@
 		F487F505141EAF8A0093D633 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = /System/Library/Frameworks/WebKit.framework; sourceTree = "<absolute>"; };
 		F487F533141EB2560093D633 /* ManDrakeApplicationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManDrakeApplicationDelegate.h; sourceTree = "<group>"; };
 		F487F534141EB2560093D633 /* ManDrakeApplicationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManDrakeApplicationDelegate.m; sourceTree = "<group>"; };
+		F487F539141EDD560093D633 /* cat2html.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cat2html.c; sourceTree = "<group>"; };
+		F487F53A141EDD560093D633 /* cat2html.l */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.lex; path = cat2html.l; sourceTree = "<group>"; };
+		F487F53B141EDD560093D633 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		F487F53C141EDD560093D633 /* Makefile.postamble */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.postamble; sourceTree = "<group>"; };
+		F487F53D141EDD560093D633 /* Makefile.preamble */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.preamble; sourceTree = "<group>"; };
+		F487F543141EDE590093D633 /* ManDocument.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = ManDocument.icns; path = Resources/ManDocument.icns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,10 +136,13 @@
 		F487F4B1141EADEF0093D633 /* ManDrake */ = {
 			isa = PBXGroup;
 			children = (
+				F487F4B7141EADEF0093D633 /* main.m */,
+				F487F4B9141EADEF0093D633 /* ManDrake-Prefix.pch */,
 				F487F533141EB2560093D633 /* ManDrakeApplicationDelegate.h */,
 				F487F534141EB2560093D633 /* ManDrakeApplicationDelegate.m */,
 				F487F4BD141EADEF0093D633 /* ManDrakeDocument.h */,
 				F487F4BE141EADEF0093D633 /* ManDrakeDocument.m */,
+				F487F538141EDD560093D633 /* cat2html */,
 				F487F4E9141EAEAC0093D633 /* UKSyntaxColoredTextDocument */,
 				F487F4DF141EAEA10093D633 /* LineNumbering */,
 			);
@@ -140,8 +155,7 @@
 				F487F4D0141EAE730093D633 /* MainMenu.xib */,
 				F487F4D1141EAE730093D633 /* ManDrakeDocument.xib */,
 				F487F4B3141EADEF0093D633 /* ManDrake-Info.plist */,
-				F487F4B7141EADEF0093D633 /* main.m */,
-				F487F4B9141EADEF0093D633 /* ManDrake-Prefix.pch */,
+				F487F543141EDE590093D633 /* ManDocument.icns */,
 				F487F4D4141EAE910093D633 /* cat2html */,
 				F487F4D5141EAE910093D633 /* Credits.rtf */,
 				F487F4D6141EAE910093D633 /* Syntax Definitions */,
@@ -197,6 +211,18 @@
 				F487F4FB141EAEAC0093D633 /* UKTextDocGoToBox.m */,
 			);
 			path = UKSyntaxColoredTextDocument;
+			sourceTree = "<group>";
+		};
+		F487F538141EDD560093D633 /* cat2html */ = {
+			isa = PBXGroup;
+			children = (
+				F487F539141EDD560093D633 /* cat2html.c */,
+				F487F53A141EDD560093D633 /* cat2html.l */,
+				F487F53B141EDD560093D633 /* Makefile */,
+				F487F53C141EDD560093D633 /* Makefile.postamble */,
+				F487F53D141EDD560093D633 /* Makefile.preamble */,
+			);
+			path = cat2html;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +282,9 @@
 				F487F4DC141EAE910093D633 /* Man.plist in Resources */,
 				F487F4DD141EAE910093D633 /* SyntaxColorDefaults.plist in Resources */,
 				F487F4DE141EAE910093D633 /* SyntaxDefinition.plist in Resources */,
+				F487F541141EDD560093D633 /* Makefile.postamble in Resources */,
+				F487F542141EDD560093D633 /* Makefile.preamble in Resources */,
+				F487F544141EDE590093D633 /* ManDocument.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +310,9 @@
 				F487F503141EAEAC0093D633 /* UKSyntaxColoredTextViewController.m in Sources */,
 				F487F504141EAEAC0093D633 /* UKTextDocGoToBox.m in Sources */,
 				F487F535141EB2560093D633 /* ManDrakeApplicationDelegate.m in Sources */,
+				F487F53E141EDD560093D633 /* cat2html.c in Sources */,
+				F487F53F141EDD560093D633 /* cat2html.l in Sources */,
+				F487F540141EDD560093D633 /* Makefile in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
