@@ -58,12 +58,6 @@
     [super windowControllerDidLoadNib: aController];
 }
 
--(void)dealloc
-{
-	[lineNumberView release];
-	[super dealloc];
-}
-
 #pragma mark Web Preview
 
 - (IBAction)refresh:(id)sender
