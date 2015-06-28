@@ -35,13 +35,6 @@
 
 @implementation MarkerLineNumberView
 
-- (void)dealloc
-{
-	[markerImage release];
-	
-	[super dealloc];
-}
-
 - (void)setRuleThickness:(CGFloat)thickness
 {
 	[super setRuleThickness:thickness];
@@ -88,7 +81,6 @@
 		rep = [[NSCustomImageRep alloc] initWithDrawSelector:@selector(drawMarkerImageIntoRep:) delegate:self];
 		[rep setSize:size];
 		[markerImage addRepresentation:rep];
-		[rep release];
 	}
 	return markerImage;
 }
@@ -96,7 +88,7 @@
 - (void)mouseDown:(NSEvent *)theEvent
 {
 	NSPoint					location;
-	unsigned				line;
+	NSUInteger				line;
 	
 	location = [self convertPoint:[theEvent locationInWindow] fromView:nil];
 	line = [self lineNumberForLocation:location.y];
@@ -118,7 +110,6 @@
 																  image:[self markerImageWithSize:NSMakeSize([self ruleThickness], MARKER_HEIGHT)]
 														   imageOrigin:NSMakePoint(0, MARKER_HEIGHT / 2)];
 			[self addMarker:marker];
-			[marker release];
 		}
 		[self setNeedsDisplay:YES];
 	}

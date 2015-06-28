@@ -25,7 +25,7 @@
 
 @implementation ManDrakeDocument
 
-- (id)init
+- (instancetype)init
 {
     if (self = [super init]) 
 	{
@@ -56,12 +56,6 @@
 											   object: [textView textStorage]];
 		
     [super windowControllerDidLoadNib: aController];
-}
-
--(void)dealloc
-{
-	[lineNumberView release];
-	[super dealloc];
 }
 
 #pragma mark Web Preview
