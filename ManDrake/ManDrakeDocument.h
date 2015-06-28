@@ -42,7 +42,7 @@
 }
 - (IBAction)refresh:(id)sender;
 - (IBAction)refreshChanged:(id)sender;
-- (IBAction)makeTextLarger:(id)sender;
-- (IBAction)makeTextSmaller:(id)sender;
+//- (IBAction)makeTextLarger:(id)sender;
+//- (IBAction)makeTextSmaller:(id)sender;
 - (void)drawWebView;
 @end
