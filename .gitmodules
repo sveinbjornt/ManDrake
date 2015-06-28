@@ -1,0 +1,3 @@
+[submodule "ManDrake/External/NoodleKit"]
+	path = ManDrake/External/NoodleKit
+	url = https://github.com/JanX2/NoodleKit.git

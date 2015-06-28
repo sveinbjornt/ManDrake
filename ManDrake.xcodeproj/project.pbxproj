@@ -101,6 +101,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D6AA2B31B4084D400ACB655 /* NoodleLineNumber */ = {
+			isa = PBXGroup;
+			children = (
+				F487F4E2141EAEA10093D633 /* NoodleLineNumberMarker.h */,
+				F487F4E3141EAEA10093D633 /* NoodleLineNumberMarker.m */,
+				F487F4E4141EAEA10093D633 /* NoodleLineNumberView.h */,
+				F487F4E5141EAEA10093D633 /* NoodleLineNumberView.m */,
+			);
+			name = NoodleLineNumber;
+			path = ../External/NoodleKit;
+			sourceTree = "<group>";
+		};
 		F487F49C141EADEF0093D633 = {
 			isa = PBXGroup;
 			children = (
@@ -177,10 +189,7 @@
 			children = (
 				F487F4E0141EAEA10093D633 /* MarkerLineNumberView.h */,
 				F487F4E1141EAEA10093D633 /* MarkerLineNumberView.m */,
-				F487F4E2141EAEA10093D633 /* NoodleLineNumberMarker.h */,
-				F487F4E3141EAEA10093D633 /* NoodleLineNumberMarker.m */,
-				F487F4E4141EAEA10093D633 /* NoodleLineNumberView.h */,
-				F487F4E5141EAEA10093D633 /* NoodleLineNumberView.m */,
+				3D6AA2B31B4084D400ACB655 /* NoodleLineNumber */,
 			);
 			path = LineNumbering;
 			sourceTree = "<group>";
