@@ -25,7 +25,7 @@
 
 @implementation ManDrakeApplicationDelegate
 
-- (id)init
+- (instancetype)init
 {
     self = [super init];
     if (self) {
@@ -39,7 +39,7 @@
 {
     // create and register the user defaults here if none exists
     NSMutableDictionary *defaultPrefs = [NSMutableDictionary dictionary];
-	[defaultPrefs setObject: @"delayed" forKey: @"Refresh"];
+	defaultPrefs[@"Refresh"] = @"delayed";
     [[NSUserDefaults standardUserDefaults] registerDefaults: defaultPrefs];
 }
 
