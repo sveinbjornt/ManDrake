@@ -1,3 +1,9 @@
 [submodule "ManDrake/External/NoodleKit"]
 	path = ManDrake/External/NoodleKit
 	url = https://github.com/JanX2/NoodleKit.git
+[submodule "ManDrake/External/UKSyntaxColoredTextDocument"]
+	path = ManDrake/External/UKSyntaxColoredTextDocument
+	url = https://github.com/JanX2/UKSyntaxColoredTextDocument.git
+[submodule "ManDrake/External/UliKit"]
+	path = ManDrake/External/UliKit
+	url = https://github.com/uliwitness/UliKit

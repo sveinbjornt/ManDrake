@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D6AE8901B40973500CD192D /* NSNumber+JXCGFloat.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6AE88F1B40973500CD192D /* NSNumber+JXCGFloat.m */; };
 		F487F4AC141EADEF0093D633 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F487F4AB141EADEF0093D633 /* Cocoa.framework */; };
 		F487F4B8141EADEF0093D633 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F487F4B7141EADEF0093D633 /* main.m */; };
 		F487F4BF141EADEF0093D633 /* ManDrakeDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = F487F4BE141EADEF0093D633 /* ManDrakeDocument.m */; };
@@ -37,6 +38,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D6AE88E1B40973500CD192D /* NSNumber+JXCGFloat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+JXCGFloat.h"; sourceTree = "<group>"; };
+		3D6AE88F1B40973500CD192D /* NSNumber+JXCGFloat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+JXCGFloat.m"; sourceTree = "<group>"; };
 		F487F4A7141EADEF0093D633 /* ManDrake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ManDrake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F487F4AB141EADEF0093D633 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		F487F4AE141EADEF0093D633 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -199,6 +202,8 @@
 			children = (
 				F487F4EA141EAEAC0093D633 /* NSArray+Color.h */,
 				F487F4EB141EAEAC0093D633 /* NSArray+Color.m */,
+				3D6AE88E1B40973500CD192D /* NSNumber+JXCGFloat.h */,
+				3D6AE88F1B40973500CD192D /* NSNumber+JXCGFloat.m */,
 				F487F4EC141EAEAC0093D633 /* NSMenu+DeepSearch.h */,
 				F487F4ED141EAEAC0093D633 /* NSMenu+DeepSearch.m */,
 				F487F4EE141EAEAC0093D633 /* NSScanner+SkipUpToCharset.h */,
@@ -216,7 +221,8 @@
 				F487F4FA141EAEAC0093D633 /* UKTextDocGotoBox.h */,
 				F487F4FB141EAEAC0093D633 /* UKTextDocGoToBox.m */,
 			);
-			path = UKSyntaxColoredTextDocument;
+			name = UKSyntaxColoredTextDocument;
+			path = External/UKSyntaxColoredTextDocument;
 			sourceTree = "<group>";
 		};
 		F487F538141EDD560093D633 /* cat2html */ = {
@@ -307,6 +313,7 @@
 				F487F4E7141EAEA10093D633 /* NoodleLineNumberMarker.m in Sources */,
 				F487F4E8141EAEA10093D633 /* NoodleLineNumberView.m in Sources */,
 				F487F4FC141EAEAC0093D633 /* NSArray+Color.m in Sources */,
+				3D6AE8901B40973500CD192D /* NSNumber+JXCGFloat.m in Sources */,
 				F487F4FD141EAEAC0093D633 /* NSMenu+DeepSearch.m in Sources */,
 				F487F4FE141EAEAC0093D633 /* NSScanner+SkipUpToCharset.m in Sources */,
 				F487F4FF141EAEAC0093D633 /* UKSCTDColorWellPrefsController.m in Sources */,
@@ -395,6 +402,7 @@
 				GCC_PREFIX_HEADER = "ManDrake/ManDrake-Prefix.pch";
 				INFOPLIST_FILE = "ManDrake/ManDrake-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = ManDrake/External/UliKit/;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -407,6 +415,7 @@
 				GCC_PREFIX_HEADER = "ManDrake/ManDrake-Prefix.pch";
 				INFOPLIST_FILE = "ManDrake/ManDrake-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = ManDrake/External/UliKit/;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
