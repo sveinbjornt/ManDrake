@@ -17,30 +17,18 @@
  along with this program; if not, write to the Free Software
  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  
- */
-
-
+*/
 
 #import "ManDrakeApplicationDelegate.h"
 
 @implementation ManDrakeApplicationDelegate
 
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        // Initialization code here.
-    }
-    
-    return self;
-}
-
 + (void)initialize
 {
-    // create and register the user defaults here if none exists
+    // create and register the user defaults
     NSMutableDictionary *defaultPrefs = [NSMutableDictionary dictionary];
-	defaultPrefs[@"Refresh"] = @"delayed";
-    [[NSUserDefaults standardUserDefaults] registerDefaults: defaultPrefs];
+	defaultPrefs[@"Refresh"] = @"Delayed";
+    [[NSUserDefaults standardUserDefaults] registerDefaults:defaultPrefs];
 }
 
 @end

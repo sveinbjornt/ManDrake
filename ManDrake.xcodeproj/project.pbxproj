@@ -32,8 +32,6 @@
 		F487F504141EAEAC0093D633 /* UKTextDocGoToBox.m in Sources */ = {isa = PBXBuildFile; fileRef = F487F4FB141EAEAC0093D633 /* UKTextDocGoToBox.m */; };
 		F487F506141EAF8A0093D633 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F487F505141EAF8A0093D633 /* WebKit.framework */; };
 		F487F535141EB2560093D633 /* ManDrakeApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F487F534141EB2560093D633 /* ManDrakeApplicationDelegate.m */; };
-		F487F541141EDD560093D633 /* Makefile.postamble in Resources */ = {isa = PBXBuildFile; fileRef = F487F53C141EDD560093D633 /* Makefile.postamble */; };
-		F487F542141EDD560093D633 /* Makefile.preamble in Resources */ = {isa = PBXBuildFile; fileRef = F487F53D141EDD560093D633 /* Makefile.preamble */; };
 		F487F544141EDE590093D633 /* ManDocument.icns in Resources */ = {isa = PBXBuildFile; fileRef = F487F543141EDE590093D633 /* ManDocument.icns */; };
 		F4FD5CA91C4D757E00C8D155 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4FD5CA81C4D757E00C8D155 /* Images.xcassets */; };
 /* End PBXBuildFile section */
@@ -312,8 +310,6 @@
 				F487F4DD141EAE910093D633 /* SyntaxColorDefaults.plist in Resources */,
 				F4FD5CA91C4D757E00C8D155 /* Images.xcassets in Resources */,
 				F487F4DE141EAE910093D633 /* SyntaxDefinition.plist in Resources */,
-				F487F541141EDD560093D633 /* Makefile.postamble in Resources */,
-				F487F542141EDD560093D633 /* Makefile.preamble in Resources */,
 				F487F544141EDE590093D633 /* ManDocument.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
