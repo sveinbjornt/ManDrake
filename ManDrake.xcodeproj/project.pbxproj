@@ -35,6 +35,7 @@
 		F487F541141EDD560093D633 /* Makefile.postamble in Resources */ = {isa = PBXBuildFile; fileRef = F487F53C141EDD560093D633 /* Makefile.postamble */; };
 		F487F542141EDD560093D633 /* Makefile.preamble in Resources */ = {isa = PBXBuildFile; fileRef = F487F53D141EDD560093D633 /* Makefile.preamble */; };
 		F487F544141EDE590093D633 /* ManDocument.icns in Resources */ = {isa = PBXBuildFile; fileRef = F487F543141EDE590093D633 /* ManDocument.icns */; };
+		F4FD5CA91C4D757E00C8D155 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4FD5CA81C4D757E00C8D155 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +90,10 @@
 		F487F53C141EDD560093D633 /* Makefile.postamble */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.postamble; sourceTree = "<group>"; };
 		F487F53D141EDD560093D633 /* Makefile.preamble */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.preamble; sourceTree = "<group>"; };
 		F487F543141EDE590093D633 /* ManDocument.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = ManDocument.icns; path = Resources/ManDocument.icns; sourceTree = "<group>"; };
+		F4FD5CA11C4D74F900C8D155 /* make_icons.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = make_icons.sh; sourceTree = "<group>"; };
+		F4FD5CA21C4D74F900C8D155 /* ManDrakeAppIcon.ai */ = {isa = PBXFileReference; lastKnownFileType = text; path = ManDrakeAppIcon.ai; sourceTree = "<group>"; };
+		F4FD5CA41C4D74F900C8D155 /* ManDrakeAppIcon1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ManDrakeAppIcon1024.png; sourceTree = "<group>"; };
+		F4FD5CA81C4D757E00C8D155 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +162,7 @@
 				F487F538141EDD560093D633 /* cat2html */,
 				F487F4E9141EAEAC0093D633 /* UKSyntaxColoredTextDocument */,
 				F487F4DF141EAEA10093D633 /* LineNumbering */,
+				F4FD5CA81C4D757E00C8D155 /* Images.xcassets */,
 			);
 			path = ManDrake;
 			sourceTree = "<group>";
@@ -164,6 +170,7 @@
 		F487F4B2141EADEF0093D633 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F4FD5CA01C4D74F900C8D155 /* Icons */,
 				F487F4D0141EAE730093D633 /* MainMenu.xib */,
 				F487F4D1141EAE730093D633 /* ManDrakeDocument.xib */,
 				F487F4B3141EADEF0093D633 /* ManDrake-Info.plist */,
@@ -237,6 +244,16 @@
 			path = cat2html;
 			sourceTree = "<group>";
 		};
+		F4FD5CA01C4D74F900C8D155 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				F4FD5CA11C4D74F900C8D155 /* make_icons.sh */,
+				F4FD5CA21C4D74F900C8D155 /* ManDrakeAppIcon.ai */,
+				F4FD5CA41C4D74F900C8D155 /* ManDrakeAppIcon1024.png */,
+			);
+			path = Icons;
+			sourceTree = SOURCE_ROOT;
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -263,7 +280,7 @@
 		F487F49E141EADEF0093D633 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0720;
 			};
 			buildConfigurationList = F487F4A1141EADEF0093D633 /* Build configuration list for PBXProject "ManDrake" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -293,6 +310,7 @@
 				F487F4DB141EAE910093D633 /* Credits.rtf in Resources */,
 				F487F4DC141EAE910093D633 /* Man.plist in Resources */,
 				F487F4DD141EAE910093D633 /* SyntaxColorDefaults.plist in Resources */,
+				F4FD5CA91C4D757E00C8D155 /* Images.xcassets in Resources */,
 				F487F4DE141EAE910093D633 /* SyntaxDefinition.plist in Resources */,
 				F487F541141EDD560093D633 /* Makefile.postamble in Resources */,
 				F487F542141EDD560093D633 /* Makefile.preamble in Resources */,
@@ -390,6 +408,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -397,11 +416,13 @@
 		F487F4C9141EADEF0093D633 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ManDrake/ManDrake-Prefix.pch";
 				INFOPLIST_FILE = "ManDrake/ManDrake-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = ManDrake/External/UliKit/;
 				WRAPPER_EXTENSION = app;
@@ -411,11 +432,13 @@
 		F487F4CA141EADEF0093D633 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ManDrake/ManDrake-Prefix.pch";
 				INFOPLIST_FILE = "ManDrake/ManDrake-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = ManDrake/External/UliKit/;
 				WRAPPER_EXTENSION = app;

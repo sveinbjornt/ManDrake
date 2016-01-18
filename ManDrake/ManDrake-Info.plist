@@ -33,8 +33,6 @@
 	</array>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
-	<key>CFBundleIconFile</key>
-	<string>ManDrake.icns</string>
 	<key>CFBundleIdentifier</key>
 	<string>org.sveinbjorn.ManDrake</string>
 	<key>CFBundleInfoDictionaryVersion</key>
