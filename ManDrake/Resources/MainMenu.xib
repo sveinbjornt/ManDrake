@@ -8,7 +8,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication"/>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application">
+        <customObject id="-3" userLabel="Application" customClass="NSObject">
             <connections>
                 <outlet property="delegate" destination="652" id="653"/>
             </connections>
@@ -170,29 +170,6 @@
                             <menuItem title="Select All" keyEquivalent="a" id="198">
                                 <connections>
                                     <action selector="selectAll:" target="-1" id="232"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem isSeparatorItem="YES" id="574">
-                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
-                            </menuItem>
-                            <menuItem title="Go To Line…" keyEquivalent="g" id="575">
-                                <connections>
-                                    <action selector="showGoToPanel:" target="-1" id="649"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Indent" keyEquivalent="]" id="576">
-                                <connections>
-                                    <action selector="indentSelection:" target="-1" id="581"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Un-indent" keyEquivalent="[" id="577">
-                                <connections>
-                                    <action selector="unindentSelection:" target="-1" id="592"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Comment" keyEquivalent="/" id="578">
-                                <connections>
-                                    <action selector="toggleCommentForSelection:" target="-1" id="582"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="214">
@@ -462,7 +439,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <popUpButtonCell key="cell" type="push" title="delayed" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="638" id="635">
                                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                        <font key="font" metaFont="system"/>
+                                        <font key="font" metaFont="menu"/>
                                         <menu key="menu" title="OtherViews" id="636">
                                             <items>
                                                 <menuItem title="live" id="637"/>
