@@ -1,12 +1,13 @@
-# ManDrake
-
 <img align="right" src="https://raw.githubusercontent.com/sveinbjornt/ManDrake/master/mandrake.png" style="float: right; margin-left: 30px;">
+# ManDrake
 
 ManDrake is a native, open-source man page editor for OS X. It has syntax highlighting and a live-updating rendered preview of the man page.
 
 Long story short, I was sick of writing man pages in an endless cycle of edit-view, edit-view so I decided to do something about it and made this editor. It's a bit rough around the edges, but it works really well for me.
 
-You can download a pre-built binary of version 2.2 here: [Download ManDrake (Intel 64-bit)](http://sveinbjorn.org/files/software/mandrake/ManDrake-2.2.zip) (~660KB, 10.7 or later).
+You can download a pre-built binary of version 2.2 here: 
+
+* [Download ManDrake (Intel 64-bit)](http://sveinbjorn.org/files/software/mandrake/ManDrake-2.2.zip) (~660KB, 10.7 or later)
 
 ## License
 
