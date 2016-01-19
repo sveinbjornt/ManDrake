@@ -42,7 +42,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="353" height="400"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <textView importsGraphics="NO" richText="NO" findStyle="panel" allowsUndo="YES" verticallyResizable="YES" quoteSubstitution="YES" dashSubstitution="YES" smartInsertDelete="YES" id="100042">
+                                                <textView importsGraphics="NO" richText="NO" findStyle="panel" allowsUndo="YES" verticallyResizable="YES" id="100042">
                                                     <rect key="frame" x="0.0" y="0.0" width="745" height="1106"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -194,7 +194,7 @@ FILE_2 description
                                             <menu key="menu" title="OtherViews" id="100070">
                                                 <items>
                                                     <menuItem title="Live" id="100071"/>
-                                                    <menuItem title="Delayed" state="on" id="100072"/>
+                                                    <menuItem title="Delayed" id="100072"/>
                                                     <menuItem title="Manual" id="100073"/>
                                                 </items>
                                             </menu>
@@ -249,7 +249,7 @@ FILE_2 description
             <connections>
                 <outlet property="delegate" destination="-2" id="17"/>
             </connections>
-            <point key="canvasLocation" x="235" y="54.5"/>
+            <point key="canvasLocation" x="271" y="54.5"/>
         </window>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
     </objects>
