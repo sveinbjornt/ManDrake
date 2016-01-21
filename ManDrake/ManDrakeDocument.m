@@ -207,7 +207,37 @@
 	refreshTimer = nil;
 }
 
-#pragma mark UKSyntaxColored stuff
+#pragma mark - Check syntax
+
+- (IBAction)checkSyntaxButtonPressed:(id)sender
+{
+    NSString *syntaxCheckResultString = [self checkSyntax];
+    
+    
+}
+
+- (NSString *)checkSyntax
+{
+    NSTask *task = [[NSTask alloc] init];
+    [task setLaunchPath:[[NSBundle mainBundle] pathForResource:@"mandoc" ofType:nil]];
+    [task setArguments:@[@"-T", @"lint", [[self fileURL] absoluteString]]];
+    NSPipe *outputPipe = [NSPipe pipe];
+    [task setStandardOutput:outputPipe];
+    [task setStandardError:outputPipe];
+    NSFileHandle *readHandle = [outputPipe fileHandleForReading];
+    
+    //launch task
+    [task launch];
+    [task waitUntilExit];
+    
+    //get output in string
+    NSString *outputStr = [[NSString alloc] initWithData:[readHandle readDataToEndOfFile] encoding:NSUTF8StringEncoding];
+    
+    //if the syntax report string is empty --> no complaints, so we report syntax as OK
+    return [outputStr length] ? outputStr : @"Syntax OK";
+}
+
+#pragma mark - UKSyntaxColored stuff
 
 - (NSString *)syntaxDefinitionFilename
 {
@@ -219,7 +249,7 @@
     return NSUTF8StringEncoding;
 }
 
-#pragma mark UKSyntaxColoredTextViewDelegate methods
+#pragma mark - UKSyntaxColoredTextViewDelegate methods
 
 - (NSString *)syntaxDefinitionFilenameForTextViewController:(UKSyntaxColoredTextViewController *)sender
 {
