@@ -20,3 +20,6 @@ xcuserdata
 
 platypus.man.html
 dsa_priv.pem
+
+Podfile.lock
+pods

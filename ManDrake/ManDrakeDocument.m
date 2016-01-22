@@ -23,9 +23,7 @@
 #import <stdlib.h>
 
 #import "ManDrakeDocument.h"
-#import "UKSyntaxColoredTextViewController.H"
-#import "NoodleLineNumberView.h"
-#import "MarkerLineNumberView.h"
+#import "CustomACEView.h"
 
 #define kManTextTempPath @"/tmp/ManDrakeTemp.manText"
 #define kManHTMLTempPath @"/tmp/ManDrakeTemp.html"
@@ -40,8 +38,8 @@
     IBOutlet NSScrollView *scrollView;
     IBOutlet NSWindow *syntaxCheckerWindow;
     IBOutlet NSTextField *syntaxCheckResultTextField;
-
-    NoodleLineNumberView *lineNumberView;
+    IBOutlet CustomACEView *aceView;
+    
     NSPoint currentScrollPosition;
     NSTimer *refreshTimer;
 }
@@ -59,32 +57,53 @@
 {
     return @"ManDrakeDocument";
 }
+//
+//- (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName
+//               error:(NSError **)outError {
+//    BOOL readSuccess = NO;
+//    NSString *fileContents = [[NSString alloc]
+//                                        initWithData:data encoding:NSUTF8StringEncoding];
+//    if (!fileContents && outError) {
+//        *outError = [NSError errorWithDomain:NSCocoaErrorDomain
+//                                        code:NSFileReadUnknownError userInfo:nil];
+//    }
+//    if (fileContents) {
+//        readSuccess = YES;
+////        [self setMString:fileContents];
+//    }
+//    return readSuccess;
+//}
 
 - (void)windowControllerDidLoadNib:(NSWindowController *)aController
 {
     [super windowControllerDidLoadNib:aController];
     
+//    [aceView setString:[NSString stringWithContentsOfURL:[NSURL URLWithString:@"https://github.com/faceleg/ACEView"] encoding:NSUTF8StringEncoding
+//                                                   error:nil]];
+    [aceView setDelegate:self];
+    [aceView setModeByNameString:@"groff"];
+//    [aceView setMode:ACEModeCPP];
+    [aceView setTheme:ACEThemeXcode];
+    [aceView setShowInvisibles:YES];
+    [aceView setString:@"void main (void) { \n\treturn 0;\n}"];
+
 	// set up line numbering for text view
-	scrollView = [textView enclosingScrollView];
-	lineNumberView = [[MarkerLineNumberView alloc] initWithScrollView:scrollView];
-    [scrollView setVerticalRulerView:lineNumberView];
-    [scrollView setHasHorizontalRuler:NO];
-    [scrollView setHasVerticalRuler:YES];
+//	scrollView = [textView enclosingScrollView];
+//    [scrollView setHasHorizontalRuler:NO];
+//    [scrollView setHasVerticalRuler:YES];
     
     [refreshTypePopupButton selectItemWithTitle:[[NSUserDefaults standardUserDefaults] objectForKey:@"Refresh"]];
 	
 	// Register for "text changed" notifications of the text storage:
-	[[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(textDidChange:)
-												 name:NSTextStorageDidProcessEditingNotification
-											   object:[textView textStorage]];
+//	[[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(textDidChange:)
+//												 name:NSTextStorageDidProcessEditingNotification
+//											   object:[textView textStorage]];
     
-    NSFont *font = [textView font];
-    CGFloat fontSize = [[[NSUserDefaults standardUserDefaults] objectForKey:kDefaultsUserFontSize] floatValue];
-    font = [[NSFontManager sharedFontManager] convertFont:font toSize:fontSize];
-    [textView setFont:font];
-    
-    lineNumberView.font = font;;
+//    NSFont *font = [textView font];
+//    CGFloat fontSize = [[[NSUserDefaults standardUserDefaults] objectForKey:kDefaultsUserFontSize] floatValue];
+//    font = [[NSFontManager sharedFontManager] convertFont:font toSize:fontSize];
+//    [textView setFont:font];
 }
 
 #pragma mark - Text size
@@ -100,15 +119,6 @@
     {
         [webView makeTextSmaller:self];
     }
-
-    // text field
-    NSFont *font = [textView font];
-    CGFloat newFontSize = [font pointSize] + delta;
-    font = [[NSFontManager sharedFontManager] convertFont:font toSize:newFontSize];
-    [textView setFont:font];
-    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithFloat:newFontSize]
-                                              forKey:kDefaultsUserFontSize];
-    [textView didChangeText];
 }
 
 - (IBAction)makeTextLarger:(id)sender {
@@ -137,60 +147,60 @@
 
 - (void)textDidChange:(NSNotification *)aNotification
 {
-	NSString *refreshText = [refreshTypePopupButton titleOfSelectedItem];
-	
-	// use delayed timer
-	if ([refreshText isEqualToString:@"Delayed"])
-	{
-		if (refreshTimer != nil)
-		{
-			[refreshTimer invalidate];
-			refreshTimer = nil;
-		}
-		refreshTimer = [NSTimer scheduledTimerWithTimeInterval:0.5
-                                                        target:self
-                                                      selector:@selector(updatePreview)
-                                                      userInfo:nil
-                                                       repeats:NO];
-		
-	}
-	// or else do it for every change
-	else if ([refreshText isEqualToString:@"Live"])
-	{
-		[self refresh:self];
-	}
+//	NSString *refreshText = [refreshTypePopupButton titleOfSelectedItem];
+//	
+//	// use delayed timer
+//	if ([refreshText isEqualToString:@"Delayed"])
+//	{
+//		if (refreshTimer != nil)
+//		{
+//			[refreshTimer invalidate];
+//			refreshTimer = nil;
+//		}
+//		refreshTimer = [NSTimer scheduledTimerWithTimeInterval:0.5
+//                                                        target:self
+//                                                      selector:@selector(updatePreview)
+//                                                      userInfo:nil
+//                                                       repeats:NO];
+//		
+//	}
+//	// or else do it for every change
+//	else if ([refreshText isEqualToString:@"Live"])
+//	{
+//		[self refresh:self];
+//	}
 }
 
 - (void)refreshWebView
 {
 	// write man text to tmp document
-    NSError *err;
-	BOOL success = [[textView string] writeToFile:kManTextTempPath
-                                       atomically:YES
-                                         encoding:NSUTF8StringEncoding
-                                            error:&err];
-    if (!success)
-    {
-        NSLog(@"Failed to write to path \"%@\": %@", kManTextTempPath, [err localizedDescription]);
-        return;
-    }
-
-	// generate command string to create html from man text using nroff and cat2html
-	NSString *cmdString = [NSString stringWithFormat:@"/usr/bin/nroff -mandoc \"%@\" | \"%@\" > \"%@\"",
-                           kManTextTempPath,
-                           [[NSBundle mainBundle] pathForResource:@"cat2html" ofType:nil],
-                           kManHTMLTempPath];
-	
-	// run the command
-	system([cmdString cStringUsingEncoding:NSUTF8StringEncoding]);
-	
-	// get the current scroll position of the document view of the web view
-	NSScrollView *theScrollView = [[[[webView mainFrame] frameView] documentView] enclosingScrollView];
-	NSRect scrollViewBounds = [[theScrollView contentView] bounds];
-	currentScrollPosition = scrollViewBounds.origin;
-
-	// tell the web view to load the generated, local html file
-	[[webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:@"/tmp/ManDrakeTemp.html"]]];
+//    NSError *err;
+//	BOOL success = [[textView string] writeToFile:kManTextTempPath
+//                                       atomically:YES
+//                                         encoding:NSUTF8StringEncoding
+//                                            error:&err];
+//    if (!success)
+//    {
+//        NSLog(@"Failed to write to path \"%@\": %@", kManTextTempPath, [err localizedDescription]);
+//        return;
+//    }
+//
+//	// generate command string to create html from man text using nroff and cat2html
+//	NSString *cmdString = [NSString stringWithFormat:@"/usr/bin/nroff -mandoc \"%@\" | \"%@\" > \"%@\"",
+//                           kManTextTempPath,
+//                           [[NSBundle mainBundle] pathForResource:@"cat2html" ofType:nil],
+//                           kManHTMLTempPath];
+//	
+//	// run the command
+//	system([cmdString cStringUsingEncoding:NSUTF8StringEncoding]);
+//	
+//	// get the current scroll position of the document view of the web view
+//	NSScrollView *theScrollView = [[[[webView mainFrame] frameView] documentView] enclosingScrollView];
+//	NSRect scrollViewBounds = [[theScrollView contentView] bounds];
+//	currentScrollPosition = scrollViewBounds.origin;
+//
+//	// tell the web view to load the generated, local html file
+//	[[webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:@"/tmp/ManDrakeTemp.html"]]];
 }
 
 // delegate method we receive when it's done loading the html file. 
@@ -237,34 +247,34 @@
     return [outputStr length] ? outputStr : @"Syntax OK";
 }
 
-#pragma mark - UKSyntaxColored stuff
+//#pragma mark - UKSyntaxColored stuff
+//
+//- (NSString *)syntaxDefinitionFilename
+//{
+//	return @"Man";
+//}
+//
+//- (NSStringEncoding)stringEncoding
+//{
+//    return NSUTF8StringEncoding;
+//}
+//
+//#pragma mark - UKSyntaxColoredTextViewDelegate methods
 
-- (NSString *)syntaxDefinitionFilename
-{
-	return @"Man";
-}
-
-- (NSStringEncoding)stringEncoding
-{
-    return NSUTF8StringEncoding;
-}
-
-#pragma mark - UKSyntaxColoredTextViewDelegate methods
-
-- (NSString *)syntaxDefinitionFilenameForTextViewController:(UKSyntaxColoredTextViewController *)sender
-{
-	return @"Man";
-}
-
-- (NSDictionary *)syntaxDefinitionDictionaryForTextViewController:(UKSyntaxColoredTextViewController*)sender
-{
-    NSBundle *theBundle = [NSBundle mainBundle];
-    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:[theBundle pathForResource:@"Man" ofType:@"plist"]];
-    if (!dict)
-	{
-        NSLog(@"Failed to find syntax dictionary");
-    }
-    return dict;
-}
+//- (NSString *)syntaxDefinitionFilenameForTextViewController:(UKSyntaxColoredTextViewController *)sender
+//{
+//	return @"Man";
+//}
+//
+//- (NSDictionary *)syntaxDefinitionDictionaryForTextViewController:(UKSyntaxColoredTextViewController*)sender
+//{
+//    NSBundle *theBundle = [NSBundle mainBundle];
+//    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:[theBundle pathForResource:@"Man" ofType:@"plist"]];
+//    if (!dict)
+//	{
+//        NSLog(@"Failed to find syntax dictionary");
+//    }
+//    return dict;
+//}
 
 @end

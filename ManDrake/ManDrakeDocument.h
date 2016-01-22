@@ -20,8 +20,7 @@
 */
 
 #import <Cocoa/Cocoa.h>
-#import "UKSyntaxColoredTextDocument.h"
 
-@interface ManDrakeDocument : UKSyntaxColoredTextDocument
+@interface ManDrakeDocument : NSDocument
 
 @end

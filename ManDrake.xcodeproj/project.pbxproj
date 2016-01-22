@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3D6AE8901B40973500CD192D /* NSNumber+JXCGFloat.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6AE88F1B40973500CD192D /* NSNumber+JXCGFloat.m */; };
+		2092A52F7C61A1257CBC66A6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 954C136C20B1E1695A2CD08D /* libPods.a */; };
+		F45AFBD41C5193A900953D8F /* mode-groff.js in Resources */ = {isa = PBXBuildFile; fileRef = F45AFBD31C5193A900953D8F /* mode-groff.js */; };
+		F45AFBD71C51950600953D8F /* CustomACEView.m in Sources */ = {isa = PBXBuildFile; fileRef = F45AFBD61C51950600953D8F /* CustomACEView.m */; };
 		F487F4AC141EADEF0093D633 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F487F4AB141EADEF0093D633 /* Cocoa.framework */; };
 		F487F4B8141EADEF0093D633 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F487F4B7141EADEF0093D633 /* main.m */; };
 		F487F4BF141EADEF0093D633 /* ManDrakeDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = F487F4BE141EADEF0093D633 /* ManDrakeDocument.m */; };
@@ -18,18 +20,6 @@
 		F487F4DC141EAE910093D633 /* Man.plist in Resources */ = {isa = PBXBuildFile; fileRef = F487F4D7141EAE910093D633 /* Man.plist */; };
 		F487F4DD141EAE910093D633 /* SyntaxColorDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = F487F4D8141EAE910093D633 /* SyntaxColorDefaults.plist */; };
 		F487F4DE141EAE910093D633 /* SyntaxDefinition.plist in Resources */ = {isa = PBXBuildFile; fileRef = F487F4D9141EAE910093D633 /* SyntaxDefinition.plist */; };
-		F487F4E6141EAEA10093D633 /* MarkerLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = F487F4E1141EAEA10093D633 /* MarkerLineNumberView.m */; };
-		F487F4E7141EAEA10093D633 /* NoodleLineNumberMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = F487F4E3141EAEA10093D633 /* NoodleLineNumberMarker.m */; };
-		F487F4E8141EAEA10093D633 /* NoodleLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = F487F4E5141EAEA10093D633 /* NoodleLineNumberView.m */; };
-		F487F4FC141EAEAC0093D633 /* NSArray+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = F487F4EB141EAEAC0093D633 /* NSArray+Color.m */; };
-		F487F4FD141EAEAC0093D633 /* NSMenu+DeepSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = F487F4ED141EAEAC0093D633 /* NSMenu+DeepSearch.m */; };
-		F487F4FE141EAEAC0093D633 /* NSScanner+SkipUpToCharset.m in Sources */ = {isa = PBXBuildFile; fileRef = F487F4EF141EAEAC0093D633 /* NSScanner+SkipUpToCharset.m */; };
-		F487F4FF141EAEAC0093D633 /* UKSCTDColorWellPrefsController.m in Sources */ = {isa = PBXBuildFile; fileRef = F487F4F1141EAEAC0093D633 /* UKSCTDColorWellPrefsController.m */; };
-		F487F500141EAEAC0093D633 /* UKSCTDGradientBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F487F4F3141EAEAC0093D633 /* UKSCTDGradientBar.m */; };
-		F487F501141EAEAC0093D633 /* UKSCTDUserIdentifiersPrefsController.m in Sources */ = {isa = PBXBuildFile; fileRef = F487F4F5141EAEAC0093D633 /* UKSCTDUserIdentifiersPrefsController.m */; };
-		F487F502141EAEAC0093D633 /* UKSyntaxColoredTextDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = F487F4F7141EAEAC0093D633 /* UKSyntaxColoredTextDocument.m */; };
-		F487F503141EAEAC0093D633 /* UKSyntaxColoredTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F487F4F9141EAEAC0093D633 /* UKSyntaxColoredTextViewController.m */; };
-		F487F504141EAEAC0093D633 /* UKTextDocGoToBox.m in Sources */ = {isa = PBXBuildFile; fileRef = F487F4FB141EAEAC0093D633 /* UKTextDocGoToBox.m */; };
 		F487F506141EAF8A0093D633 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F487F505141EAF8A0093D633 /* WebKit.framework */; };
 		F487F535141EB2560093D633 /* ManDrakeApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F487F534141EB2560093D633 /* ManDrakeApplicationDelegate.m */; };
 		F487F544141EDE590093D633 /* ManDocument.icns in Resources */ = {isa = PBXBuildFile; fileRef = F487F543141EDE590093D633 /* ManDocument.icns */; };
@@ -37,10 +27,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3D6AE88E1B40973500CD192D /* NSNumber+JXCGFloat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+JXCGFloat.h"; sourceTree = "<group>"; };
-		3D6AE88F1B40973500CD192D /* NSNumber+JXCGFloat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+JXCGFloat.m"; sourceTree = "<group>"; };
+		6368337353AE3D70E8C0D94C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		954C136C20B1E1695A2CD08D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED24DF9167DE298866004E1F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F42AA7DA1C4EC5D0007E0ACE /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F42AA7DB1C4EC61F007E0ACE /* mandrake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mandrake.png; sourceTree = "<group>"; };
+		F45AFBD31C5193A900953D8F /* mode-groff.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "mode-groff.js"; path = "Resources/mode-groff.js"; sourceTree = "<group>"; };
+		F45AFBD51C51950600953D8F /* CustomACEView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomACEView.h; sourceTree = "<group>"; };
+		F45AFBD61C51950600953D8F /* CustomACEView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomACEView.m; sourceTree = "<group>"; };
 		F487F4A7141EADEF0093D633 /* ManDrake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ManDrake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F487F4AB141EADEF0093D633 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		F487F4AE141EADEF0093D633 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -57,30 +51,6 @@
 		F487F4D7141EAE910093D633 /* Man.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Man.plist; sourceTree = "<group>"; };
 		F487F4D8141EAE910093D633 /* SyntaxColorDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = SyntaxColorDefaults.plist; path = Resources/SyntaxColorDefaults.plist; sourceTree = "<group>"; };
 		F487F4D9141EAE910093D633 /* SyntaxDefinition.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = SyntaxDefinition.plist; path = Resources/SyntaxDefinition.plist; sourceTree = "<group>"; };
-		F487F4E0141EAEA10093D633 /* MarkerLineNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkerLineNumberView.h; sourceTree = "<group>"; };
-		F487F4E1141EAEA10093D633 /* MarkerLineNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkerLineNumberView.m; sourceTree = "<group>"; };
-		F487F4E2141EAEA10093D633 /* NoodleLineNumberMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoodleLineNumberMarker.h; sourceTree = "<group>"; };
-		F487F4E3141EAEA10093D633 /* NoodleLineNumberMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoodleLineNumberMarker.m; sourceTree = "<group>"; };
-		F487F4E4141EAEA10093D633 /* NoodleLineNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoodleLineNumberView.h; sourceTree = "<group>"; };
-		F487F4E5141EAEA10093D633 /* NoodleLineNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoodleLineNumberView.m; sourceTree = "<group>"; };
-		F487F4EA141EAEAC0093D633 /* NSArray+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Color.h"; sourceTree = "<group>"; };
-		F487F4EB141EAEAC0093D633 /* NSArray+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Color.m"; sourceTree = "<group>"; };
-		F487F4EC141EAEAC0093D633 /* NSMenu+DeepSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMenu+DeepSearch.h"; sourceTree = "<group>"; };
-		F487F4ED141EAEAC0093D633 /* NSMenu+DeepSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMenu+DeepSearch.m"; sourceTree = "<group>"; };
-		F487F4EE141EAEAC0093D633 /* NSScanner+SkipUpToCharset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSScanner+SkipUpToCharset.h"; sourceTree = "<group>"; };
-		F487F4EF141EAEAC0093D633 /* NSScanner+SkipUpToCharset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSScanner+SkipUpToCharset.m"; sourceTree = "<group>"; };
-		F487F4F0141EAEAC0093D633 /* UKSCTDColorWellPrefsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UKSCTDColorWellPrefsController.h; sourceTree = "<group>"; };
-		F487F4F1141EAEAC0093D633 /* UKSCTDColorWellPrefsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UKSCTDColorWellPrefsController.m; sourceTree = "<group>"; };
-		F487F4F2141EAEAC0093D633 /* UKSCTDGradientBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UKSCTDGradientBar.h; sourceTree = "<group>"; };
-		F487F4F3141EAEAC0093D633 /* UKSCTDGradientBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UKSCTDGradientBar.m; sourceTree = "<group>"; };
-		F487F4F4141EAEAC0093D633 /* UKSCTDUserIdentifiersPrefsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UKSCTDUserIdentifiersPrefsController.h; sourceTree = "<group>"; };
-		F487F4F5141EAEAC0093D633 /* UKSCTDUserIdentifiersPrefsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UKSCTDUserIdentifiersPrefsController.m; sourceTree = "<group>"; };
-		F487F4F6141EAEAC0093D633 /* UKSyntaxColoredTextDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UKSyntaxColoredTextDocument.h; sourceTree = "<group>"; };
-		F487F4F7141EAEAC0093D633 /* UKSyntaxColoredTextDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UKSyntaxColoredTextDocument.m; sourceTree = "<group>"; };
-		F487F4F8141EAEAC0093D633 /* UKSyntaxColoredTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UKSyntaxColoredTextViewController.h; sourceTree = "<group>"; };
-		F487F4F9141EAEAC0093D633 /* UKSyntaxColoredTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UKSyntaxColoredTextViewController.m; sourceTree = "<group>"; };
-		F487F4FA141EAEAC0093D633 /* UKTextDocGotoBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UKTextDocGotoBox.h; sourceTree = "<group>"; };
-		F487F4FB141EAEAC0093D633 /* UKTextDocGoToBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UKTextDocGoToBox.m; sourceTree = "<group>"; };
 		F487F505141EAF8A0093D633 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = /System/Library/Frameworks/WebKit.framework; sourceTree = "<absolute>"; };
 		F487F533141EB2560093D633 /* ManDrakeApplicationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManDrakeApplicationDelegate.h; sourceTree = "<group>"; };
 		F487F534141EB2560093D633 /* ManDrakeApplicationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManDrakeApplicationDelegate.m; sourceTree = "<group>"; };
@@ -103,24 +73,13 @@
 			files = (
 				F487F4AC141EADEF0093D633 /* Cocoa.framework in Frameworks */,
 				F487F506141EAF8A0093D633 /* WebKit.framework in Frameworks */,
+				2092A52F7C61A1257CBC66A6 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3D6AA2B31B4084D400ACB655 /* NoodleLineNumber */ = {
-			isa = PBXGroup;
-			children = (
-				F487F4E2141EAEA10093D633 /* NoodleLineNumberMarker.h */,
-				F487F4E3141EAEA10093D633 /* NoodleLineNumberMarker.m */,
-				F487F4E4141EAEA10093D633 /* NoodleLineNumberView.h */,
-				F487F4E5141EAEA10093D633 /* NoodleLineNumberView.m */,
-			);
-			name = NoodleLineNumber;
-			path = ../External/NoodleKit;
-			sourceTree = "<group>";
-		};
 		F42AA7DC1C4EC624007E0ACE /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +97,7 @@
 				F487F4B2141EADEF0093D633 /* Resources */,
 				F487F4AA141EADEF0093D633 /* Frameworks */,
 				F487F4A8141EADEF0093D633 /* Products */,
+				F5C6953A6735BC329B005716 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -156,6 +116,7 @@
 				F487F4AE141EADEF0093D633 /* AppKit.framework */,
 				F487F4B0141EADEF0093D633 /* Foundation.framework */,
 				F487F4AB141EADEF0093D633 /* Cocoa.framework */,
+				954C136C20B1E1695A2CD08D /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -169,9 +130,9 @@
 				F487F534141EB2560093D633 /* ManDrakeApplicationDelegate.m */,
 				F487F4BD141EADEF0093D633 /* ManDrakeDocument.h */,
 				F487F4BE141EADEF0093D633 /* ManDrakeDocument.m */,
+				F45AFBD51C51950600953D8F /* CustomACEView.h */,
+				F45AFBD61C51950600953D8F /* CustomACEView.m */,
 				F487F538141EDD560093D633 /* cat2html */,
-				F487F4E9141EAEAC0093D633 /* UKSyntaxColoredTextDocument */,
-				F487F4DF141EAEA10093D633 /* LineNumbering */,
 				F4FD5CA81C4D757E00C8D155 /* Images.xcassets */,
 			);
 			path = ManDrake;
@@ -186,6 +147,7 @@
 				F487F4B3141EADEF0093D633 /* ManDrake-Info.plist */,
 				F487F543141EDE590093D633 /* ManDocument.icns */,
 				F487F4D4141EAE910093D633 /* cat2html */,
+				F45AFBD31C5193A900953D8F /* mode-groff.js */,
 				F487F4D5141EAE910093D633 /* Credits.rtf */,
 				F487F4D6141EAE910093D633 /* Syntax Definitions */,
 				F487F4D8141EAE910093D633 /* SyntaxColorDefaults.plist */,
@@ -202,44 +164,6 @@
 			);
 			name = "Syntax Definitions";
 			path = "Resources/Syntax Definitions";
-			sourceTree = "<group>";
-		};
-		F487F4DF141EAEA10093D633 /* LineNumbering */ = {
-			isa = PBXGroup;
-			children = (
-				F487F4E0141EAEA10093D633 /* MarkerLineNumberView.h */,
-				F487F4E1141EAEA10093D633 /* MarkerLineNumberView.m */,
-				3D6AA2B31B4084D400ACB655 /* NoodleLineNumber */,
-			);
-			path = LineNumbering;
-			sourceTree = "<group>";
-		};
-		F487F4E9141EAEAC0093D633 /* UKSyntaxColoredTextDocument */ = {
-			isa = PBXGroup;
-			children = (
-				F487F4EA141EAEAC0093D633 /* NSArray+Color.h */,
-				F487F4EB141EAEAC0093D633 /* NSArray+Color.m */,
-				3D6AE88E1B40973500CD192D /* NSNumber+JXCGFloat.h */,
-				3D6AE88F1B40973500CD192D /* NSNumber+JXCGFloat.m */,
-				F487F4EC141EAEAC0093D633 /* NSMenu+DeepSearch.h */,
-				F487F4ED141EAEAC0093D633 /* NSMenu+DeepSearch.m */,
-				F487F4EE141EAEAC0093D633 /* NSScanner+SkipUpToCharset.h */,
-				F487F4EF141EAEAC0093D633 /* NSScanner+SkipUpToCharset.m */,
-				F487F4F0141EAEAC0093D633 /* UKSCTDColorWellPrefsController.h */,
-				F487F4F1141EAEAC0093D633 /* UKSCTDColorWellPrefsController.m */,
-				F487F4F2141EAEAC0093D633 /* UKSCTDGradientBar.h */,
-				F487F4F3141EAEAC0093D633 /* UKSCTDGradientBar.m */,
-				F487F4F4141EAEAC0093D633 /* UKSCTDUserIdentifiersPrefsController.h */,
-				F487F4F5141EAEAC0093D633 /* UKSCTDUserIdentifiersPrefsController.m */,
-				F487F4F6141EAEAC0093D633 /* UKSyntaxColoredTextDocument.h */,
-				F487F4F7141EAEAC0093D633 /* UKSyntaxColoredTextDocument.m */,
-				F487F4F8141EAEAC0093D633 /* UKSyntaxColoredTextViewController.h */,
-				F487F4F9141EAEAC0093D633 /* UKSyntaxColoredTextViewController.m */,
-				F487F4FA141EAEAC0093D633 /* UKTextDocGotoBox.h */,
-				F487F4FB141EAEAC0093D633 /* UKTextDocGoToBox.m */,
-			);
-			name = UKSyntaxColoredTextDocument;
-			path = External/UKSyntaxColoredTextDocument;
 			sourceTree = "<group>";
 		};
 		F487F538141EDD560093D633 /* cat2html */ = {
@@ -264,6 +188,15 @@
 			path = Icons;
 			sourceTree = SOURCE_ROOT;
 		};
+		F5C6953A6735BC329B005716 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6368337353AE3D70E8C0D94C /* Pods.debug.xcconfig */,
+				ED24DF9167DE298866004E1F /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -271,9 +204,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F487F4C8141EADEF0093D633 /* Build configuration list for PBXNativeTarget "ManDrake" */;
 			buildPhases = (
+				5419D70B7A8FADDC726F1AE9 /* Check Pods Manifest.lock */,
 				F487F4A3141EADEF0093D633 /* Sources */,
 				F487F4A4141EADEF0093D633 /* Frameworks */,
+				2EC8F10CAF71182BCA4F871E /* Copy Pods Resources */,
 				F487F4A5141EADEF0093D633 /* Resources */,
+				18FB821FE9A8B01872633938 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -318,6 +254,7 @@
 				F487F4D3141EAE730093D633 /* ManDrakeDocument.xib in Resources */,
 				F487F4DA141EAE910093D633 /* cat2html in Resources */,
 				F487F4DB141EAE910093D633 /* Credits.rtf in Resources */,
+				F45AFBD41C5193A900953D8F /* mode-groff.js in Resources */,
 				F487F4DC141EAE910093D633 /* Man.plist in Resources */,
 				F487F4DD141EAE910093D633 /* SyntaxColorDefaults.plist in Resources */,
 				F4FD5CA91C4D757E00C8D155 /* Images.xcassets in Resources */,
@@ -328,26 +265,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		18FB821FE9A8B01872633938 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2EC8F10CAF71182BCA4F871E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5419D70B7A8FADDC726F1AE9 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F487F4A3141EADEF0093D633 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				F487F4B8141EADEF0093D633 /* main.m in Sources */,
+				F45AFBD71C51950600953D8F /* CustomACEView.m in Sources */,
 				F487F4BF141EADEF0093D633 /* ManDrakeDocument.m in Sources */,
-				F487F4E6141EAEA10093D633 /* MarkerLineNumberView.m in Sources */,
-				F487F4E7141EAEA10093D633 /* NoodleLineNumberMarker.m in Sources */,
-				F487F4E8141EAEA10093D633 /* NoodleLineNumberView.m in Sources */,
-				F487F4FC141EAEAC0093D633 /* NSArray+Color.m in Sources */,
-				3D6AE8901B40973500CD192D /* NSNumber+JXCGFloat.m in Sources */,
-				F487F4FD141EAEAC0093D633 /* NSMenu+DeepSearch.m in Sources */,
-				F487F4FE141EAEAC0093D633 /* NSScanner+SkipUpToCharset.m in Sources */,
-				F487F4FF141EAEAC0093D633 /* UKSCTDColorWellPrefsController.m in Sources */,
-				F487F500141EAEAC0093D633 /* UKSCTDGradientBar.m in Sources */,
-				F487F501141EAEAC0093D633 /* UKSCTDUserIdentifiersPrefsController.m in Sources */,
-				F487F502141EAEAC0093D633 /* UKSyntaxColoredTextDocument.m in Sources */,
-				F487F503141EAEAC0093D633 /* UKSyntaxColoredTextViewController.m in Sources */,
-				F487F504141EAEAC0093D633 /* UKTextDocGoToBox.m in Sources */,
 				F487F535141EB2560093D633 /* ManDrakeApplicationDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,6 +396,7 @@
 		};
 		F487F4C9141EADEF0093D633 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6368337353AE3D70E8C0D94C /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -439,6 +413,7 @@
 		};
 		F487F4CA141EADEF0093D633 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED24DF9167DE298866004E1F /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = YES;
