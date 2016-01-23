@@ -12,6 +12,7 @@
                 <outlet property="refreshProgressIndicator" destination="100082" id="100093"/>
                 <outlet property="refreshTypePopupButton" destination="100066" id="100092"/>
                 <outlet property="statusTextField" destination="100077" id="B0o-fS-apD"/>
+                <outlet property="warningsTextField" destination="FnO-X1-tAB" id="wHS-Nl-dGJ"/>
                 <outlet property="webView" destination="PHv-Sh-qOi" id="vE6-4i-yAi"/>
                 <outlet property="window" destination="5" id="18"/>
             </connections>
@@ -55,6 +56,26 @@
                                         <rect key="frame" x="0.0" y="0.0" width="368" height="416"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </customView>
+                                    <button verticalHuggingPriority="750" id="JVf-n4-Pph">
+                                        <rect key="frame" x="269" y="416" width="98" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="push" title="Check Syntax" bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Md0-yN-rg2">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="smallSystem"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="checkSyntaxButtonPressed:" target="-2" id="Pxx-Ih-Adg"/>
+                                        </connections>
+                                    </button>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="FnO-X1-tAB">
+                                        <rect key="frame" x="160" y="424" width="108" height="14"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                        <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" id="dN9-87-1BR">
+                                            <font key="font" metaFont="smallSystem"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
                                 </subviews>
                             </customView>
                             <customView id="100037">
@@ -113,6 +134,9 @@
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="smallSystem"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="makePreviewTextLarger:" target="-2" id="TmF-oa-BdL"/>
+                                        </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" id="cqO-F7-Wju">
                                         <rect key="frame" x="344" y="415" width="34" height="28"/>
@@ -121,6 +145,9 @@
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="smallSystem"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="makePreviewTextSmaller:" target="-2" id="b9B-b1-QTs"/>
+                                        </connections>
                                     </button>
                                     <popUpButton verticalHuggingPriority="750" id="100066">
                                         <rect key="frame" x="187" y="418" width="86" height="22"/>

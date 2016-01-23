@@ -47,6 +47,7 @@
     IBOutlet NSProgressIndicator *refreshProgressIndicator;
     IBOutlet CustomACEView *aceView;
     IBOutlet NSTextField *statusTextField;
+    IBOutlet NSTextField *warningsTextField;
     
     NSPoint currentScrollPosition;
     NSTimer *refreshTimer;
@@ -86,11 +87,8 @@
 - (void)windowControllerDidLoadNib:(NSWindowController *)aController {
     [super windowControllerDidLoadNib:aController];
     
-//    [aceView setString:[NSString stringWithContentsOfURL:[NSURL URLWithString:@"https://github.com/faceleg/ACEView"] encoding:NSUTF8StringEncoding
-//                                                   error:nil]];
     [aceView setDelegate:self];
     [aceView setModeByNameString:@"groff"];
-//    [aceView setMode:ACEModeCPP];
     [aceView setTheme:ACEThemeXcode];
     [aceView setShowInvisibles:YES];
     
@@ -98,12 +96,7 @@
     NSString *defaultString = [NSString stringWithContentsOfFile:defaultManPath encoding:NSUTF8StringEncoding error:nil];
     [aceView setString:defaultString];
         
-	// set up line numbering for text view
-//	scrollView = [textView enclosingScrollView];
-//    [scrollView setHasHorizontalRuler:NO];
-//    [scrollView setHasVerticalRuler:YES];
-    
-    [refreshTypePopupButton selectItemWithTitle:[[NSUserDefaults standardUserDefaults] objectForKey:@"Refresh"]];
+//    [refreshTypePopupButton selectItemWithTitle:[[NSUserDefaults standardUserDefaults] objectForKey:@"Refresh"]];
 	
 	// Register for "text changed" notifications of the text storage:
 //	[[NSNotificationCenter defaultCenter] addObserver:self
@@ -141,15 +134,7 @@
 }
 
 - (void)changePreviewFontSize:(CGFloat)delta {
-    
-    if (delta > 0)
-    {
-        [webView makeTextLarger:self];
-    }
-    else
-    {
-        [webView makeTextSmaller:self];
-    }
+    (delta > 0) ? [webView makeTextLarger:self] : [webView makeTextSmaller:self];
 }
 
 - (IBAction)makePreviewTextLarger:(id)sender {
@@ -248,7 +233,11 @@
 }
 
 - (void)updateAnnotations {
-    [aceView setAnnotations:[self checkSyntax]];
+    NSArray *warningAnnotations = [self checkSyntax];
+    [aceView setAnnotations:warningAnnotations];
+    if ([warningAnnotations count]) {
+        [warningsTextField setStringValue:[NSString stringWithFormat:@"%lu warnings", (unsigned long)[warningAnnotations count]]];
+    }
 }
 
 - (NSArray *)checkSyntax {

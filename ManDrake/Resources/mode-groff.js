@@ -12,6 +12,10 @@ var groffHighlightRules = function() {
             regex: /^\.\\".*$/,
             comment: "comments"
         }, {
+            token: "comment.macro.text.groff",
+            regex: /\\\".*$/,
+            comment: "comments"
+        }, {
             token: [
                 "keyword.text.groff",
                 "constant.other.text.groff"

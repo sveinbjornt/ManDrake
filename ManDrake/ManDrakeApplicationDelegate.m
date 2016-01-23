@@ -49,11 +49,13 @@
 }
 
 - (IBAction)showReadme:(id)sender {
-    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"Readme.html" ofType:nil];
+    [[NSWorkspace sharedWorkspace] openPathInDefaultBrowser:path];
 }
 
 - (IBAction)showLicense:(id)sender {
-    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"License.html" ofType:nil];
+    [[NSWorkspace sharedWorkspace] openPathInDefaultBrowser:path];
 }
 
 @end
