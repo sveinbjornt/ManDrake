@@ -185,71 +185,99 @@ originalContentsURL:(NSURL *)originalContentsURL
 
 - (void)textDidChange:(NSNotification *)aNotification
 {
-	NSString *refreshText = [refreshTypePopupButton titleOfSelectedItem];
-	
+    NSString *refreshText = [refreshTypePopupButton titleOfSelectedItem];
+
+    if ([refreshText isEqualToString:@"Manually"]) {
+        return;
+    }
+    
 	// use delayed timer
-	if ([refreshText isEqualToString:@"Delayed"])
-	{
-		if (refreshTimer != nil)
-		{
-			[refreshTimer invalidate];
-			refreshTimer = nil;
-		}
-		refreshTimer = [NSTimer scheduledTimerWithTimeInterval:0.25
-                                                        target:self
-                                                      selector:@selector(updatePreview)
-                                                      userInfo:nil
-                                                       repeats:NO];
-	}
-	// or else do it for every change
-	else if ([refreshText isEqualToString:@"Live"])
-	{
-		[self refresh:self];
-	}
+    if (refreshTimer != nil)
+    {
+        [refreshTimer invalidate];
+        refreshTimer = nil;
+    }
+    NSTimeInterval delay = [refreshText isEqualToString:@"Live"] ? 0.05 : 0.25;
+    refreshTimer = [NSTimer scheduledTimerWithTimeInterval:delay
+                                                    target:self
+                                                  selector:@selector(updatePreview)
+                                                  userInfo:nil
+                                                   repeats:NO];
 }
 
 - (void)refreshWebView {
 	// write man text to tmp document
-    NSError *err;
-	BOOL success = [[aceView string] writeToFile:kManTextTempPath
-                                       atomically:YES
-                                         encoding:NSUTF8StringEncoding
-                                            error:&err];
-    if (!success)
-    {
-        NSLog(@"Failed to write to path \"%@\": %@", kManTextTempPath, [err localizedDescription]);
+//    NSError *err;
+//	BOOL success = [[aceView string] writeToFile:kManTextTempPath
+//                                       atomically:YES
+//                                         encoding:NSUTF8StringEncoding
+//                                            error:&err];
+//    if (!success)
+//    {
+//        NSLog(@"Failed to write to path \"%@\": %@", kManTextTempPath, [err localizedDescription]);
+//        return;
+//    }
+    NSString *manText = [aceView string];
+    manText = [manText length] ? manText : @" ";
+    
+    // Create nroff task
+    NSTask *nroffTask = [[NSTask alloc] init];
+    [nroffTask setLaunchPath:@"/usr/bin/nroff"];
+    [nroffTask setArguments:@[@"-mandoc"]];
+    
+    NSPipe *nroffOutputPipe = [NSPipe pipe];
+    NSPipe *nroffInputPipe = [NSPipe pipe];
+    [nroffTask setStandardOutput:nroffOutputPipe];
+    [nroffTask setStandardInput:nroffInputPipe];
+    
+    NSFileHandle *nroffWriteHandle = [nroffInputPipe fileHandleForWriting];
+
+    // Create cat2html task
+    NSTask *catTask = [[NSTask alloc] init];
+    [catTask setLaunchPath:[[NSBundle mainBundle] pathForResource:@"cat2html" ofType:nil]];
+    [catTask setArguments:@[]];
+    
+    NSPipe *catOutputPipe = [NSPipe pipe];
+    [catTask setStandardOutput:catOutputPipe];
+    [catTask setStandardInput:nroffOutputPipe];
+
+    NSFileHandle *catReadHandle = [catOutputPipe fileHandleForReading];
+    
+    [nroffTask launch];
+    [catTask launch];
+    
+    [nroffWriteHandle writeData:[manText dataUsingEncoding:NSUTF8StringEncoding]];
+    [nroffWriteHandle closeFile];
+    
+    [nroffTask waitUntilExit];
+    [catTask waitUntilExit];
+
+    NSMutableString *htmlString = [[NSMutableString alloc] initWithData:[catReadHandle readDataToEndOfFile]
+                                                               encoding:NSUTF8StringEncoding];
+    if ([htmlString length] == 0 || htmlString == nil) {
+        [[webView mainFrame] loadHTMLString:@"<strong>Nil output from cat2html</strong>" baseURL:nil];
+        NSLog(@"Nil output from cat2html");
         return;
     }
-
-	// generate command string to create html from man text using nroff and cat2html
-	NSString *cmdString = [NSString stringWithFormat:@"/usr/bin/nroff -mandoc \"%@\" | \"%@\" > \"%@\"",
-                           kManTextTempPath,
-                           [[NSBundle mainBundle] pathForResource:@"cat2html" ofType:nil],
-                           kManHTMLTempPath];
-	
-	// run the command
-	system([cmdString cStringUsingEncoding:NSUTF8StringEncoding]);
-	
+    
 	// get the current scroll position of the document view of the web view
 	NSScrollView *theScrollView = [[[[webView mainFrame] frameView] documentView] enclosingScrollView];
 	NSRect scrollViewBounds = [[theScrollView contentView] bounds];
 	currentScrollPosition = scrollViewBounds.origin;
-
-    NSMutableString *htmlString = [NSMutableString stringWithContentsOfFile:@"/tmp/ManDrakeTemp.html"
-                                                                   encoding:NSUTF8StringEncoding
-                                                                      error:nil];
     
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:kDefaultsInvertPreview] boolValue]) {
+    // invert black/white
+    BOOL invert = [[[NSUserDefaults standardUserDefaults] objectForKey:kDefaultsInvertPreview] boolValue];
+    if (invert) {
+        NSString *bgColor = invert ? @"black" : @"white";
+        NSString *fgColor = invert ? @"white" : @"black";
+        NSString *bodyTag = [NSString stringWithFormat:@"<body bgcolor=\"%@\" text=\"%@\">", bgColor, fgColor];
         [htmlString replaceOccurrencesOfString:@"<body>"
-                                    withString:@"<body bgcolor=\"black\" text=\"white\">"
+                                    withString:bodyTag
                                        options:NSCaseInsensitiveSearch
-                                         range:NSMakeRange(0, 100)];
+                                         range:NSMakeRange(0, 50)];
     }
     
     [[webView mainFrame] loadHTMLString:htmlString baseURL:nil];
-    
-	// tell the web view to load the generated, local html file
-//	[[webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:]]];
 }
 
 // delegate method we receive when done loading the html file.
