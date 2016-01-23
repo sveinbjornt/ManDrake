@@ -13,3 +13,4 @@
 #define kDefaultsEditorTheme @"EditorTheme"
 #define kDefaultsRefreshStyle @"Refresh"
 #define kDefaultsEditorFontSize @"EditorFontSize"
+#define kDefaultsPreviewFontSize @"PreviewFontSize"

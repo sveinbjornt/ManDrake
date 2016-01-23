@@ -104,11 +104,11 @@ originalContentsURL:(NSURL *)originalContentsURL
     [super windowControllerDidLoadNib:aController];
     
     ACETheme theme = [[[NSUserDefaults standardUserDefaults] objectForKey:kDefaultsEditorTheme] intValue];
+    [aceView setTheme:theme];
     
     [themePopupButton removeAllItems];
     [themePopupButton addItemsWithTitles:[ACEThemeNames humanThemeNames]];
     [themePopupButton selectItemAtIndex:theme];
-    [aceView setTheme:[themePopupButton indexOfSelectedItem]];
     
     [aceView setDelegate:self];
     [aceView setModeByNameString:@"groff"];
@@ -120,6 +120,8 @@ originalContentsURL:(NSURL *)originalContentsURL
     } else {
         [self loadDefaultManTemplate:self];
     }
+   
+    [self setWebViewFontSize:[[[NSUserDefaults standardUserDefaults] objectForKey:kDefaultsPreviewFontSize] intValue]];
 }
 
 #pragma mark - Text size & editor properties
@@ -142,15 +144,33 @@ originalContentsURL:(NSURL *)originalContentsURL
     [self changeFontSize:-1];
 }
 
+- (void)setWebViewFontSize:(int)delta {
+    while (delta != 0) {
+        if (delta < 0) {
+            [self changePreviewFontSize:-1];
+            delta++;
+        } else {
+            [self changePreviewFontSize:1];
+            delta--;
+        }
+    }
+}
+
 - (void)changePreviewFontSize:(CGFloat)delta {
     (delta > 0) ? [webView makeTextLarger:self] : [webView makeTextSmaller:self];
 }
 
 - (IBAction)makePreviewTextLarger:(id)sender {
+    int currentSizeDelta = [[[NSUserDefaults standardUserDefaults] objectForKey:kDefaultsPreviewFontSize] intValue];
+    currentSizeDelta += 1;
+    [[NSUserDefaults standardUserDefaults] setObject:@(currentSizeDelta) forKey:kDefaultsPreviewFontSize];
     [self changePreviewFontSize:1];
 }
 
 - (IBAction)makePreviewTextSmaller:(id)sender {
+    int currentSizeDelta = [[[NSUserDefaults standardUserDefaults] objectForKey:kDefaultsPreviewFontSize] intValue];
+    currentSizeDelta -= 1;
+    [[NSUserDefaults standardUserDefaults] setObject:@(currentSizeDelta) forKey:kDefaultsPreviewFontSize];
     [self changePreviewFontSize:-1];
 }
 
@@ -180,7 +200,6 @@ originalContentsURL:(NSURL *)originalContentsURL
                                                       selector:@selector(updatePreview)
                                                       userInfo:nil
                                                        repeats:NO];
-		
 	}
 	// or else do it for every change
 	else if ([refreshText isEqualToString:@"Live"])
