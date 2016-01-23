@@ -134,10 +134,10 @@
                                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <font key="titleFont" metaFont="system"/>
                                     </box>
-                                    <webView id="PHv-Sh-qOi">
+                                    <webView maintainsBackForwardList="NO" id="PHv-Sh-qOi">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="415"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12">
+                                        <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12" minimumFontSize="4" plugInsEnabled="NO" javaEnabled="NO" javaScriptCanOpenWindowsAutomatically="NO" loadsImagesAutomatically="NO" allowsAnimatedImages="NO" allowsAnimatedImageLooping="NO">
                                             <nil key="identifier"/>
                                         </webPreferences>
                                         <connections>

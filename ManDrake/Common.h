@@ -14,3 +14,6 @@
 #define kDefaultsRefreshStyle @"Refresh"
 #define kDefaultsEditorFontSize @"EditorFontSize"
 #define kDefaultsPreviewFontSize @"PreviewFontSize"
+#define kDefaultsCheckSyntaxAutomatically @"CheckSyntaxAutomatically"
+#define kDefaultsSyntaxHighlighting @"SyntaxHighlighting"
+#define kDefaultsInvertPreview @"InvertPreview"

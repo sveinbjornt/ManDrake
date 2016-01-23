@@ -113,26 +113,6 @@
                                     <action selector="revertDocumentToSaved:" target="-1" id="364"/>
                                 </connections>
                             </menuItem>
-                            <menuItem isSeparatorItem="YES" id="74">
-                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
-                            </menuItem>
-                            <menuItem title="Load mdoc template" id="2cO-xk-YKu">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="loadManMdocTemplate:" target="-1" id="mvt-YF-OiL"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Load default template" id="8Ac-oW-eq8">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="loadDefaultManTemplate:" target="-1" id="vkM-mu-EQQ"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Check syntax" keyEquivalent="X" id="rFy-TZ-FxP">
-                                <connections>
-                                    <action selector="checkSyntaxButtonPressed:" target="-1" id="F1x-Hh-3pw"/>
-                                </connections>
-                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="xo2-By-AYD">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
@@ -163,6 +143,9 @@
                                 <connections>
                                     <action selector="redo:" target="-1" id="231"/>
                                 </connections>
+                            </menuItem>
+                            <menuItem title="Application" id="hR4-ov-4RZ">
+                                <modifierMask key="keyEquivalentModifierMask"/>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="206">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
@@ -345,30 +328,109 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Options" id="532">
+                <menuItem title="Editor" id="532">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Options" id="570">
+                    <menu key="submenu" title="Editor" id="x28-Yy-N6F">
                         <items>
-                            <menuItem title="Make Text Larger" keyEquivalent="+" id="662">
+                            <menuItem title="Syntax Highlighting" id="tbB-1g-sNk">
+                                <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
-                                    <action selector="makeTextLarger:" target="-1" id="664"/>
+                                    <binding destination="PuS-3K-wCY" name="value" keyPath="values.SyntaxHighlighting" id="fbI-7l-ItE"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Make Text Smaller" keyEquivalent="-" id="661">
+                            <menuItem title="Check Syntax Automatically" id="gWj-zj-IU2">
+                                <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
-                                    <action selector="makeTextSmaller:" target="-1" id="663"/>
+                                    <binding destination="PuS-3K-wCY" name="value" keyPath="values.CheckSyntaxAutomatically" id="cGR-YS-Zeg"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Make Preview Text Larger" keyEquivalent="+" id="xeL-vT-cEA">
-                                <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
+                            <menuItem isSeparatorItem="YES" id="Fz2-r6-jlf">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Theme" id="f0g-Ia-eBf">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Theme" id="utG-qb-Ssa">
+                                    <items>
+                                        <menuItem title="Item" id="TO8-8I-YOO">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="a6R-hP-iBO"/>
+                            <menuItem title="Load mdoc template" id="bNF-U5-eHI">
+                                <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
-                                    <action selector="makeTextLarger:" target="-1" id="u0z-Cs-Ex1"/>
+                                    <action selector="loadManMdocTemplate:" target="-1" id="8OX-4H-khZ"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Make Preview Text Smaller" keyEquivalent="-" id="Qb5-pW-1sU">
-                                <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
+                            <menuItem title="Load default template" id="HDQ-aa-q6d">
+                                <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
-                                    <action selector="makeTextLarger:" target="-1" id="GH5-Bs-hXZ"/>
+                                    <action selector="loadDefaultManTemplate:" target="-1" id="3hc-sC-TuZ"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="SaM-Rz-pYd"/>
+                            <menuItem title="Increase Text Size" keyEquivalent="+" id="LLC-NS-Wyk">
+                                <connections>
+                                    <action selector="makeTextLarger:" target="-1" id="RMI-g9-zQH"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Decrease Text Size" keyEquivalent="-" id="XEe-wH-Gz1">
+                                <connections>
+                                    <action selector="makeTextSmaller:" target="-1" id="T5I-yb-hL9"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="fsW-rq-8fW"/>
+                            <menuItem title="Check Syntax" keyEquivalent="X" id="oGv-hu-ato">
+                                <connections>
+                                    <action selector="checkSyntaxButtonPressed:" target="-1" id="or4-OD-Gof"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Preview" id="4ro-2T-FhV">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Preview" id="eEm-zJ-RNG">
+                        <items>
+                            <menuItem title="Refresh" keyEquivalent="r" id="V3y-J9-Q7j">
+                                <connections>
+                                    <action selector="refresh:" target="-1" id="nEz-jy-3WS"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Refresh Type" id="LSh-Ob-bpG">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Refresh Type" id="zop-QQ-XMG">
+                                    <items>
+                                        <menuItem title="Live" id="Gre-99-mdK">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                        <menuItem title="Delayed" state="on" id="4qx-HK-3gr">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                        <menuItem title="Manual" id="RXF-dU-IEv">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="EM0-E7-Xsx"/>
+                            <menuItem title="Invert Preview" id="plk-gj-lxm">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <binding destination="PuS-3K-wCY" name="value" keyPath="values.InvertPreview" id="oLt-TX-hZf"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="QqF-QL-7OA"/>
+                            <menuItem title="Increase Preview Text Size" keyEquivalent="2" id="0Qj-v6-Bea">
+                                <connections>
+                                    <action selector="makePreviewTextLarger:" target="-1" id="vEe-ee-eMn"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Decrease Preview Text Size" keyEquivalent="1" id="h4c-1r-Bgm">
+                                <connections>
+                                    <action selector="makePreviewTextSmaller:" target="-1" id="T4h-KF-MId"/>
                                 </connections>
                             </menuItem>
                         </items>
@@ -517,5 +579,35 @@
             </view>
         </window>
         <customObject id="652" customClass="ManDrakeApplicationDelegate"/>
+        <menuItem title="Editor" id="YyL-CL-kXv">
+            <modifierMask key="keyEquivalentModifierMask"/>
+            <menu key="submenu" title="Editor" id="Xnp-w3-5kU">
+                <items>
+                    <menuItem title="Make Text Larger" keyEquivalent="+" id="bWK-M4-5kk">
+                        <connections>
+                            <action selector="makeTextLarger:" target="-1" id="fRs-hZ-ASs"/>
+                        </connections>
+                    </menuItem>
+                    <menuItem title="Make Text Smaller" keyEquivalent="-" id="nvo-yR-Nj2">
+                        <connections>
+                            <action selector="makeTextSmaller:" target="-1" id="qG9-AB-5cA"/>
+                        </connections>
+                    </menuItem>
+                    <menuItem title="Make Preview Text Larger" keyEquivalent="+" id="x3c-7p-uzc">
+                        <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
+                        <connections>
+                            <action selector="makeTextLarger:" target="-1" id="fUB-WO-uQd"/>
+                        </connections>
+                    </menuItem>
+                    <menuItem title="Make Preview Text Smaller" keyEquivalent="-" id="lc5-OK-bk9">
+                        <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
+                        <connections>
+                            <action selector="makeTextLarger:" target="-1" id="X4E-cD-zIN"/>
+                        </connections>
+                    </menuItem>
+                </items>
+            </menu>
+        </menuItem>
+        <userDefaultsController representsSharedInstance="YES" id="PuS-3K-wCY"/>
     </objects>
 </document>

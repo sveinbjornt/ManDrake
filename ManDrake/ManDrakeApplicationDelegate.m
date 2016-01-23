@@ -47,7 +47,10 @@
     defaultPrefs[kDefaultsRefreshStyle] = @"Delayed";
     defaultPrefs[kDefaultsEditorTheme] = @(ACEThemeXcode);
     defaultPrefs[kDefaultsEditorFontSize] = @(11);
-    defaultPrefs[kDefaultsPreviewFontSize] = @(-1);
+    defaultPrefs[kDefaultsPreviewFontSize] = @(0);
+    defaultPrefs[kDefaultsCheckSyntaxAutomatically] = @(YES);
+    defaultPrefs[kDefaultsSyntaxHighlighting] = @(YES);
+    defaultPrefs[kDefaultsInvertPreview] = @(NO);
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaultPrefs];
 }
 

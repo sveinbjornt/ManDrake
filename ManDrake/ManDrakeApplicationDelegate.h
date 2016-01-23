@@ -32,4 +32,6 @@
 
 @interface ManDrakeApplicationDelegate : NSObject <NSApplicationDelegate>
 
+@property (weak) IBOutlet NSMenu *editorMenu;
+
 @end

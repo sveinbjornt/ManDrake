@@ -124,7 +124,7 @@ originalContentsURL:(NSURL *)originalContentsURL
     [self setWebViewFontSize:[[[NSUserDefaults standardUserDefaults] objectForKey:kDefaultsPreviewFontSize] intValue]];
 }
 
-#pragma mark - Text size & editor properties
+#pragma mark - Editor
 
 - (IBAction)themeChanged:(id)sender {
     [aceView setTheme:[themePopupButton indexOfSelectedItem]];
@@ -235,8 +235,21 @@ originalContentsURL:(NSURL *)originalContentsURL
 	NSRect scrollViewBounds = [[theScrollView contentView] bounds];
 	currentScrollPosition = scrollViewBounds.origin;
 
+    NSMutableString *htmlString = [NSMutableString stringWithContentsOfFile:@"/tmp/ManDrakeTemp.html"
+                                                                   encoding:NSUTF8StringEncoding
+                                                                      error:nil];
+    
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:kDefaultsInvertPreview] boolValue]) {
+        [htmlString replaceOccurrencesOfString:@"<body>"
+                                    withString:@"<body bgcolor=\"black\" text=\"white\">"
+                                       options:NSCaseInsensitiveSearch
+                                         range:NSMakeRange(0, 100)];
+    }
+    
+    [[webView mainFrame] loadHTMLString:htmlString baseURL:nil];
+    
 	// tell the web view to load the generated, local html file
-	[[webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:@"/tmp/ManDrakeTemp.html"]]];
+//	[[webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:]]];
 }
 
 // delegate method we receive when done loading the html file.
