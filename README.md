@@ -1,4 +1,4 @@
-<img align="right" src="https://raw.githubusercontent.com/sveinbjornt/ManDrake/master/mandrake.png" style="float: right; margin-left: 30px;">
+<img align="right" src="https://raw.githubusercontent.com/sveinbjornt/ManDrake/master/mandrake_icon.png" style="float: right; margin-left: 30px;" alt="ManDrake Application Icon">
 # ManDrake
 
 ManDrake is a native, open-source <a href="https://en.wikipedia.org/wiki/Man_page">man page</a> editor for OS X. It has `groff` syntax highlighting, `mandoc` syntax validation and shows a live-updating rendered preview of the man page during editing.
@@ -15,7 +15,7 @@ ManDrake is distributed under the three-clause [BSD License](https://opensource.
 
 ## Screenshot
 
-<img src="https://raw.githubusercontent.com/sveinbjornt/ManDrake/master/mandrake_screenshot.png" style="max-width:100%;">
+<img src="https://raw.githubusercontent.com/sveinbjornt/ManDrake/master/mandrake_screenshot.png" style="max-width:100%;" alt="ManDrake Screenshot">
 
 ## Development
 
@@ -42,6 +42,8 @@ This installs all the dependencies required.
 
 ## Captain Mandrake
 
-Here's Group Captain Lionel Mandrake from Kubrick's wonderful [*Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb*](http://www.imdb.com/title/tt0057012/):
+> **Do I look all rancid and clotted? You look at me, Jack. Eh? Look, eh? And I drink a lot of water, you know. I'm what you might call a water man, Jack - that's what I am. And I can swear to you, my boy, swear to you, that there's nothing wrong with my bodily fluids. Not a thing, Jackie.**
 
-https://raw.githubusercontent.com/sveinbjornt/ManDrake/aceview/ManDrake/Resources/dr_strangelove_mandrake.jpg
+Here's **Group Captain Lionel Mandrake** from Kubrick's wonderful [*Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb*](http://www.imdb.com/title/tt0057012/) along with Brigadier General Jack D. Ripper, memorably rendered by Sterling Hayden:
+
+<img src="https://raw.githubusercontent.com/sveinbjornt/ManDrake/master/mandrake_captain.jpg" alt="Group Captain Lionel Mandrake">
