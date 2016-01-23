@@ -9,6 +9,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="ManDrakeDocument">
             <connections>
                 <outlet property="aceView" destination="wnx-2g-I3Y" id="200-V3-COe"/>
+                <outlet property="editorActionButton" destination="dJ2-Os-ONx" id="1qx-5H-0y0"/>
                 <outlet property="refreshProgressIndicator" destination="100082" id="100093"/>
                 <outlet property="refreshTypePopupButton" destination="100066" id="100092"/>
                 <outlet property="themePopupButton" destination="tsr-AC-Tpw" id="bdn-0F-iRP"/>
@@ -96,6 +97,9 @@
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="smallSystem"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="editorActionButtonPressed:" target="-2" id="Rau-9E-z61"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </customView>

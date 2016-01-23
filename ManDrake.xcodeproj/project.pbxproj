@@ -35,6 +35,8 @@
 		F43557DA1C542510009080DC /* mandrake_captain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mandrake_captain.jpg; sourceTree = "<group>"; };
 		F43557DB1C542519009080DC /* mandrake_screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mandrake_screenshot.png; sourceTree = "<group>"; };
 		F43557DC1C542521009080DC /* mandrake_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mandrake_icon.png; sourceTree = "<group>"; };
+		F43557DD1C5429C8009080DC /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AppIcon.icns; sourceTree = "<group>"; };
+		F43557DE1C5429C8009080DC /* DocumentIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = DocumentIcon.icns; sourceTree = "<group>"; };
 		F45AFBD31C5193A900953D8F /* mode-groff.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "mode-groff.js"; path = "Resources/mode-groff.js"; sourceTree = "<group>"; };
 		F45AFBD51C51950600953D8F /* CustomACEView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomACEView.h; sourceTree = "<group>"; };
 		F45AFBD61C51950600953D8F /* CustomACEView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomACEView.m; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 		F487F49C141EADEF0093D633 = {
 			isa = PBXGroup;
 			children = (
+				F4FD5CA01C4D74F900C8D155 /* Icons */,
 				F42AA7DC1C4EC624007E0ACE /* Documentation */,
 				F487F4B1141EADEF0093D633 /* ManDrake */,
 				F487F4B2141EADEF0093D633 /* Resources */,
@@ -154,15 +157,14 @@
 		F487F4B2141EADEF0093D633 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F4FD5CA81C4D757E00C8D155 /* Images.xcassets */,
-				F4FD5CA01C4D74F900C8D155 /* Icons */,
+				F487F4B3141EADEF0093D633 /* ManDrake-Info.plist */,
 				F487F4D0141EAE730093D633 /* MainMenu.xib */,
 				F487F4D1141EAE730093D633 /* ManDrakeDocument.xib */,
-				F487F4B3141EADEF0093D633 /* ManDrake-Info.plist */,
 				F45AFBD31C5193A900953D8F /* mode-groff.js */,
 				F45AFBD81C52D04A00953D8F /* default.man */,
 				F487F4D4141EAE910093D633 /* cat2html */,
 				F45AFBDD1C53BA9200953D8F /* mandoc */,
+				F4FD5CA81C4D757E00C8D155 /* Images.xcassets */,
 			);
 			name = Resources;
 			path = ManDrake;
@@ -183,6 +185,8 @@
 		F4FD5CA01C4D74F900C8D155 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				F43557DD1C5429C8009080DC /* AppIcon.icns */,
+				F43557DE1C5429C8009080DC /* DocumentIcon.icns */,
 				F4FD5CA11C4D74F900C8D155 /* make_icons.sh */,
 				F4FD5CA21C4D74F900C8D155 /* ManDrakeAppIcon.ai */,
 				F4FD5CA41C4D74F900C8D155 /* ManDrakeAppIcon1024.png */,
@@ -345,6 +349,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -408,6 +413,7 @@
 				GCC_PREFIX_HEADER = "ManDrake/ManDrake-Prefix.pch";
 				INFOPLIST_FILE = "ManDrake/ManDrake-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_BUNDLE_IDENTIFIER = org.sveinbjorn.ManDrake;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				USER_HEADER_SEARCH_PATHS = ManDrake/External/UliKit/;
@@ -426,6 +432,7 @@
 				GCC_PREFIX_HEADER = "ManDrake/ManDrake-Prefix.pch";
 				INFOPLIST_FILE = "ManDrake/ManDrake-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_BUNDLE_IDENTIFIER = org.sveinbjorn.ManDrake;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				USER_HEADER_SEARCH_PATHS = ManDrake/External/UliKit/;

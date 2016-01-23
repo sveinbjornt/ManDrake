@@ -9,6 +9,12 @@ You can download a pre-built binary of version 3.0 here:
 
 * [Download ManDrake 3.0](http://sveinbjorn.org/files/software/mandrake/ManDrake-3.0.zip) (Intel 64-bit, 10.7 or later, ~660 KB)
 
+To learn more about the man page format:
+
+    man mdoc
+
+or read [this page](http://www.freebsd.org/cgi/man.cgi?query=mdoc.samples).
+
 ## Screenshot
 
 <img src="https://raw.githubusercontent.com/sveinbjornt/ManDrake/master/mandrake_screenshot.png" style="max-width:100%;" alt="ManDrake Screenshot">
@@ -42,7 +48,7 @@ ManDrake is open source software, available under the three-clause BSD license:
 > ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 > POSSIBILITY OF SUCH DAMAGE.
 
-## Development
+## Building ManDrake
 
 ### Requirements
 

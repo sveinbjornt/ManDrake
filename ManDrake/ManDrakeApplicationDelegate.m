@@ -33,24 +33,20 @@
 #import "NSWorkspace+Additions.h"
 #import "ACEView/ACEThemeNames.h"
 
-@interface ManDrakeApplicationDelegate()
-
-- (IBAction)showReadme:(id)sender;
-- (IBAction)showLicense:(id)sender;
-
-@end
-
 @implementation ManDrakeApplicationDelegate
 
 + (void)initialize {
     NSMutableDictionary *defaultPrefs = [NSMutableDictionary dictionary];
-    defaultPrefs[kDefaultsRefreshStyle] = @"Delayed";
     defaultPrefs[kDefaultsEditorTheme] = @(ACEThemeXcode);
     defaultPrefs[kDefaultsEditorFontSize] = @(11);
-    defaultPrefs[kDefaultsPreviewFontSize] = @(0);
+    defaultPrefs[kDefaultsEditorSyntaxHighlighting] = @(YES);
+    defaultPrefs[kDefaultsEditorShowInvisibles] = @(YES);
+    
     defaultPrefs[kDefaultsCheckSyntaxAutomatically] = @(YES);
-    defaultPrefs[kDefaultsSyntaxHighlighting] = @(YES);
-    defaultPrefs[kDefaultsInvertPreview] = @(NO);
+    
+    defaultPrefs[kDefaultsPreviewRefreshStyle] = @"Delayed";
+    defaultPrefs[kDefaultsPreviewFontSize] = @(0);
+    defaultPrefs[kDefaultsPreviewInvert] = @(NO);
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaultPrefs];
 }
 

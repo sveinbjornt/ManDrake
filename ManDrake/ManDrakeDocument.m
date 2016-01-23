@@ -35,6 +35,7 @@
 #import "CustomACEView.h"
 #import "NSWorkspace+Additions.h"
 #import "ACEView/ACEThemeNames.h"
+#import "ManDrakeApplicationDelegate.h"
 
 @interface ManDrakeDocument()
 {
@@ -45,6 +46,8 @@
     IBOutlet NSTextField *statusTextField;
     IBOutlet NSTextField *warningsTextField;
     IBOutlet NSPopUpButton *themePopupButton;
+    IBOutlet NSButton *editorActionButton;
+    IBOutlet NSButton *previewActionButton;
     
     NSPoint currentScrollPosition;
     NSTimer *refreshTimer;
@@ -57,6 +60,8 @@
 - (IBAction)makeTextSmaller:(id)sender;
 - (IBAction)makePreviewTextLarger:(id)sender;
 - (IBAction)makePreviewTextSmaller:(id)sender;
+
+- (IBAction)editorActionButtonPressed:(id)sender;
 
 - (IBAction)loadManMdocTemplate:(id)sender;
 - (IBAction)loadDefaultManTemplate:(id)sender;
@@ -111,20 +116,37 @@ originalContentsURL:(NSURL *)originalContentsURL
     [themePopupButton selectItemAtIndex:theme];
     
     [aceView setDelegate:self];
-    [aceView setModeByNameString:@"groff"];
-    [aceView setShowInvisibles:YES];
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:kDefaultsEditorSyntaxHighlighting] boolValue]) {
+        [aceView setModeByNameString:@"groff"];
+    }
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:kDefaultsEditorShowInvisibles] boolValue]) {
+        [aceView setShowInvisibles:YES];
+    }
+    
     [aceView setFontSize:[[[NSUserDefaults standardUserDefaults] objectForKey:kDefaultsEditorFontSize] intValue]];
     
     if (fileString) {
         [aceView setString:fileString];
+        fileString = nil;
     } else {
         [self loadDefaultManTemplate:self];
     }
+    
+    BOOL softWrap = [[[NSUserDefaults standardUserDefaults] objectForKey:kDefaultsEditorSoftLineWrap] boolValue];
+    [aceView setUseSoftWrap:softWrap];
    
     [self setWebViewFontSize:[[[NSUserDefaults standardUserDefaults] objectForKey:kDefaultsPreviewFontSize] intValue]];
+    
+    [editorActionButton setMenu:[(ManDrakeApplicationDelegate *)[[NSApplication sharedApplication] delegate] editorMenu]];
 }
 
 #pragma mark - Editor
+
+- (IBAction)editorActionButtonPressed:(id)sender {
+    NSRect screenRect = [self.windowControllers[0].window convertRectToScreen:[(NSButton *)sender frame]];
+    NSMenu *menu = [(ManDrakeApplicationDelegate *)[[NSApplication sharedApplication] delegate] editorMenu];
+    [menu popUpMenuPositioningItem:nil atLocation:screenRect.origin inView:nil];
+}
 
 - (IBAction)themeChanged:(id)sender {
     [aceView setTheme:[themePopupButton indexOfSelectedItem]];
@@ -259,7 +281,7 @@ originalContentsURL:(NSURL *)originalContentsURL
 	currentScrollPosition = scrollViewBounds.origin;
     
     // invert black/white
-    BOOL invert = [[[NSUserDefaults standardUserDefaults] objectForKey:kDefaultsInvertPreview] boolValue];
+    BOOL invert = [[[NSUserDefaults standardUserDefaults] objectForKey:kDefaultsPreviewInvert] boolValue];
     if (invert) {
         NSString *bgColor = invert ? @"black" : @"white";
         NSString *fgColor = invert ? @"white" : @"black";
@@ -288,15 +310,19 @@ originalContentsURL:(NSURL *)originalContentsURL
 #pragma mark - Check syntax
 
 - (IBAction)checkSyntaxButtonPressed:(id)sender {
-    [self updateAnnotations];
+    if ([self updateAnnotations]) {
+        NSBeep();
+    }
 }
 
-- (void)updateAnnotations {
+- (BOOL)updateAnnotations {
     NSArray *warningAnnotations = [self checkSyntax];
     [aceView setAnnotations:warningAnnotations];
     if ([warningAnnotations count]) {
         [warningsTextField setStringValue:[NSString stringWithFormat:@"%lu warnings", (unsigned long)[warningAnnotations count]]];
+        return YES;
     }
+    return NO;
 }
 
 - (NSArray *)checkSyntax {

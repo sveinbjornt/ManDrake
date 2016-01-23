@@ -332,30 +332,21 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Editor" id="x28-Yy-N6F">
                         <items>
-                            <menuItem title="Syntax Highlighting" id="tbB-1g-sNk">
-                                <modifierMask key="keyEquivalentModifierMask"/>
+                            <menuItem title="Check Syntax" keyEquivalent="X" id="oGv-hu-ato">
                                 <connections>
-                                    <binding destination="PuS-3K-wCY" name="value" keyPath="values.SyntaxHighlighting" id="fbI-7l-ItE"/>
+                                    <action selector="checkSyntaxButtonPressed:" target="-1" id="or4-OD-Gof"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Check Syntax Automatically" id="gWj-zj-IU2">
-                                <modifierMask key="keyEquivalentModifierMask"/>
+                            <menuItem isSeparatorItem="YES" id="SaM-Rz-pYd"/>
+                            <menuItem title="Increase Text Size" keyEquivalent="+" id="LLC-NS-Wyk">
                                 <connections>
-                                    <binding destination="PuS-3K-wCY" name="value" keyPath="values.CheckSyntaxAutomatically" id="cGR-YS-Zeg"/>
+                                    <action selector="makeTextLarger:" target="-1" id="RMI-g9-zQH"/>
                                 </connections>
                             </menuItem>
-                            <menuItem isSeparatorItem="YES" id="Fz2-r6-jlf">
-                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
-                            </menuItem>
-                            <menuItem title="Theme" id="f0g-Ia-eBf">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Theme" id="utG-qb-Ssa">
-                                    <items>
-                                        <menuItem title="Item" id="TO8-8I-YOO">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                        </menuItem>
-                                    </items>
-                                </menu>
+                            <menuItem title="Decrease Text Size" keyEquivalent="-" id="XEe-wH-Gz1">
+                                <connections>
+                                    <action selector="makeTextSmaller:" target="-1" id="T5I-yb-hL9"/>
+                                </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="a6R-hP-iBO"/>
                             <menuItem title="Load mdoc template" id="bNF-U5-eHI">
@@ -370,22 +361,43 @@
                                     <action selector="loadDefaultManTemplate:" target="-1" id="3hc-sC-TuZ"/>
                                 </connections>
                             </menuItem>
-                            <menuItem isSeparatorItem="YES" id="SaM-Rz-pYd"/>
-                            <menuItem title="Increase Text Size" keyEquivalent="+" id="LLC-NS-Wyk">
-                                <connections>
-                                    <action selector="makeTextLarger:" target="-1" id="RMI-g9-zQH"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Decrease Text Size" keyEquivalent="-" id="XEe-wH-Gz1">
-                                <connections>
-                                    <action selector="makeTextSmaller:" target="-1" id="T5I-yb-hL9"/>
-                                </connections>
-                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="fsW-rq-8fW"/>
-                            <menuItem title="Check Syntax" keyEquivalent="X" id="oGv-hu-ato">
+                            <menuItem title="Check Syntax Automatically" id="gWj-zj-IU2">
+                                <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
-                                    <action selector="checkSyntaxButtonPressed:" target="-1" id="or4-OD-Gof"/>
+                                    <binding destination="PuS-3K-wCY" name="value" keyPath="values.CheckSyntaxAutomatically" id="cGR-YS-Zeg"/>
                                 </connections>
+                            </menuItem>
+                            <menuItem title="Groff Syntax Highlighting" id="tbB-1g-sNk">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <binding destination="PuS-3K-wCY" name="value" keyPath="values.EditorSyntaxHighlighting" id="eXh-4h-FYn"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Show Invisible Characters" id="Bkz-jy-dw5">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <binding destination="PuS-3K-wCY" name="value" keyPath="values.EditorShowInvisibles" id="Afv-Ev-eqH"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Soft Line Wrap" id="d98-EX-Bit">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <binding destination="PuS-3K-wCY" name="value" keyPath="values.EditorSoftLineWrap" id="bcS-L8-mZF"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="Fz2-r6-jlf">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Editor Theme" id="f0g-Ia-eBf">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Editor Theme" id="utG-qb-Ssa">
+                                    <items>
+                                        <menuItem title="Item" id="TO8-8I-YOO">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                    </items>
+                                </menu>
                             </menuItem>
                         </items>
                     </menu>
@@ -419,7 +431,7 @@
                             <menuItem title="Invert Preview" id="plk-gj-lxm">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
-                                    <binding destination="PuS-3K-wCY" name="value" keyPath="values.InvertPreview" id="oLt-TX-hZf"/>
+                                    <binding destination="PuS-3K-wCY" name="value" keyPath="values.PreviewInvert" id="zk3-MN-3tR"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="QqF-QL-7OA"/>
@@ -578,7 +590,12 @@
                 </subviews>
             </view>
         </window>
-        <customObject id="652" customClass="ManDrakeApplicationDelegate"/>
+        <customObject id="652" customClass="ManDrakeApplicationDelegate">
+            <connections>
+                <outlet property="editorMenu" destination="x28-Yy-N6F" id="whv-wo-xBv"/>
+                <outlet property="previewMenu" destination="eEm-zJ-RNG" id="pq6-2M-myW"/>
+            </connections>
+        </customObject>
         <menuItem title="Editor" id="YyL-CL-kXv">
             <modifierMask key="keyEquivalentModifierMask"/>
             <menu key="submenu" title="Editor" id="Xnp-w3-5kU">

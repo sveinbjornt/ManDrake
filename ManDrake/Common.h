@@ -31,11 +31,16 @@
 #define kMdocTemplatePath @"/usr/share/misc/mdoc.template"
 
 // Defaults
-#define kDefaultsUserFontSize @"ManDrakeUserFontSize"
 #define kDefaultsEditorTheme @"EditorTheme"
-#define kDefaultsRefreshStyle @"Refresh"
 #define kDefaultsEditorFontSize @"EditorFontSize"
-#define kDefaultsPreviewFontSize @"PreviewFontSize"
+#define kDefaultsEditorSyntaxHighlighting @"EditorSyntaxHighlighting"
+#define kDefaultsEditorShowInvisibles @"EditorShowInvisibles"
+#define kDefaultsEditorSoftLineWrap @"EditorSoftLineWrap"
+
 #define kDefaultsCheckSyntaxAutomatically @"CheckSyntaxAutomatically"
-#define kDefaultsSyntaxHighlighting @"SyntaxHighlighting"
-#define kDefaultsInvertPreview @"InvertPreview"
+
+#define kDefaultsPreviewRefreshStyle @"PreviewRefreshStyle"
+#define kDefaultsPreviewFontSize @"PreviewFontSize"
+#define kDefaultsPreviewInvert @"PreviewInvert"
+
+

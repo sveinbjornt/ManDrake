@@ -33,5 +33,9 @@
 @interface ManDrakeApplicationDelegate : NSObject <NSApplicationDelegate>
 
 @property (weak) IBOutlet NSMenu *editorMenu;
+@property (weak) IBOutlet NSMenu *previewMenu;
+
+- (IBAction)showReadme:(id)sender;
+- (IBAction)showLicense:(id)sender;
 
 @end
