@@ -11,7 +11,7 @@
                 <outlet property="aceView" destination="wnx-2g-I3Y" id="200-V3-COe"/>
                 <outlet property="refreshProgressIndicator" destination="100082" id="100093"/>
                 <outlet property="refreshTypePopupButton" destination="100066" id="100092"/>
-                <outlet property="statusTextField" destination="100077" id="B0o-fS-apD"/>
+                <outlet property="themePopupButton" destination="tsr-AC-Tpw" id="bdn-0F-iRP"/>
                 <outlet property="warningsTextField" destination="FnO-X1-tAB" id="wHS-Nl-dGJ"/>
                 <outlet property="webView" destination="PHv-Sh-qOi" id="vE6-4i-yAi"/>
                 <outlet property="window" destination="5" id="18"/>
@@ -43,15 +43,6 @@
                                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <font key="titleFont" metaFont="system"/>
                                     </box>
-                                    <textField verticalHuggingPriority="750" id="100077">
-                                        <rect key="frame" x="8" y="424" width="260" height="14"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="100078">
-                                            <font key="font" metaFont="smallSystem"/>
-                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                        </textFieldCell>
-                                    </textField>
                                     <customView id="wnx-2g-I3Y" customClass="CustomACEView">
                                         <rect key="frame" x="0.0" y="0.0" width="368" height="416"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -76,6 +67,36 @@
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
+                                    <popUpButton verticalHuggingPriority="750" id="tsr-AC-Tpw">
+                                        <rect key="frame" x="50" y="419" width="107" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="a23-sh-dlK">
+                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="smallSystem"/>
+                                            <menu key="menu" id="Fru-14-SSc"/>
+                                        </popUpButtonCell>
+                                        <connections>
+                                            <action selector="themeChanged:" target="-2" id="xhy-sg-00l"/>
+                                            <binding destination="gaD-lZ-q4w" name="selectedIndex" keyPath="values.EditorTheme" id="Im4-Tl-Fcu"/>
+                                        </connections>
+                                    </popUpButton>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="1Se-NB-O6B">
+                                        <rect key="frame" x="7" y="424" width="44" height="14"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Theme:" id="qP8-mQ-FLp">
+                                            <font key="font" metaFont="smallSystem"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <button verticalHuggingPriority="750" id="dJ2-Os-ONx">
+                                        <rect key="frame" x="162" y="421" width="21" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSActionTemplate" imagePosition="overlaps" alignment="center" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2DW-bG-Y5T">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="smallSystem"/>
+                                        </buttonCell>
+                                    </button>
                                 </subviews>
                             </customView>
                             <customView id="100037">
@@ -190,6 +211,7 @@
         <userDefaultsController representsSharedInstance="YES" id="gaD-lZ-q4w"/>
     </objects>
     <resources>
+        <image name="NSActionTemplate" width="14" height="14"/>
         <image name="NSRefreshTemplate" width="11" height="15"/>
     </resources>
 </document>

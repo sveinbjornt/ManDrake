@@ -29,7 +29,9 @@
 */
 
 #import "ManDrakeApplicationDelegate.h"
+#import "Common.h"
 #import "NSWorkspace+Additions.h"
+#import "ACEView/ACEThemeNames.h"
 
 @interface ManDrakeApplicationDelegate()
 
@@ -40,11 +42,11 @@
 
 @implementation ManDrakeApplicationDelegate
 
-+ (void)initialize
-{
-    // create and register the user defaults
++ (void)initialize {
     NSMutableDictionary *defaultPrefs = [NSMutableDictionary dictionary];
-	defaultPrefs[@"Refresh"] = @"Delayed";
+    defaultPrefs[kDefaultsRefreshStyle] = @"Delayed";
+    defaultPrefs[kDefaultsEditorTheme] = @(ACEThemeXcode);
+    defaultPrefs[kDefaultsEditorFontSize] = @(11);
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaultPrefs];
 }
 

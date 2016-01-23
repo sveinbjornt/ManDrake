@@ -30,15 +30,11 @@
 
 #import <WebKit/WebKit.h>
 #import <stdlib.h>
-
+#import "Common.h"
 #import "ManDrakeDocument.h"
 #import "CustomACEView.h"
 #import "NSWorkspace+Additions.h"
-
-#define kManTextTempPath @"/tmp/ManDrakeTemp.manText"
-#define kManHTMLTempPath @"/tmp/ManDrakeTemp.html"
-
-#define kDefaultsUserFontSize @"ManDrakeUserFontSize"
+#import "ACEView/ACEThemeNames.h"
 
 @interface ManDrakeDocument()
 {
@@ -48,12 +44,15 @@
     IBOutlet CustomACEView *aceView;
     IBOutlet NSTextField *statusTextField;
     IBOutlet NSTextField *warningsTextField;
+    IBOutlet NSPopUpButton *themePopupButton;
     
     NSPoint currentScrollPosition;
     NSTimer *refreshTimer;
+    NSString *fileString;
 }
 
 - (IBAction)refresh:(id)sender;
+
 - (IBAction)makeTextLarger:(id)sender;
 - (IBAction)makeTextSmaller:(id)sender;
 - (IBAction)makePreviewTextLarger:(id)sender;
@@ -66,64 +65,73 @@
 
 @implementation ManDrakeDocument
 
+#pragma mark - NSDocument
+
 - (NSString *)windowNibName
 {
     return @"ManDrakeDocument";
 }
-//
-//- (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName
-//               error:(NSError **)outError {
-//    BOOL readSuccess = NO;
-//    NSString *fileContents = [[NSString alloc]
-//                                        initWithData:data encoding:NSUTF8StringEncoding];
-//    if (!fileContents && outError) {
-//        *outError = [NSError errorWithDomain:NSCocoaErrorDomain
-//                                        code:NSFileReadUnknownError userInfo:nil];
-//    }
-//    if (fileContents) {
-//        readSuccess = YES;
-////        [self setMString:fileContents];
-//    }
-//    return readSuccess;
-//}
+
+- (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError **)outError {
+    BOOL readSuccess = NO;
+    NSString *fileContents = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    if (!fileContents && outError) {
+        *outError = [NSError errorWithDomain:NSCocoaErrorDomain
+                                        code:NSFileReadUnknownError userInfo:nil];
+    }
+    if (fileContents) {
+        readSuccess = YES;
+        fileString = fileContents;
+    }
+    return readSuccess;
+}
+
+- (BOOL)writeToURL:(NSURL *)url
+            ofType:(NSString *)typeName
+  forSaveOperation:(NSSaveOperationType)saveOperation
+originalContentsURL:(NSURL *)originalContentsURL
+             error:(NSError **)outError {
+    return [[aceView string] writeToURL:url atomically:YES encoding:NSUTF8StringEncoding error:outError];
+}
+
+- (NSPrintOperation *)printOperationWithSettings:(NSDictionary *)printSettings error:(NSError * _Nullable *)outError {
+    NSPrintInfo *printInfo = [self printInfo];
+    NSPrintOperation *printOp = [NSPrintOperation printOperationWithView:webView printInfo:printInfo];
+    return printOp;
+}
 
 - (void)windowControllerDidLoadNib:(NSWindowController *)aController {
     [super windowControllerDidLoadNib:aController];
     
+    ACETheme theme = [[[NSUserDefaults standardUserDefaults] objectForKey:kDefaultsEditorTheme] intValue];
+    
+    [themePopupButton removeAllItems];
+    [themePopupButton addItemsWithTitles:[ACEThemeNames humanThemeNames]];
+    [themePopupButton selectItemAtIndex:theme];
+    [aceView setTheme:[themePopupButton indexOfSelectedItem]];
+    
     [aceView setDelegate:self];
     [aceView setModeByNameString:@"groff"];
-    [aceView setTheme:ACEThemeXcode];
     [aceView setShowInvisibles:YES];
+    [aceView setFontSize:[[[NSUserDefaults standardUserDefaults] objectForKey:kDefaultsEditorFontSize] intValue]];
     
-    [self loadDefaultManTemplate:self];
-    
-//    [refreshTypePopupButton selectItemWithTitle:[[NSUserDefaults standardUserDefaults] objectForKey:@"Refresh"]];
-	
-	// Register for "text changed" notifications of the text storage:
-//	[[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(textDidChange:)
-//												 name:NSTextStorageDidProcessEditingNotification
-//											   object:[textView textStorage]];
-    
-//    NSFont *font = [textView font];
-//    CGFloat fontSize = [[[NSUserDefaults standardUserDefaults] objectForKey:kDefaultsUserFontSize] floatValue];
-//    font = [[NSFontManager sharedFontManager] convertFont:font toSize:fontSize];
-//    [textView setFont:font];
+    if (fileString) {
+        [aceView setString:fileString];
+    } else {
+        [self loadDefaultManTemplate:self];
+    }
 }
 
-#pragma mark - Text size
+#pragma mark - Text size & editor properties
+
+- (IBAction)themeChanged:(id)sender {
+    [aceView setTheme:[themePopupButton indexOfSelectedItem]];
+}
 
 - (void)changeFontSize:(CGFloat)delta {
-    
-    // web view
-//    if (delta > 0)
-//    {
-//        [webView makeTextLarger:self];
-//    }
-//    else
-//    {
-//        [webView makeTextSmaller:self];
-//    }
+//    NSLog([aceView fontSize]);
+    //    [[NSUserDefaults standardUserDefaults] setObject:@([aceView fontSize])
+//                                              forKey:@"EditorFontSize"];
 }
 
 - (IBAction)makeTextLarger:(id)sender {
@@ -157,71 +165,68 @@
 
 - (void)textDidChange:(NSNotification *)aNotification
 {
-//	NSString *refreshText = [refreshTypePopupButton titleOfSelectedItem];
-//	
-//	// use delayed timer
-//	if ([refreshText isEqualToString:@"Delayed"])
-//	{
-//		if (refreshTimer != nil)
-//		{
-//			[refreshTimer invalidate];
-//			refreshTimer = nil;
-//		}
-//		refreshTimer = [NSTimer scheduledTimerWithTimeInterval:0.5
-//                                                        target:self
-//                                                      selector:@selector(updatePreview)
-//                                                      userInfo:nil
-//                                                       repeats:NO];
-//		
-//	}
-//	// or else do it for every change
-//	else if ([refreshText isEqualToString:@"Live"])
-//	{
-//		[self refresh:self];
-//	}
+	NSString *refreshText = [refreshTypePopupButton titleOfSelectedItem];
+	
+	// use delayed timer
+	if ([refreshText isEqualToString:@"Delayed"])
+	{
+		if (refreshTimer != nil)
+		{
+			[refreshTimer invalidate];
+			refreshTimer = nil;
+		}
+		refreshTimer = [NSTimer scheduledTimerWithTimeInterval:0.25
+                                                        target:self
+                                                      selector:@selector(updatePreview)
+                                                      userInfo:nil
+                                                       repeats:NO];
+		
+	}
+	// or else do it for every change
+	else if ([refreshText isEqualToString:@"Live"])
+	{
+		[self refresh:self];
+	}
 }
 
-- (void)refreshWebView
-{
+- (void)refreshWebView {
 	// write man text to tmp document
-//    NSError *err;
-//	BOOL success = [[textView string] writeToFile:kManTextTempPath
-//                                       atomically:YES
-//                                         encoding:NSUTF8StringEncoding
-//                                            error:&err];
-//    if (!success)
-//    {
-//        NSLog(@"Failed to write to path \"%@\": %@", kManTextTempPath, [err localizedDescription]);
-//        return;
-//    }
-//
-//	// generate command string to create html from man text using nroff and cat2html
-//	NSString *cmdString = [NSString stringWithFormat:@"/usr/bin/nroff -mandoc \"%@\" | \"%@\" > \"%@\"",
-//                           kManTextTempPath,
-//                           [[NSBundle mainBundle] pathForResource:@"cat2html" ofType:nil],
-//                           kManHTMLTempPath];
-//	
-//	// run the command
-//	system([cmdString cStringUsingEncoding:NSUTF8StringEncoding]);
-//	
-//	// get the current scroll position of the document view of the web view
-//	NSScrollView *theScrollView = [[[[webView mainFrame] frameView] documentView] enclosingScrollView];
-//	NSRect scrollViewBounds = [[theScrollView contentView] bounds];
-//	currentScrollPosition = scrollViewBounds.origin;
-//
-//	// tell the web view to load the generated, local html file
-//	[[webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:@"/tmp/ManDrakeTemp.html"]]];
+    NSError *err;
+	BOOL success = [[aceView string] writeToFile:kManTextTempPath
+                                       atomically:YES
+                                         encoding:NSUTF8StringEncoding
+                                            error:&err];
+    if (!success)
+    {
+        NSLog(@"Failed to write to path \"%@\": %@", kManTextTempPath, [err localizedDescription]);
+        return;
+    }
+
+	// generate command string to create html from man text using nroff and cat2html
+	NSString *cmdString = [NSString stringWithFormat:@"/usr/bin/nroff -mandoc \"%@\" | \"%@\" > \"%@\"",
+                           kManTextTempPath,
+                           [[NSBundle mainBundle] pathForResource:@"cat2html" ofType:nil],
+                           kManHTMLTempPath];
+	
+	// run the command
+	system([cmdString cStringUsingEncoding:NSUTF8StringEncoding]);
+	
+	// get the current scroll position of the document view of the web view
+	NSScrollView *theScrollView = [[[[webView mainFrame] frameView] documentView] enclosingScrollView];
+	NSRect scrollViewBounds = [[theScrollView contentView] bounds];
+	currentScrollPosition = scrollViewBounds.origin;
+
+	// tell the web view to load the generated, local html file
+	[[webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:@"/tmp/ManDrakeTemp.html"]]];
 }
 
-// delegate method we receive when it's done loading the html file. 
-- (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame
-{
+// delegate method we receive when done loading the html file.
+- (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame {
 	// restore the scroll position
 	[[[[webView mainFrame] frameView] documentView] scrollPoint:currentScrollPosition];
 }
 
-- (void)updatePreview
-{
+- (void)updatePreview {
 	[self refresh:self];
 	[refreshTimer invalidate];
 	refreshTimer = nil;

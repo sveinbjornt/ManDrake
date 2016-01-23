@@ -25,4 +25,8 @@
     [self performSelector:@selector(executeScriptWhenLoaded:) withObject:js];
 }
 
+- (NSString *)fontSize {
+    return [self stringByEvaluatingJavaScriptFromString:@"editor.fontSize();"];
+}
+
 @end

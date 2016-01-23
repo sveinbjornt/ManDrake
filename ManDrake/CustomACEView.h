@@ -10,7 +10,9 @@
 
 @interface CustomACEView : ACEView
 
+- (NSString *)stringByEvaluatingJavaScriptFromString:(NSString *)script;
 - (void)setModeByNameString:(NSString *)nameString;
 - (void)setAnnotations:(NSArray *)annotations;
+- (NSString *)fontSize;
 
 @end
