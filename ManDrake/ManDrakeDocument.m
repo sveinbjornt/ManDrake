@@ -183,8 +183,7 @@ originalContentsURL:(NSURL *)originalContentsURL
 	[refreshProgressIndicator stopAnimation:self];
 }
 
-- (void)textDidChange:(NSNotification *)aNotification
-{
+- (void)textDidChange:(NSNotification *)aNotification {
     NSString *refreshText = [refreshTypePopupButton titleOfSelectedItem];
 
     if ([refreshText isEqualToString:@"Manually"]) {
@@ -206,19 +205,11 @@ originalContentsURL:(NSURL *)originalContentsURL
 }
 
 - (void)refreshWebView {
-	// write man text to tmp document
-//    NSError *err;
-//	BOOL success = [[aceView string] writeToFile:kManTextTempPath
-//                                       atomically:YES
-//                                         encoding:NSUTF8StringEncoding
-//                                            error:&err];
-//    if (!success)
-//    {
-//        NSLog(@"Failed to write to path \"%@\": %@", kManTextTempPath, [err localizedDescription]);
-//        return;
-//    }
     NSString *manText = [aceView string];
-    manText = [manText length] ? manText : @" ";
+    if (manText == nil || [manText length] == 0) {
+        [[webView mainFrame] loadHTMLString:@"" baseURL:nil];
+        return;
+    }
     
     // Create nroff task
     NSTask *nroffTask = [[NSTask alloc] init];
@@ -246,12 +237,14 @@ originalContentsURL:(NSURL *)originalContentsURL
     [nroffTask launch];
     [catTask launch];
     
+    // Write string to nroff's stdin
     [nroffWriteHandle writeData:[manText dataUsingEncoding:NSUTF8StringEncoding]];
     [nroffWriteHandle closeFile];
     
     [nroffTask waitUntilExit];
     [catTask waitUntilExit];
 
+    // Read output from cat2html's stdout
     NSMutableString *htmlString = [[NSMutableString alloc] initWithData:[catReadHandle readDataToEndOfFile]
                                                                encoding:NSUTF8StringEncoding];
     if ([htmlString length] == 0 || htmlString == nil) {
@@ -340,12 +333,14 @@ originalContentsURL:(NSURL *)originalContentsURL
         
         NSArray *components = [line componentsSeparatedByString:[NSString stringWithFormat:@"%@:", tmpFilePath]];
         if ([components count] < 2) {
+            NSLog(@"Unable to parse output line: \"%@\"", line);
             continue;
         }
         
         NSString *warnString = components[1];
         NSArray *warnComponents = [warnString componentsSeparatedByString:@":"];
         if ([warnComponents count] < 2) {
+            NSLog(@"Unable to parse output line: \"%@\"", line);
             continue;
         }
         
@@ -366,7 +361,7 @@ originalContentsURL:(NSURL *)originalContentsURL
 #pragma mark - Load templates
 
 - (IBAction)loadManMdocTemplate:(id)sender {
-    NSString *str = [NSString stringWithContentsOfFile:@"/usr/share/misc/mdoc.template"
+    NSString *str = [NSString stringWithContentsOfFile:kMdocTemplatePath
                                               encoding:NSUTF8StringEncoding
                                                  error:nil];
     [aceView setString:str];

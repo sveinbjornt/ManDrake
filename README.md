@@ -39,3 +39,9 @@ After cloning the repository, run the following commands inside the repository r
     pod install
 
 This installs all the dependencies required.
+
+## Captain Mandrake
+
+Here's Group Captain Lionel Mandrake from Kubrick's wonderful [*Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb*](http://www.imdb.com/title/tt0057012/):
+
+https://raw.githubusercontent.com/sveinbjornt/ManDrake/aceview/ManDrake/Resources/dr_strangelove_mandrake.jpg
