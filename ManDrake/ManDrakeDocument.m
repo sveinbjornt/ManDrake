@@ -59,6 +59,9 @@
 - (IBAction)makePreviewTextLarger:(id)sender;
 - (IBAction)makePreviewTextSmaller:(id)sender;
 
+- (IBAction)loadManMdocTemplate:(id)sender;
+- (IBAction)loadDefaultManTemplate:(id)sender;
+
 @end
 
 @implementation ManDrakeDocument
@@ -92,10 +95,8 @@
     [aceView setTheme:ACEThemeXcode];
     [aceView setShowInvisibles:YES];
     
-    NSString *defaultManPath = [[NSBundle mainBundle] pathForResource:@"default.man" ofType:nil];
-    NSString *defaultString = [NSString stringWithContentsOfFile:defaultManPath encoding:NSUTF8StringEncoding error:nil];
-    [aceView setString:defaultString];
-        
+    [self loadDefaultManTemplate:self];
+    
 //    [refreshTypePopupButton selectItemWithTitle:[[NSUserDefaults standardUserDefaults] objectForKey:@"Refresh"]];
 	
 	// Register for "text changed" notifications of the text storage:
@@ -295,6 +296,23 @@
     }
     
     return annotations;
+}
+
+#pragma mark - Load templates
+
+- (IBAction)loadManMdocTemplate:(id)sender {
+    NSString *str = [NSString stringWithContentsOfFile:@"/usr/share/misc/mdoc.template"
+                                              encoding:NSUTF8StringEncoding
+                                                 error:nil];
+    [aceView setString:str];
+}
+
+- (IBAction)loadDefaultManTemplate:(id)sender {
+    NSString *defaultManPath = [[NSBundle mainBundle] pathForResource:@"default.man" ofType:nil];
+    NSString *str = [NSString stringWithContentsOfFile:defaultManPath
+                                              encoding:NSUTF8StringEncoding
+                                                 error:nil];
+    [aceView setString:str];
 }
 
 @end

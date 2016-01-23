@@ -116,6 +116,26 @@
                             <menuItem isSeparatorItem="YES" id="74">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
+                            <menuItem title="Load mdoc template" id="2cO-xk-YKu">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="loadManMdocTemplate:" target="-1" id="mvt-YF-OiL"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Load default template" id="8Ac-oW-eq8">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="loadDefaultManTemplate:" target="-1" id="vkM-mu-EQQ"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Check syntax" keyEquivalent="X" id="rFy-TZ-FxP">
+                                <connections>
+                                    <action selector="checkSyntaxButtonPressed:" target="-1" id="F1x-Hh-3pw"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="xo2-By-AYD">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
                             <menuItem title="Page Setup..." keyEquivalent="P" id="77">
                                 <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
                                 <connections>
