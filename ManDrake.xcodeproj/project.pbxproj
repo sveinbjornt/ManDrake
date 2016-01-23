@@ -16,6 +16,7 @@
 		F45AFBE21C53D53300953D8F /* License.html in Resources */ = {isa = PBXBuildFile; fileRef = F45AFBE01C53D53300953D8F /* License.html */; };
 		F45AFBE31C53D53300953D8F /* Readme.html in Resources */ = {isa = PBXBuildFile; fileRef = F45AFBE11C53D53300953D8F /* Readme.html */; };
 		F45AFBF81C53DBAC00953D8F /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = F45AFBF71C53DBAC00953D8F /* Credits.html */; };
+		F45AFBFA1C53E41000953D8F /* dr_strangelove_mandrake.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F45AFBF91C53DC2500953D8F /* dr_strangelove_mandrake.jpg */; };
 		F487F4AC141EADEF0093D633 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F487F4AB141EADEF0093D633 /* Cocoa.framework */; };
 		F487F4B8141EADEF0093D633 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F487F4B7141EADEF0093D633 /* main.m */; };
 		F487F4BF141EADEF0093D633 /* ManDrakeDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = F487F4BE141EADEF0093D633 /* ManDrakeDocument.m */; };
@@ -24,7 +25,6 @@
 		F487F4DA141EAE910093D633 /* cat2html in Resources */ = {isa = PBXBuildFile; fileRef = F487F4D4141EAE910093D633 /* cat2html */; };
 		F487F506141EAF8A0093D633 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F487F505141EAF8A0093D633 /* WebKit.framework */; };
 		F487F535141EB2560093D633 /* ManDrakeApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F487F534141EB2560093D633 /* ManDrakeApplicationDelegate.m */; };
-		F487F544141EDE590093D633 /* ManDocument.icns in Resources */ = {isa = PBXBuildFile; fileRef = F487F543141EDE590093D633 /* ManDocument.icns */; };
 		F4FD5CA91C4D757E00C8D155 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4FD5CA81C4D757E00C8D155 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -41,10 +41,11 @@
 		F45AFBDA1C53B9C000953D8F /* NSWorkspace+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSWorkspace+Additions.h"; sourceTree = "<group>"; };
 		F45AFBDB1C53B9C000953D8F /* NSWorkspace+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSWorkspace+Additions.m"; sourceTree = "<group>"; };
 		F45AFBDD1C53BA9200953D8F /* mandoc */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = mandoc; path = Resources/mandoc; sourceTree = "<group>"; };
-		F45AFBE01C53D53300953D8F /* License.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = License.html; path = Resources/License.html; sourceTree = "<group>"; };
-		F45AFBE11C53D53300953D8F /* Readme.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = Readme.html; path = Resources/Readme.html; sourceTree = "<group>"; };
-		F45AFBF71C53DBAC00953D8F /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = Credits.html; path = Resources/Credits.html; sourceTree = "<group>"; };
+		F45AFBE01C53D53300953D8F /* License.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = License.html; path = ManDrake/Resources/License.html; sourceTree = "<group>"; };
+		F45AFBE11C53D53300953D8F /* Readme.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = Readme.html; path = ManDrake/Resources/Readme.html; sourceTree = "<group>"; };
+		F45AFBF71C53DBAC00953D8F /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = Credits.html; path = ManDrake/Resources/Credits.html; sourceTree = "<group>"; };
 		F45AFBF91C53DC2500953D8F /* dr_strangelove_mandrake.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = dr_strangelove_mandrake.jpg; path = Resources/dr_strangelove_mandrake.jpg; sourceTree = "<group>"; };
+		F45AFBFB1C53FBD500953D8F /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		F487F4A7141EADEF0093D633 /* ManDrake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ManDrake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F487F4AB141EADEF0093D633 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		F487F4AE141EADEF0093D633 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -65,7 +66,6 @@
 		F487F53B141EDD560093D633 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		F487F53C141EDD560093D633 /* Makefile.postamble */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.postamble; sourceTree = "<group>"; };
 		F487F53D141EDD560093D633 /* Makefile.preamble */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.preamble; sourceTree = "<group>"; };
-		F487F543141EDE590093D633 /* ManDocument.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = ManDocument.icns; path = Resources/ManDocument.icns; sourceTree = "<group>"; };
 		F4FD5CA11C4D74F900C8D155 /* make_icons.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = make_icons.sh; sourceTree = "<group>"; };
 		F4FD5CA21C4D74F900C8D155 /* ManDrakeAppIcon.ai */ = {isa = PBXFileReference; lastKnownFileType = text; path = ManDrakeAppIcon.ai; sourceTree = "<group>"; };
 		F4FD5CA41C4D74F900C8D155 /* ManDrakeAppIcon1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ManDrakeAppIcon1024.png; sourceTree = "<group>"; };
@@ -89,6 +89,9 @@
 		F42AA7DC1C4EC624007E0ACE /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
+				F45AFBE01C53D53300953D8F /* License.html */,
+				F45AFBE11C53D53300953D8F /* Readme.html */,
+				F45AFBF71C53DBAC00953D8F /* Credits.html */,
 				F42AA7DA1C4EC5D0007E0ACE /* README.md */,
 				F42AA7DB1C4EC61F007E0ACE /* mandrake.png */,
 			);
@@ -132,6 +135,7 @@
 			children = (
 				F487F4B7141EADEF0093D633 /* main.m */,
 				F487F4B9141EADEF0093D633 /* ManDrake-Prefix.pch */,
+				F45AFBFB1C53FBD500953D8F /* Common.h */,
 				F487F533141EB2560093D633 /* ManDrakeApplicationDelegate.h */,
 				F487F534141EB2560093D633 /* ManDrakeApplicationDelegate.m */,
 				F487F4BD141EADEF0093D633 /* ManDrakeDocument.h */,
@@ -152,16 +156,12 @@
 				F4FD5CA01C4D74F900C8D155 /* Icons */,
 				F487F4D0141EAE730093D633 /* MainMenu.xib */,
 				F487F4D1141EAE730093D633 /* ManDrakeDocument.xib */,
-				F487F4B3141EADEF0093D633 /* ManDrake-Info.plist */,
-				F487F543141EDE590093D633 /* ManDocument.icns */,
 				F45AFBF91C53DC2500953D8F /* dr_strangelove_mandrake.jpg */,
+				F487F4B3141EADEF0093D633 /* ManDrake-Info.plist */,
 				F45AFBD81C52D04A00953D8F /* default.man */,
 				F487F4D4141EAE910093D633 /* cat2html */,
 				F45AFBDD1C53BA9200953D8F /* mandoc */,
 				F45AFBD31C5193A900953D8F /* mode-groff.js */,
-				F45AFBE01C53D53300953D8F /* License.html */,
-				F45AFBE11C53D53300953D8F /* Readme.html */,
-				F45AFBF71C53DBAC00953D8F /* Credits.html */,
 			);
 			name = Resources;
 			path = ManDrake;
@@ -258,10 +258,10 @@
 				F487F4D3141EAE730093D633 /* ManDrakeDocument.xib in Resources */,
 				F487F4DA141EAE910093D633 /* cat2html in Resources */,
 				F45AFBDE1C53BA9200953D8F /* mandoc in Resources */,
+				F45AFBFA1C53E41000953D8F /* dr_strangelove_mandrake.jpg in Resources */,
 				F45AFBE31C53D53300953D8F /* Readme.html in Resources */,
 				F45AFBD41C5193A900953D8F /* mode-groff.js in Resources */,
 				F4FD5CA91C4D757E00C8D155 /* Images.xcassets in Resources */,
-				F487F544141EDE590093D633 /* ManDocument.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
