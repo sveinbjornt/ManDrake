@@ -1,0 +1,30 @@
+For next version:
+
+    * ?
+
+23/01/2016 - Version 3.0
+
+    * Overhauled user interface
+    * New, powerful, customizable ace text editor
+    * Better groff syntax highlighting
+    * Faster preview generation
+    * Updated documentation
+    * Sparkle update mechanism
+    * Automatic mdoc syntax checking with inline warnings in editor
+    * New application and document icons
+    * Code is now BSD licensed
+    * Better man templates
+
+16/09/2011 - Version 2.1
+
+    * Updated user interface
+
+28/07/2010 - Version 1.2
+
+    * Web preview field now retains scroll position.
+
+30/07/2008 - Version 1.1
+
+    * Optimized live preview by using cat2html and WebKit instead of PDF rendering
+
+11/06/2004 - Version 1.0

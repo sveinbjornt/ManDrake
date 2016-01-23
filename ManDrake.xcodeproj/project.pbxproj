@@ -37,6 +37,7 @@
 		F43557E01C543258009080DC /* mandrake_captain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mandrake_captain.jpg; sourceTree = "<group>"; };
 		F43557E11C543258009080DC /* mandrake_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mandrake_icon.png; sourceTree = "<group>"; };
 		F43557E21C543258009080DC /* mandrake_screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mandrake_screenshot.png; sourceTree = "<group>"; };
+		F43557E31C54345B009080DC /* CHANGES.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CHANGES.txt; sourceTree = SOURCE_ROOT; };
 		F45AFBD31C5193A900953D8F /* mode-groff.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "mode-groff.js"; path = "Resources/mode-groff.js"; sourceTree = "<group>"; };
 		F45AFBD51C51950600953D8F /* CustomACEView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomACEView.h; sourceTree = "<group>"; };
 		F45AFBD61C51950600953D8F /* CustomACEView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomACEView.m; sourceTree = "<group>"; };
@@ -91,6 +92,7 @@
 		F42AA7DC1C4EC624007E0ACE /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
+				F43557E31C54345B009080DC /* CHANGES.txt */,
 				F43557DF1C543258009080DC /* images */,
 				F45AFBE01C53D53300953D8F /* License.html */,
 				F45AFBF71C53DBAC00953D8F /* Credits.html */,
