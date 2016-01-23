@@ -5,7 +5,7 @@ var oop = require("../lib/oop");
 var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
 
 var groffHighlightRules = function() {
-
+       // Li, Ns, Fl, Op, Oo, Oc, Ar, Aq,
     this.$rules = {
         start: [{
             token: "comment.macro.text.groff",

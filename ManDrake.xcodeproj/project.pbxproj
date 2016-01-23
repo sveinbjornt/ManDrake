@@ -10,6 +10,9 @@
 		2092A52F7C61A1257CBC66A6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 954C136C20B1E1695A2CD08D /* libPods.a */; };
 		F45AFBD41C5193A900953D8F /* mode-groff.js in Resources */ = {isa = PBXBuildFile; fileRef = F45AFBD31C5193A900953D8F /* mode-groff.js */; };
 		F45AFBD71C51950600953D8F /* CustomACEView.m in Sources */ = {isa = PBXBuildFile; fileRef = F45AFBD61C51950600953D8F /* CustomACEView.m */; };
+		F45AFBD91C52D04A00953D8F /* default.man in Resources */ = {isa = PBXBuildFile; fileRef = F45AFBD81C52D04A00953D8F /* default.man */; };
+		F45AFBDC1C53B9C000953D8F /* NSWorkspace+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = F45AFBDB1C53B9C000953D8F /* NSWorkspace+Additions.m */; };
+		F45AFBDE1C53BA9200953D8F /* mandoc in Resources */ = {isa = PBXBuildFile; fileRef = F45AFBDD1C53BA9200953D8F /* mandoc */; };
 		F487F4AC141EADEF0093D633 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F487F4AB141EADEF0093D633 /* Cocoa.framework */; };
 		F487F4B8141EADEF0093D633 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F487F4B7141EADEF0093D633 /* main.m */; };
 		F487F4BF141EADEF0093D633 /* ManDrakeDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = F487F4BE141EADEF0093D633 /* ManDrakeDocument.m */; };
@@ -17,9 +20,6 @@
 		F487F4D3141EAE730093D633 /* ManDrakeDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = F487F4D1141EAE730093D633 /* ManDrakeDocument.xib */; };
 		F487F4DA141EAE910093D633 /* cat2html in Resources */ = {isa = PBXBuildFile; fileRef = F487F4D4141EAE910093D633 /* cat2html */; };
 		F487F4DB141EAE910093D633 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = F487F4D5141EAE910093D633 /* Credits.rtf */; };
-		F487F4DC141EAE910093D633 /* Man.plist in Resources */ = {isa = PBXBuildFile; fileRef = F487F4D7141EAE910093D633 /* Man.plist */; };
-		F487F4DD141EAE910093D633 /* SyntaxColorDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = F487F4D8141EAE910093D633 /* SyntaxColorDefaults.plist */; };
-		F487F4DE141EAE910093D633 /* SyntaxDefinition.plist in Resources */ = {isa = PBXBuildFile; fileRef = F487F4D9141EAE910093D633 /* SyntaxDefinition.plist */; };
 		F487F506141EAF8A0093D633 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F487F505141EAF8A0093D633 /* WebKit.framework */; };
 		F487F535141EB2560093D633 /* ManDrakeApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F487F534141EB2560093D633 /* ManDrakeApplicationDelegate.m */; };
 		F487F544141EDE590093D633 /* ManDocument.icns in Resources */ = {isa = PBXBuildFile; fileRef = F487F543141EDE590093D633 /* ManDocument.icns */; };
@@ -35,6 +35,10 @@
 		F45AFBD31C5193A900953D8F /* mode-groff.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "mode-groff.js"; path = "Resources/mode-groff.js"; sourceTree = "<group>"; };
 		F45AFBD51C51950600953D8F /* CustomACEView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomACEView.h; sourceTree = "<group>"; };
 		F45AFBD61C51950600953D8F /* CustomACEView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomACEView.m; sourceTree = "<group>"; };
+		F45AFBD81C52D04A00953D8F /* default.man */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = default.man; path = Resources/default.man; sourceTree = "<group>"; };
+		F45AFBDA1C53B9C000953D8F /* NSWorkspace+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSWorkspace+Additions.h"; sourceTree = "<group>"; };
+		F45AFBDB1C53B9C000953D8F /* NSWorkspace+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSWorkspace+Additions.m"; sourceTree = "<group>"; };
+		F45AFBDD1C53BA9200953D8F /* mandoc */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = mandoc; path = Resources/mandoc; sourceTree = "<group>"; };
 		F487F4A7141EADEF0093D633 /* ManDrake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ManDrake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F487F4AB141EADEF0093D633 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		F487F4AE141EADEF0093D633 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -48,9 +52,6 @@
 		F487F4D1141EAE730093D633 /* ManDrakeDocument.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ManDrakeDocument.xib; path = Resources/ManDrakeDocument.xib; sourceTree = "<group>"; };
 		F487F4D4141EAE910093D633 /* cat2html */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = cat2html; path = Resources/cat2html; sourceTree = "<group>"; };
 		F487F4D5141EAE910093D633 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; name = Credits.rtf; path = Resources/Credits.rtf; sourceTree = "<group>"; };
-		F487F4D7141EAE910093D633 /* Man.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Man.plist; sourceTree = "<group>"; };
-		F487F4D8141EAE910093D633 /* SyntaxColorDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = SyntaxColorDefaults.plist; path = Resources/SyntaxColorDefaults.plist; sourceTree = "<group>"; };
-		F487F4D9141EAE910093D633 /* SyntaxDefinition.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = SyntaxDefinition.plist; path = Resources/SyntaxDefinition.plist; sourceTree = "<group>"; };
 		F487F505141EAF8A0093D633 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = /System/Library/Frameworks/WebKit.framework; sourceTree = "<absolute>"; };
 		F487F533141EB2560093D633 /* ManDrakeApplicationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManDrakeApplicationDelegate.h; sourceTree = "<group>"; };
 		F487F534141EB2560093D633 /* ManDrakeApplicationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManDrakeApplicationDelegate.m; sourceTree = "<group>"; };
@@ -132,8 +133,9 @@
 				F487F4BE141EADEF0093D633 /* ManDrakeDocument.m */,
 				F45AFBD51C51950600953D8F /* CustomACEView.h */,
 				F45AFBD61C51950600953D8F /* CustomACEView.m */,
+				F45AFBDA1C53B9C000953D8F /* NSWorkspace+Additions.h */,
+				F45AFBDB1C53B9C000953D8F /* NSWorkspace+Additions.m */,
 				F487F538141EDD560093D633 /* cat2html */,
-				F4FD5CA81C4D757E00C8D155 /* Images.xcassets */,
 			);
 			path = ManDrake;
 			sourceTree = "<group>";
@@ -141,29 +143,20 @@
 		F487F4B2141EADEF0093D633 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F4FD5CA81C4D757E00C8D155 /* Images.xcassets */,
 				F4FD5CA01C4D74F900C8D155 /* Icons */,
 				F487F4D0141EAE730093D633 /* MainMenu.xib */,
 				F487F4D1141EAE730093D633 /* ManDrakeDocument.xib */,
 				F487F4B3141EADEF0093D633 /* ManDrake-Info.plist */,
 				F487F543141EDE590093D633 /* ManDocument.icns */,
+				F45AFBD81C52D04A00953D8F /* default.man */,
 				F487F4D4141EAE910093D633 /* cat2html */,
+				F45AFBDD1C53BA9200953D8F /* mandoc */,
 				F45AFBD31C5193A900953D8F /* mode-groff.js */,
 				F487F4D5141EAE910093D633 /* Credits.rtf */,
-				F487F4D6141EAE910093D633 /* Syntax Definitions */,
-				F487F4D8141EAE910093D633 /* SyntaxColorDefaults.plist */,
-				F487F4D9141EAE910093D633 /* SyntaxDefinition.plist */,
 			);
 			name = Resources;
 			path = ManDrake;
-			sourceTree = "<group>";
-		};
-		F487F4D6141EAE910093D633 /* Syntax Definitions */ = {
-			isa = PBXGroup;
-			children = (
-				F487F4D7141EAE910093D633 /* Man.plist */,
-			);
-			name = "Syntax Definitions";
-			path = "Resources/Syntax Definitions";
 			sourceTree = "<group>";
 		};
 		F487F538141EDD560093D633 /* cat2html */ = {
@@ -250,15 +243,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F45AFBD91C52D04A00953D8F /* default.man in Resources */,
 				F487F4D2141EAE730093D633 /* MainMenu.xib in Resources */,
 				F487F4D3141EAE730093D633 /* ManDrakeDocument.xib in Resources */,
 				F487F4DA141EAE910093D633 /* cat2html in Resources */,
+				F45AFBDE1C53BA9200953D8F /* mandoc in Resources */,
 				F487F4DB141EAE910093D633 /* Credits.rtf in Resources */,
 				F45AFBD41C5193A900953D8F /* mode-groff.js in Resources */,
-				F487F4DC141EAE910093D633 /* Man.plist in Resources */,
-				F487F4DD141EAE910093D633 /* SyntaxColorDefaults.plist in Resources */,
 				F4FD5CA91C4D757E00C8D155 /* Images.xcassets in Resources */,
-				F487F4DE141EAE910093D633 /* SyntaxDefinition.plist in Resources */,
 				F487F544141EDE590093D633 /* ManDocument.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -319,6 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F487F4B8141EADEF0093D633 /* main.m in Sources */,
+				F45AFBDC1C53B9C000953D8F /* NSWorkspace+Additions.m in Sources */,
 				F45AFBD71C51950600953D8F /* CustomACEView.m in Sources */,
 				F487F4BF141EADEF0093D633 /* ManDrakeDocument.m in Sources */,
 				F487F535141EB2560093D633 /* ManDrakeApplicationDelegate.m in Sources */,
@@ -339,14 +332,14 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
+				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -406,6 +399,7 @@
 				INFOPLIST_FILE = "ManDrake/ManDrake-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 				USER_HEADER_SEARCH_PATHS = ManDrake/External/UliKit/;
 				WRAPPER_EXTENSION = app;
 			};
@@ -423,6 +417,7 @@
 				INFOPLIST_FILE = "ManDrake/ManDrake-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 				USER_HEADER_SEARCH_PATHS = ManDrake/External/UliKit/;
 				WRAPPER_EXTENSION = app;
 			};

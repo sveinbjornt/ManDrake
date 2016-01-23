@@ -329,22 +329,26 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Options" id="570">
                         <items>
-                            <menuItem title="Recolor File" id="583">
+                            <menuItem title="Make Text Larger" keyEquivalent="+" id="662">
                                 <connections>
-                                    <action selector="recolorCompleteFile:" target="-1" id="588"/>
+                                    <action selector="makeTextLarger:" target="-1" id="664"/>
                                 </connections>
-                            </menuItem>
-                            <menuItem isSeparatorItem="YES" id="660">
-                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
                             <menuItem title="Make Text Smaller" keyEquivalent="-" id="661">
                                 <connections>
                                     <action selector="makeTextSmaller:" target="-1" id="663"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Make Text Larger" keyEquivalent="+" id="662">
+                            <menuItem title="Make Preview Text Larger" keyEquivalent="+" id="xeL-vT-cEA">
+                                <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
                                 <connections>
-                                    <action selector="makeTextLarger:" target="-1" id="664"/>
+                                    <action selector="makeTextLarger:" target="-1" id="u0z-Cs-Ex1"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Make Preview Text Smaller" keyEquivalent="-" id="Qb5-pW-1sU">
+                                <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
+                                <connections>
+                                    <action selector="makeTextLarger:" target="-1" id="GH5-Bs-hXZ"/>
                                 </connections>
                             </menuItem>
                         </items>
@@ -370,6 +374,24 @@
                             <menuItem title="Bring All to Front" id="5">
                                 <connections>
                                     <action selector="arrangeInFront:" target="-1" id="39"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Help" id="eOw-Fr-w54">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Help" systemMenu="help" id="2qH-QK-0lT">
+                        <items>
+                            <menuItem title="ManDrake Readme" keyEquivalent="?" id="qcX-Vi-gZK">
+                                <connections>
+                                    <action selector="showReadme:" target="652" id="Ua5-DW-cHj"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="ManDrake License" id="qVa-WR-Qzj">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="showLicense:" target="652" id="fPV-iK-8dv"/>
                                 </connections>
                             </menuItem>
                         </items>

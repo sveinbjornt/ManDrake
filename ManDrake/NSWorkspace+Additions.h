@@ -28,32 +28,22 @@
     POSSIBILITY OF SUCH DAMAGE.
 */
 
-#import "ManDrakeApplicationDelegate.h"
-#import "NSWorkspace+Additions.h"
+#import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
 
-@interface ManDrakeApplicationDelegate()
+@interface NSWorkspace (Additions)
 
-- (IBAction)showReadme:(id)sender;
-- (IBAction)showLicense:(id)sender;
-
-@end
-
-@implementation ManDrakeApplicationDelegate
-
-+ (void)initialize
-{
-    // create and register the user defaults
-    NSMutableDictionary *defaultPrefs = [NSMutableDictionary dictionary];
-	defaultPrefs[@"Refresh"] = @"Delayed";
-    [[NSUserDefaults standardUserDefaults] registerDefaults:defaultPrefs];
-}
-
-- (IBAction)showReadme:(id)sender {
-    
-}
-
-- (IBAction)showLicense:(id)sender {
-    
-}
+- (unsigned long long)nrCalculateFolderSize:(NSString *)folderPath;
+- (UInt64)fileOrFolderSize:(NSString *)path;
+- (NSString *)fileSizeAsHumanReadableString:(UInt64)size;
+- (NSString *)fileOrFolderSizeAsHumanReadable:(NSString *)path;
+- (NSString *)createTempFileNamed:(NSString *)fileName withContents:(NSString *)contentStr usingTextEncoding:(NSStringEncoding)textEncoding;
+- (NSString *)createTempFileNamed:(NSString *)fileName withContents:(NSString *)contentStr;
+- (NSString *)createTempFileWithContents:(NSString *)contentStr;
+- (NSString *)createTempFileWithContents:(NSString *)contentStr usingTextEncoding:(NSStringEncoding)textEncoding;
+- (void)notifyFinderFileChangedAtPath:(NSString *)path;
+- (void)flushServices;
+- (BOOL)openPathInDefaultBrowser:(NSString *)path;
+- (BOOL)runCommandInTerminal:(NSString *)cmd;
 
 @end

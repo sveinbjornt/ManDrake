@@ -1,22 +1,31 @@
 /*
- 
- ManDrake - Native open-source Mac OS X man page editor 
- Copyright (C) 2011 Sveinbjorn Thordarson <sveinbjornt@gmail.com>
- 
- This program is free software; you can redistribute it and/or modify
- it under the terms of the GNU General Public License as published by
- the Free Software Foundation; either version 2 of the License, or
- (at your option) any later version.
- 
- This program is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- GNU General Public License for more details.
- 
- You should have received a copy of the GNU General Public License
- along with this program; if not, write to the Free Software
- Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
- 
+    ManDrake - Native open-source Mac OS X man page editor
+    Copyright (c) 2006-2015, Sveinbjorn Thordarson <sveinbjornt@gmail.com>
+
+    Redistribution and use in source and binary forms, with or without modification,
+    are permitted provided that the following conditions are met:
+
+    1. Redistributions of source code must retain the above copyright notice, this
+    list of conditions and the following disclaimer.
+
+    2. Redistributions in binary form must reproduce the above copyright notice, this
+    list of conditions and the following disclaimer in the documentation and/or other
+    materials provided with the distribution.
+
+    3. Neither the name of the copyright holder nor the names of its contributors may
+    be used to endorse or promote products derived from this software without specific
+    prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+    ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+    WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+    IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+    INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+    NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+    PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+    WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+    ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+    POSSIBILITY OF SUCH DAMAGE.
 */
 
 #import <WebKit/WebKit.h>
@@ -24,6 +33,7 @@
 
 #import "ManDrakeDocument.h"
 #import "CustomACEView.h"
+#import "NSWorkspace+Additions.h"
 
 #define kManTextTempPath @"/tmp/ManDrakeTemp.manText"
 #define kManHTMLTempPath @"/tmp/ManDrakeTemp.html"
@@ -35,19 +45,18 @@
     IBOutlet WebView *webView;
     IBOutlet NSPopUpButton *refreshTypePopupButton;
     IBOutlet NSProgressIndicator *refreshProgressIndicator;
-    IBOutlet NSScrollView *scrollView;
-    IBOutlet NSWindow *syntaxCheckerWindow;
-    IBOutlet NSTextField *syntaxCheckResultTextField;
     IBOutlet CustomACEView *aceView;
+    IBOutlet NSTextField *statusTextField;
     
     NSPoint currentScrollPosition;
     NSTimer *refreshTimer;
 }
 
 - (IBAction)refresh:(id)sender;
-- (IBAction)refreshChanged:(id)sender;
 - (IBAction)makeTextLarger:(id)sender;
 - (IBAction)makeTextSmaller:(id)sender;
+- (IBAction)makePreviewTextLarger:(id)sender;
+- (IBAction)makePreviewTextSmaller:(id)sender;
 
 @end
 
@@ -74,8 +83,7 @@
 //    return readSuccess;
 //}
 
-- (void)windowControllerDidLoadNib:(NSWindowController *)aController
-{
+- (void)windowControllerDidLoadNib:(NSWindowController *)aController {
     [super windowControllerDidLoadNib:aController];
     
 //    [aceView setString:[NSString stringWithContentsOfURL:[NSURL URLWithString:@"https://github.com/faceleg/ACEView"] encoding:NSUTF8StringEncoding
@@ -85,8 +93,11 @@
 //    [aceView setMode:ACEModeCPP];
     [aceView setTheme:ACEThemeXcode];
     [aceView setShowInvisibles:YES];
-    [aceView setString:@"void main (void) { \n\treturn 0;\n}"];
-
+    
+    NSString *defaultManPath = [[NSBundle mainBundle] pathForResource:@"default.man" ofType:nil];
+    NSString *defaultString = [NSString stringWithContentsOfFile:defaultManPath encoding:NSUTF8StringEncoding error:nil];
+    [aceView setString:defaultString];
+        
 	// set up line numbering for text view
 //	scrollView = [textView enclosingScrollView];
 //    [scrollView setHasHorizontalRuler:NO];
@@ -111,14 +122,14 @@
 - (void)changeFontSize:(CGFloat)delta {
     
     // web view
-    if (delta > 0)
-    {
-        [webView makeTextLarger:self];
-    }
-    else
-    {
-        [webView makeTextSmaller:self];
-    }
+//    if (delta > 0)
+//    {
+//        [webView makeTextLarger:self];
+//    }
+//    else
+//    {
+//        [webView makeTextSmaller:self];
+//    }
 }
 
 - (IBAction)makeTextLarger:(id)sender {
@@ -129,20 +140,33 @@
     [self changeFontSize:-1];
 }
 
+- (void)changePreviewFontSize:(CGFloat)delta {
+    
+    if (delta > 0)
+    {
+        [webView makeTextLarger:self];
+    }
+    else
+    {
+        [webView makeTextSmaller:self];
+    }
+}
+
+- (IBAction)makePreviewTextLarger:(id)sender {
+    [self changePreviewFontSize:1];
+}
+
+- (IBAction)makePreviewTextSmaller:(id)sender {
+    [self changePreviewFontSize:-1];
+}
+
 #pragma mark - Web Preview
 
-- (IBAction)refresh:(id)sender
-{	
+- (IBAction)refresh:(id)sender {
 	// generate preview
 	[refreshProgressIndicator startAnimation:self];
 	[self refreshWebView];
 	[refreshProgressIndicator stopAnimation:self];
-}
-
-- (IBAction)refreshChanged:(id)sender
-{
-    [[NSUserDefaults standardUserDefaults] setObject:[refreshTypePopupButton titleOfSelectedItem]
-                                              forKey:@"Refresh"];
 }
 
 - (void)textDidChange:(NSNotification *)aNotification
@@ -219,62 +243,69 @@
 
 #pragma mark - Check syntax
 
-- (IBAction)checkSyntaxButtonPressed:(id)sender
-{
-    NSString *syntaxCheckResultString = [self checkSyntax];
-    
-    
+- (IBAction)checkSyntaxButtonPressed:(id)sender {
+    [self updateAnnotations];
 }
 
-- (NSString *)checkSyntax
-{
+- (void)updateAnnotations {
+    [aceView setAnnotations:[self checkSyntax]];
+}
+
+- (NSArray *)checkSyntax {
+    NSString *manString = [aceView string];
+    NSString *tmpFilePath = [[NSWorkspace sharedWorkspace] createTempFileWithContents:manString];
+    
+    // run task "mandoc -T lint [tempFile]"
     NSTask *task = [[NSTask alloc] init];
     [task setLaunchPath:[[NSBundle mainBundle] pathForResource:@"mandoc" ofType:nil]];
-    [task setArguments:@[@"-T", @"lint", [[self fileURL] absoluteString]]];
+    [task setArguments:@[@"-T", @"lint", tmpFilePath]];
     NSPipe *outputPipe = [NSPipe pipe];
     [task setStandardOutput:outputPipe];
     [task setStandardError:outputPipe];
     NSFileHandle *readHandle = [outputPipe fileHandleForReading];
-    
-    //launch task
     [task launch];
     [task waitUntilExit];
+    [[NSFileManager defaultManager] removeItemAtPath:tmpFilePath error:nil];
+
+    // read output into string
+    NSString *outputStr = [[NSString alloc] initWithData:[readHandle readDataToEndOfFile]
+                                                encoding:NSUTF8StringEncoding];
+    if ([outputStr length] == 0 || outputStr == nil) {
+        return @[];
+    }
     
-    //get output in string
-    NSString *outputStr = [[NSString alloc] initWithData:[readHandle readDataToEndOfFile] encoding:NSUTF8StringEncoding];
+    NSArray *lines = [outputStr componentsSeparatedByString:@"\n"];
+    NSMutableArray *annotations = [NSMutableArray array];
     
-    //if the syntax report string is empty --> no complaints, so we report syntax as OK
-    return [outputStr length] ? outputStr : @"Syntax OK";
+    // parse each line of output and create annotation dict
+    for (NSString *line in lines) {
+        if ([line length] == 0) {
+            continue;
+        }
+        
+        NSArray *components = [line componentsSeparatedByString:[NSString stringWithFormat:@"%@:", tmpFilePath]];
+        if ([components count] < 2) {
+            continue;
+        }
+        
+        NSString *warnString = components[1];
+        NSArray *warnComponents = [warnString componentsSeparatedByString:@":"];
+        if ([warnComponents count] < 2) {
+            continue;
+        }
+        
+        NSNumber *row = @([warnComponents[0] intValue] - 1);
+        NSNumber *col = @([warnComponents[1] intValue]);
+        
+        NSDictionary *annotation = @{ @"row": row,
+                                      @"column": col,
+                                      @"text": warnString,
+                                      @"type": @"warning" };
+        
+        [annotations addObject:annotation];
+    }
+    
+    return annotations;
 }
-
-//#pragma mark - UKSyntaxColored stuff
-//
-//- (NSString *)syntaxDefinitionFilename
-//{
-//	return @"Man";
-//}
-//
-//- (NSStringEncoding)stringEncoding
-//{
-//    return NSUTF8StringEncoding;
-//}
-//
-//#pragma mark - UKSyntaxColoredTextViewDelegate methods
-
-//- (NSString *)syntaxDefinitionFilenameForTextViewController:(UKSyntaxColoredTextViewController *)sender
-//{
-//	return @"Man";
-//}
-//
-//- (NSDictionary *)syntaxDefinitionDictionaryForTextViewController:(UKSyntaxColoredTextViewController*)sender
-//{
-//    NSBundle *theBundle = [NSBundle mainBundle];
-//    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:[theBundle pathForResource:@"Man" ofType:@"plist"]];
-//    if (!dict)
-//	{
-//        NSLog(@"Failed to find syntax dictionary");
-//    }
-//    return dict;
-//}
 
 @end

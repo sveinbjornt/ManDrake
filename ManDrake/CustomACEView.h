@@ -11,5 +11,6 @@
 @interface CustomACEView : ACEView
 
 - (void)setModeByNameString:(NSString *)nameString;
+- (void)setAnnotations:(NSArray *)annotations;
 
 @end
