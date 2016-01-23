@@ -1,4 +1,4 @@
-<img align="right" src="https://raw.githubusercontent.com/sveinbjornt/ManDrake/master/mandrake_icon.png" style="float: right; margin-left: 30px;" alt="ManDrake Application Icon">
+<img align="right" src="images/mandrake_icon.png" style="float: right; margin-left: 30px;" alt="ManDrake Application Icon">
 # ManDrake
 
 ManDrake is a native, open source <a href="https://en.wikipedia.org/wiki/Man_page">man page</a> editor for OS X. It has syntax highlighting, `mandoc` syntax validation and shows a live-updating rendered preview of the man page during editing.
@@ -17,7 +17,7 @@ or read [this page](http://www.freebsd.org/cgi/man.cgi?query=mdoc.samples).
 
 ## Screenshot
 
-<img src="https://raw.githubusercontent.com/sveinbjornt/ManDrake/master/mandrake_screenshot.png" style="max-width:100%;" alt="ManDrake Screenshot">
+<img src="images/mandrake_screenshot.png" style="max-width:100%;" alt="ManDrake Screenshot">
 
 ## License
 
@@ -77,4 +77,4 @@ This installs all the dependencies required.
 
 Here's **Group Captain Lionel Mandrake** from Kubrick's wonderful [*Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb*](http://www.imdb.com/title/tt0057012/) along with Brigadier General Jack D. Ripper, memorably rendered by Sterling Hayden:
 
-<img src="https://raw.githubusercontent.com/sveinbjornt/ManDrake/master/mandrake_captain.jpg" alt="Group Captain Lionel Mandrake">
+<img src="images/mandrake_captain.jpg" alt="Group Captain Lionel Mandrake">

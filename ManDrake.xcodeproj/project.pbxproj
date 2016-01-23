@@ -32,11 +32,11 @@
 		954C136C20B1E1695A2CD08D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED24DF9167DE298866004E1F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F42AA7DA1C4EC5D0007E0ACE /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		F43557DA1C542510009080DC /* mandrake_captain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mandrake_captain.jpg; sourceTree = "<group>"; };
-		F43557DB1C542519009080DC /* mandrake_screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mandrake_screenshot.png; sourceTree = "<group>"; };
-		F43557DC1C542521009080DC /* mandrake_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mandrake_icon.png; sourceTree = "<group>"; };
 		F43557DD1C5429C8009080DC /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AppIcon.icns; sourceTree = "<group>"; };
 		F43557DE1C5429C8009080DC /* DocumentIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = DocumentIcon.icns; sourceTree = "<group>"; };
+		F43557E01C543258009080DC /* mandrake_captain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mandrake_captain.jpg; sourceTree = "<group>"; };
+		F43557E11C543258009080DC /* mandrake_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mandrake_icon.png; sourceTree = "<group>"; };
+		F43557E21C543258009080DC /* mandrake_screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mandrake_screenshot.png; sourceTree = "<group>"; };
 		F45AFBD31C5193A900953D8F /* mode-groff.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "mode-groff.js"; path = "Resources/mode-groff.js"; sourceTree = "<group>"; };
 		F45AFBD51C51950600953D8F /* CustomACEView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomACEView.h; sourceTree = "<group>"; };
 		F45AFBD61C51950600953D8F /* CustomACEView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomACEView.m; sourceTree = "<group>"; };
@@ -91,15 +91,23 @@
 		F42AA7DC1C4EC624007E0ACE /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
-				F43557DC1C542521009080DC /* mandrake_icon.png */,
-				F43557DA1C542510009080DC /* mandrake_captain.jpg */,
-				F43557DB1C542519009080DC /* mandrake_screenshot.png */,
+				F43557DF1C543258009080DC /* images */,
 				F45AFBE01C53D53300953D8F /* License.html */,
-				F45AFBE11C53D53300953D8F /* Readme.html */,
 				F45AFBF71C53DBAC00953D8F /* Credits.html */,
+				F45AFBE11C53D53300953D8F /* Readme.html */,
 				F42AA7DA1C4EC5D0007E0ACE /* README.md */,
 			);
 			name = Documentation;
+			sourceTree = "<group>";
+		};
+		F43557DF1C543258009080DC /* images */ = {
+			isa = PBXGroup;
+			children = (
+				F43557E01C543258009080DC /* mandrake_captain.jpg */,
+				F43557E11C543258009080DC /* mandrake_icon.png */,
+				F43557E21C543258009080DC /* mandrake_screenshot.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 		F487F49C141EADEF0093D633 = {
