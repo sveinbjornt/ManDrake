@@ -1,7 +1,7 @@
 <img align="right" src="https://raw.githubusercontent.com/sveinbjornt/ManDrake/master/mandrake_icon.png" style="float: right; margin-left: 30px;" alt="ManDrake Application Icon">
 # ManDrake
 
-ManDrake is a native, open-source <a href="https://en.wikipedia.org/wiki/Man_page">man page</a> editor for OS X. It has `groff` syntax highlighting, `mandoc` syntax validation and shows a live-updating rendered preview of the man page during editing.
+ManDrake is a native, open source <a href="https://en.wikipedia.org/wiki/Man_page">man page</a> editor for OS X. It has syntax highlighting, `mandoc` syntax validation and shows a live-updating rendered preview of the man page during editing.
 
 Long story short, I was sick of writing man pages in an endless cycle of edit-view, edit-view so I decided to do something about it and made this editor. It's a bit rough around the edges, but it works really well for me.
 
@@ -9,13 +9,38 @@ You can download a pre-built binary of version 3.0 here:
 
 * [Download ManDrake 3.0](http://sveinbjorn.org/files/software/mandrake/ManDrake-3.0.zip) (Intel 64-bit, 10.7 or later, ~660 KB)
 
-## License
-
-ManDrake is distributed under the three-clause [BSD License](https://opensource.org/licenses/BSD-3-Clause).
-
 ## Screenshot
 
 <img src="https://raw.githubusercontent.com/sveinbjornt/ManDrake/master/mandrake_screenshot.png" style="max-width:100%;" alt="ManDrake Screenshot">
+
+## License
+
+ManDrake is open source software, available under the three-clause BSD license:
+
+> Redistribution and use in source and binary forms, with or without modification,
+> are permitted provided that the following conditions are met:
+> 
+> 1. Redistributions of source code must retain the above copyright notice, this
+> list of conditions and the following disclaimer.
+> 
+> 2. Redistributions in binary form must reproduce the above copyright notice, this
+> list of conditions and the following disclaimer in the documentation and/or other
+> materials provided with the distribution.
+> 
+> 3. Neither the name of the copyright holder nor the names of its contributors may
+> be used to endorse or promote products derived from this software without specific
+> prior written permission.
+> 
+> THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+> ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+> WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+> IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+> INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+> NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+> PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+> WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+> ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+> POSSIBILITY OF SUCH DAMAGE.
 
 ## Development
 

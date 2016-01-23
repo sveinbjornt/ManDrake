@@ -16,7 +16,6 @@
 		F45AFBE21C53D53300953D8F /* License.html in Resources */ = {isa = PBXBuildFile; fileRef = F45AFBE01C53D53300953D8F /* License.html */; };
 		F45AFBE31C53D53300953D8F /* Readme.html in Resources */ = {isa = PBXBuildFile; fileRef = F45AFBE11C53D53300953D8F /* Readme.html */; };
 		F45AFBF81C53DBAC00953D8F /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = F45AFBF71C53DBAC00953D8F /* Credits.html */; };
-		F45AFBFA1C53E41000953D8F /* dr_strangelove_mandrake.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F45AFBF91C53DC2500953D8F /* dr_strangelove_mandrake.jpg */; };
 		F487F4AC141EADEF0093D633 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F487F4AB141EADEF0093D633 /* Cocoa.framework */; };
 		F487F4B8141EADEF0093D633 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F487F4B7141EADEF0093D633 /* main.m */; };
 		F487F4BF141EADEF0093D633 /* ManDrakeDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = F487F4BE141EADEF0093D633 /* ManDrakeDocument.m */; };
@@ -33,7 +32,9 @@
 		954C136C20B1E1695A2CD08D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED24DF9167DE298866004E1F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F42AA7DA1C4EC5D0007E0ACE /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		F42AA7DB1C4EC61F007E0ACE /* mandrake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mandrake.png; sourceTree = "<group>"; };
+		F43557DA1C542510009080DC /* mandrake_captain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mandrake_captain.jpg; sourceTree = "<group>"; };
+		F43557DB1C542519009080DC /* mandrake_screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mandrake_screenshot.png; sourceTree = "<group>"; };
+		F43557DC1C542521009080DC /* mandrake_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mandrake_icon.png; sourceTree = "<group>"; };
 		F45AFBD31C5193A900953D8F /* mode-groff.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "mode-groff.js"; path = "Resources/mode-groff.js"; sourceTree = "<group>"; };
 		F45AFBD51C51950600953D8F /* CustomACEView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomACEView.h; sourceTree = "<group>"; };
 		F45AFBD61C51950600953D8F /* CustomACEView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomACEView.m; sourceTree = "<group>"; };
@@ -44,7 +45,6 @@
 		F45AFBE01C53D53300953D8F /* License.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = License.html; path = ManDrake/Resources/License.html; sourceTree = "<group>"; };
 		F45AFBE11C53D53300953D8F /* Readme.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = Readme.html; path = ManDrake/Resources/Readme.html; sourceTree = "<group>"; };
 		F45AFBF71C53DBAC00953D8F /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = Credits.html; path = ManDrake/Resources/Credits.html; sourceTree = "<group>"; };
-		F45AFBF91C53DC2500953D8F /* dr_strangelove_mandrake.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = dr_strangelove_mandrake.jpg; path = Resources/dr_strangelove_mandrake.jpg; sourceTree = "<group>"; };
 		F45AFBFB1C53FBD500953D8F /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		F487F4A7141EADEF0093D633 /* ManDrake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ManDrake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F487F4AB141EADEF0093D633 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -89,11 +89,13 @@
 		F42AA7DC1C4EC624007E0ACE /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
+				F43557DC1C542521009080DC /* mandrake_icon.png */,
+				F43557DA1C542510009080DC /* mandrake_captain.jpg */,
+				F43557DB1C542519009080DC /* mandrake_screenshot.png */,
 				F45AFBE01C53D53300953D8F /* License.html */,
 				F45AFBE11C53D53300953D8F /* Readme.html */,
 				F45AFBF71C53DBAC00953D8F /* Credits.html */,
 				F42AA7DA1C4EC5D0007E0ACE /* README.md */,
-				F42AA7DB1C4EC61F007E0ACE /* mandrake.png */,
 			);
 			name = Documentation;
 			sourceTree = "<group>";
@@ -156,12 +158,11 @@
 				F4FD5CA01C4D74F900C8D155 /* Icons */,
 				F487F4D0141EAE730093D633 /* MainMenu.xib */,
 				F487F4D1141EAE730093D633 /* ManDrakeDocument.xib */,
-				F45AFBF91C53DC2500953D8F /* dr_strangelove_mandrake.jpg */,
 				F487F4B3141EADEF0093D633 /* ManDrake-Info.plist */,
+				F45AFBD31C5193A900953D8F /* mode-groff.js */,
 				F45AFBD81C52D04A00953D8F /* default.man */,
 				F487F4D4141EAE910093D633 /* cat2html */,
 				F45AFBDD1C53BA9200953D8F /* mandoc */,
-				F45AFBD31C5193A900953D8F /* mode-groff.js */,
 			);
 			name = Resources;
 			path = ManDrake;
@@ -258,7 +259,6 @@
 				F487F4D3141EAE730093D633 /* ManDrakeDocument.xib in Resources */,
 				F487F4DA141EAE910093D633 /* cat2html in Resources */,
 				F45AFBDE1C53BA9200953D8F /* mandoc in Resources */,
-				F45AFBFA1C53E41000953D8F /* dr_strangelove_mandrake.jpg in Resources */,
 				F45AFBE31C53D53300953D8F /* Readme.html in Resources */,
 				F45AFBD41C5193A900953D8F /* mode-groff.js in Resources */,
 				F4FD5CA91C4D757E00C8D155 /* Images.xcassets in Resources */,
