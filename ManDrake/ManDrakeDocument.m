@@ -52,6 +52,7 @@
     
     NSPoint currentScrollPosition;
     NSTimer *refreshTimer;
+    NSTimer *syntaxCheckingTimer;
     NSString *documentTextString;
     
     dispatch_queue_t backgroundQueue;
@@ -66,6 +67,7 @@
 
 - (IBAction)editorActionButtonPressed:(id)sender;
 - (IBAction)previewActionButtonPressed:(id)sender;
+- (IBAction)previewInTerminal:(id)sender;
 
 - (IBAction)loadManMdocTemplate:(id)sender;
 - (IBAction)loadDefaultManTemplate:(id)sender;
@@ -122,23 +124,30 @@ originalContentsURL:(NSURL *)originalContentsURL
     
     [self startObservingDefaults];
     
-    ACETheme theme = [[[NSUserDefaults standardUserDefaults] objectForKey:kDefaultsEditorTheme] intValue];
+    // configure editor
+    ACETheme theme = [[NSUserDefaults standardUserDefaults] integerForKey:kDefaultsEditorTheme];
     [aceView setTheme:theme];
-    
-    [themePopupButton removeAllItems];
-    [themePopupButton addItemsWithTitles:[ACEThemeNames humanThemeNames]];
-    [themePopupButton selectItemAtIndex:theme];
-    
     [aceView setDelegate:self];
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:kDefaultsEditorSyntaxHighlighting] boolValue]) {
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:kDefaultsEditorSyntaxHighlighting]) {
         [aceView setModeByNameString:@"groff"];
     }
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:kDefaultsEditorShowInvisibles] boolValue]) {
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:kDefaultsEditorShowInvisibles]) {
         [aceView setShowInvisibles:YES];
     }
     
-    [aceView setFontSize:[[[NSUserDefaults standardUserDefaults] objectForKey:kDefaultsEditorFontSize] intValue]];
+    [aceView setFontSize:[[NSUserDefaults standardUserDefaults] integerForKey:kDefaultsEditorFontSize]];
     [aceView setEmmet:NO];
+    [aceView setUseSoftWrap:[[NSUserDefaults standardUserDefaults] boolForKey:kDefaultsEditorSoftLineWrap]];
+
+    // preview font size
+    [self setWebViewFontSize:(int)[[NSUserDefaults standardUserDefaults] integerForKey:kDefaultsPreviewFontSize]];
+    
+    // set action button menus
+    id appDelegate = (ManDrakeApplicationDelegate *)[[NSApplication sharedApplication] delegate];
+    [editorActionButton setMenu:[appDelegate editorMenu]];
+    [previewActionButton setMenu:[appDelegate previewMenu]];
     
     if (documentTextString) {
         [aceView setString:documentTextString];
@@ -147,14 +156,9 @@ originalContentsURL:(NSURL *)originalContentsURL
         [self loadDefaultManTemplate:self];
     }
     
-    BOOL softWrap = [[[NSUserDefaults standardUserDefaults] objectForKey:kDefaultsEditorSoftLineWrap] boolValue];
-    [aceView setUseSoftWrap:softWrap];
-   
-    [self setWebViewFontSize:[[[NSUserDefaults standardUserDefaults] objectForKey:kDefaultsPreviewFontSize] intValue]];
-    
-    id appDelegate = (ManDrakeApplicationDelegate *)[[NSApplication sharedApplication] delegate];
-    [editorActionButton setMenu:[appDelegate editorMenu]];
-    [previewActionButton setMenu:[appDelegate previewMenu]];
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:kDefaultsCheckSyntaxAutomatically]) {
+        [self performSelector:@selector(updateAnnotations) withObject:nil afterDelay:1.5];
+    }
 }
 
 #pragma mark - Defaults observation
@@ -186,7 +190,7 @@ originalContentsURL:(NSURL *)originalContentsURL
         [aceView setFontSize:fontSize];
     }
     else if ([keyPath hasSuffix:kDefaultsPreviewInvert]) {
-        [self refresh:self];
+        [self updatePreview];
     }
 }
 
@@ -295,6 +299,11 @@ originalContentsURL:(NSURL *)originalContentsURL
 
 #pragma mark - Web Preview
 
+- (IBAction)previewActionButtonPressed:(id)sender {
+    NSMenu *menu = [(ManDrakeApplicationDelegate *)[[NSApplication sharedApplication] delegate] previewMenu];
+    [menu popUpMenuPositioningItem:nil atLocation:[sender frame].origin inView:[sender superview]];
+}
+
 - (IBAction)refresh:(id)sender {
 	// generate preview
 	[refreshProgressIndicator startAnimation:self];
@@ -304,22 +313,32 @@ originalContentsURL:(NSURL *)originalContentsURL
 - (void)textDidChange:(NSNotification *)aNotification {
     NSString *refreshText = [refreshTypePopupButton titleOfSelectedItem];
 
-    if ([refreshText isEqualToString:@"Manually"]) {
-        return;
+    // set off timer to refresh preview
+    if (![[[NSUserDefaults standardUserDefaults] stringForKey:kDefaultsPreviewRefreshStyle] isEqualToString:@"Manually"]) {
+        if (refreshTimer != nil) {
+            [refreshTimer invalidate];
+            refreshTimer = nil;
+        }
+        NSTimeInterval delay = [refreshText isEqualToString:@"Live"] ? 0.01 : 0.2;
+        refreshTimer = [NSTimer scheduledTimerWithTimeInterval:delay
+                                                        target:self
+                                                      selector:@selector(updatePreview)
+                                                      userInfo:nil
+                                                       repeats:NO];
     }
     
-	// use delayed timer
-    if (refreshTimer != nil)
-    {
-        [refreshTimer invalidate];
-        refreshTimer = nil;
+    // set off timer to check syntax in background
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:kDefaultsCheckSyntaxAutomatically]) {
+        if (syntaxCheckingTimer != nil) {
+            [syntaxCheckingTimer invalidate];
+            syntaxCheckingTimer = nil;
+        }
+        syntaxCheckingTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
+                                                               target:self
+                                                             selector:@selector(updateAnnotations)
+                                                             userInfo:nil
+                                                              repeats:NO];
     }
-    NSTimeInterval delay = [refreshText isEqualToString:@"Live"] ? 0.01 : 0.2;
-    refreshTimer = [NSTimer scheduledTimerWithTimeInterval:delay
-                                                    target:self
-                                                  selector:@selector(updatePreview)
-                                                  userInfo:nil
-                                                   repeats:NO];
 }
 
 - (void)refreshWebView {
@@ -399,7 +418,6 @@ originalContentsURL:(NSURL *)originalContentsURL
     });
 }
 
-// delegate method we receive when done loading the html file.
 - (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame {
 	// restore the scroll position
 	[[[[webView mainFrame] frameView] documentView] scrollPoint:currentScrollPosition];
@@ -411,18 +429,27 @@ originalContentsURL:(NSURL *)originalContentsURL
 	refreshTimer = nil;
 }
 
-#pragma mark - Check syntax
-
-- (IBAction)previewActionButtonPressed:(id)sender {
-    NSMenu *menu = [(ManDrakeApplicationDelegate *)[[NSApplication sharedApplication] delegate] previewMenu];
-    [menu popUpMenuPositioningItem:nil atLocation:[sender frame].origin inView:[sender superview]];
+- (IBAction)previewInTerminal:(id)sender {
+    if ([self fileURL] == nil) {
+        NSBeep();
+        return;
+    }
+    NSString *path = [[self fileURL] path];
+    NSString *cmd = [NSString stringWithFormat:@"/usr/bin/nroff -mandoc '%@' | less", path];
+    [[NSWorkspace sharedWorkspace] runCommandInTerminal:cmd];
 }
+
+#pragma mark - Check syntax
 
 - (IBAction)checkSyntaxButtonPressed:(id)sender {
     [self updateAnnotations];
 }
 
 - (void)updateAnnotations {
+    
+    [syntaxCheckingTimer invalidate];
+    syntaxCheckingTimer = nil;
+    
     dispatch_async(backgroundQueue, ^{
     
         NSArray *annotations = [self checkSyntax];
@@ -440,7 +467,7 @@ originalContentsURL:(NSURL *)originalContentsURL
             NSMutableString *status = [NSMutableString stringWithString:@""];
             NSColor *color = [NSColor orangeColor];
             if (errCount) {
-                [status appendFormat:@"%d errors ", errCount];
+                [status appendFormat:@"%d errors", errCount];
                 color = [NSColor redColor];
             }
             if (warnCount) {
@@ -489,6 +516,8 @@ originalContentsURL:(NSURL *)originalContentsURL
             continue;
         }
         
+        // mandoc lint output lines have the following format:
+        // mandoc: /path/to/manpage.1:160:2: WARNING: sections out of conventional order: Sh FILES
         NSArray *components = [line componentsSeparatedByString:[NSString stringWithFormat:@"%@:", tmpFilePath]];
         if ([components count] < 2) {
             NSLog(@"Unable to parse output line: \"%@\"", line);

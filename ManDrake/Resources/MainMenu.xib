@@ -340,6 +340,12 @@
                                     <action selector="checkSyntaxButtonPressed:" target="-1" id="or4-OD-Gof"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Check Syntax Automatically" id="gWj-zj-IU2">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <binding destination="PuS-3K-wCY" name="value" keyPath="values.CheckSyntaxAutomatically" id="cGR-YS-Zeg"/>
+                                </connections>
+                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="SaM-Rz-pYd"/>
                             <menuItem title="Increase Text Size" keyEquivalent="+" id="LLC-NS-Wyk">
                                 <connections>
@@ -365,12 +371,6 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="fsW-rq-8fW"/>
-                            <menuItem title="Check Syntax Automatically" id="gWj-zj-IU2">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <binding destination="PuS-3K-wCY" name="value" keyPath="values.CheckSyntaxAutomatically" id="cGR-YS-Zeg"/>
-                                </connections>
-                            </menuItem>
                             <menuItem title="Groff Syntax Highlighting" id="tbB-1g-sNk">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
@@ -456,6 +456,13 @@
                             <menuItem title="Decrease Preview Text Size" keyEquivalent="1" id="h4c-1r-Bgm">
                                 <connections>
                                     <action selector="makePreviewTextSmaller:" target="-1" id="T4h-KF-MId"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="IzM-f3-Pyz"/>
+                            <menuItem title="Preview in Terminal" id="bSx-OC-f6W">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="previewInTerminal:" target="-1" id="97P-nJ-nXd"/>
                                 </connections>
                             </menuItem>
                         </items>
