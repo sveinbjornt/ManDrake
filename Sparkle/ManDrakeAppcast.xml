@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+    <channel>
+        <title>ManDrake Version Release Appcast</title>
+        <link>http://sveinbjorn.org/files/appcasts/ManDrakeAppcast.xml</link>
+        <description>Most recent release list for ManDrake, with links to updates.</description>
+        <language>en</language>
+        <item>
+            <title>Version 3.0</title>
+            <pubDate>Wed, 30 Nov 2015 00:28:00 +0000</pubDate>
+            <enclosure url="/http://sveinbjorn.org/files/software/mandrake/ManDrake-3.0.zip" sparkle:version="3.0" sparkle:shortVersionString="3.0" length="3640511" type="application/octet-stream" sparkle:dsaSignature="MC0CFQCxJgz5q7W4x5GuUTW9drKORIk6egIUcgQ+Au+eb6r7HwsDTUf79b8JQoI="/>
+            <sparkle:minimumSystemVersion>10.7.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>Version 3.0 Changes</h2>
+                <ul>
+                </ul>
+            ]]></description>
+        </item>
+    </channel>
+</rss>

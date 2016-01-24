@@ -4,3 +4,4 @@ inhibit_all_warnings!
 xcodeproj 'ManDrake'
 
 pod 'ACEView'
+pod 'Sparkle'

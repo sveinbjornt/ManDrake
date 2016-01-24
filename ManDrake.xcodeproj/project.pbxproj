@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2092A52F7C61A1257CBC66A6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 954C136C20B1E1695A2CD08D /* libPods.a */; };
+		F43557EB1C55413A009080DC /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = F43557EA1C554132009080DC /* dsa_pub.pem */; };
 		F45AFBD41C5193A900953D8F /* mode-groff.js in Resources */ = {isa = PBXBuildFile; fileRef = F45AFBD31C5193A900953D8F /* mode-groff.js */; };
 		F45AFBD71C51950600953D8F /* CustomACEView.m in Sources */ = {isa = PBXBuildFile; fileRef = F45AFBD61C51950600953D8F /* CustomACEView.m */; };
 		F45AFBD91C52D04A00953D8F /* default.man in Resources */ = {isa = PBXBuildFile; fileRef = F45AFBD81C52D04A00953D8F /* default.man */; };
@@ -38,6 +39,12 @@
 		F43557E11C543258009080DC /* mandrake_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mandrake_icon.png; sourceTree = "<group>"; };
 		F43557E21C543258009080DC /* mandrake_screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mandrake_screenshot.png; sourceTree = "<group>"; };
 		F43557E31C54345B009080DC /* CHANGES.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CHANGES.txt; sourceTree = SOURCE_ROOT; };
+		F43557E51C553C8E009080DC /* generate_keys.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = generate_keys.rb; sourceTree = "<group>"; };
+		F43557E61C553C8E009080DC /* ManDrakeAppcast.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ManDrakeAppcast.xml; sourceTree = "<group>"; };
+		F43557E71C553C8E009080DC /* sign_update.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = sign_update.rb; sourceTree = "<group>"; };
+		F43557E81C553C8E009080DC /* update_appcast.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = update_appcast.sh; sourceTree = "<group>"; };
+		F43557E91C554132009080DC /* dsa_priv.pem */ = {isa = PBXFileReference; lastKnownFileType = text; path = dsa_priv.pem; sourceTree = "<group>"; };
+		F43557EA1C554132009080DC /* dsa_pub.pem */ = {isa = PBXFileReference; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		F45AFBD31C5193A900953D8F /* mode-groff.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "mode-groff.js"; path = "Resources/mode-groff.js"; sourceTree = "<group>"; };
 		F45AFBD51C51950600953D8F /* CustomACEView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomACEView.h; sourceTree = "<group>"; };
 		F45AFBD61C51950600953D8F /* CustomACEView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomACEView.m; sourceTree = "<group>"; };
@@ -112,13 +119,26 @@
 			path = images;
 			sourceTree = "<group>";
 		};
+		F43557E41C553C8E009080DC /* Sparkle */ = {
+			isa = PBXGroup;
+			children = (
+				F43557E91C554132009080DC /* dsa_priv.pem */,
+				F43557EA1C554132009080DC /* dsa_pub.pem */,
+				F43557E51C553C8E009080DC /* generate_keys.rb */,
+				F43557E61C553C8E009080DC /* ManDrakeAppcast.xml */,
+				F43557E71C553C8E009080DC /* sign_update.rb */,
+				F43557E81C553C8E009080DC /* update_appcast.sh */,
+			);
+			path = Sparkle;
+			sourceTree = "<group>";
+		};
 		F487F49C141EADEF0093D633 = {
 			isa = PBXGroup;
 			children = (
 				F4FD5CA01C4D74F900C8D155 /* Icons */,
 				F42AA7DC1C4EC624007E0ACE /* Documentation */,
 				F487F4B1141EADEF0093D633 /* ManDrake */,
-				F487F4B2141EADEF0093D633 /* Resources */,
+				F43557E41C553C8E009080DC /* Sparkle */,
 				F487F4AA141EADEF0093D633 /* Frameworks */,
 				F487F4A8141EADEF0093D633 /* Products */,
 				F5C6953A6735BC329B005716 /* Pods */,
@@ -159,6 +179,7 @@
 				F45AFBD61C51950600953D8F /* CustomACEView.m */,
 				F45AFBDA1C53B9C000953D8F /* NSWorkspace+Additions.h */,
 				F45AFBDB1C53B9C000953D8F /* NSWorkspace+Additions.m */,
+				F487F4B2141EADEF0093D633 /* Resources */,
 				F487F538141EDD560093D633 /* cat2html */,
 			);
 			path = ManDrake;
@@ -177,7 +198,6 @@
 				F4FD5CA81C4D757E00C8D155 /* Images.xcassets */,
 			);
 			name = Resources;
-			path = ManDrake;
 			sourceTree = "<group>";
 		};
 		F487F538141EDD560093D633 /* cat2html */ = {
@@ -274,6 +294,7 @@
 				F487F4DA141EAE910093D633 /* cat2html in Resources */,
 				F45AFBDE1C53BA9200953D8F /* mandoc in Resources */,
 				F45AFBE31C53D53300953D8F /* Readme.html in Resources */,
+				F43557EB1C55413A009080DC /* dsa_pub.pem in Resources */,
 				F45AFBD41C5193A900953D8F /* mode-groff.js in Resources */,
 				F4FD5CA91C4D757E00C8D155 /* Images.xcassets in Resources */,
 			);

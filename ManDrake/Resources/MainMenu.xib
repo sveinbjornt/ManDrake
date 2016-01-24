@@ -28,6 +28,12 @@
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
                             <menuItem title="Preferences…" keyEquivalent="," id="129"/>
+                            <menuItem title="Check for Updates…" id="NXH-cK-BC8">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="checkForUpdates:" target="Yj8-4H-gT2" id="kGA-o5-pFq"/>
+                                </connections>
+                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="143">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
@@ -349,16 +355,16 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="a6R-hP-iBO"/>
-                            <menuItem title="Load mdoc template" id="bNF-U5-eHI">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="loadManMdocTemplate:" target="-1" id="8OX-4H-khZ"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Load default template" id="HDQ-aa-q6d">
+                            <menuItem title="Load Default Template" id="HDQ-aa-q6d">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="loadDefaultManTemplate:" target="-1" id="3hc-sC-TuZ"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Load mdoc Template" id="bNF-U5-eHI">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="loadManMdocTemplate:" target="-1" id="8OX-4H-khZ"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="fsW-rq-8fW"/>
@@ -392,11 +398,9 @@
                             <menuItem title="Editor Theme" id="f0g-Ia-eBf">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Editor Theme" id="utG-qb-Ssa">
-                                    <items>
-                                        <menuItem title="Item" id="TO8-8I-YOO">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                        </menuItem>
-                                    </items>
+                                    <connections>
+                                        <outlet property="delegate" destination="652" id="nle-Gl-HDH"/>
+                                    </connections>
                                 </menu>
                             </menuItem>
                         </items>
@@ -417,14 +421,26 @@
                                     <items>
                                         <menuItem title="Live" id="Gre-99-mdK">
                                             <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="submenuItemSelected:" target="652" id="TbP-x6-i6n"/>
+                                            </connections>
                                         </menuItem>
                                         <menuItem title="Delayed" state="on" id="4qx-HK-3gr">
                                             <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="submenuItemSelected:" target="652" id="CzG-EB-Z3h"/>
+                                            </connections>
                                         </menuItem>
                                         <menuItem title="Manual" id="RXF-dU-IEv">
                                             <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="submenuItemSelected:" target="652" id="e1H-SF-HOp"/>
+                                            </connections>
                                         </menuItem>
                                     </items>
+                                    <connections>
+                                        <outlet property="delegate" destination="652" id="5fO-Ao-Rvp"/>
+                                    </connections>
                                 </menu>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="EM0-E7-Xsx"/>
@@ -593,7 +609,9 @@
         <customObject id="652" customClass="ManDrakeApplicationDelegate">
             <connections>
                 <outlet property="editorMenu" destination="x28-Yy-N6F" id="whv-wo-xBv"/>
+                <outlet property="editorThemesSubmenu" destination="utG-qb-Ssa" id="Rys-ZZ-Tsi"/>
                 <outlet property="previewMenu" destination="eEm-zJ-RNG" id="pq6-2M-myW"/>
+                <outlet property="previewRefreshStylesSubmenu" destination="zop-QQ-XMG" id="JBT-ye-h4a"/>
             </connections>
         </customObject>
         <menuItem title="Editor" id="YyL-CL-kXv">
@@ -626,5 +644,6 @@
             </menu>
         </menuItem>
         <userDefaultsController representsSharedInstance="YES" id="PuS-3K-wCY"/>
+        <customObject id="Yj8-4H-gT2" customClass="SUUpdater"/>
     </objects>
 </document>
