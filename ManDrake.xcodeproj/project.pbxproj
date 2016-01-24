@@ -49,28 +49,28 @@
 		F45AFBD51C51950600953D8F /* CustomACEView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomACEView.h; sourceTree = "<group>"; };
 		F45AFBD61C51950600953D8F /* CustomACEView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomACEView.m; sourceTree = "<group>"; };
 		F45AFBD81C52D04A00953D8F /* default.man */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = default.man; path = Resources/default.man; sourceTree = "<group>"; };
-		F45AFBDA1C53B9C000953D8F /* NSWorkspace+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSWorkspace+Additions.h"; sourceTree = "<group>"; };
-		F45AFBDB1C53B9C000953D8F /* NSWorkspace+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSWorkspace+Additions.m"; sourceTree = "<group>"; };
+		F45AFBDA1C53B9C000953D8F /* NSWorkspace+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "NSWorkspace+Additions.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		F45AFBDB1C53B9C000953D8F /* NSWorkspace+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "NSWorkspace+Additions.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		F45AFBDD1C53BA9200953D8F /* mandoc */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = mandoc; path = Resources/mandoc; sourceTree = "<group>"; };
-		F45AFBE01C53D53300953D8F /* License.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = License.html; path = ManDrake/Resources/License.html; sourceTree = "<group>"; };
+		F45AFBE01C53D53300953D8F /* License.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; lineEnding = 0; name = License.html; path = ManDrake/Resources/License.html; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.html; };
 		F45AFBE11C53D53300953D8F /* Readme.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = Readme.html; path = ManDrake/Resources/Readme.html; sourceTree = "<group>"; };
 		F45AFBF71C53DBAC00953D8F /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = Credits.html; path = ManDrake/Resources/Credits.html; sourceTree = "<group>"; };
-		F45AFBFB1C53FBD500953D8F /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		F45AFBFB1C53FBD500953D8F /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = Common.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		F487F4A7141EADEF0093D633 /* ManDrake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ManDrake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F487F4AB141EADEF0093D633 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		F487F4AE141EADEF0093D633 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		F487F4B0141EADEF0093D633 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F487F4B3141EADEF0093D633 /* ManDrake-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ManDrake-Info.plist"; sourceTree = "<group>"; };
-		F487F4B7141EADEF0093D633 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F487F4B7141EADEF0093D633 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = main.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		F487F4B9141EADEF0093D633 /* ManDrake-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ManDrake-Prefix.pch"; sourceTree = "<group>"; };
-		F487F4BD141EADEF0093D633 /* ManDrakeDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ManDrakeDocument.h; sourceTree = "<group>"; };
-		F487F4BE141EADEF0093D633 /* ManDrakeDocument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ManDrakeDocument.m; sourceTree = "<group>"; };
+		F487F4BD141EADEF0093D633 /* ManDrakeDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ManDrakeDocument.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		F487F4BE141EADEF0093D633 /* ManDrakeDocument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ManDrakeDocument.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		F487F4D0141EAE730093D633 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainMenu.xib; path = Resources/MainMenu.xib; sourceTree = "<group>"; };
 		F487F4D1141EAE730093D633 /* ManDrakeDocument.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ManDrakeDocument.xib; path = Resources/ManDrakeDocument.xib; sourceTree = "<group>"; };
 		F487F4D4141EAE910093D633 /* cat2html */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = cat2html; path = Resources/cat2html; sourceTree = "<group>"; };
 		F487F505141EAF8A0093D633 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = /System/Library/Frameworks/WebKit.framework; sourceTree = "<absolute>"; };
-		F487F533141EB2560093D633 /* ManDrakeApplicationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManDrakeApplicationDelegate.h; sourceTree = "<group>"; };
-		F487F534141EB2560093D633 /* ManDrakeApplicationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManDrakeApplicationDelegate.m; sourceTree = "<group>"; };
+		F487F533141EB2560093D633 /* ManDrakeApplicationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ManDrakeApplicationDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		F487F534141EB2560093D633 /* ManDrakeApplicationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ManDrakeApplicationDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		F487F539141EDD560093D633 /* cat2html.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cat2html.c; sourceTree = "<group>"; };
 		F487F53A141EDD560093D633 /* cat2html.l */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.lex; path = cat2html.l; sourceTree = "<group>"; };
 		F487F53B141EDD560093D633 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
@@ -168,9 +168,9 @@
 		F487F4B1141EADEF0093D633 /* ManDrake */ = {
 			isa = PBXGroup;
 			children = (
-				F487F4B7141EADEF0093D633 /* main.m */,
-				F487F4B9141EADEF0093D633 /* ManDrake-Prefix.pch */,
 				F45AFBFB1C53FBD500953D8F /* Common.h */,
+				F487F4B9141EADEF0093D633 /* ManDrake-Prefix.pch */,
+				F487F4B7141EADEF0093D633 /* main.m */,
 				F487F533141EB2560093D633 /* ManDrakeApplicationDelegate.h */,
 				F487F534141EB2560093D633 /* ManDrakeApplicationDelegate.m */,
 				F487F4BD141EADEF0093D633 /* ManDrakeDocument.h */,

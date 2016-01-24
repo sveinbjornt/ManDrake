@@ -1,6 +1,6 @@
 /*
     ManDrake - Native open-source Mac OS X man page editor
-    Copyright (c) 2006-2015, Sveinbjorn Thordarson <sveinbjornt@gmail.com>
+    Copyright (c) 2004-2016, Sveinbjorn Thordarson <sveinbjornt@gmail.com>
 
     Redistribution and use in source and binary forms, with or without modification,
     are permitted provided that the following conditions are met:
@@ -30,12 +30,15 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ManDrakeApplicationDelegate : NSObject <NSApplicationDelegate>
+@interface ManDrakeApplicationDelegate : NSObject <NSApplicationDelegate, NSMenuDelegate>
 
 @property (weak) IBOutlet NSMenu *editorMenu;
 @property (weak) IBOutlet NSMenu *previewMenu;
+@property (weak) IBOutlet NSMenu *editorThemesSubmenu;
+@property (weak) IBOutlet NSMenu *previewRefreshStylesSubmenu;
 
 - (IBAction)showReadme:(id)sender;
 - (IBAction)showLicense:(id)sender;
+- (IBAction)submenuItemSelected:(id)sender;
 
 @end

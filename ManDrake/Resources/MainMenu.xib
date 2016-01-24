@@ -150,9 +150,6 @@
                                     <action selector="redo:" target="-1" id="231"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Application" id="hR4-ov-4RZ">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="206">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>

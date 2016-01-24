@@ -1,6 +1,6 @@
 /*
     ManDrake - Native open-source Mac OS X man page editor
-    Copyright (c) 2006-2015, Sveinbjorn Thordarson <sveinbjornt@gmail.com>
+    Copyright (c) 2004-2016, Sveinbjorn Thordarson <sveinbjornt@gmail.com>
 
     Redistribution and use in source and binary forms, with or without modification,
     are permitted provided that the following conditions are met:
@@ -43,4 +43,4 @@
 #define kDefaultsPreviewFontSize @"PreviewFontSize"
 #define kDefaultsPreviewInvert @"PreviewInvert"
 
-
+#define VALUES_KEYPATH(X) [NSString stringWithFormat:@"values.%@", (X)]

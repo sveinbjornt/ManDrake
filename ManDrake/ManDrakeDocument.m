@@ -1,6 +1,6 @@
 /*
     ManDrake - Native open-source Mac OS X man page editor
-    Copyright (c) 2006-2015, Sveinbjorn Thordarson <sveinbjornt@gmail.com>
+    Copyright (c) 2004-2016, Sveinbjorn Thordarson <sveinbjornt@gmail.com>
 
     Redistribution and use in source and binary forms, with or without modification,
     are permitted provided that the following conditions are met:
@@ -35,6 +35,7 @@
 #import "CustomACEView.h"
 #import "NSWorkspace+Additions.h"
 #import "ACEView/ACEThemeNames.h"
+#import "ACEView/ACEModes.h"
 #import "ManDrakeApplicationDelegate.h"
 
 @interface ManDrakeDocument()
@@ -52,6 +53,8 @@
     NSPoint currentScrollPosition;
     NSTimer *refreshTimer;
     NSString *fileString;
+    
+    dispatch_queue_t backgroundQueue;
 }
 
 - (IBAction)refresh:(id)sender;
@@ -62,6 +65,7 @@
 - (IBAction)makePreviewTextSmaller:(id)sender;
 
 - (IBAction)editorActionButtonPressed:(id)sender;
+- (IBAction)previewActionButtonPressed:(id)sender;
 
 - (IBAction)loadManMdocTemplate:(id)sender;
 - (IBAction)loadDefaultManTemplate:(id)sender;
@@ -69,6 +73,12 @@
 @end
 
 @implementation ManDrakeDocument
+
+#pragma mark -
+
+- (void)dealloc {
+    [self stopObservingDefaults];
+}
 
 #pragma mark - NSDocument
 
@@ -107,6 +117,10 @@ originalContentsURL:(NSURL *)originalContentsURL
 
 - (void)windowControllerDidLoadNib:(NSWindowController *)aController {
     [super windowControllerDidLoadNib:aController];
+
+    backgroundQueue = dispatch_queue_create("org.sveinbjorn.ManDrake.backgroundQueue", DISPATCH_QUEUE_SERIAL);
+    
+    [self startObservingDefaults];
     
     ACETheme theme = [[[NSUserDefaults standardUserDefaults] objectForKey:kDefaultsEditorTheme] intValue];
     [aceView setTheme:theme];
@@ -126,8 +140,10 @@ originalContentsURL:(NSURL *)originalContentsURL
     [aceView setFontSize:[[[NSUserDefaults standardUserDefaults] objectForKey:kDefaultsEditorFontSize] intValue]];
     
     if (fileString) {
-        [aceView setString:fileString];
-        fileString = nil;
+        @autoreleasepool {
+            [aceView setString:fileString];
+            fileString = nil;
+        }
     } else {
         [self loadDefaultManTemplate:self];
     }
@@ -137,7 +153,90 @@ originalContentsURL:(NSURL *)originalContentsURL
    
     [self setWebViewFontSize:[[[NSUserDefaults standardUserDefaults] objectForKey:kDefaultsPreviewFontSize] intValue]];
     
-    [editorActionButton setMenu:[(ManDrakeApplicationDelegate *)[[NSApplication sharedApplication] delegate] editorMenu]];
+    id appDelegate = (ManDrakeApplicationDelegate *)[[NSApplication sharedApplication] delegate];
+    [editorActionButton setMenu:[appDelegate editorMenu]];
+    [previewActionButton setMenu:[appDelegate previewMenu]];
+}
+
+#pragma mark - Defaults observation
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    
+    if ([keyPath hasSuffix:kDefaultsEditorTheme]) {
+        ACETheme theme = [[[NSUserDefaults standardUserDefaults] objectForKey:kDefaultsEditorTheme] intValue];
+        [aceView setTheme:theme];
+    }
+    else if ([keyPath hasSuffix:kDefaultsEditorShowInvisibles]) {
+        BOOL showInvisibles = [[[NSUserDefaults standardUserDefaults] objectForKey:kDefaultsEditorShowInvisibles] intValue];
+        [aceView setShowInvisibles:showInvisibles];
+    }
+    else if ([keyPath hasSuffix:kDefaultsEditorSyntaxHighlighting]) {
+        BOOL highlightSyntax = [[[NSUserDefaults standardUserDefaults] objectForKey:kDefaultsEditorSyntaxHighlighting] intValue];
+        if (highlightSyntax) {
+            [aceView setModeByNameString:@"groff"];
+        } else {
+            [aceView setMode:ACEModeASCIIDoc];
+        }
+    }
+    else if ([keyPath hasSuffix:kDefaultsEditorSoftLineWrap]) {
+        BOOL softWrap = [[[NSUserDefaults standardUserDefaults] objectForKey:kDefaultsEditorSoftLineWrap] intValue];
+        [aceView setUseSoftWrap:softWrap];
+    }
+    else if ([keyPath hasSuffix:kDefaultsEditorFontSize]) {
+        int fontSize = [[[NSUserDefaults standardUserDefaults] objectForKey:kDefaultsEditorFontSize] intValue];
+        [aceView setFontSize:fontSize];
+    }
+    else if ([keyPath hasSuffix:kDefaultsPreviewInvert]) {
+        [self refresh:self];
+    }
+}
+
+- (void)startObservingDefaults {
+    [[NSUserDefaultsController sharedUserDefaultsController] addObserver:self
+                                                              forKeyPath:VALUES_KEYPATH(kDefaultsEditorTheme)
+                                                                 options:NSKeyValueObservingOptionNew
+                                                                 context:NULL];
+    [[NSUserDefaultsController sharedUserDefaultsController] addObserver:self
+                                                              forKeyPath:VALUES_KEYPATH(kDefaultsEditorFontSize)
+                                                                 options:NSKeyValueObservingOptionNew
+                                                                 context:NULL];
+    [[NSUserDefaultsController sharedUserDefaultsController] addObserver:self
+                                                              forKeyPath:VALUES_KEYPATH(kDefaultsEditorShowInvisibles)
+                                                                 options:NSKeyValueObservingOptionNew
+                                                                 context:NULL];
+    [[NSUserDefaultsController sharedUserDefaultsController] addObserver:self
+                                                              forKeyPath:VALUES_KEYPATH(kDefaultsEditorSyntaxHighlighting)
+                                                                 options:NSKeyValueObservingOptionNew
+                                                                 context:NULL];
+    [[NSUserDefaultsController sharedUserDefaultsController] addObserver:self
+                                                              forKeyPath:VALUES_KEYPATH(kDefaultsEditorSoftLineWrap)
+                                                                 options:NSKeyValueObservingOptionNew
+                                                                 context:NULL];
+    [[NSUserDefaultsController sharedUserDefaultsController] addObserver:self
+                                                              forKeyPath:VALUES_KEYPATH(kDefaultsPreviewRefreshStyle)
+                                                                 options:NSKeyValueObservingOptionNew
+                                                                 context:NULL];
+    [[NSUserDefaultsController sharedUserDefaultsController] addObserver:self
+                                                              forKeyPath:VALUES_KEYPATH(kDefaultsPreviewInvert)
+                                                                 options:NSKeyValueObservingOptionNew
+                                                                 context:NULL];
+}
+
+- (void)stopObservingDefaults {
+    [[NSUserDefaultsController sharedUserDefaultsController] removeObserver:self
+                                                                 forKeyPath:VALUES_KEYPATH(kDefaultsEditorTheme)];
+    [[NSUserDefaultsController sharedUserDefaultsController] removeObserver:self
+                                                                 forKeyPath:VALUES_KEYPATH(kDefaultsEditorFontSize)];
+    [[NSUserDefaultsController sharedUserDefaultsController] removeObserver:self
+                                                                 forKeyPath:VALUES_KEYPATH(kDefaultsEditorShowInvisibles)];
+    [[NSUserDefaultsController sharedUserDefaultsController] removeObserver:self
+                                                                 forKeyPath:VALUES_KEYPATH(kDefaultsEditorSyntaxHighlighting)];
+    [[NSUserDefaultsController sharedUserDefaultsController] removeObserver:self
+                                                                 forKeyPath:VALUES_KEYPATH(kDefaultsEditorSoftLineWrap)];
+    [[NSUserDefaultsController sharedUserDefaultsController] removeObserver:self
+                                                                 forKeyPath:VALUES_KEYPATH(kDefaultsPreviewRefreshStyle)];
+    [[NSUserDefaultsController sharedUserDefaultsController] removeObserver:self
+                                                                 forKeyPath:VALUES_KEYPATH(kDefaultsPreviewInvert)];
 }
 
 #pragma mark - Editor
@@ -218,7 +317,7 @@ originalContentsURL:(NSURL *)originalContentsURL
         [refreshTimer invalidate];
         refreshTimer = nil;
     }
-    NSTimeInterval delay = [refreshText isEqualToString:@"Live"] ? 0.05 : 0.25;
+    NSTimeInterval delay = [refreshText isEqualToString:@"Live"] ? 0.01 : 0.2;
     refreshTimer = [NSTimer scheduledTimerWithTimeInterval:delay
                                                     target:self
                                                   selector:@selector(updatePreview)
@@ -233,66 +332,73 @@ originalContentsURL:(NSURL *)originalContentsURL
         return;
     }
     
-    // Create nroff task
-    NSTask *nroffTask = [[NSTask alloc] init];
-    [nroffTask setLaunchPath:@"/usr/bin/nroff"];
-    [nroffTask setArguments:@[@"-mandoc"]];
-    
-    NSPipe *nroffOutputPipe = [NSPipe pipe];
-    NSPipe *nroffInputPipe = [NSPipe pipe];
-    [nroffTask setStandardOutput:nroffOutputPipe];
-    [nroffTask setStandardInput:nroffInputPipe];
-    
-    NSFileHandle *nroffWriteHandle = [nroffInputPipe fileHandleForWriting];
-
-    // Create cat2html task
-    NSTask *catTask = [[NSTask alloc] init];
-    [catTask setLaunchPath:[[NSBundle mainBundle] pathForResource:@"cat2html" ofType:nil]];
-    [catTask setArguments:@[]];
-    
-    NSPipe *catOutputPipe = [NSPipe pipe];
-    [catTask setStandardOutput:catOutputPipe];
-    [catTask setStandardInput:nroffOutputPipe];
-
-    NSFileHandle *catReadHandle = [catOutputPipe fileHandleForReading];
-    
-    [nroffTask launch];
-    [catTask launch];
-    
-    // Write string to nroff's stdin
-    [nroffWriteHandle writeData:[manText dataUsingEncoding:NSUTF8StringEncoding]];
-    [nroffWriteHandle closeFile];
-    
-    [nroffTask waitUntilExit];
-    [catTask waitUntilExit];
-
-    // Read output from cat2html's stdout
-    NSMutableString *htmlString = [[NSMutableString alloc] initWithData:[catReadHandle readDataToEndOfFile]
-                                                               encoding:NSUTF8StringEncoding];
-    if ([htmlString length] == 0 || htmlString == nil) {
-        [[webView mainFrame] loadHTMLString:@"<strong>Nil output from cat2html</strong>" baseURL:nil];
-        NSLog(@"Nil output from cat2html");
-        return;
-    }
-    
-	// get the current scroll position of the document view of the web view
-	NSScrollView *theScrollView = [[[[webView mainFrame] frameView] documentView] enclosingScrollView];
-	NSRect scrollViewBounds = [[theScrollView contentView] bounds];
-	currentScrollPosition = scrollViewBounds.origin;
-    
-    // invert black/white
-    BOOL invert = [[[NSUserDefaults standardUserDefaults] objectForKey:kDefaultsPreviewInvert] boolValue];
-    if (invert) {
-        NSString *bgColor = invert ? @"black" : @"white";
-        NSString *fgColor = invert ? @"white" : @"black";
-        NSString *bodyTag = [NSString stringWithFormat:@"<body bgcolor=\"%@\" text=\"%@\">", bgColor, fgColor];
-        [htmlString replaceOccurrencesOfString:@"<body>"
-                                    withString:bodyTag
-                                       options:NSCaseInsensitiveSearch
-                                         range:NSMakeRange(0, 50)];
-    }
-    
-    [[webView mainFrame] loadHTMLString:htmlString baseURL:nil];
+    dispatch_async(backgroundQueue, ^{
+        
+        // Create nroff task
+        NSTask *nroffTask = [[NSTask alloc] init];
+        [nroffTask setLaunchPath:@"/usr/bin/nroff"];
+        [nroffTask setArguments:@[@"-mandoc"]];
+        
+        NSPipe *nroffOutputPipe = [NSPipe pipe];
+        NSPipe *nroffInputPipe = [NSPipe pipe];
+        [nroffTask setStandardOutput:nroffOutputPipe];
+        [nroffTask setStandardInput:nroffInputPipe];
+        
+        NSFileHandle *nroffWriteHandle = [nroffInputPipe fileHandleForWriting];
+        
+        // Create cat2html task
+        NSTask *catTask = [[NSTask alloc] init];
+        [catTask setLaunchPath:[[NSBundle mainBundle] pathForResource:@"cat2html" ofType:nil]];
+        [catTask setArguments:@[]];
+        
+        NSPipe *catOutputPipe = [NSPipe pipe];
+        [catTask setStandardOutput:catOutputPipe];
+        [catTask setStandardInput:nroffOutputPipe];
+        
+        NSFileHandle *catReadHandle = [catOutputPipe fileHandleForReading];
+        
+        [nroffTask launch];
+        [catTask launch];
+        
+        // Write string to nroff's stdin
+        [nroffWriteHandle writeData:[manText dataUsingEncoding:NSUTF8StringEncoding]];
+        [nroffWriteHandle closeFile];
+        
+        [nroffTask waitUntilExit];
+        [catTask waitUntilExit];
+        
+        // Read output from cat2html's stdout
+        NSMutableString *htmlString = [[NSMutableString alloc] initWithData:[catReadHandle readDataToEndOfFile]
+                                                                   encoding:NSUTF8StringEncoding];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+        
+            if ([htmlString length] == 0 || htmlString == nil) {
+                [[webView mainFrame] loadHTMLString:@"<strong>Nil output from cat2html</strong>" baseURL:nil];
+                NSLog(@"Nil output from cat2html");
+                return;
+            }
+            
+            // get the current scroll position of the document view of the web view
+            NSScrollView *theScrollView = [[[[webView mainFrame] frameView] documentView] enclosingScrollView];
+            NSRect scrollViewBounds = [[theScrollView contentView] bounds];
+            currentScrollPosition = scrollViewBounds.origin;
+            
+            // invert black/white
+            BOOL invert = [[[NSUserDefaults standardUserDefaults] objectForKey:kDefaultsPreviewInvert] boolValue];
+            if (invert) {
+                NSString *bgColor = invert ? @"black" : @"white";
+                NSString *fgColor = invert ? @"white" : @"black";
+                NSString *bodyTag = [NSString stringWithFormat:@"<body bgcolor=\"%@\" text=\"%@\">", bgColor, fgColor];
+                [htmlString replaceOccurrencesOfString:@"<body>"
+                                            withString:bodyTag
+                                               options:NSCaseInsensitiveSearch
+                                                 range:NSMakeRange(0, 50)];
+            }
+            
+            [[webView mainFrame] loadHTMLString:htmlString baseURL:nil];
+        });
+    });
 }
 
 // delegate method we receive when done loading the html file.
@@ -309,20 +415,32 @@ originalContentsURL:(NSURL *)originalContentsURL
 
 #pragma mark - Check syntax
 
-- (IBAction)checkSyntaxButtonPressed:(id)sender {
-    if ([self updateAnnotations]) {
-        NSBeep();
-    }
+- (IBAction)previewActionButtonPressed:(id)sender {
+    NSRect screenRect = [self.windowControllers[0].window convertRectToScreen:[(NSButton *)sender frame]];
+    NSMenu *menu = [(ManDrakeApplicationDelegate *)[[NSApplication sharedApplication] delegate] previewMenu];
+    [menu popUpMenuPositioningItem:nil atLocation:screenRect.origin inView:[sender superview]];
+    
+    NSLog(@"%@", NSStringFromRect([sender frame]));
 }
 
-- (BOOL)updateAnnotations {
-    NSArray *warningAnnotations = [self checkSyntax];
-    [aceView setAnnotations:warningAnnotations];
-    if ([warningAnnotations count]) {
-        [warningsTextField setStringValue:[NSString stringWithFormat:@"%lu warnings", (unsigned long)[warningAnnotations count]]];
-        return YES;
-    }
-    return NO;
+- (IBAction)checkSyntaxButtonPressed:(id)sender {
+    [self updateAnnotations];
+}
+
+- (void)updateAnnotations {
+    dispatch_async(backgroundQueue, ^{
+    
+        NSArray *warningAnnotations = [self checkSyntax];
+    
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [aceView setAnnotations:warningAnnotations];
+            if ([warningAnnotations count]) {
+                [warningsTextField setStringValue:[NSString stringWithFormat:@"%lu warnings", (unsigned long)[warningAnnotations count]]];
+            }
+            [warningsTextField setTag:[warningAnnotations count]];
+        });
+    });
 }
 
 - (NSArray *)checkSyntax {
