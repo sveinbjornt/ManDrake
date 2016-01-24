@@ -52,7 +52,7 @@
     
     NSPoint currentScrollPosition;
     NSTimer *refreshTimer;
-    NSString *fileString;
+    NSString *documentTextString;
     
     dispatch_queue_t backgroundQueue;
 }
@@ -96,7 +96,7 @@
     }
     if (fileContents) {
         readSuccess = YES;
-        fileString = fileContents;
+        documentTextString = fileContents;
     }
     return readSuccess;
 }
@@ -138,12 +138,11 @@ originalContentsURL:(NSURL *)originalContentsURL
     }
     
     [aceView setFontSize:[[[NSUserDefaults standardUserDefaults] objectForKey:kDefaultsEditorFontSize] intValue]];
+    [aceView setEmmet:NO];
     
-    if (fileString) {
-        @autoreleasepool {
-            [aceView setString:fileString];
-            fileString = nil;
-        }
+    if (documentTextString) {
+        [aceView setString:documentTextString];
+        documentTextString = nil;
     } else {
         [self loadDefaultManTemplate:self];
     }
@@ -242,9 +241,8 @@ originalContentsURL:(NSURL *)originalContentsURL
 #pragma mark - Editor
 
 - (IBAction)editorActionButtonPressed:(id)sender {
-    NSRect screenRect = [self.windowControllers[0].window convertRectToScreen:[(NSButton *)sender frame]];
     NSMenu *menu = [(ManDrakeApplicationDelegate *)[[NSApplication sharedApplication] delegate] editorMenu];
-    [menu popUpMenuPositioningItem:nil atLocation:screenRect.origin inView:nil];
+    [menu popUpMenuPositioningItem:nil atLocation:[sender frame].origin inView:[sender superview]];
 }
 
 - (IBAction)themeChanged:(id)sender {
@@ -301,7 +299,6 @@ originalContentsURL:(NSURL *)originalContentsURL
 	// generate preview
 	[refreshProgressIndicator startAnimation:self];
 	[self refreshWebView];
-	[refreshProgressIndicator stopAnimation:self];
 }
 
 - (void)textDidChange:(NSNotification *)aNotification {
@@ -397,6 +394,7 @@ originalContentsURL:(NSURL *)originalContentsURL
             }
             
             [[webView mainFrame] loadHTMLString:htmlString baseURL:nil];
+            [refreshProgressIndicator stopAnimation:self];
         });
     });
 }
@@ -416,11 +414,8 @@ originalContentsURL:(NSURL *)originalContentsURL
 #pragma mark - Check syntax
 
 - (IBAction)previewActionButtonPressed:(id)sender {
-    NSRect screenRect = [self.windowControllers[0].window convertRectToScreen:[(NSButton *)sender frame]];
     NSMenu *menu = [(ManDrakeApplicationDelegate *)[[NSApplication sharedApplication] delegate] previewMenu];
-    [menu popUpMenuPositioningItem:nil atLocation:screenRect.origin inView:[sender superview]];
-    
-    NSLog(@"%@", NSStringFromRect([sender frame]));
+    [menu popUpMenuPositioningItem:nil atLocation:[sender frame].origin inView:[sender superview]];
 }
 
 - (IBAction)checkSyntaxButtonPressed:(id)sender {
@@ -430,15 +425,34 @@ originalContentsURL:(NSURL *)originalContentsURL
 - (void)updateAnnotations {
     dispatch_async(backgroundQueue, ^{
     
-        NSArray *warningAnnotations = [self checkSyntax];
+        NSArray *annotations = [self checkSyntax];
     
         dispatch_async(dispatch_get_main_queue(), ^{
-            
-            [aceView setAnnotations:warningAnnotations];
-            if ([warningAnnotations count]) {
-                [warningsTextField setStringValue:[NSString stringWithFormat:@"%lu warnings", (unsigned long)[warningAnnotations count]]];
+            [aceView setAnnotations:annotations];
+            int errCount = 0;
+            for (NSDictionary *ann in annotations) {
+                if ([[ann objectForKey:@"iserror"] boolValue]) {
+                    errCount++;
+                }
             }
-            [warningsTextField setTag:[warningAnnotations count]];
+            int warnCount = (int)[annotations count] - errCount;
+            
+            NSMutableString *status = [NSMutableString stringWithString:@""];
+            NSColor *color = [NSColor orangeColor];
+            if (errCount) {
+                [status appendFormat:@"%d errors ", errCount];
+                color = [NSColor redColor];
+            }
+            if (warnCount) {
+                if ([status length]) {
+                    [status appendString:@", "];
+                }
+                [status appendFormat:@"%d warnings", warnCount];
+            }
+            
+            [warningsTextField setStringValue:status];
+            [warningsTextField setTag:[annotations count]];
+            [warningsTextField setTextColor:color];
         });
     });
 }
@@ -491,10 +505,13 @@ originalContentsURL:(NSURL *)originalContentsURL
         NSNumber *row = @([warnComponents[0] intValue] - 1);
         NSNumber *col = @([warnComponents[1] intValue]);
         
+        BOOL isError = [line containsString:@"ERROR"];
+        NSString *typeStr = isError ? @"error" : @"warning";
         NSDictionary *annotation = @{ @"row": row,
                                       @"column": col,
                                       @"text": warnString,
-                                      @"type": @"warning" };
+                                      @"type": typeStr,
+                                      @"iserror": @(isError)};
         
         [annotations addObject:annotation];
     }

@@ -24,7 +24,7 @@
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="133" y="201" width="760" height="447"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
-            <value key="minSize" type="size" width="94" height="86"/>
+            <value key="minSize" type="size" width="550" height="250"/>
             <view key="contentView" id="6">
                 <rect key="frame" x="0.0" y="0.0" width="760" height="447"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -60,8 +60,8 @@
                                         </connections>
                                     </button>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="FnO-X1-tAB">
-                                        <rect key="frame" x="160" y="424" width="108" height="14"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                        <rect key="frame" x="35" y="424" width="233" height="14"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" id="dN9-87-1BR">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -69,7 +69,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <button verticalHuggingPriority="750" id="dJ2-Os-ONx">
-                                        <rect key="frame" x="8" y="420" width="22" height="21"/>
+                                        <rect key="frame" x="7" y="420" width="22" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSActionTemplate" imagePosition="overlaps" alignment="center" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2DW-bG-Y5T">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -86,7 +86,7 @@
                                 <autoresizingMask key="autoresizingMask"/>
                                 <subviews>
                                     <textField verticalHuggingPriority="750" id="100065">
-                                        <rect key="frame" x="112" y="423" width="47.5" height="14"/>
+                                        <rect key="frame" x="127" y="423" width="47.5" height="14"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Refresh:" id="100074">
                                             <font key="font" metaFont="smallSystem"/>
@@ -95,7 +95,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <button verticalHuggingPriority="750" id="100067">
-                                        <rect key="frame" x="244" y="415" width="49" height="28"/>
+                                        <rect key="frame" x="253" y="415" width="49" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSRefreshTemplate" imagePosition="overlaps" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="100068">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -106,7 +106,7 @@
                                         </connections>
                                     </button>
                                     <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" id="100082">
-                                        <rect key="frame" x="87" y="421" width="16" height="16"/>
+                                        <rect key="frame" x="104" y="422" width="16" height="16"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                     </progressIndicator>
                                     <box verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="100089">
@@ -116,44 +116,8 @@
                                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <font key="titleFont" metaFont="system"/>
                                     </box>
-                                    <webView maintainsBackForwardList="NO" id="PHv-Sh-qOi">
-                                        <rect key="frame" x="0.0" y="0.0" width="382" height="415"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12" minimumFontSize="4" plugInsEnabled="NO" javaEnabled="NO" javaScriptCanOpenWindowsAutomatically="NO" loadsImagesAutomatically="NO" allowsAnimatedImages="NO" allowsAnimatedImageLooping="NO">
-                                            <nil key="identifier"/>
-                                        </webPreferences>
-                                        <connections>
-                                            <outlet property="UIDelegate" destination="-2" id="LRG-Jq-pSh"/>
-                                            <outlet property="downloadDelegate" destination="-2" id="iii-o0-Dyt"/>
-                                            <outlet property="frameLoadDelegate" destination="-2" id="gPo-5J-CpC"/>
-                                            <outlet property="policyDelegate" destination="-2" id="Di5-cz-VZY"/>
-                                            <outlet property="resourceLoadDelegate" destination="-2" id="bVN-kK-5UC"/>
-                                        </connections>
-                                    </webView>
-                                    <button verticalHuggingPriority="750" id="R73-kI-mpA">
-                                        <rect key="frame" x="291" y="415" width="34" height="28"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="push" title="+" bezelStyle="rounded" imagePosition="overlaps" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="GJg-GG-dwa">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="smallSystem"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="makePreviewTextLarger:" target="-2" id="TmF-oa-BdL"/>
-                                        </connections>
-                                    </button>
-                                    <button verticalHuggingPriority="750" id="cqO-F7-Wju">
-                                        <rect key="frame" x="315" y="415" width="34" height="28"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="push" title="–" bezelStyle="rounded" imagePosition="overlaps" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qTk-ZI-dd7">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="smallSystem"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="makePreviewTextSmaller:" target="-2" id="b9B-b1-QTs"/>
-                                        </connections>
-                                    </button>
                                     <popUpButton verticalHuggingPriority="750" id="100066">
-                                        <rect key="frame" x="158" y="418" width="86" height="22"/>
+                                        <rect key="frame" x="176" y="418" width="77" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                         <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="100069">
                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -162,7 +126,9 @@
                                                 <items>
                                                     <menuItem title="Live" id="100071"/>
                                                     <menuItem title="Delayed" id="100072"/>
-                                                    <menuItem title="Manual" id="100073"/>
+                                                    <menuItem title="Manual" id="100073">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                    </menuItem>
                                                 </items>
                                             </menu>
                                         </popUpButtonCell>
@@ -185,6 +151,42 @@
                                             <action selector="previewActionButtonPressed:" target="-1" id="FXf-7f-StM"/>
                                         </connections>
                                     </button>
+                                    <button verticalHuggingPriority="750" id="4N5-99-C8r">
+                                        <rect key="frame" x="326" y="420" width="22" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Aeh-yX-NDA">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="smallSystem"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="makePreviewTextLarger:" target="-2" id="6gU-un-Ogb"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" id="Dea-3N-Ssb">
+                                        <rect key="frame" x="305" y="420" width="22" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="HKR-Lp-iit">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="smallSystem"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="makePreviewTextSmaller:" target="-2" id="ZxT-u7-lhF"/>
+                                        </connections>
+                                    </button>
+                                    <webView maintainsBackForwardList="NO" id="PHv-Sh-qOi">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="415"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12" minimumFontSize="4" plugInsEnabled="NO" javaEnabled="NO" javaScriptCanOpenWindowsAutomatically="NO" loadsImagesAutomatically="NO" allowsAnimatedImages="NO" allowsAnimatedImageLooping="NO">
+                                            <nil key="identifier"/>
+                                        </webPreferences>
+                                        <connections>
+                                            <outlet property="UIDelegate" destination="-2" id="LRG-Jq-pSh"/>
+                                            <outlet property="downloadDelegate" destination="-2" id="iii-o0-Dyt"/>
+                                            <outlet property="frameLoadDelegate" destination="-2" id="gPo-5J-CpC"/>
+                                            <outlet property="policyDelegate" destination="-2" id="Di5-cz-VZY"/>
+                                            <outlet property="resourceLoadDelegate" destination="-2" id="bVN-kK-5UC"/>
+                                        </connections>
+                                    </webView>
                                 </subviews>
                             </customView>
                         </subviews>
@@ -198,13 +200,15 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="17"/>
             </connections>
-            <point key="canvasLocation" x="271" y="54.5"/>
+            <point key="canvasLocation" x="523" y="56.5"/>
         </window>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <userDefaultsController representsSharedInstance="YES" id="gaD-lZ-q4w"/>
     </objects>
     <resources>
         <image name="NSActionTemplate" width="14" height="14"/>
+        <image name="NSAddTemplate" width="11" height="11"/>
         <image name="NSRefreshTemplate" width="11" height="15"/>
+        <image name="NSRemoveTemplate" width="11" height="11"/>
     </resources>
 </document>
