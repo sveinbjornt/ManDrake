@@ -124,8 +124,7 @@
 #pragma mark - Menus
 
 - (IBAction)showReadme:(id)sender {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"Readme.html" ofType:nil];
-    [[NSWorkspace sharedWorkspace] openPathInDefaultBrowser:path];
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://github.com/sveinbjornt/ManDrake"]];
 }
 
 - (IBAction)showLicense:(id)sender {
