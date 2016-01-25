@@ -430,11 +430,10 @@ originalContentsURL:(NSURL *)originalContentsURL
 }
 
 - (IBAction)previewInTerminal:(id)sender {
-    if ([self fileURL] == nil) {
-        NSBeep();
-        return;
-    }
     NSString *path = [[self fileURL] path];
+    if ([self fileURL] == nil) {
+        path = [[NSWorkspace sharedWorkspace] createTempFileWithContents:[aceView string]];
+    }
     NSString *cmd = [NSString stringWithFormat:@"/usr/bin/nroff -mandoc '%@' | less", path];
     [[NSWorkspace sharedWorkspace] runCommandInTerminal:cmd];
 }
