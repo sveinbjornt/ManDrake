@@ -119,6 +119,21 @@
                                     <action selector="revertDocumentToSaved:" target="-1" id="364"/>
                                 </connections>
                             </menuItem>
+                            <menuItem isSeparatorItem="YES" id="MzI-bV-xnM">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Export As HTML…" id="rNP-FX-ijS">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="exportAsHTML:" target="-1" id="pSz-Ti-dEC"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Export As PDF…" id="yrX-ac-vR2">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="exportAsPDF:" target="-1" id="CBX-Vw-Cec"/>
+                                </connections>
+                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="xo2-By-AYD">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>

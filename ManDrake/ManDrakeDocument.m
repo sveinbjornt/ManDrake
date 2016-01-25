@@ -72,6 +72,9 @@
 - (IBAction)loadManMdocTemplate:(id)sender;
 - (IBAction)loadDefaultManTemplate:(id)sender;
 
+- (IBAction)exportAsHTML:(id)sender;
+- (IBAction)exportAsPDF:(id)sender;
+
 @end
 
 @implementation ManDrakeDocument
@@ -445,24 +448,19 @@ originalContentsURL:(NSURL *)originalContentsURL
 }
 
 - (void)updateAnnotations {
-    
     [syntaxCheckingTimer invalidate];
     syntaxCheckingTimer = nil;
     
     dispatch_async(backgroundQueue, ^{
     
-        NSArray *annotations = [self checkSyntax];
-    
+        NSDictionary *syntaxCheckDict = [self checkSyntax];
+        NSArray *annotations = syntaxCheckDict[@"annotations"];
+        int errCount = [syntaxCheckDict[@"errors"] intValue];
+        int warnCount = [syntaxCheckDict[@"errors"] intValue];
+        
         dispatch_async(dispatch_get_main_queue(), ^{
-            [aceView setAnnotations:annotations];
-            int errCount = 0;
-            for (NSDictionary *ann in annotations) {
-                if ([[ann objectForKey:@"iserror"] boolValue]) {
-                    errCount++;
-                }
-            }
-            int warnCount = (int)[annotations count] - errCount;
             
+            // Generate error and warning count info string
             NSMutableString *status = [NSMutableString stringWithString:@""];
             NSColor *color = [NSColor orangeColor];
             if (errCount) {
@@ -479,35 +477,48 @@ originalContentsURL:(NSURL *)originalContentsURL
             [warningsTextField setStringValue:status];
             [warningsTextField setTag:[annotations count]];
             [warningsTextField setTextColor:color];
+
+            [aceView setAnnotations:annotations];
         });
     });
 }
 
-- (NSArray *)checkSyntax {
-    NSString *manString = [aceView string];
-    NSString *tmpFilePath = [[NSWorkspace sharedWorkspace] createTempFileWithContents:manString];
-    
+- (NSDictionary *)checkSyntax {
     // run task "mandoc -T lint [tempFile]"
-    NSTask *task = [[NSTask alloc] init];
-    [task setLaunchPath:[[NSBundle mainBundle] pathForResource:@"mandoc" ofType:nil]];
-    [task setArguments:@[@"-T", @"lint", tmpFilePath]];
+    NSTask *mandocTask = [[NSTask alloc] init];
+    [mandocTask setLaunchPath:[[NSBundle mainBundle] pathForResource:@"mandoc" ofType:nil]];
+    [mandocTask setArguments:@[@"-T", @"lint"]];
+    
     NSPipe *outputPipe = [NSPipe pipe];
-    [task setStandardOutput:outputPipe];
-    [task setStandardError:outputPipe];
+    NSPipe *inputPipe = [NSPipe pipe];
+    [mandocTask setStandardOutput:outputPipe];
+    [mandocTask setStandardError:outputPipe];
+    [mandocTask setStandardInput:inputPipe];
+    
     NSFileHandle *readHandle = [outputPipe fileHandleForReading];
-    [task launch];
-    [task waitUntilExit];
-    [[NSFileManager defaultManager] removeItemAtPath:tmpFilePath error:nil];
+    NSFileHandle *writeHandle = [inputPipe fileHandleForWriting];
+    
+    [mandocTask launch];
+    
+    // write to stdin
+    [writeHandle writeData:[[aceView string] dataUsingEncoding:NSUTF8StringEncoding]];
+    [writeHandle closeFile];
+    
+    [mandocTask waitUntilExit];
+//    [[NSFileManager defaultManager] removeItemAtPath:tmpFilePath error:nil];
 
     // read output into string
     NSString *outputStr = [[NSString alloc] initWithData:[readHandle readDataToEndOfFile]
                                                 encoding:NSUTF8StringEncoding];
+//    [readHandle closeFile];
+    
     if ([outputStr length] == 0 || outputStr == nil) {
-        return @[];
+        return @{ @"annotations": @[] };
     }
     
     NSArray *lines = [outputStr componentsSeparatedByString:@"\n"];
     NSMutableArray *annotations = [NSMutableArray array];
+    int errCount = 0;
     
     // parse each line of output and create annotation dict
     for (NSString *line in lines) {
@@ -517,7 +528,7 @@ originalContentsURL:(NSURL *)originalContentsURL
         
         // mandoc lint output lines have the following format:
         // mandoc: /path/to/manpage.1:160:2: WARNING: sections out of conventional order: Sh FILES
-        NSArray *components = [line componentsSeparatedByString:[NSString stringWithFormat:@"%@:", tmpFilePath]];
+        NSArray *components = [line componentsSeparatedByString:[NSString stringWithFormat:@"<stdin>:"]];
         if ([components count] < 2) {
             NSLog(@"Unable to parse output line: \"%@\"", line);
             continue;
@@ -534,6 +545,7 @@ originalContentsURL:(NSURL *)originalContentsURL
         NSNumber *col = @([warnComponents[1] intValue]);
         
         BOOL isError = [line containsString:@"ERROR"];
+        errCount += isError;
         NSString *typeStr = isError ? @"error" : @"warning";
         NSDictionary *annotation = @{ @"row": row,
                                       @"column": col,
@@ -543,8 +555,11 @@ originalContentsURL:(NSURL *)originalContentsURL
         
         [annotations addObject:annotation];
     }
+    int warnCount = (int)[annotations count] - errCount;
     
-    return annotations;
+    return @{   @"errors": @(errCount),
+                @"warnings": @(warnCount),
+                @"annotations": annotations };
 }
 
 #pragma mark - Load templates
@@ -562,6 +577,71 @@ originalContentsURL:(NSURL *)originalContentsURL
                                               encoding:NSUTF8StringEncoding
                                                  error:nil];
     [aceView setString:str];
+}
+
+#pragma mark - Export
+
+- (IBAction)exportAsHTML:(id)sender {
+    NSString *defaultName = [NSString stringWithFormat:@"%@.html", [self displayName]];
+    
+    NSSavePanel *sPanel = [NSSavePanel savePanel];
+    [sPanel setTitle:@"Export as HTML"];
+    [sPanel setPrompt:@"Save"];
+    [sPanel setNameFieldStringValue:defaultName];
+    
+    if ([sPanel runModal] != NSFileHandlingPanelOKButton) {
+        return;
+    }
+    
+    NSString *filePath = [[sPanel URL] path];
+    WebDataSource *source = [[webView mainFrame] dataSource];
+    NSData *data = [source data];
+    NSString *htmlString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    [htmlString writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
+}
+
+- (IBAction)exportAsPDF:(id)sender {
+    NSString *defaultName = [NSString stringWithFormat:@"%@.pdf", [self displayName]];
+    
+    NSSavePanel *sPanel = [NSSavePanel savePanel];
+    [sPanel setTitle:@"Export as PDF"];
+    [sPanel setPrompt:@"Save"];
+    [sPanel setNameFieldStringValue:defaultName];
+    
+    if ([sPanel runModal] != NSFileHandlingPanelOKButton) {
+        return;
+    }
+    NSString *pdfOutputPath = [[sPanel URL] path];
+    
+    // groff -Tps -mandoc -c | pstopdf -i -o pdfOutputPath.pdf
+    
+    // Create groff task
+    NSTask *groffTask = [[NSTask alloc] init];
+    [groffTask setLaunchPath:@"/usr/bin/groff"];
+    [groffTask setArguments:@[@"-Tps", @"-mandoc", @"-c"]];
+    
+    NSPipe *groffOutputPipe = [NSPipe pipe];
+    NSPipe *groffInputPipe = [NSPipe pipe];
+    [groffTask setStandardOutput:groffOutputPipe];
+    [groffTask setStandardInput:groffInputPipe];
+    
+    NSFileHandle *writeHandle = [groffInputPipe fileHandleForWriting];
+    
+    // Create cat2html task
+    NSTask *pstopdfTask = [[NSTask alloc] init];
+    [pstopdfTask setLaunchPath:@"/usr/bin/pstopdf"];
+    [pstopdfTask setArguments:@[@"-i", @"-o", pdfOutputPath]];
+    [pstopdfTask setStandardInput:groffOutputPipe];
+
+    [groffTask launch];
+    [pstopdfTask launch];
+    
+    // Write string to groff's stdin
+    [writeHandle writeData:[[aceView string] dataUsingEncoding:NSUTF8StringEncoding]];
+    [writeHandle closeFile];
+    
+    [groffTask waitUntilExit];
+    [pstopdfTask waitUntilExit];
 }
 
 @end
