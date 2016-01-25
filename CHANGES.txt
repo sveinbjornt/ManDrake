@@ -2,16 +2,17 @@ For next version:
 
     * ?
 
-23/01/2016 - Version 3.0
+26/01/2016 - Version 3.0
 
     * Overhauled user interface
     * New, powerful, customizable ace text editor
+    * Automatic mdoc syntax checking with inline warnings in editor
     * Better groff syntax highlighting
     * Faster preview generation
-    * Updated documentation
-    * Sparkle update mechanism
-    * Automatic mdoc syntax checking with inline warnings in editor
+    * Export to HTML and PDF
     * New application and document icons
+    * Updated documentation
+    * Sparkle autoupdating
     * Code is now BSD licensed
     * Better man templates
 

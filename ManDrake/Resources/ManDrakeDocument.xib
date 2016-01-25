@@ -29,7 +29,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="760" height="447"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <splitView dividerStyle="paneSplitter" vertical="YES" id="100036">
+                    <splitView identifier="org.sveinbjorn.ManDrake.SplitView" autosaveName="ManDrakeDocumentSplitView" dividerStyle="paneSplitter" vertical="YES" id="100036">
                         <rect key="frame" x="0.0" y="0.0" width="760" height="447"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
