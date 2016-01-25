@@ -456,7 +456,7 @@ originalContentsURL:(NSURL *)originalContentsURL
         NSDictionary *syntaxCheckDict = [self checkSyntax];
         NSArray *annotations = syntaxCheckDict[@"annotations"];
         int errCount = [syntaxCheckDict[@"errors"] intValue];
-        int warnCount = [syntaxCheckDict[@"errors"] intValue];
+        int warnCount = [syntaxCheckDict[@"warnings"] intValue];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             
