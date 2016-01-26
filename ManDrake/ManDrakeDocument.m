@@ -181,7 +181,7 @@ originalContentsURL:(NSURL *)originalContentsURL
         if (highlightSyntax) {
             [aceView setModeByNameString:@"groff"];
         } else {
-            [aceView setMode:ACEModeASCIIDoc];
+            [aceView setMode:ACEModeText];
         }
     }
     else if ([keyPath hasSuffix:kDefaultsEditorSoftLineWrap]) {
