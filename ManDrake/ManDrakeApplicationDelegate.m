@@ -45,7 +45,7 @@
     defaultPrefs[kDefaultsCheckSyntaxAutomatically] = @(YES);
     
     defaultPrefs[kDefaultsPreviewRefreshStyle] = @"Delayed";
-    defaultPrefs[kDefaultsPreviewFontSize] = @(0);
+    defaultPrefs[kDefaultsPreviewFontSize] = @(-1);
     defaultPrefs[kDefaultsPreviewInvert] = @(NO);
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaultPrefs];
 }
@@ -67,7 +67,6 @@
                                                               forKeyPath:VALUES_KEYPATH(kDefaultsPreviewRefreshStyle)
                                                                  options:NSKeyValueObservingOptionNew
                                                                  context:NULL];
-    
     // populate themes menu
     int i = 0;
     NSArray *names = [ACEThemeNames humanThemeNames];
