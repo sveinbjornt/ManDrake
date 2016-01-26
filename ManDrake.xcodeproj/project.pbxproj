@@ -241,6 +241,7 @@
 				F487F4A3141EADEF0093D633 /* Sources */,
 				F487F4A4141EADEF0093D633 /* Frameworks */,
 				2EC8F10CAF71182BCA4F871E /* Copy Pods Resources */,
+				F43557EC1C56AE04009080DC /* Delete Unneded Pods Resources */,
 				F487F4A5141EADEF0093D633 /* Resources */,
 				18FB821FE9A8B01872633938 /* Embed Pods Frameworks */,
 			);
@@ -343,6 +344,20 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
+		};
+		F43557EC1C56AE04009080DC /* Delete Unneded Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Delete Unneded Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "RSRC_DIR=\"${TARGET_BUILD_DIR}/ManDrake.app/Contents/Resources\"\n\nrm ${RSRC_DIR}/worker*.js\nrm ${RSRC_DIR}/mode*.js\n\n#rm -r ${TARGET_BUILD_DIR}/ManDrake.app/Contents/Frameworks/Sparkle.framework/Versions/A/Resources/*.lproj\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
