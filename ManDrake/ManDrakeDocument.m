@@ -300,22 +300,9 @@ originalContentsURL:(NSURL *)originalContentsURL
     [self changePreviewFontSize:-1];
 }
 
-#pragma mark - Web Preview
-
-- (IBAction)previewActionButtonPressed:(id)sender {
-    NSMenu *menu = [(ManDrakeApplicationDelegate *)[[NSApplication sharedApplication] delegate] previewMenu];
-    [menu popUpMenuPositioningItem:nil atLocation:[sender frame].origin inView:[sender superview]];
-}
-
-- (IBAction)refresh:(id)sender {
-	// generate preview
-	[refreshProgressIndicator startAnimation:self];
-	[self refreshWebView];
-}
-
 - (void)textDidChange:(NSNotification *)aNotification {
     NSString *refreshText = [refreshTypePopupButton titleOfSelectedItem];
-
+    
     // set off timer to refresh preview
     if (![[[NSUserDefaults standardUserDefaults] stringForKey:kDefaultsPreviewRefreshStyle] isEqualToString:@"Manually"]) {
         if (refreshTimer != nil) {
@@ -342,6 +329,19 @@ originalContentsURL:(NSURL *)originalContentsURL
                                                              userInfo:nil
                                                               repeats:NO];
     }
+}
+
+#pragma mark - Web Preview
+
+- (IBAction)previewActionButtonPressed:(id)sender {
+    NSMenu *menu = [(ManDrakeApplicationDelegate *)[[NSApplication sharedApplication] delegate] previewMenu];
+    [menu popUpMenuPositioningItem:nil atLocation:[sender frame].origin inView:[sender superview]];
+}
+
+- (IBAction)refresh:(id)sender {
+	// generate preview
+	[refreshProgressIndicator startAnimation:self];
+	[self refreshWebView];
 }
 
 - (void)refreshWebView {
@@ -389,7 +389,6 @@ originalContentsURL:(NSURL *)originalContentsURL
         // Read output from cat2html's stdout
         NSMutableString *htmlString = [[NSMutableString alloc] initWithData:[catReadHandle readDataToEndOfFile]
                                                                    encoding:NSUTF8StringEncoding];
-        
         dispatch_async(dispatch_get_main_queue(), ^{
         
             if ([htmlString length] == 0 || htmlString == nil) {
@@ -505,12 +504,11 @@ originalContentsURL:(NSURL *)originalContentsURL
     [writeHandle closeFile];
     
     [mandocTask waitUntilExit];
-//    [[NSFileManager defaultManager] removeItemAtPath:tmpFilePath error:nil];
 
     // read output into string
     NSString *outputStr = [[NSString alloc] initWithData:[readHandle readDataToEndOfFile]
                                                 encoding:NSUTF8StringEncoding];
-//    [readHandle closeFile];
+    [readHandle closeFile];
     
     if ([outputStr length] == 0 || outputStr == nil) {
         return @{ @"annotations": @[] };
