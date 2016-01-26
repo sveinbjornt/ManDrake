@@ -5,7 +5,6 @@ var oop = require("../lib/oop");
 var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
 
 var groffHighlightRules = function() {
-       // Li, Ns, Fl, Op, Oo, Oc, Ar, Aq,
     this.$rules = {
         start: [{
             token: "comment.macro.text.groff",
@@ -13,71 +12,28 @@ var groffHighlightRules = function() {
             comment: "comments"
         }, {
             token: "comment.macro.text.groff",
-            regex: /\\\".*$/,
+            regex: /(\\\".*$)/,
             comment: "comments"
-        }, {
+         }, {
+         token: [
+                 "keyword.text.groff",
+                 "option.macro.text.groff",
+                 "support.constant.text.groff",
+                 ],
+         regex: /^(\.Dt)(\s)([^\s][a-zA-Z\s]+)/,
+         comment: "section header macros"
+         },{
             token: [
-                "keyword.text.groff",
-                "constant.other.text.groff"
-            ],
-            regex: /^(\.UR)\b(.*)$/,
-            push: [{
-                token: "keyword.text.groff",
-                regex: /^\.UE/,
-                next: "pop"
-            }, {
-                token: "string.text.groff",
-                regex: /./
-            }, {
-                defaultToken: "uri.macro.text.groff"
-            }],
-            comment: "email address macro"
+                    "keyword.text.groff",
+                    "option.macro.text.groff",
+                    "string.text.groff",
+                    ],
+            regex: /^(\.Sh)(\s)([^\s][a-zA-Z\s]+)/,
+            comment: "section header macros"
         }, {
-            token: [
-                "keyword.text.groff",
-                "constant.other.text.groff"
-            ],
-            regex: /^(\.MT)\b(.*)$/,
-            push: [{
-                token: "keyword.text.groff",
-                regex: /^\.ME/,
-                next: "pop"
-            }, {
-                token: "string.text.groff",
-                regex: /./
-            }, {
-                defaultToken: "emailaddress.macro.text.groff"
-            }],
-            comment: "email address macro"
-        }, {
-            token: [
-                "keyword.text.groff",
-                "option.macro.text.groff",
-                "support.constant.text.groff",
-                "option.macro.text.groff",
-                "string.text.groff"
-            ],
-            regex: /^(\.OP)(\s)([^\s]+)(\s?)(.*)$/,
-            comment: "text style macros"
-        }, {
-            token: "keyword.text.groff",
-            regex: /^(?:\.SM|\.SB|\.BI|\.IB|\.RI|\.IR|\.BR|\.RB|\.B|\.I)\b/,
-            push: [{
-                token: "style.macro.text.groff",
-                regex: /$/,
-                next: "pop"
-            }, {
-                token: "string.text.groff",
-                regex: /./,
-                comment: "catch-all"
-            }, {
-                defaultToken: "style.macro.text.groff"
-            }],
-            comment: "text style macros"
-        }, {
-            token: ["keyword.text.groff", "entity.text.groff"],
-            regex: /^(\.[a-zA-Z]*\s?)((?:\s?.+)?)$/,
-            comment: "marco catch-all"
+            token: ["keyword.text.groff"],
+                regex: /^(\.[a-zA-Z]{1,3}\s?)/,
+            comment: "macro catch-all"
         }]
     }
     
