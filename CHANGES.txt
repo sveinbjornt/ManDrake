@@ -7,7 +7,7 @@ For next version:
     * Overhauled user interface
     * New, powerful, customizable ace text editor
     * Automatic mdoc syntax checking with inline warnings in editor
-    * Better groff syntax highlighting
+    * Better syntax highlighting
     * Faster preview generation
     * Export to HTML and PDF
     * New application and document icons

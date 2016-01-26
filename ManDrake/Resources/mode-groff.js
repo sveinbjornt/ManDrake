@@ -29,7 +29,7 @@ var groffHighlightRules = function() {
                     "string.text.groff",
                     ],
             regex: /^(\.Sh)(\s)([^\s][a-zA-Z\s]+)/,
-            comment: "section header macros"
+            comment: "document title macro"
         }, {
             token: ["keyword.text.groff"],
                 regex: /^(\.[a-zA-Z]{1,3}\s?)/,
