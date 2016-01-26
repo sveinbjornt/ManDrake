@@ -456,8 +456,8 @@
                                 </menu>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="EM0-E7-Xsx"/>
-                            <menuItem title="Invert Preview" id="plk-gj-lxm">
-                                <modifierMask key="keyEquivalentModifierMask"/>
+                            <menuItem title="Invert Preview" keyEquivalent="i" id="plk-gj-lxm">
+                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                 <connections>
                                     <binding destination="PuS-3K-wCY" name="value" keyPath="values.PreviewInvert" id="zk3-MN-3tR"/>
                                 </connections>
@@ -478,6 +478,21 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="previewInTerminal:" target="-1" id="97P-nJ-nXd"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="EHi-Hn-Kej">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Export As HTML…" id="3Ci-b9-4n5">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="exportAsHTML:" target="-1" id="Dyk-QK-0Qx"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Export As PDF…" id="WMS-Ko-ReV">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="exportAsPDF:" target="-1" id="Jng-xL-as9"/>
                                 </connections>
                             </menuItem>
                         </items>
