@@ -7,12 +7,23 @@
         <language>en</language>
         <item>
             <title>Version 3.0</title>
-            <pubDate>Wed, 30 Nov 2015 00:28:00 +0000</pubDate>
-            <enclosure url="/http://sveinbjorn.org/files/software/mandrake/ManDrake-3.0.zip" sparkle:version="3.0" sparkle:shortVersionString="3.0" length="3640511" type="application/octet-stream" sparkle:dsaSignature="MC0CFQCxJgz5q7W4x5GuUTW9drKORIk6egIUcgQ+Au+eb6r7HwsDTUf79b8JQoI="/>
+            <pubDate>Tue, 26 Jan 2016 19:03:00 +0000</pubDate>
+            <enclosure url="/http://sveinbjorn.org/files/software/mandrake/ManDrake-3.0.zip" sparkle:version="3.0" sparkle:shortVersionString="3.0" length="1897337" type="application/octet-stream" sparkle:dsaSignature="MCwCFGM6w5ihxzvPlnBqvx/Z7GYOCWuJAhQ6C2sb7PghyLQUuNGH+/q86gysFw=="/>
             <sparkle:minimumSystemVersion>10.7.0</sparkle:minimumSystemVersion>
             <description><![CDATA[
-                <h2>Version 3.0 Changes</h2>
+                <h2>New in Version 3.0</h2>
                 <ul>
+                    <li>Overhauled user interface
+                    <li>New, powerful, customizable ace text editor
+                    <li>Automatic mdoc syntax checking with inline warnings in editor</li>
+                    <li>Better syntax highlighting</li>
+                    <li>Faster preview generation</li>
+                    <li>Export to HTML and PDF</li>
+                    <li>New application and document icons</li>
+                    <li>Updated documentation</li>
+                    <li>Sparkle autoupdating</li>
+                    <li>Code is now BSD licensed</li>
+                    <li>Better man templates</li>
                 </ul>
             ]]></description>
         </item>
