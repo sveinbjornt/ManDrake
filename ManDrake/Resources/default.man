@@ -1,15 +1,12 @@
-.\"Modified from man(1) of FreeBSD, the NetBSD mdoc.template, and mdoc.samples.
-.\"See Also:
-.\"man mdoc.samples for a complete listing of options
-.\"man mdoc for the short list of editing options
-.\"/usr/share/misc/mdoc.template
-.Dd 8/4/10               \" DATE
-.Dt Untitled 1      \" Program name and manual section number
+.\" Modified from man(1) of FreeBSD, the NetBSD mdoc.template and mdoc.samples
+.\" See man mdoc for the short list of editing options
+.Dd January 26, 2016     \" DATE
+.Dt UNTITLED 1           \" Program name and manual section number
 .Os Darwin
 .Sh NAME                 \" Section Header - required - don't modify
 .Nm Untitled,
-.\" The following lines are read in generating the apropos(man -k) database. Use only key
-.\" words here as the database is built based on the words here and in the .ND line.
+.\" The following lines are read in generating the apropos database.
+.\" Use only key words here as the database is built on these.
 .Nm Other_name_for_same_program(),
 .Nm Yet another name for the same program.
 .\" Use .Nm macro to designate other names for the documented program.
@@ -26,7 +23,7 @@ arg2 ...                 \" Arguments
 Use the .Nm macro to refer to your program throughout the man page like such:
 .Nm
 Underlining is accomplished with the .Ar macro like this:
-.Ar underlined text .
+.Ar underlined text.
 .Pp                      \" Inserts a space
 A list of items with descriptions:
 .Bl -tag -width -indent  \" Begins a tagged list
@@ -43,15 +40,14 @@ Description of -a flag
 .It Fl b
 Description of -b flag
 .El                      \" Ends the list
-.Pp
 .\" .Sh ENVIRONMENT      \" May not be needed
-.\" .Bl -tag -width "ENV_VAR_1" -indent \" ENV_VAR_1 is width of the string ENV_VAR_1
-.\" .It Ev ENV_VAR_1
-.\" Description of ENV_VAR_1
-.\" .It Ev ENV_VAR_2
-.\" Description of ENV_VAR_2
+.\" .Bl -tag -width "ENVVAR1"
+.\" .It Ev ENVVAR1
+.\" Description of ENVVAR1
+.\" .It Ev ENVVAR2
+.\" Description of ENVVAR2
 .\" .El
-.Sh FILES                \" File used or created by the topic of the man page
+.Sh FILES                \" Files used or created by the program
 .Bl -tag -width "/Users/joeuser/Library/really_long_file_name" -compact
 .It Pa /usr/share/file_name
 FILE_1 description
@@ -75,5 +71,9 @@ FILE_2 description
 .Xr b 2 ,
 .Xr a 3 ,
 .Xr b 3
-.\" .Sh BUGS              \" Document known, unremedied bugs
-.\" .Sh HISTORY           \" Document history if command behaves in a unique manner
+.\" .Sh STANDARDS       \" Standards relating to command being described
+.\" .Sh HISTORY         \" Document history if command behaves uniquely
+.\" .Sh AUTHORS         \" A list of authors of the program
+.\" .An John Doe        \" Some author
+.\" .An Jane Doe        \" Some other author
+.\" .Sh BUGS            \" Document known, unremedied bugs
