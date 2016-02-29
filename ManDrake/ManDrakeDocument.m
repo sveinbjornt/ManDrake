@@ -95,13 +95,11 @@
 - (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError **)outError {
     BOOL readSuccess = NO;
     NSString *fileContents = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    if (!fileContents && outError) {
-        *outError = [NSError errorWithDomain:NSCocoaErrorDomain
-                                        code:NSFileReadUnknownError userInfo:nil];
-    }
     if (fileContents) {
         readSuccess = YES;
         documentTextString = fileContents;
+    } else {
+        *outError = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileReadUnknownError userInfo:nil];
     }
     return readSuccess;
 }
