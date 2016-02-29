@@ -1,6 +1,6 @@
 For next version:
 
-    * ?
+    * Find in ACEView editor
 
 26/01/2016 - Version 3.0
 
