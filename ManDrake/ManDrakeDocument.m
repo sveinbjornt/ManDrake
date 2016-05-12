@@ -196,51 +196,24 @@ originalContentsURL:(NSURL *)originalContentsURL
 }
 
 - (void)startObservingDefaults {
-    [[NSUserDefaultsController sharedUserDefaultsController] addObserver:self
-                                                              forKeyPath:VALUES_KEYPATH(kDefaultsEditorTheme)
-                                                                 options:NSKeyValueObservingOptionNew
-                                                                 context:NULL];
-    [[NSUserDefaultsController sharedUserDefaultsController] addObserver:self
-                                                              forKeyPath:VALUES_KEYPATH(kDefaultsEditorFontSize)
-                                                                 options:NSKeyValueObservingOptionNew
-                                                                 context:NULL];
-    [[NSUserDefaultsController sharedUserDefaultsController] addObserver:self
-                                                              forKeyPath:VALUES_KEYPATH(kDefaultsEditorShowInvisibles)
-                                                                 options:NSKeyValueObservingOptionNew
-                                                                 context:NULL];
-    [[NSUserDefaultsController sharedUserDefaultsController] addObserver:self
-                                                              forKeyPath:VALUES_KEYPATH(kDefaultsEditorSyntaxHighlighting)
-                                                                 options:NSKeyValueObservingOptionNew
-                                                                 context:NULL];
-    [[NSUserDefaultsController sharedUserDefaultsController] addObserver:self
-                                                              forKeyPath:VALUES_KEYPATH(kDefaultsEditorSoftLineWrap)
-                                                                 options:NSKeyValueObservingOptionNew
-                                                                 context:NULL];
-    [[NSUserDefaultsController sharedUserDefaultsController] addObserver:self
-                                                              forKeyPath:VALUES_KEYPATH(kDefaultsPreviewRefreshStyle)
-                                                                 options:NSKeyValueObservingOptionNew
-                                                                 context:NULL];
-    [[NSUserDefaultsController sharedUserDefaultsController] addObserver:self
-                                                              forKeyPath:VALUES_KEYPATH(kDefaultsPreviewInvert)
-                                                                 options:NSKeyValueObservingOptionNew
-                                                                 context:NULL];
+    NSArray *defaults = @[kDefaultsEditorTheme, kDefaultsEditorFontSize, kDefaultsEditorShowInvisibles, kDefaultsEditorSyntaxHighlighting,
+                          kDefaultsEditorSoftLineWrap, kDefaultsPreviewRefreshStyle, kDefaultsPreviewInvert];
+    
+    for (NSString *key in defaults) {
+        [[NSUserDefaultsController sharedUserDefaultsController] addObserver:self
+                                                                  forKeyPath:VALUES_KEYPATH(key)
+                                                                     options:NSKeyValueObservingOptionNew
+                                                                     context:NULL];
+    }
 }
 
 - (void)stopObservingDefaults {
-    [[NSUserDefaultsController sharedUserDefaultsController] removeObserver:self
-                                                                 forKeyPath:VALUES_KEYPATH(kDefaultsEditorTheme)];
-    [[NSUserDefaultsController sharedUserDefaultsController] removeObserver:self
-                                                                 forKeyPath:VALUES_KEYPATH(kDefaultsEditorFontSize)];
-    [[NSUserDefaultsController sharedUserDefaultsController] removeObserver:self
-                                                                 forKeyPath:VALUES_KEYPATH(kDefaultsEditorShowInvisibles)];
-    [[NSUserDefaultsController sharedUserDefaultsController] removeObserver:self
-                                                                 forKeyPath:VALUES_KEYPATH(kDefaultsEditorSyntaxHighlighting)];
-    [[NSUserDefaultsController sharedUserDefaultsController] removeObserver:self
-                                                                 forKeyPath:VALUES_KEYPATH(kDefaultsEditorSoftLineWrap)];
-    [[NSUserDefaultsController sharedUserDefaultsController] removeObserver:self
-                                                                 forKeyPath:VALUES_KEYPATH(kDefaultsPreviewRefreshStyle)];
-    [[NSUserDefaultsController sharedUserDefaultsController] removeObserver:self
-                                                                 forKeyPath:VALUES_KEYPATH(kDefaultsPreviewInvert)];
+    NSArray *defaults = @[kDefaultsEditorTheme, kDefaultsEditorFontSize, kDefaultsEditorShowInvisibles, kDefaultsEditorSyntaxHighlighting,
+                          kDefaultsEditorSoftLineWrap, kDefaultsPreviewRefreshStyle, kDefaultsPreviewInvert];
+
+    for (NSString *key in defaults) {
+        [[NSUserDefaultsController sharedUserDefaultsController] removeObserver:self forKeyPath:VALUES_KEYPATH(key)];
+    }
 }
 
 #pragma mark - Editor
