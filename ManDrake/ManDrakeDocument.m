@@ -82,7 +82,7 @@
 #pragma mark -
 
 - (void)dealloc {
-    [self stopObservingDefaults];
+    [self setObserveDefaults:NO];
 }
 
 #pragma mark - NSDocument
@@ -123,7 +123,7 @@ originalContentsURL:(NSURL *)originalContentsURL
 
     backgroundQueue = dispatch_queue_create("org.sveinbjorn.ManDrake.backgroundQueue", DISPATCH_QUEUE_SERIAL);
     
-    [self startObservingDefaults];
+    [self setObserveDefaults:YES];
     
     // configure editor
     ACETheme theme = [[NSUserDefaults standardUserDefaults] integerForKey:kDefaultsEditorTheme];
@@ -195,24 +195,19 @@ originalContentsURL:(NSURL *)originalContentsURL
     }
 }
 
-- (void)startObservingDefaults {
+- (void)setObserveDefaults:(BOOL)observeDefaults {
     NSArray *defaults = @[kDefaultsEditorTheme, kDefaultsEditorFontSize, kDefaultsEditorShowInvisibles, kDefaultsEditorSyntaxHighlighting,
                           kDefaultsEditorSoftLineWrap, kDefaultsPreviewRefreshStyle, kDefaultsPreviewInvert];
     
     for (NSString *key in defaults) {
-        [[NSUserDefaultsController sharedUserDefaultsController] addObserver:self
-                                                                  forKeyPath:VALUES_KEYPATH(key)
-                                                                     options:NSKeyValueObservingOptionNew
-                                                                     context:NULL];
-    }
-}
-
-- (void)stopObservingDefaults {
-    NSArray *defaults = @[kDefaultsEditorTheme, kDefaultsEditorFontSize, kDefaultsEditorShowInvisibles, kDefaultsEditorSyntaxHighlighting,
-                          kDefaultsEditorSoftLineWrap, kDefaultsPreviewRefreshStyle, kDefaultsPreviewInvert];
-
-    for (NSString *key in defaults) {
-        [[NSUserDefaultsController sharedUserDefaultsController] removeObserver:self forKeyPath:VALUES_KEYPATH(key)];
+        if (observeDefaults) {
+            [[NSUserDefaultsController sharedUserDefaultsController] addObserver:self
+                                                                      forKeyPath:VALUES_KEYPATH(key)
+                                                                         options:NSKeyValueObservingOptionNew
+                                                                         context:NULL];
+        } else {
+            [[NSUserDefaultsController sharedUserDefaultsController] removeObserver:self forKeyPath:VALUES_KEYPATH(key)];
+        }
     }
 }
 
