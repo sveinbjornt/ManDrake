@@ -413,20 +413,19 @@ originalContentsURL:(NSURL *)originalContentsURL
 }
 
 - (void)updateAnnotations {
-    return;
     
     [syntaxCheckingTimer invalidate];
     syntaxCheckingTimer = nil;
     
-    dispatch_async(backgroundQueue, ^{
+//    dispatch_async(backgroundQueue, ^{
     
         NSDictionary *syntaxCheckDict = [self checkSyntax];
         NSArray *annotations = syntaxCheckDict[@"annotations"];
         int errCount = [syntaxCheckDict[@"errors"] intValue];
         int warnCount = [syntaxCheckDict[@"warnings"] intValue];
         
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
+//        dispatch_async(dispatch_get_main_queue(), ^{
+    
             // Generate error and warning count info string
             NSMutableString *status = [NSMutableString stringWithString:@""];
             NSColor *color = [NSColor orangeColor];
@@ -445,13 +444,13 @@ originalContentsURL:(NSURL *)originalContentsURL
             [warningsTextField setTag:[annotations count]];
             [warningsTextField setTextColor:color];
 
-            [aceView setAnnotations:annotations];
-        });
-    });
+            [(CustomACEView *)aceView setAnnotations:annotations];
+//        });
+//    });
 }
 
 - (NSDictionary *)checkSyntax {
-    return @{};
+//    return @{ @"annotations": @[] };
     
     // run task "mandoc -T lint [tempFile]"
     NSTask *mandocTask = [[NSTask alloc] init];
