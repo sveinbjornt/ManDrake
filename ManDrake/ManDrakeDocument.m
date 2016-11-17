@@ -413,6 +413,8 @@ originalContentsURL:(NSURL *)originalContentsURL
 }
 
 - (void)updateAnnotations {
+    return;
+    
     [syntaxCheckingTimer invalidate];
     syntaxCheckingTimer = nil;
     
@@ -449,6 +451,8 @@ originalContentsURL:(NSURL *)originalContentsURL
 }
 
 - (NSDictionary *)checkSyntax {
+    return @{};
+    
     // run task "mandoc -T lint [tempFile]"
     NSTask *mandocTask = [[NSTask alloc] init];
     [mandocTask setLaunchPath:[[NSBundle mainBundle] pathForResource:@"mandoc" ofType:nil]];

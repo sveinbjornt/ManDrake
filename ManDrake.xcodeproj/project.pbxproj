@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2092A52F7C61A1257CBC66A6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 954C136C20B1E1695A2CD08D /* libPods.a */; };
+		EB0556708A55681D8CD43C6E /* libPods-ManDrake.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 92873E6389F9DBEBB6841DEB /* libPods-ManDrake.a */; };
 		F43557EB1C55413A009080DC /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = F43557EA1C554132009080DC /* dsa_pub.pem */; };
 		F45AFBD41C5193A900953D8F /* mode-groff.js in Resources */ = {isa = PBXBuildFile; fileRef = F45AFBD31C5193A900953D8F /* mode-groff.js */; };
 		F45AFBD71C51950600953D8F /* CustomACEView.m in Sources */ = {isa = PBXBuildFile; fileRef = F45AFBD61C51950600953D8F /* CustomACEView.m */; };
@@ -28,9 +28,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6368337353AE3D70E8C0D94C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		954C136C20B1E1695A2CD08D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		ED24DF9167DE298866004E1F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		1765B518EC55CEC9D2FA5110 /* Pods-ManDrake.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ManDrake.release.xcconfig"; path = "Pods/Target Support Files/Pods-ManDrake/Pods-ManDrake.release.xcconfig"; sourceTree = "<group>"; };
+		1D8C3EB843CFB4099FEB1A6F /* Pods-ManDrake.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ManDrake.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ManDrake/Pods-ManDrake.debug.xcconfig"; sourceTree = "<group>"; };
+		92873E6389F9DBEBB6841DEB /* libPods-ManDrake.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ManDrake.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F42AA7DA1C4EC5D0007E0ACE /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F43557DD1C5429C8009080DC /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AppIcon.icns; sourceTree = "<group>"; };
 		F43557DE1C5429C8009080DC /* DocumentIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = DocumentIcon.icns; sourceTree = "<group>"; };
@@ -87,13 +87,22 @@
 			files = (
 				F487F4AC141EADEF0093D633 /* Cocoa.framework in Frameworks */,
 				F487F506141EAF8A0093D633 /* WebKit.framework in Frameworks */,
-				2092A52F7C61A1257CBC66A6 /* libPods.a in Frameworks */,
+				EB0556708A55681D8CD43C6E /* libPods-ManDrake.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D3A8111977051158E7CB7C0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1D8C3EB843CFB4099FEB1A6F /* Pods-ManDrake.debug.xcconfig */,
+				1765B518EC55CEC9D2FA5110 /* Pods-ManDrake.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		F42AA7DC1C4EC624007E0ACE /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,7 +147,7 @@
 				F43557E41C553C8E009080DC /* Sparkle */,
 				F487F4AA141EADEF0093D633 /* Frameworks */,
 				F487F4A8141EADEF0093D633 /* Products */,
-				F5C6953A6735BC329B005716 /* Pods */,
+				3D3A8111977051158E7CB7C0 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -157,7 +166,7 @@
 				F487F4AE141EADEF0093D633 /* AppKit.framework */,
 				F487F4B0141EADEF0093D633 /* Foundation.framework */,
 				F487F4AB141EADEF0093D633 /* Cocoa.framework */,
-				954C136C20B1E1695A2CD08D /* libPods.a */,
+				92873E6389F9DBEBB6841DEB /* libPods-ManDrake.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -221,15 +230,6 @@
 			path = Icons;
 			sourceTree = SOURCE_ROOT;
 		};
-		F5C6953A6735BC329B005716 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				6368337353AE3D70E8C0D94C /* Pods.debug.xcconfig */,
-				ED24DF9167DE298866004E1F /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -237,13 +237,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F487F4C8141EADEF0093D633 /* Build configuration list for PBXNativeTarget "ManDrake" */;
 			buildPhases = (
-				5419D70B7A8FADDC726F1AE9 /* Check Pods Manifest.lock */,
+				7306959F6D36CD22FE74AD30 /* [CP] Check Pods Manifest.lock */,
 				F487F4A3141EADEF0093D633 /* Sources */,
 				F487F4A4141EADEF0093D633 /* Frameworks */,
-				2EC8F10CAF71182BCA4F871E /* Copy Pods Resources */,
 				F43557EC1C56AE04009080DC /* Delete Unneded Pods Resources */,
 				F487F4A5141EADEF0093D633 /* Resources */,
-				18FB821FE9A8B01872633938 /* Embed Pods Frameworks */,
+				6B3CF159F7CD687B01CEC577 /* [CP] Embed Pods Frameworks */,
+				A632E6CB83F8E3FF40AF5BE0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -300,49 +300,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		18FB821FE9A8B01872633938 /* Embed Pods Frameworks */ = {
+		6B3CF159F7CD687B01CEC577 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ManDrake/Pods-ManDrake-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2EC8F10CAF71182BCA4F871E /* Copy Pods Resources */ = {
+		7306959F6D36CD22FE74AD30 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		5419D70B7A8FADDC726F1AE9 /* Check Pods Manifest.lock */ = {
+		A632E6CB83F8E3FF40AF5BE0 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ManDrake/Pods-ManDrake-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F43557EC1C56AE04009080DC /* Delete Unneded Pods Resources */ = {
@@ -446,7 +446,7 @@
 		};
 		F487F4C9141EADEF0093D633 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6368337353AE3D70E8C0D94C /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 1D8C3EB843CFB4099FEB1A6F /* Pods-ManDrake.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -465,7 +465,7 @@
 		};
 		F487F4CA141EADEF0093D633 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ED24DF9167DE298866004E1F /* Pods.release.xcconfig */;
+			baseConfigurationReference = 1765B518EC55CEC9D2FA5110 /* Pods-ManDrake.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = YES;

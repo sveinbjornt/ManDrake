@@ -1,7 +1,9 @@
 platform :osx, '10.7'
 inhibit_all_warnings!
 
-xcodeproj 'ManDrake'
+project 'ManDrake'
 
-pod 'ACEView'
-pod 'Sparkle'
+target 'ManDrake' do
+	pod 'ACEView'
+	pod 'Sparkle'
+end
