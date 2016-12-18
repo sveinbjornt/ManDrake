@@ -23,6 +23,8 @@ or read [this page](http://www.freebsd.org/cgi/man.cgi?query=mdoc.samples).
 
 ManDrake is open source software, available under the three-clause BSD license:
 
+> Copyright (c) 2004-2016, Sveinbjorn Thordarson &lt;sveinbjornt@gmail.com&gt;
+> 
 > Redistribution and use in source and binary forms, with or without modification,
 > are permitted provided that the following conditions are met:
 > 
