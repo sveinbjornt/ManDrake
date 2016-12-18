@@ -357,7 +357,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "RSRC_DIR=\"${TARGET_BUILD_DIR}/ManDrake.app/Contents/Resources\"\n\nrm ${RSRC_DIR}/worker*.js\nrm ${RSRC_DIR}/mode*.js\n\n#rm -r ${TARGET_BUILD_DIR}/ManDrake.app/Contents/Frameworks/Sparkle.framework/Versions/A/Resources/*.lproj\n";
+			shellScript = "RSRC_DIR=\"${TARGET_BUILD_DIR}/ManDrake.app/Contents/Resources\"\n\n#rm ${RSRC_DIR}/worker*.js\n#rm ${RSRC_DIR}/mode*.js\n\n#rm -r ${TARGET_BUILD_DIR}/ManDrake.app/Contents/Frameworks/Sparkle.framework/Versions/A/Resources/*.lproj\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

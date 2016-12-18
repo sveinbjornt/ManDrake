@@ -7,7 +7,7 @@ Long story short, I was sick of writing man pages in an endless cycle of edit-vi
 
 You can download a pre-built binary of version 3.0 here: 
 
-* [Download ManDrake 3.0](http://sveinbjorn.org/files/software/mandrake/ManDrake-3.0.zip) (Intel 64-bit, 10.7 or later, ~1.9 MB)
+* [Download ManDrake 3.1](http://sveinbjorn.org/files/software/mandrake/ManDrake-3.1.zip) (Intel 64-bit, 10.7 or later, ~1.9 MB)
 
 To learn more about the man page format:
 

@@ -6,6 +6,18 @@
         <description>Most recent release list for ManDrake, with links to updates.</description>
         <language>en</language>
         <item>
+            <title>Version 3.1</title>
+            <pubDate>Sun, 18 Dec 2016 13:17:00 +0000</pubDate>
+            <enclosure url="/http://sveinbjorn.org/files/software/mandrake/ManDrake-3.1.zip" sparkle:version="3.1" sparkle:shortVersionString="3.1" length="2703055" type="application/octet-stream" sparkle:dsaSignature="MCwCFB32+me6jZMpkIUVz2ELH2Lnxv+MAhQV6DkDl89hE5h0TiZrpPUc3UYcHQ=="/>
+            <sparkle:minimumSystemVersion>10.7.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>New in Version 3.1</h2>
+                <ul>
+                <li>Fixed crash issue on macOS 10.12 "Sierra"</li>
+                </ul>
+            ]]></description>
+        </item>
+        <item>
             <title>Version 3.0</title>
             <pubDate>Tue, 26 Jan 2016 19:03:00 +0000</pubDate>
             <enclosure url="/http://sveinbjorn.org/files/software/mandrake/ManDrake-3.0.zip" sparkle:version="3.0" sparkle:shortVersionString="3.0" length="1897337" type="application/octet-stream" sparkle:dsaSignature="MCwCFGM6w5ihxzvPlnBqvx/Z7GYOCWuJAhQ6C2sb7PghyLQUuNGH+/q86gysFw=="/>
@@ -13,8 +25,8 @@
             <description><![CDATA[
                 <h2>New in Version 3.0</h2>
                 <ul>
-                    <li>Overhauled user interface
-                    <li>New, powerful, customizable ace text editor
+                    <li>Overhauled user interface</li>
+                    <li>New, powerful, customizable ace text editor</li>
                     <li>Automatic mdoc syntax checking with inline warnings in editor</li>
                     <li>Better syntax highlighting</li>
                     <li>Faster preview generation</li>
