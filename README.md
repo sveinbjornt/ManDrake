@@ -1,4 +1,5 @@
 <img align="right" src="images/mandrake_icon.png" style="float: right; margin-left: 30px;" alt="ManDrake Application Icon">
+
 # ManDrake
 
 ManDrake is a native, open source <a href="https://en.wikipedia.org/wiki/Man_page">man page</a> editor for OS X. It has syntax highlighting, live <a href="https://en.wikipedia.org/wiki/Mandoc">`mandoc`</a> syntax validation and a live-updating rendered preview of the man page during editing.
