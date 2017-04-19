@@ -14,6 +14,8 @@ To learn more about the man page format:
 
 or read [this page](http://www.freebsd.org/cgi/man.cgi?query=mdoc.samples).
 
+For a recent web-based alternative to ManDrake, check out [Grapse](http://www.roperzh.com/grapse/).
+
 ## Screenshot
 
 <img src="images/mandrake_screenshot.png" style="max-width:100%;" alt="ManDrake Screenshot">

@@ -594,7 +594,7 @@ originalContentsURL:(NSURL *)originalContentsURL
     
     NSFileHandle *writeHandle = [groffInputPipe fileHandleForWriting];
     
-    // Create cat2html task
+    // Create pstopdf task
     NSTask *pstopdfTask = [[NSTask alloc] init];
     [pstopdfTask setLaunchPath:@"/usr/bin/pstopdf"];
     [pstopdfTask setArguments:@[@"-i", @"-o", pdfOutputPath]];

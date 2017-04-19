@@ -15,11 +15,7 @@
      */
 
     #include <string.h>
-    
-    #ifdef yywrap
-    #undef yywrap
-    #endif
-    #define yywrap() (1)
+    #include <stdio.h>
 
     #define BOLDFLAG    1
     #define ULINEFLAG    2
@@ -30,25 +26,30 @@
     #define UNSETB  neededflags &= ~BOLDFLAG
     #define SETU    neededflags |= ULINEFLAG
     #define UNSETU  neededflags &= ~ULINEFLAG
-    
+
+    typedef size_t yy_size_t;
+
     /*
      *    Default settings, may be changed using options...
      */
     
-    char *startBold = "<b>";
-    char *stopBold = "</b>";
-    char *startULine = "<u>";
-    char *stopULine = "</u>";
-    char *startHeader = "<font face=\"Helvetica\">";
-    char *stopHeader = "</font>";
-    int addLinks = 0;
-    int markHeaders = 0;
+    static char *startBold = "<b>";
+    static char *stopBold = "</b>";
+    static char *startULine = "<u>";
+    static char *stopULine = "</u>";
+    static char *startHeader = "<font face=\"Helvetica\">";
+    static char *stopHeader = "</font>";
+    static int addLinks = 0;
+    static int markHeaders = 0;
+    static int lineCount = 0;
+    static int maxLineCount = 3;
+
 
     /* Decode a UTF8 sequence to return the unicode number */
-    unsigned decodeUTF8(unsigned char *buf, int len)
+    static unsigned decodeUTF8(unsigned char *buf, yy_size_t len)
     {
         int n = buf[0] & (0x7f >> len);
-        int i;
+        yy_size_t i;
 
         for (i=1; i<len; i++)
             n = (n << 6) | (buf[i] & 0x3f);
@@ -56,7 +57,7 @@
         return (unsigned)n;
     }
 
-    void emitPreamble(void)
+    static void emitPreamble(void)
     {
         /* Explicitly set Courier font so that bold/italic attributes are
            preserved during the HTML parsing and so can be displayed if the user
@@ -66,14 +67,14 @@
         fputs("<html><head></head><body><pre><font face=\"Courier\">",stdout);
     }
     
-    void emitPostamble(void)
+    static void emitPostamble(void)
     {
         fputs("</font></pre>\n</body></html>",stdout);
     }
 
     #define adjust() if( neededflags!=flags ) _adjust()
     
-    void _adjust(void) {
+    static void _adjust(void) {
     
         if( (flags^neededflags)&ULINEFLAG )
             fputs(neededflags&ULINEFLAG?
@@ -84,10 +85,7 @@
         flags = neededflags;
     }
     
-    static int lineCount = 0;
-    static int maxLineCount = 3;
-
-    void emitChar(int ch) {        
+    static void emitChar(int ch) {        
         adjust();
 
         if (ch=='\n') {
@@ -105,21 +103,21 @@
         }
     }
 
-    void emitString(char *string)
+    static void emitString(char *string)
     {
         int i, len=strlen(string);
         for (i=0;i<len;i++)
             emitChar(string[i]);
     }
 
-    void emitRaw(char *string)
+    static void emitRaw(char *string)
     {
         adjust();
         lineCount = 0;
         fputs(string,stdout);
     }
 
-    void emitBackspacedLetters(char *charblock, int lengthLeft, int doBold)
+    static void emitBackspacedLetters(char *charblock, yy_size_t lengthLeft, int doBold)
     {
         /* If there's a trailing backspace, then both letters are deleted, so print nothing */
         if (lengthLeft >= 4 && charblock[3] == '\010')
@@ -140,9 +138,9 @@
         }
     }
 
-    void emitBackspacedText(char *text, int length)
+    static void emitBackspacedText(char *text, yy_size_t length)
     {
-        int i=0;
+        yy_size_t i=0;
         while (i < length) {
             if ((i < (length-1)) && text[i+1] == '\010') {
                 emitBackspacedLetters(&text[i], 3, 0);
@@ -156,7 +154,7 @@
     }
 
     /* Use hexidecimal entities */
-    void emitUnicode(unsigned charNum)
+    static void emitUnicode(unsigned charNum)
     {
         char entityBuf[20];
         sprintf(entityBuf, "&#x%x;", charNum);
@@ -166,7 +164,7 @@
 
 ALLBUTUL     [^\n_\010]
 NEEDQUOTE    [<>&"]
-VERBATIM     [^_\n\010<>&( \t"\xC2-\xF4]
+VERBATIM     [^_\n\010\x1B<>&( \t"\xC2-\xF4]
 UPPER        [A-Z]
 UPPERCONT    [A-Z0-9 \t()]
 UPPERBS      {UPPER}\010{UPPER}
@@ -174,8 +172,13 @@ UPPERBSCONT  ({UPPERBS}|[ \t()])
 UTF8START    [\xC2-\xF4]
 UTF8CONT     [\x80-\xBF]
 UTF8SEQ      {UTF8START}({UTF8CONT}{1,3})
+SGRSTART     \x1B\[
 
 %option debug
+%option noyywrap
+%option noinput
+%option 8bit
+%option prefix="cat2html"
 
 %x FIRSTLINE
 
@@ -301,15 +304,23 @@ _\010{ALLBUTUL}        {
         if (yytext[yyleng-1] != '\010') {
             char *backspace = index(yytext, '\010');
             if (backspace != NULL) {
-                emitUnicode(decodeUTF8(backspace+1, (yyleng - (backspace-yytext) - 1)));
+                emitUnicode(decodeUTF8((unsigned char *)backspace+1, (yyleng - (backspace-yytext) - 1)));
             }
         }
     }
 
   /* If we find a UTF8 sequence, decode it */
 {UTF8SEQ} {
-    emitUnicode(decodeUTF8(yytext, yyleng));
+    emitUnicode(decodeUTF8((unsigned char *)yytext, yyleng));
 }
+
+  /* Some versions of nroff/grotty use SGR escape sequences instead of the backspace hacks */
+{SGRSTART}0?m          UNSETU;UNSETB;
+{SGRSTART}1m           SETB;
+{SGRSTART}[347]m       SETU;
+{SGRSTART}(21|22)m     UNSETB;
+{SGRSTART}(23|24|27)m  UNSETU;
+{SGRSTART}[0-9;]+m     {/*ignore any other codes*/}
 
     /*
         group characters in VERBATIM to make this
@@ -327,7 +338,7 @@ _\010{ALLBUTUL}        {
 
 %%
 
-void usage() {
+static void usage() {
 
     fprintf(stderr,"Usage: cat2html [-il] [<filename>]\n"
         "\tTranslate output of (g)nroff to HTML. If no\n"
@@ -337,10 +348,6 @@ void usage() {
         "\tHTML output is sent to stdout.\n");
     exit(1); 
 }
-
-extern int getopt (int argc, char **argv, char *optstring);
-extern char *optarg;
-extern int optind;
 
 int main(int argc, char *argv[])
 {
