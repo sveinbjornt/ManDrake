@@ -16,7 +16,7 @@
 		F45AFBDC1C53B9C000953D8F /* NSWorkspace+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = F45AFBDB1C53B9C000953D8F /* NSWorkspace+Additions.m */; };
 		F45AFBDE1C53BA9200953D8F /* mandoc in Resources */ = {isa = PBXBuildFile; fileRef = F45AFBDD1C53BA9200953D8F /* mandoc */; };
 		F45AFBE21C53D53300953D8F /* License.html in Resources */ = {isa = PBXBuildFile; fileRef = F45AFBE01C53D53300953D8F /* License.html */; };
-		F45AFBF81C53DBAC00953D8F /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = F45AFBF71C53DBAC00953D8F /* Credits.html */; };
+		F472E8A41F2A3A7B007F3EFC /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = F472E8A31F2A3A7B007F3EFC /* Credits.rtf */; };
 		F487F4AC141EADEF0093D633 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F487F4AB141EADEF0093D633 /* Cocoa.framework */; };
 		F487F4B8141EADEF0093D633 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F487F4B7141EADEF0093D633 /* main.m */; };
 		F487F4BF141EADEF0093D633 /* ManDrakeDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = F487F4BE141EADEF0093D633 /* ManDrakeDocument.m */; };
@@ -68,8 +68,8 @@
 		F45AFBDB1C53B9C000953D8F /* NSWorkspace+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "NSWorkspace+Additions.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		F45AFBDD1C53BA9200953D8F /* mandoc */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = mandoc; path = Resources/mandoc; sourceTree = "<group>"; };
 		F45AFBE01C53D53300953D8F /* License.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; lineEnding = 0; name = License.html; path = ManDrake/Resources/License.html; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.html; };
-		F45AFBF71C53DBAC00953D8F /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = Credits.html; path = ManDrake/Resources/Credits.html; sourceTree = "<group>"; };
 		F45AFBFB1C53FBD500953D8F /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = Common.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		F472E8A31F2A3A7B007F3EFC /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; name = Credits.rtf; path = ManDrake/Resources/Credits.rtf; sourceTree = SOURCE_ROOT; };
 		F487F4A7141EADEF0093D633 /* ManDrake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ManDrake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F487F4AB141EADEF0093D633 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		F487F4AE141EADEF0093D633 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -119,8 +119,8 @@
 			children = (
 				F43557E31C54345B009080DC /* CHANGES.txt */,
 				F43557DF1C543258009080DC /* images */,
+				F472E8A31F2A3A7B007F3EFC /* Credits.rtf */,
 				F45AFBE01C53D53300953D8F /* License.html */,
-				F45AFBF71C53DBAC00953D8F /* Credits.html */,
 				F42AA7DA1C4EC5D0007E0ACE /* README.md */,
 			);
 			name = Documentation;
@@ -295,7 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F45AFBD91C52D04A00953D8F /* default.man in Resources */,
-				F45AFBF81C53DBAC00953D8F /* Credits.html in Resources */,
+				F472E8A41F2A3A7B007F3EFC /* Credits.rtf in Resources */,
 				F487F4D2141EAE730093D633 /* MainMenu.xib in Resources */,
 				F45AFBE21C53D53300953D8F /* License.html in Resources */,
 				F487F4D3141EAE730093D633 /* ManDrakeDocument.xib in Resources */,
