@@ -4,7 +4,7 @@
 
 ManDrake is a native, open source <a href="https://en.wikipedia.org/wiki/Man_page">man page</a> editor for macOS with features such as syntax highlighting, live <a href="https://en.wikipedia.org/wiki/Mandoc">`mandoc`</a> syntax validation and a live-updating rendered preview of the man page during editing.
 
-Long story short, I was sick of writing man pages in an endless cycle of edit-view, edit-view so I decided to do something about it and made this editor many years ago. It's a bit rough around the edges, but it works really well for me. Perhaps it will also be of some use to you.
+Long story short, many years ago I was sick of writing man pages in an endless cycle of edit-view, edit-view so I decided to do something about it and created this editor. It's a bit rough around the edges, but it works really well for me. Perhaps it will also be of some use to you.
 
 * [Download ManDrake 3.1](http://sveinbjorn.org/files/software/mandrake/ManDrake-3.1.zip) (Intel 64-bit, 10.7 or later, ~1.9 MB)
 
@@ -78,6 +78,6 @@ This installs all the dependencies required.
 
 > **Do I look all rancid and clotted? You look at me, Jack. Eh? Look, eh? And I drink a lot of water, you know. I'm what you might call a water man, Jack - that's what I am. And I can swear to you, my boy, swear to you, that there's nothing wrong with my bodily fluids. Not a thing, Jackie.**
 
-Here's **Group Captain Lionel Mandrake** from Kubrick's wonderful [*Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb*](http://www.imdb.com/title/tt0057012/) along with Brigadier General Jack D. Ripper, memorably rendered by Sterling Hayden:
+Here's **Group Captain Lionel Mandrake** from Kubrick's wonderful [*Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb*](http://www.imdb.com/title/tt0057012/) in the company of Brigadier General Jack D. Ripper.
 
 <img src="images/mandrake_captain.jpg" alt="Group Captain Lionel Mandrake">
