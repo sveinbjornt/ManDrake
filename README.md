@@ -2,9 +2,9 @@
 
 # ManDrake
 
-ManDrake is a native, open source <a href="https://en.wikipedia.org/wiki/Man_page">man page</a> editor for OS X. It has syntax highlighting, live <a href="https://en.wikipedia.org/wiki/Mandoc">`mandoc`</a> syntax validation and a live-updating rendered preview of the man page during editing.
+ManDrake is a native, open source <a href="https://en.wikipedia.org/wiki/Man_page">man page</a> editor for macOS with features such as syntax highlighting, live <a href="https://en.wikipedia.org/wiki/Mandoc">`mandoc`</a> syntax validation and a live-updating rendered preview of the man page during editing.
 
-Long story short, I was sick of writing man pages in an endless cycle of edit-view, edit-view so I decided to do something about it and made this editor. It's a bit rough around the edges, but it works really well for me. Perhaps it will also be of some use to you.
+Long story short, I was sick of writing man pages in an endless cycle of edit-view, edit-view so I decided to do something about it and made this editor many years ago. It's a bit rough around the edges, but it works really well for me. Perhaps it will also be of some use to you.
 
 * [Download ManDrake 3.1](http://sveinbjorn.org/files/software/mandrake/ManDrake-3.1.zip) (Intel 64-bit, 10.7 or later, ~1.9 MB)
 
@@ -24,7 +24,7 @@ For a recent web-based alternative to ManDrake, check out [Grapse](http://www.ro
 
 ManDrake is open source software, available under the three-clause BSD license:
 
-> Copyright (c) 2004-2016, Sveinbjorn Thordarson &lt;sveinbjornt@gmail.com&gt;
+> Copyright (c) 2004-2018, Sveinbjorn Thordarson &lt;sveinbjornt@gmail.com&gt;
 > 
 > Redistribution and use in source and binary forms, with or without modification,
 > are permitted provided that the following conditions are met:
