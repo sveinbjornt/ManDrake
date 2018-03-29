@@ -24,7 +24,7 @@ For a recent web-based alternative to ManDrake, check out [Grapse](http://www.ro
 
 ManDrake is open source software, available under the three-clause BSD license:
 
-> Copyright (c) 2004-2018, Sveinbjorn Thordarson &lt;sveinbjornt@gmail.com&gt;
+> Copyright (c) 2004-2018, Sveinbjorn Thordarson &lt;sveinbjorn@sveinbjorn.org&gt;
 > 
 > Redistribution and use in source and binary forms, with or without modification,
 > are permitted provided that the following conditions are met:
