@@ -34,11 +34,5 @@
 
 @property (weak) IBOutlet NSMenu *editorMenu;
 @property (weak) IBOutlet NSMenu *previewMenu;
-@property (weak) IBOutlet NSMenu *editorThemesSubmenu;
-@property (weak) IBOutlet NSMenu *previewRefreshStylesSubmenu;
-
-- (IBAction)showReadme:(id)sender;
-- (IBAction)showLicense:(id)sender;
-- (IBAction)submenuItemSelected:(id)sender;
 
 @end

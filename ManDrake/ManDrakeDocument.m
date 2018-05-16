@@ -81,24 +81,34 @@
 
 #pragma mark -
 
+- (instancetype)init {
+    if ((self = [super init])) {
+        // Create background queue
+        backgroundQueue = dispatch_queue_create("org.sveinbjorn.ManDrakeBGQueue", DISPATCH_QUEUE_SERIAL);
+    }
+    return self;
+}
+
 - (void)dealloc {
     [self setObserveDefaults:NO];
+    // Deallocate queue?
+    // dispatch_release(backgroundQueue);
 }
 
 #pragma mark - NSDocument
 
-- (NSString *)windowNibName
-{
+- (NSString *)windowNibName {
     return @"ManDrakeDocument";
 }
 
 - (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError **)outError {
+
     BOOL readSuccess = NO;
     NSString *fileContents = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     if (fileContents) {
         readSuccess = YES;
         documentTextString = fileContents;
-    } else {
+    } else if (outError){
         *outError = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileReadUnknownError userInfo:nil];
     }
     return readSuccess;
@@ -120,9 +130,6 @@ originalContentsURL:(NSURL *)originalContentsURL
 
 - (void)windowControllerDidLoadNib:(NSWindowController *)aController {
     [super windowControllerDidLoadNib:aController];
-
-    backgroundQueue = dispatch_queue_create("org.sveinbjorn.ManDrake.backgroundQueue", DISPATCH_QUEUE_SERIAL);
-    
     [self setObserveDefaults:YES];
     
     // configure editor

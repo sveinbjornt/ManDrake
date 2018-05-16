@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
-        <plugIn identifier="com.apple.WebKitIBPlugin" version="9531"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="14109"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="ManDrakeDocument">
@@ -22,34 +23,31 @@
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="ManDrakeWindow" animationBehavior="default" id="5" userLabel="Window">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="133" y="201" width="760" height="447"/>
+            <rect key="contentRect" x="133" y="201" width="1060" height="580"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
             <value key="minSize" type="size" width="550" height="250"/>
-            <view key="contentView" id="6">
-                <rect key="frame" x="0.0" y="0.0" width="760" height="447"/>
+            <view key="contentView" misplaced="YES" id="6">
+                <rect key="frame" x="0.0" y="0.0" width="1060" height="580"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <splitView identifier="org.sveinbjorn.ManDrake.SplitView" autosaveName="ManDrakeDocumentSplitView" dividerStyle="paneSplitter" vertical="YES" id="100036">
-                        <rect key="frame" x="0.0" y="0.0" width="760" height="447"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1060" height="580"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <customView id="100038">
-                                <rect key="frame" x="0.0" y="0.0" width="368" height="447"/>
+                                <rect key="frame" x="0.0" y="0.0" width="543" height="580"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <subviews>
-                                    <box verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="100076">
-                                        <rect key="frame" x="0.0" y="413" width="368" height="5"/>
+                                    <box verticalHuggingPriority="750" boxType="separator" id="100076">
+                                        <rect key="frame" x="0.0" y="546" width="543" height="5"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <font key="titleFont" metaFont="system"/>
                                     </box>
                                     <customView id="wnx-2g-I3Y" customClass="CustomACEView">
-                                        <rect key="frame" x="0.0" y="0.0" width="368" height="416"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="543" height="549"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </customView>
                                     <button verticalHuggingPriority="750" id="JVf-n4-Pph">
-                                        <rect key="frame" x="269" y="416" width="98" height="28"/>
+                                        <rect key="frame" x="444" y="549" width="98" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="push" title="Check Syntax" bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Md0-yN-rg2">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -60,7 +58,7 @@
                                         </connections>
                                     </button>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="FnO-X1-tAB">
-                                        <rect key="frame" x="35" y="424" width="233" height="14"/>
+                                        <rect key="frame" x="59" y="557" width="384" height="14"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" id="dN9-87-1BR">
                                             <font key="font" metaFont="smallSystem"/>
@@ -69,7 +67,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <button verticalHuggingPriority="750" id="dJ2-Os-ONx">
-                                        <rect key="frame" x="7" y="420" width="22" height="21"/>
+                                        <rect key="frame" x="7" y="553" width="22" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSActionTemplate" imagePosition="overlaps" alignment="center" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2DW-bG-Y5T">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -82,11 +80,11 @@
                                 </subviews>
                             </customView>
                             <customView id="100037">
-                                <rect key="frame" x="378" y="0.0" width="382" height="447"/>
+                                <rect key="frame" x="553" y="0.0" width="507" height="580"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <subviews>
                                     <textField verticalHuggingPriority="750" id="100065">
-                                        <rect key="frame" x="127" y="423" width="47.5" height="14"/>
+                                        <rect key="frame" x="252" y="556" width="48" height="14"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Refresh:" id="100074">
                                             <font key="font" metaFont="smallSystem"/>
@@ -95,7 +93,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <button verticalHuggingPriority="750" id="100067">
-                                        <rect key="frame" x="253" y="415" width="49" height="28"/>
+                                        <rect key="frame" x="378" y="548" width="49" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSRefreshTemplate" imagePosition="overlaps" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="100068">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -106,18 +104,15 @@
                                         </connections>
                                     </button>
                                     <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" id="100082">
-                                        <rect key="frame" x="104" y="422" width="16" height="16"/>
+                                        <rect key="frame" x="229" y="555" width="16" height="16"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                     </progressIndicator>
-                                    <box verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="100089">
-                                        <rect key="frame" x="-166" y="413" width="548" height="5"/>
+                                    <box verticalHuggingPriority="750" boxType="separator" id="100089">
+                                        <rect key="frame" x="-220" y="546" width="727" height="5"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
-                                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <font key="titleFont" metaFont="system"/>
                                     </box>
                                     <popUpButton verticalHuggingPriority="750" id="100066">
-                                        <rect key="frame" x="176" y="418" width="77" height="22"/>
+                                        <rect key="frame" x="301" y="551" width="77" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                         <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="100069">
                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -141,7 +136,7 @@
                                         </connections>
                                     </popUpButton>
                                     <button verticalHuggingPriority="750" id="hkk-Zc-BCw">
-                                        <rect key="frame" x="352" y="420" width="22" height="21"/>
+                                        <rect key="frame" x="477" y="553" width="22" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSActionTemplate" imagePosition="overlaps" alignment="center" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="keG-Z3-D4y">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -152,7 +147,7 @@
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" id="4N5-99-C8r">
-                                        <rect key="frame" x="326" y="420" width="22" height="21"/>
+                                        <rect key="frame" x="451" y="553" width="22" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Aeh-yX-NDA">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -163,7 +158,7 @@
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" id="Dea-3N-Ssb">
-                                        <rect key="frame" x="305" y="420" width="22" height="21"/>
+                                        <rect key="frame" x="430" y="553" width="22" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="HKR-Lp-iit">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -174,7 +169,7 @@
                                         </connections>
                                     </button>
                                     <webView maintainsBackForwardList="NO" id="PHv-Sh-qOi">
-                                        <rect key="frame" x="0.0" y="0.0" width="382" height="415"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="507" height="548"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12" minimumFontSize="4" plugInsEnabled="NO" javaEnabled="NO" javaScriptCanOpenWindowsAutomatically="NO" loadsImagesAutomatically="NO" allowsAnimatedImages="NO" allowsAnimatedImageLooping="NO">
                                             <nil key="identifier"/>
@@ -200,7 +195,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="17"/>
             </connections>
-            <point key="canvasLocation" x="523" y="56.5"/>
+            <point key="canvasLocation" x="673" y="123"/>
         </window>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <userDefaultsController representsSharedInstance="YES" id="gaD-lZ-q4w"/>
