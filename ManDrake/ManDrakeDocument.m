@@ -1,5 +1,5 @@
 /*
-    ManDrake - Native open-source Mac OS X man page editor
+    ManDrake - Native man page editor for macOS
     Copyright (c) 2004-2016, Sveinbjorn Thordarson <sveinbjorn@sveinbjorn.org>
 
     Redistribution and use in source and binary forms, with or without modification,

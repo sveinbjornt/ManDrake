@@ -71,6 +71,7 @@
 		F472E8A31F2A3A7B007F3EFC /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; name = Credits.rtf; path = ManDrake/Resources/Credits.rtf; sourceTree = SOURCE_ROOT; };
 		F486410A20CADDD7007E2BB6 /* mandrake_screenshot2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mandrake_screenshot2.jpg; sourceTree = "<group>"; };
 		F486410B20CADDD7007E2BB6 /* mandrake_screenshot1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mandrake_screenshot1.jpg; sourceTree = "<group>"; };
+		F486410C20CAE25D007E2BB6 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		F487F4A7141EADEF0093D633 /* ManDrake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ManDrake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F487F4AB141EADEF0093D633 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		F487F4AE141EADEF0093D633 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -121,6 +122,7 @@
 				F43557E31C54345B009080DC /* CHANGES.txt */,
 				F43557DF1C543258009080DC /* images */,
 				F472E8A31F2A3A7B007F3EFC /* Credits.rtf */,
+				F486410C20CAE25D007E2BB6 /* LICENSE.txt */,
 				F45AFBE01C53D53300953D8F /* License.html */,
 				F42AA7DA1C4EC5D0007E0ACE /* README.md */,
 			);
