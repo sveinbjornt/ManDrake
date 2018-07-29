@@ -6,7 +6,7 @@ ManDrake is a native <a href="https://en.wikipedia.org/wiki/Man_page">man page</
 
 Long story short, many years ago I was sick of writing man pages in an endless cycle of edit-view, edit-view so I decided to do something about it and created this editor. It's a bit rough around the edges, but it works really well for me. Perhaps it will also be of some use to you.
 
-* [Download ManDrake 3.1](http://sveinbjorn.org/files/software/mandrake/ManDrake-3.1.zip) (~1.9 MB, Intel 64-bit, 10.7 or later)
+* [⇩ Download ManDrake 3.1](http://sveinbjorn.org/files/software/mandrake/ManDrake-3.1.zip) (~1.9 MB, Intel 64-bit, 10.7 or later)
 
 To learn more about the `mandoc` man page format:
 
