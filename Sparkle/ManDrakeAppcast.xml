@@ -2,13 +2,13 @@
 <rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
     <channel>
         <title>ManDrake Version Release Appcast</title>
-        <link>http://sveinbjorn.org/files/appcasts/ManDrakeAppcast.xml</link>
+        <link>https://sveinbjorn.org/files/appcasts/ManDrakeAppcast.xml</link>
         <description>Most recent release list for ManDrake, with links to updates.</description>
         <language>en</language>
         <item>
             <title>Version 3.1</title>
             <pubDate>Sun, 18 Dec 2016 13:17:00 +0000</pubDate>
-            <enclosure url="/http://sveinbjorn.org/files/software/mandrake/ManDrake-3.1.zip" sparkle:version="70" sparkle:shortVersionString="3.1" length="1962738" type="application/octet-stream" sparkle:dsaSignature="MCwCFCNU12KJX9/6uF7roATTLGkRbhniAhQrERFe33NIse/VvkNnsYThiI/EvA=="/>
+            <enclosure url="https://sveinbjorn.org/files/software/mandrake/ManDrake-3.1.zip" sparkle:version="70" sparkle:shortVersionString="3.1" length="1962738" type="application/octet-stream" sparkle:dsaSignature="MCwCFCNU12KJX9/6uF7roATTLGkRbhniAhQrERFe33NIse/VvkNnsYThiI/EvA=="/>
             <sparkle:minimumSystemVersion>10.7.0</sparkle:minimumSystemVersion>
             <description><![CDATA[
                 <h2>New in Version 3.1</h2>
@@ -20,7 +20,7 @@
         <item>
             <title>Version 3.0</title>
             <pubDate>Tue, 26 Jan 2016 19:03:00 +0000</pubDate>
-            <enclosure url="/http://sveinbjorn.org/files/software/mandrake/ManDrake-3.0.zip" sparkle:version="3.0" sparkle:shortVersionString="3.0" length="1897337" type="application/octet-stream" sparkle:dsaSignature="MCwCFGM6w5ihxzvPlnBqvx/Z7GYOCWuJAhQ6C2sb7PghyLQUuNGH+/q86gysFw=="/>
+            <enclosure url="https://sveinbjorn.org/files/software/mandrake/ManDrake-3.0.zip" sparkle:version="3.0" sparkle:shortVersionString="3.0" length="1897337" type="application/octet-stream" sparkle:dsaSignature="MCwCFGM6w5ihxzvPlnBqvx/Z7GYOCWuJAhQ6C2sb7PghyLQUuNGH+/q86gysFw=="/>
             <sparkle:minimumSystemVersion>10.7.0</sparkle:minimumSystemVersion>
             <description><![CDATA[
                 <h2>New in Version 3.0</h2>
