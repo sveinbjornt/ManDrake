@@ -5,7 +5,7 @@
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsa_pub.pem</string>
 	<key>SUFeedURL</key>
-	<string>http://sveinbjorn.org/files/appcasts/ManDrakeAppcast.xml</string>
+	<string>https://sveinbjorn.org/files/appcasts/ManDrakeAppcast.xml</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDocumentTypes</key>
@@ -46,13 +46,13 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>3.1</string>
+	<string>3.2</string>
 	<key>CFBundleVersion</key>
 	<string>70</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>${MACOSX_DEPLOYMENT_TARGET}</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>© 2004-2016 Sveinbjorn Thordarson. BSD license.</string>
+	<string>© 2004-2018 Sveinbjorn Thordarson. BSD license.</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
@@ -64,11 +64,6 @@
 		<string>MacOSX</string>
 	</array>
 	<key>CFBundleGetInfoString</key>
-	<string>© 2004-2016 Sveinbjorn Thordarson. BSD license.</string>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
+	<string>© 2004-2018 Sveinbjorn Thordarson. BSD license.</string>
 </dict>
 </plist>

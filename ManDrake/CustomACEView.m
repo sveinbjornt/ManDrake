@@ -11,7 +11,7 @@
 @implementation CustomACEView
 
 - (void)setModeByNameString:(NSString *)nameString {
-    [self performSelector:@selector(executeScriptWhenLoaded:) withObject:[NSString stringWithFormat:@"editor.getSession().setMode(\"ace/mode/%@\");", nameString]];
+    [(CustomACEView *)self performSelector:@selector(executeScriptWhenLoaded:) withObject:[NSString stringWithFormat:@"editor.getSession().setMode(\"ace/mode/%@\");", nameString]];
 }
 
 - (void)setAnnotations:(NSArray *)annotations {
@@ -22,11 +22,13 @@
     NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     NSString *js = [NSString stringWithFormat:@"editor.getSession().setAnnotations(%@);", jsonString];
     
-    [self performSelector:@selector(executeScriptWhenLoaded:) withObject:js];
+    [(CustomACEView *)self performSelector:@selector(executeScriptWhenLoaded:) withObject:js];
 }
 
 - (NSString *)fontSize {
-    return [self stringByEvaluatingJavaScriptFromString:@"editor.fontSize();"];
+    return [(WebView *)self stringByEvaluatingJavaScriptFromString:@"editor.fontSize();"];
 }
+
+
 
 @end

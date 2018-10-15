@@ -138,6 +138,10 @@
     [[NSWorkspace sharedWorkspace] openPathInDefaultBrowser:path];
 }
 
+- (IBAction)makeDonation:(id)sender {
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://sveinbjorn.org/donations"]];
+}
+
 - (IBAction)submenuItemSelected:(id)sender {
     if ([sender menu] == [self editorThemesSubmenu]) {
         [[NSUserDefaults standardUserDefaults] setObject:@([sender tag]) forKey:kDefaultsEditorTheme];

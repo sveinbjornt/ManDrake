@@ -8,9 +8,12 @@
 
 #import <ACEView/ACEView.h>
 
+@interface ACEView ()
+- (void)executeScriptWhenLoaded:(NSString *)script; // Silence warnings
+@end
+
 @interface CustomACEView : ACEView
 
-- (NSString *)stringByEvaluatingJavaScriptFromString:(NSString *)script;
 - (void)setModeByNameString:(NSString *)nameString;
 - (void)setAnnotations:(NSArray *)annotations;
 - (NSString *)fontSize;

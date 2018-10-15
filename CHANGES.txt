@@ -2,6 +2,10 @@ For next version:
 
     * Find in ACEView editor
 
+15/10/2018 Version 3.2
+
+    * Added support for macOS 10.14 "Mojave" Dark Mode
+    
 18/12/2016 - Version 3.1
 
     * Fixed crash issue on macOS 10.12 "Sierra"

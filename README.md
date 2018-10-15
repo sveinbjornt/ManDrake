@@ -6,7 +6,7 @@ ManDrake is a native <a href="https://en.wikipedia.org/wiki/Man_page">man page</
 
 Long story short, many years ago I was sick of writing man pages in an endless cycle of edit-view, edit-view so I decided to do something about it and created this editor. It's a bit rough around the edges, but it works really well for me. Perhaps it will also be of some use to you.
 
-* [⇩ Download ManDrake 3.1](http://sveinbjorn.org/files/software/mandrake/ManDrake-3.1.zip) (~1.9 MB, Intel 64-bit, 10.7 or later)
+* [⇩ Download ManDrake 3.2](http://sveinbjorn.org/files/software/mandrake/ManDrake-3.2.zip) (~1.9 MB, Intel 64-bit, 10.7 or later)
 
 To learn more about the `mandoc` man page format:
 
@@ -62,8 +62,8 @@ POSSIBILITY OF SUCH DAMAGE.
 
 If you want to build ManDrake yourself, you need the following components/tools:
 
-* a recent version of Xcode with support for ARC and subscripting
-* OS X SDK (10.7 or later)
+* Apple's Xcode
+* macOS SDK (10.7 or later)
 * Git
 * [CocoaPods](https://cocoapods.org)
 
@@ -77,7 +77,7 @@ After cloning the repository, run the following commands inside the repository r
 
     pod install
 
-This installs all the dependencies required.
+This installs all the dependencies required. ManDrake can then be built via the `xcworkspace`.
 
 ## Captain Mandrake
 

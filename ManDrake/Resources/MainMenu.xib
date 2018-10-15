@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
-        <capability name="box content view" minToolsVersion="7.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication"/>
@@ -22,6 +22,12 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="orderFrontStandardAboutPanel:" target="-2" id="142"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Make a Donation" id="ghu-9Q-5Oq">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="makeDonation:" target="652" id="Mqn-gx-Pfz"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="236">
@@ -538,10 +544,17 @@
                                     <action selector="showLicense:" target="652" id="fPV-iK-8dv"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Make a Donation" id="sAG-1p-VNe">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="makeDonation:" target="652" id="6Gt-LV-nsr"/>
+                                </connections>
+                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>
             </items>
+            <point key="canvasLocation" x="241" y="0.0"/>
         </menu>
         <window title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="UKSCTDPrefsWindow" animationBehavior="default" id="596" userLabel="Preferences" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
@@ -557,7 +570,7 @@
                         <rect key="frame" x="17" y="154" width="273" height="100"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <view key="contentView" id="Ger-wY-yf6">
-                            <rect key="frame" x="2" y="2" width="269" height="83"/>
+                            <rect key="frame" x="3" y="3" width="267" height="82"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <colorWell id="614">
@@ -590,18 +603,16 @@
                                 </textField>
                             </subviews>
                         </view>
-                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </box>
-                    <box autoresizesSubviews="NO" title="Preview" borderType="line" id="633">
+                    <box autoresizesSubviews="NO" borderType="line" title="Preview" id="633">
                         <rect key="frame" x="17" y="46" width="273" height="104"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <view key="contentView" id="7Q3-IQ-KV8">
-                            <rect key="frame" x="1" y="1" width="271" height="88"/>
+                            <rect key="frame" x="3" y="3" width="267" height="86"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <popUpButton verticalHuggingPriority="750" id="634">
-                                    <rect key="frame" x="137" y="40" width="100" height="26"/>
+                                    <rect key="frame" x="137" y="38" width="100" height="26"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <popUpButtonCell key="cell" type="push" title="delayed" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="638" id="635">
                                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -616,7 +627,7 @@
                                     </popUpButtonCell>
                                 </popUpButton>
                                 <textField verticalHuggingPriority="750" id="640">
-                                    <rect key="frame" x="30" y="46" width="105" height="17"/>
+                                    <rect key="frame" x="30" y="44" width="105" height="17"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Default refresh:" id="641">
                                         <font key="font" metaFont="system"/>
@@ -626,8 +637,6 @@
                                 </textField>
                             </subviews>
                         </view>
-                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </box>
                     <button verticalHuggingPriority="750" id="642">
                         <rect key="frame" x="197" y="12" width="96" height="32"/>

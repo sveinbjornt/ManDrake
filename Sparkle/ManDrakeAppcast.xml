@@ -6,6 +6,19 @@
         <description>Most recent release list for ManDrake, with links to updates.</description>
         <language>en</language>
         <item>
+            <title>Version 3.2</title>
+            <pubDate>Mon, 15 Oct 2018 19:01:00 +0000</pubDate>
+            <enclosure url="https://sveinbjorn.org/files/software/mandrake/ManDrake-3.2.zip" sparkle:version="89" sparkle:shortVersionString="3.2" length="3970725" type="application/octet-stream" sparkle:dsaSignature="MC0CFQCLIP9EFmC3me0KKgJc0kEuHwt0PQIUCaI3pJRo7lA9CLOraLfkfWzibsc="/>
+            <sparkle:minimumSystemVersion>10.7.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>New in Version 3.2</h2>
+                <ul>
+                <li>Added support for macOS 10.14 "Mojave" Dark Mode</li>
+                </ul>
+            ]]></description>
+        </item>
+
+        <item>
             <title>Version 3.1</title>
             <pubDate>Sun, 18 Dec 2016 13:17:00 +0000</pubDate>
             <enclosure url="https://sveinbjorn.org/files/software/mandrake/ManDrake-3.1.zip" sparkle:version="70" sparkle:shortVersionString="3.1" length="1962738" type="application/octet-stream" sparkle:dsaSignature="MCwCFCNU12KJX9/6uF7roATTLGkRbhniAhQrERFe33NIse/VvkNnsYThiI/EvA=="/>
@@ -26,7 +39,7 @@
                 <h2>New in Version 3.0</h2>
                 <ul>
                     <li>Overhauled user interface</li>
-                    <li>New, powerful, customizable ace text editor</li>
+                    <li>New, powerful, customizable ACE text editor</li>
                     <li>Automatic mdoc syntax checking with inline warnings in editor</li>
                     <li>Better syntax highlighting</li>
                     <li>Faster preview generation</li>

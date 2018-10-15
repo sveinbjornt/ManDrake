@@ -1,6 +1,6 @@
 .\" Modified from man(1) of FreeBSD, the NetBSD mdoc.template and mdoc.samples
 .\" See man mdoc for the short list of editing options
-.Dd January 26, 2016     \" DATE
+.Dd January 26, 2018     \" DATE
 .Dt UNTITLED 1           \" Program name and manual section number
 .Os Darwin
 .Sh NAME                 \" Section Header - required - don't modify
