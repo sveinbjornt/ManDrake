@@ -58,23 +58,6 @@
     dispatch_queue_t backgroundQueue;
 }
 
-- (IBAction)refresh:(id)sender;
-
-- (IBAction)makeTextLarger:(id)sender;
-- (IBAction)makeTextSmaller:(id)sender;
-- (IBAction)makePreviewTextLarger:(id)sender;
-- (IBAction)makePreviewTextSmaller:(id)sender;
-
-- (IBAction)editorActionButtonPressed:(id)sender;
-- (IBAction)previewActionButtonPressed:(id)sender;
-- (IBAction)previewInTerminal:(id)sender;
-
-- (IBAction)loadManMdocTemplate:(id)sender;
-- (IBAction)loadDefaultManTemplate:(id)sender;
-
-- (IBAction)exportAsHTML:(id)sender;
-- (IBAction)exportAsPDF:(id)sender;
-
 @end
 
 @implementation ManDrakeDocument
@@ -457,7 +440,6 @@ originalContentsURL:(NSURL *)originalContentsURL
 }
 
 - (NSDictionary *)checkSyntax {
-//    return @{ @"annotations": @[] };
     
     // run task "mandoc -T lint [tempFile]"
     NSTask *mandocTask = [[NSTask alloc] init];

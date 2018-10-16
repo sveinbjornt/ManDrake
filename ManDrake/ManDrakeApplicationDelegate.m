@@ -57,11 +57,6 @@
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaultPrefs];
 }
 
-- (void)dealloc {
-    [[NSUserDefaultsController sharedUserDefaultsController] removeObserver:self forKeyPath:VALUES_KEYPATH(kDefaultsEditorTheme)];
-    [[NSUserDefaultsController sharedUserDefaultsController] removeObserver:self forKeyPath:VALUES_KEYPATH(kDefaultsPreviewRefreshStyle)];
-}
-
 #pragma mark - NSApplicationDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification {

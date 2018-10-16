@@ -67,15 +67,16 @@
     NSString *tempScriptPath = [[NSFileManager defaultManager] stringWithFileSystemRepresentation:tempFileNameCString length:strlen(tempFileNameCString)];
     free(tempFileNameCString);
     
-    // write script to the temporary path
+    // write file to the temporary path
     NSError *err;
     BOOL success = [contentStr writeToFile:tempScriptPath atomically:YES encoding:textEncoding error:&err];
     
-    // make sure writing it was successful
+    // make sure write was successful
     if (!success || [[NSFileManager defaultManager] fileExistsAtPath:tempScriptPath] == FALSE) {
         NSLog(@"Erroring creating temp file '%@': %@", tempScriptPath, [err localizedDescription]);
         return nil;
     }
+    
     return tempScriptPath;
 }
 

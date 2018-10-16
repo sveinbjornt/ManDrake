@@ -29,6 +29,4 @@
     return [(WebView *)self stringByEvaluatingJavaScriptFromString:@"editor.fontSize();"];
 }
 
-
-
 @end
