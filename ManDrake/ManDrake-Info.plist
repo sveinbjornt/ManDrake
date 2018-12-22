@@ -59,10 +59,6 @@
 	<string>NSApplication</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.developer-tools</string>
-	<key>CFBundleSupportedPlatforms</key>
-	<array>
-		<string>MacOSX</string>
-	</array>
 	<key>CFBundleGetInfoString</key>
 	<string>© 2004-2018 Sveinbjorn Thordarson. BSD license.</string>
 </dict>

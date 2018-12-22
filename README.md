@@ -6,7 +6,7 @@ ManDrake is a native <a href="https://en.wikipedia.org/wiki/Man_page">man page</
 
 Long story short, many years ago I was sick of writing man pages in an endless cycle of edit-view, edit-view so I decided to do something about it and created this editor. It's a bit rough around the edges, but it works really well for me. Perhaps it will also be of some use to you.
 
-* [⇩ Download ManDrake 3.2](http://sveinbjorn.org/files/software/mandrake/ManDrake-3.2.zip) (~1.9 MB, Intel 64-bit, 10.7 or later)
+* [**⇩ Download ManDrake 3.2**](http://sveinbjorn.org/files/software/mandrake/ManDrake-3.2.zip) (~1.9 MB, Intel 64-bit, 10.7 or later)
 
 To learn more about the `mandoc` man page format:
 
@@ -18,7 +18,7 @@ or read [this page](http://www.freebsd.org/cgi/man.cgi?query=mdoc.samples).
 
 For a recent web-based alternative to ManDrake, check out [Grapse](http://www.roperzh.com/grapse/).
 
-ManDrake is free, open source software distributed under a BSD license. If you find it useful, feel free to [make a donation.](https://sveinbjorn.org/donations)
+[ManDrake](https://sveinbjorn.org/mandrake) is free, open source software distributed under a BSD license. If you find it useful, feel free to [make a donation.](https://sveinbjorn.org/donations)
 
 ## Screenshots
 
