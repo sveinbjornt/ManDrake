@@ -500,7 +500,7 @@ originalContentsURL:(NSURL *)originalContentsURL
         NSNumber *row = @([warnComponents[0] intValue] - 1);
         NSNumber *col = @([warnComponents[1] intValue]);
         
-        BOOL isError = [line containsString:@"ERROR"];
+        BOOL isError = ([line rangeOfString:@"ERROR"].location != NSNotFound);
         errCount += isError;
         NSString *typeStr = isError ? @"error" : @"warning";
         NSDictionary *annotation = @{ @"row": row,
