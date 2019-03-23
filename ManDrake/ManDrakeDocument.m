@@ -37,6 +37,7 @@
 #import "ACEView/ACEThemeNames.h"
 #import "ACEView/ACEModes.h"
 #import "ManDrakeApplicationDelegate.h"
+#import "NSTask+Description.h"
 
 @interface ManDrakeDocument()
 {
@@ -308,46 +309,45 @@ originalContentsURL:(NSURL *)originalContentsURL
     }
     
     dispatch_async(backgroundQueue, ^{
+    
+        NSString *inFilePath = [[NSWorkspace sharedWorkspace] createTempFileWithContents:manText];
+        NSString *outFilePath = [[NSWorkspace sharedWorkspace] createTempFileWithContents:@""];
         
-        // Create nroff task
+        // Run nroff task
         NSTask *nroffTask = [[NSTask alloc] init];
         [nroffTask setLaunchPath:@"/usr/bin/nroff"];
-        [nroffTask setArguments:@[@"-mandoc"]];
-        
-        NSPipe *nroffOutputPipe = [NSPipe pipe];
-        NSPipe *nroffInputPipe = [NSPipe pipe];
-        [nroffTask setStandardOutput:nroffOutputPipe];
-        [nroffTask setStandardInput:nroffInputPipe];
-        
-        NSFileHandle *nroffWriteHandle = [nroffInputPipe fileHandleForWriting];
-        
-        // Create cat2html task
+        [nroffTask setArguments:@[@"-mandoc", inFilePath]];
+        [nroffTask setStandardOutput:[NSFileHandle fileHandleForWritingAtPath:outFilePath]];
+        [nroffTask launch];
+        [nroffTask waitUntilExit];
+
+        // Run cat2html task
         NSTask *catTask = [[NSTask alloc] init];
         [catTask setLaunchPath:[[NSBundle mainBundle] pathForResource:@"cat2html" ofType:nil]];
-        [catTask setArguments:@[]];
-        
+        [catTask setArguments:@[outFilePath]];
         NSPipe *catOutputPipe = [NSPipe pipe];
         [catTask setStandardOutput:catOutputPipe];
-        [catTask setStandardInput:nroffOutputPipe];
-        
         NSFileHandle *catReadHandle = [catOutputPipe fileHandleForReading];
-        
-        [nroffTask launch];
         [catTask launch];
-        
-        // Write string to nroff's stdin
-        [nroffWriteHandle writeData:[manText dataUsingEncoding:NSUTF8StringEncoding]];
-        [nroffWriteHandle closeFile];
-        
-        [nroffTask waitUntilExit];
-        [catTask waitUntilExit];
-        
+//        [catTask waitUntilExit];
+    
         // Read output from cat2html's stdout
-        NSMutableString *htmlString = [[NSMutableString alloc] initWithData:[catReadHandle readDataToEndOfFile]
-                                                                   encoding:NSUTF8StringEncoding];
-        dispatch_async(dispatch_get_main_queue(), ^{
+        NSData *outData = [catReadHandle readDataToEndOfFile];
+        NSMutableString *htmlString = [[NSMutableString alloc] initWithBytes:[outData bytes]
+                                                                      length:[outData length]
+                                                                    encoding:NSASCIIStringEncoding];
         
-            if ([htmlString length] == 0 || htmlString == nil) {
+        // Cleanup
+        [catTask terminate];
+        [[NSFileManager defaultManager] removeItemAtPath:inFilePath error:nil];
+        [[NSFileManager defaultManager] removeItemAtPath:outFilePath error:nil];
+        
+        // Update on main thread
+        dispatch_async(dispatch_get_main_queue(), ^{
+    
+            NSString *outStr = htmlString;
+            
+            if ([outStr length] == 0 || outStr == nil) {
                 [[webView mainFrame] loadHTMLString:@"<strong>Nil output from cat2html</strong>" baseURL:nil];
                 NSLog(@"Nil output from cat2html");
                 return;
@@ -361,16 +361,17 @@ originalContentsURL:(NSURL *)originalContentsURL
             // invert black/white
             BOOL invert = [[[NSUserDefaults standardUserDefaults] objectForKey:kDefaultsPreviewInvert] boolValue];
             if (invert) {
+                outStr = [outStr mutableCopy];
                 NSString *bgColor = invert ? @"black" : @"white";
                 NSString *fgColor = invert ? @"white" : @"black";
                 NSString *bodyTag = [NSString stringWithFormat:@"<body bgcolor=\"%@\" text=\"%@\">", bgColor, fgColor];
-                [htmlString replaceOccurrencesOfString:@"<body>"
-                                            withString:bodyTag
-                                               options:NSCaseInsensitiveSearch
-                                                 range:NSMakeRange(0, 50)];
+                [(NSMutableString *)outStr replaceOccurrencesOfString:@"<body>"
+                                                           withString:bodyTag
+                                                              options:NSCaseInsensitiveSearch
+                                                                range:NSMakeRange(0, 50)];
             }
             
-            [[webView mainFrame] loadHTMLString:htmlString baseURL:nil];
+            [[webView mainFrame] loadHTMLString:outStr baseURL:nil];
             [refreshProgressIndicator stopAnimation:self];
         });
     });

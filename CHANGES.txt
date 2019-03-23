@@ -1,8 +1,13 @@
 For next version:
 
     * Find in ACEView editor
+    * Fix issue with ACEView and Dark Mode
 
-15/10/2018 Version 3.2
+23/03/2019 - Version 3.3
+
+    * Fixed issue with rendering preview for very large mdoc files
+
+15/10/2018 - Version 3.2
 
     * Added support for macOS 10.14 "Mojave" Dark Mode
     

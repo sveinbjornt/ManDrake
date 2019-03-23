@@ -28,7 +28,7 @@
 			<key>CFBundleTypeIconFile</key>
 			<string>DocumentIcon</string>
 			<key>CFBundleTypeName</key>
-			<string>DocumentType</string>
+			<string>Man Page Document</string>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>NSDocumentClass</key>
@@ -46,7 +46,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>3.2</string>
+	<string>3.3</string>
 	<key>CFBundleVersion</key>
 	<string>70</string>
 	<key>LSMinimumSystemVersion</key>
