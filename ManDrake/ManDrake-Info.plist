@@ -52,7 +52,7 @@
 	<key>LSMinimumSystemVersion</key>
 	<string>${MACOSX_DEPLOYMENT_TARGET}</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>© 2004-2018 Sveinbjorn Thordarson. BSD license.</string>
+	<string>© 2004-2019 Sveinbjorn Thordarson. BSD license.</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
@@ -60,6 +60,6 @@
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.developer-tools</string>
 	<key>CFBundleGetInfoString</key>
-	<string>© 2004-2018 Sveinbjorn Thordarson. BSD license.</string>
+	<string>© 2004-2019 Sveinbjorn Thordarson. BSD license.</string>
 </dict>
 </plist>
