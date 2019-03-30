@@ -6,49 +6,16 @@
         <description>Most recent release list for ManDrake, with links to updates.</description>
         <language>en</language>
         <item>
-            <title>Version 3.2</title>
-            <pubDate>Mon, 15 Oct 2018 19:01:00 +0000</pubDate>
-            <enclosure url="https://sveinbjorn.org/files/software/mandrake/ManDrake-3.2.zip" sparkle:version="89" sparkle:shortVersionString="3.2" length="3970725" type="application/octet-stream" sparkle:dsaSignature="MC0CFQCLIP9EFmC3me0KKgJc0kEuHwt0PQIUCaI3pJRo7lA9CLOraLfkfWzibsc="/>
-            <sparkle:minimumSystemVersion>10.7.0</sparkle:minimumSystemVersion>
+            <title>Version 3.3</title>
+            <pubDate>Sat, 30 Oct 2019 19:52:00 +0000</pubDate>
+            <enclosure url="https://sveinbjorn.org/files/software/mandrake/ManDrake-3.3.zip" sparkle:version="99" sparkle:shortVersionString="3.3" length="1910835" type="application/octet-stream" sparkle:dsaSignature="MCwCFAqVOHnxJ6oXmsvfbYy4KExqzmxqAhQLqvbRxv93PaJLpkRHO9t/AeD5Bg=="/>
+            <sparkle:minimumSystemVersion>10.8.0</sparkle:minimumSystemVersion>
             <description><![CDATA[
-                <h2>New in Version 3.2</h2>
+                <h2>New in Version 3.3</h2>
                 <ul>
-                <li>Added support for macOS 10.14 "Mojave" Dark Mode</li>
-                </ul>
-            ]]></description>
-        </item>
-
-        <item>
-            <title>Version 3.1</title>
-            <pubDate>Sun, 18 Dec 2016 13:17:00 +0000</pubDate>
-            <enclosure url="https://sveinbjorn.org/files/software/mandrake/ManDrake-3.1.zip" sparkle:version="70" sparkle:shortVersionString="3.1" length="1962738" type="application/octet-stream" sparkle:dsaSignature="MCwCFCNU12KJX9/6uF7roATTLGkRbhniAhQrERFe33NIse/VvkNnsYThiI/EvA=="/>
-            <sparkle:minimumSystemVersion>10.7.0</sparkle:minimumSystemVersion>
-            <description><![CDATA[
-                <h2>New in Version 3.1</h2>
-                <ul>
-                <li>Fixed crash issue on macOS 10.12 "Sierra"</li>
-                </ul>
-            ]]></description>
-        </item>
-        <item>
-            <title>Version 3.0</title>
-            <pubDate>Tue, 26 Jan 2016 19:03:00 +0000</pubDate>
-            <enclosure url="https://sveinbjorn.org/files/software/mandrake/ManDrake-3.0.zip" sparkle:version="3.0" sparkle:shortVersionString="3.0" length="1897337" type="application/octet-stream" sparkle:dsaSignature="MCwCFGM6w5ihxzvPlnBqvx/Z7GYOCWuJAhQ6C2sb7PghyLQUuNGH+/q86gysFw=="/>
-            <sparkle:minimumSystemVersion>10.7.0</sparkle:minimumSystemVersion>
-            <description><![CDATA[
-                <h2>New in Version 3.0</h2>
-                <ul>
-                    <li>Overhauled user interface</li>
-                    <li>New, powerful, customizable ACE text editor</li>
-                    <li>Automatic mdoc syntax checking with inline warnings in editor</li>
-                    <li>Better syntax highlighting</li>
-                    <li>Faster preview generation</li>
-                    <li>Export to HTML and PDF</li>
-                    <li>New application and document icons</li>
-                    <li>Updated documentation</li>
-                    <li>Sparkle autoupdating</li>
-                    <li>Code is now BSD licensed</li>
-                    <li>Better man templates</li>
+                <li>Fixed issue with rendering preview for very large mdoc files</li>
+                <li>ManDrake is now a Developer ID signed application</li>
+                <li>Minor fixes to improve compatibility with Mojave's Dark Mode</li>
                 </ul>
             ]]></description>
         </item>

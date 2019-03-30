@@ -37,7 +37,6 @@
 #import "ACEView/ACEThemeNames.h"
 #import "ACEView/ACEModes.h"
 #import "ManDrakeApplicationDelegate.h"
-#import "NSTask+Description.h"
 
 @interface ManDrakeDocument()
 {
