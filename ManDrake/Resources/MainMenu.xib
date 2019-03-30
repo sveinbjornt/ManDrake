@@ -535,7 +535,7 @@
                         <items>
                             <menuItem title="ManDrake on GitHub" keyEquivalent="?" id="qcX-Vi-gZK">
                                 <connections>
-                                    <action selector="showReadme:" target="652" id="Ua5-DW-cHj"/>
+                                    <action selector="showGithubPage:" target="652" id="Ua5-DW-cHj"/>
                                 </connections>
                             </menuItem>
                             <menuItem title="ManDrake License" id="qVa-WR-Qzj">

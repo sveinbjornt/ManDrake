@@ -6,7 +6,7 @@ ManDrake is a native <a href="https://en.wikipedia.org/wiki/Man_page">man page</
 
 Long story short, many years ago I was sick of writing man pages in an endless cycle of edit-view, edit-view so I decided to do something about it and created this editor. It's a bit rough around the edges, but it works really well for me. Perhaps it will also be of some use to you.
 
-* [**⇩ Download ManDrake 3.3**](http://sveinbjorn.org/files/software/mandrake/ManDrake-3.3.zip) (~1.9 MB, Intel 64-bit, 10.7 or later)
+* [**⇩ Download ManDrake 3.3**](http://sveinbjorn.org/files/software/mandrake/ManDrake-3.3.zip) (~1.9 MB, Intel 64-bit, 10.8 or later)
 
 To learn more about the `mandoc` man page format:
 
@@ -22,9 +22,9 @@ For a recent web-based alternative to ManDrake, check out [Grapse](http://www.ro
 
 ## Screenshots
 
-<img src="images/mandrake_screenshot1.jpg" style="max-width:100%;" alt="ManDrake Screenshot">
+<img src="images/mandrake_screenshot1.jpg" style="max-width:100%;" alt="ManDrake Screenshot 1">
 
-<img src="images/mandrake_screenshot2.jpg" style="max-width:100%;" alt="ManDrake Screenshot">
+<img src="images/mandrake_screenshot2.jpg" style="max-width:100%;" alt="ManDrake Screenshot 2">
 
 
 ## License
@@ -63,7 +63,7 @@ POSSIBILITY OF SUCH DAMAGE.
 If you want to build ManDrake yourself, you need the following components/tools:
 
 * Apple's Xcode
-* macOS SDK (10.7 or later)
+* macOS SDK (10.8 or later)
 * Git
 * [CocoaPods](https://cocoapods.org)
 

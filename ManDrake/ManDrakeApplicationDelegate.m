@@ -124,7 +124,7 @@
 
 #pragma mark - Menus
 
-- (IBAction)showReadme:(id)sender {
+- (IBAction)showGithubPage:(id)sender {
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://github.com/sveinbjornt/ManDrake"]];
 }
 

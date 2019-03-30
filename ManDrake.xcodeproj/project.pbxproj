@@ -28,7 +28,6 @@
 		F487F4D3141EAE730093D633 /* ManDrakeDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = F487F4D1141EAE730093D633 /* ManDrakeDocument.xib */; };
 		F487F506141EAF8A0093D633 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F487F505141EAF8A0093D633 /* WebKit.framework */; };
 		F487F535141EB2560093D633 /* ManDrakeApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F487F534141EB2560093D633 /* ManDrakeApplicationDelegate.m */; };
-		F4AFF3CA223EEC9100024B12 /* NSTask+Description.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AFF3C9223EEC9100024B12 /* NSTask+Description.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -210,19 +209,19 @@
 		F487F4B1141EADEF0093D633 /* ManDrake */ = {
 			isa = PBXGroup;
 			children = (
-				F45AFBFB1C53FBD500953D8F /* Common.h */,
 				F487F4B9141EADEF0093D633 /* ManDrake-Prefix.pch */,
 				F487F4B7141EADEF0093D633 /* main.m */,
+				F45AFBFB1C53FBD500953D8F /* Common.h */,
 				F487F533141EB2560093D633 /* ManDrakeApplicationDelegate.h */,
 				F487F534141EB2560093D633 /* ManDrakeApplicationDelegate.m */,
 				F487F4BD141EADEF0093D633 /* ManDrakeDocument.h */,
 				F487F4BE141EADEF0093D633 /* ManDrakeDocument.m */,
-				F4AFF3C8223EEC9100024B12 /* NSTask+Description.h */,
-				F4AFF3C9223EEC9100024B12 /* NSTask+Description.m */,
 				F45AFBD51C51950600953D8F /* CustomACEView.h */,
 				F45AFBD61C51950600953D8F /* CustomACEView.m */,
 				F45AFBDA1C53B9C000953D8F /* NSWorkspace+Additions.h */,
 				F45AFBDB1C53B9C000953D8F /* NSWorkspace+Additions.m */,
+				F4AFF3C8223EEC9100024B12 /* NSTask+Description.h */,
+				F4AFF3C9223EEC9100024B12 /* NSTask+Description.m */,
 				F487F4B2141EADEF0093D633 /* Resources */,
 				F487F538141EDD560093D633 /* cat2html */,
 			);
@@ -782,7 +781,6 @@
 			files = (
 				F487F4B8141EADEF0093D633 /* main.m in Sources */,
 				F45AFBDC1C53B9C000953D8F /* NSWorkspace+Additions.m in Sources */,
-				F4AFF3CA223EEC9100024B12 /* NSTask+Description.m in Sources */,
 				F45AFBD71C51950600953D8F /* CustomACEView.m in Sources */,
 				F487F4BF141EADEF0093D633 /* ManDrakeDocument.m in Sources */,
 				F487F535141EB2560093D633 /* ManDrakeApplicationDelegate.m in Sources */,
