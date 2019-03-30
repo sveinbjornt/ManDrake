@@ -19,6 +19,8 @@
 		F472E8A41F2A3A7B007F3EFC /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = F472E8A31F2A3A7B007F3EFC /* Credits.rtf */; };
 		F4796732224FF75B00CA0746 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4796731224FF75B00CA0746 /* Sparkle.framework */; };
 		F4796734224FF7EA00CA0746 /* Sparkle.framework in Copy Bundled Frameworks */ = {isa = PBXBuildFile; fileRef = F4796731224FF75B00CA0746 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F4796737224FFB5400CA0746 /* DocumentIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = F4796735224FFB5300CA0746 /* DocumentIcon.icns */; };
+		F4796738224FFB5400CA0746 /* AppIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = F4796736224FFB5400CA0746 /* AppIcon.icns */; };
 		F487F4AC141EADEF0093D633 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F487F4AB141EADEF0093D633 /* Cocoa.framework */; };
 		F487F4B8141EADEF0093D633 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F487F4B7141EADEF0093D633 /* main.m */; };
 		F487F4BF141EADEF0093D633 /* ManDrakeDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = F487F4BE141EADEF0093D633 /* ManDrakeDocument.m */; };
@@ -27,7 +29,6 @@
 		F487F506141EAF8A0093D633 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F487F505141EAF8A0093D633 /* WebKit.framework */; };
 		F487F535141EB2560093D633 /* ManDrakeApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F487F534141EB2560093D633 /* ManDrakeApplicationDelegate.m */; };
 		F4AFF3CA223EEC9100024B12 /* NSTask+Description.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AFF3C9223EEC9100024B12 /* NSTask+Description.m */; };
-		F4FD5CA91C4D757E00C8D155 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4FD5CA81C4D757E00C8D155 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -84,6 +85,8 @@
 		F45AFBFB1C53FBD500953D8F /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = Common.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		F472E8A31F2A3A7B007F3EFC /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; name = Credits.rtf; path = ManDrake/Resources/Credits.rtf; sourceTree = SOURCE_ROOT; };
 		F4796731224FF75B00CA0746 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		F4796735224FFB5300CA0746 /* DocumentIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = DocumentIcon.icns; path = Resources/DocumentIcon.icns; sourceTree = "<group>"; };
+		F4796736224FFB5400CA0746 /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = AppIcon.icns; path = Resources/AppIcon.icns; sourceTree = "<group>"; };
 		F486410A20CADDD7007E2BB6 /* mandrake_screenshot2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mandrake_screenshot2.jpg; sourceTree = "<group>"; };
 		F486410B20CADDD7007E2BB6 /* mandrake_screenshot1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mandrake_screenshot1.jpg; sourceTree = "<group>"; };
 		F486410C20CAE25D007E2BB6 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
@@ -107,7 +110,6 @@
 		F4FD5CA11C4D74F900C8D155 /* make_icons.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = make_icons.sh; sourceTree = "<group>"; };
 		F4FD5CA21C4D74F900C8D155 /* ManDrakeAppIcon.ai */ = {isa = PBXFileReference; lastKnownFileType = text; path = ManDrakeAppIcon.ai; sourceTree = "<group>"; };
 		F4FD5CA41C4D74F900C8D155 /* ManDrakeAppIcon1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ManDrakeAppIcon1024.png; sourceTree = "<group>"; };
-		F4FD5CA81C4D757E00C8D155 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,13 +232,14 @@
 		F487F4B2141EADEF0093D633 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F4796736224FFB5400CA0746 /* AppIcon.icns */,
+				F4796735224FFB5300CA0746 /* DocumentIcon.icns */,
 				F487F4B3141EADEF0093D633 /* ManDrake-Info.plist */,
 				F487F4D0141EAE730093D633 /* MainMenu.xib */,
 				F487F4D1141EAE730093D633 /* ManDrakeDocument.xib */,
 				F45AFBD31C5193A900953D8F /* mode-groff.js */,
 				F45AFBD81C52D04A00953D8F /* default.man */,
 				F45AFBDD1C53BA9200953D8F /* mandoc */,
-				F4FD5CA81C4D757E00C8D155 /* Images.xcassets */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -334,7 +337,8 @@
 				F45AFBDE1C53BA9200953D8F /* mandoc in Resources */,
 				F442E0701EA7AB4E00BAD80C /* cat2html in Resources */,
 				F43557EB1C55413A009080DC /* dsa_pub.pem in Resources */,
-				F4FD5CA91C4D757E00C8D155 /* Images.xcassets in Resources */,
+				F4796737224FFB5400CA0746 /* DocumentIcon.icns in Resources */,
+				F4796738224FFB5400CA0746 /* AppIcon.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -881,7 +885,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1D8C3EB843CFB4099FEB1A6F /* Pods-ManDrake.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
@@ -910,7 +913,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1765B518EC55CEC9D2FA5110 /* Pods-ManDrake.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;

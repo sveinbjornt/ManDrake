@@ -61,5 +61,7 @@
 	<string>public.app-category.developer-tools</string>
 	<key>CFBundleGetInfoString</key>
 	<string>© 2004-2019 Sveinbjorn Thordarson. BSD license.</string>
+	<key>CFBundleIconFile</key>
+	<string>AppIcon</string>
 </dict>
 </plist>
