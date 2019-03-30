@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -533,7 +533,7 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Help" systemMenu="help" id="2qH-QK-0lT">
                         <items>
-                            <menuItem title="ManDrake Readme" keyEquivalent="?" id="qcX-Vi-gZK">
+                            <menuItem title="ManDrake on GitHub" keyEquivalent="?" id="qcX-Vi-gZK">
                                 <connections>
                                     <action selector="showReadme:" target="652" id="Ua5-DW-cHj"/>
                                 </connections>
@@ -554,7 +554,7 @@
                     </menu>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="241" y="0.0"/>
+            <point key="canvasLocation" x="-22" y="3"/>
         </menu>
         <window title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="UKSCTDPrefsWindow" animationBehavior="default" id="596" userLabel="Preferences" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>

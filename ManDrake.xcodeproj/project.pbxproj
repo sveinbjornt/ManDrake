@@ -17,6 +17,8 @@
 		F45AFBDE1C53BA9200953D8F /* mandoc in Resources */ = {isa = PBXBuildFile; fileRef = F45AFBDD1C53BA9200953D8F /* mandoc */; };
 		F45AFBE21C53D53300953D8F /* License.html in Resources */ = {isa = PBXBuildFile; fileRef = F45AFBE01C53D53300953D8F /* License.html */; };
 		F472E8A41F2A3A7B007F3EFC /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = F472E8A31F2A3A7B007F3EFC /* Credits.rtf */; };
+		F4796732224FF75B00CA0746 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4796731224FF75B00CA0746 /* Sparkle.framework */; };
+		F4796734224FF7EA00CA0746 /* Sparkle.framework in Copy Bundled Frameworks */ = {isa = PBXBuildFile; fileRef = F4796731224FF75B00CA0746 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F487F4AC141EADEF0093D633 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F487F4AB141EADEF0093D633 /* Cocoa.framework */; };
 		F487F4B8141EADEF0093D633 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F487F4B7141EADEF0093D633 /* main.m */; };
 		F487F4BF141EADEF0093D633 /* ManDrakeDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = F487F4BE141EADEF0093D633 /* ManDrakeDocument.m */; };
@@ -38,6 +40,17 @@
 				F4296FFB1E06C77E002C25C4 /* mode-groff.js in Copy mode-groff.js */,
 			);
 			name = "Copy mode-groff.js";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4796733224FF7D600CA0746 /* Copy Bundled Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F4796734224FF7EA00CA0746 /* Sparkle.framework in Copy Bundled Frameworks */,
+			);
+			name = "Copy Bundled Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -70,6 +83,7 @@
 		F45AFBE01C53D53300953D8F /* License.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; lineEnding = 0; name = License.html; path = ManDrake/Resources/License.html; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.html; };
 		F45AFBFB1C53FBD500953D8F /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = Common.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		F472E8A31F2A3A7B007F3EFC /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; name = Credits.rtf; path = ManDrake/Resources/Credits.rtf; sourceTree = SOURCE_ROOT; };
+		F4796731224FF75B00CA0746 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		F486410A20CADDD7007E2BB6 /* mandrake_screenshot2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mandrake_screenshot2.jpg; sourceTree = "<group>"; };
 		F486410B20CADDD7007E2BB6 /* mandrake_screenshot1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mandrake_screenshot1.jpg; sourceTree = "<group>"; };
 		F486410C20CAE25D007E2BB6 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
@@ -104,6 +118,7 @@
 				F487F4AC141EADEF0093D633 /* Cocoa.framework in Frameworks */,
 				F487F506141EAF8A0093D633 /* WebKit.framework in Frameworks */,
 				EB0556708A55681D8CD43C6E /* libPods-ManDrake.a in Frameworks */,
+				F4796732224FF75B00CA0746 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +167,7 @@
 				F43557E61C553C8E009080DC /* ManDrakeAppcast.xml */,
 				F43557E71C553C8E009080DC /* sign_update.rb */,
 				F43557E81C553C8E009080DC /* update_appcast.sh */,
+				F4796731224FF75B00CA0746 /* Sparkle.framework */,
 			);
 			path = Sparkle;
 			sourceTree = "<group>";
@@ -257,8 +273,8 @@
 				7306959F6D36CD22FE74AD30 /* [CP] Check Pods Manifest.lock */,
 				F487F4A3141EADEF0093D633 /* Sources */,
 				F487F4A4141EADEF0093D633 /* Frameworks */,
+				F4796733224FF7D600CA0746 /* Copy Bundled Frameworks */,
 				F487F4A5141EADEF0093D633 /* Resources */,
-				6B3CF159F7CD687B01CEC577 /* [CP] Embed Pods Frameworks */,
 				A632E6CB83F8E3FF40AF5BE0 /* [CP] Copy Pods Resources */,
 				F4296FF91E06C57F002C25C4 /* Set CFBundleVersion to git commit count */,
 				F43557EC1C56AE04009080DC /* Delete Unneded Pods Resources */,
@@ -325,26 +341,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6B3CF159F7CD687B01CEC577 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ManDrake/Pods-ManDrake-frameworks.sh",
-				"${PODS_ROOT}/Sparkle/Sparkle.framework",
-				"${PODS_ROOT}/Sparkle/Sparkle.framework.dSYM",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sparkle.framework",
-				"${DWARF_DSYM_FOLDER_PATH}/Sparkle.framework.dSYM",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ManDrake/Pods-ManDrake-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		7306959F6D36CD22FE74AD30 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -891,10 +887,15 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 5WX26Y89JP;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Sparkle",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ManDrake/ManDrake-Prefix.pch";
 				GENERATE_PKGINFO_FILE = NO;
 				INFOPLIST_FILE = "ManDrake/ManDrake-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_BUNDLE_IDENTIFIER = org.sveinbjorn.ManDrake;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -915,10 +916,15 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 5WX26Y89JP;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Sparkle",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ManDrake/ManDrake-Prefix.pch";
 				GENERATE_PKGINFO_FILE = NO;
 				INFOPLIST_FILE = "ManDrake/ManDrake-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_BUNDLE_IDENTIFIER = org.sveinbjorn.ManDrake;
 				PRODUCT_NAME = "$(TARGET_NAME)";
