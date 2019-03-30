@@ -1,15 +1,17 @@
-For next version:
+For version 3.4:
 
     * Find in ACEView editor
     * Fix issue with ACEView and Dark Mode
 
-23/03/2019 - Version 3.3
+30/03/2019 - Version 3.3
 
     * Fixed issue with rendering preview for very large mdoc files
+    * ManDrake is now a Developer ID signed application
+    * Minor fixes to improve compatibility with Mojave's Dark Mode
 
 15/10/2018 - Version 3.2
 
-    * Added support for macOS 10.14 "Mojave" Dark Mode
+    * Added support for macOS 10.14 Mojave Dark Mode
     
 18/12/2016 - Version 3.1
 
