@@ -2,6 +2,9 @@ For version 3.4:
 
     * Find in ACEView editor
     * Fix issue with ACEView and Dark Mode
+    * Option to use external mandoc binary for syntax checking
+    DONE * Update mandoc binary used for syntax checking
+
 
 30/03/2019 - Version 3.3
 
