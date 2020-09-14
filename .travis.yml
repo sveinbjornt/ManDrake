@@ -1,0 +1,19 @@
+language: objective-c
+cache: cocoapods
+
+osx_image: xcode11.4 # 10.14.6
+
+branches:
+  only:
+    - master
+
+before_install:
+  - gem install xcpretty # Required by build script
+  - gem install cocoapods # Dependency management
+  - pod update # Install dependencies
+
+script:
+  # Compile cat2html tool
+  - cd ManDrake/cat2html && ./build_cat2html.sh
+  # Run build script
+  - cd ../.. && ./build.sh

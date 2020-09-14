@@ -10,7 +10,6 @@
 		EB0556708A55681D8CD43C6E /* libPods-ManDrake.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 92873E6389F9DBEBB6841DEB /* libPods-ManDrake.a */; };
 		F4296FFB1E06C77E002C25C4 /* mode-groff.js in Copy mode-groff.js */ = {isa = PBXBuildFile; fileRef = F45AFBD31C5193A900953D8F /* mode-groff.js */; };
 		F43557EB1C55413A009080DC /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = F43557EA1C554132009080DC /* dsa_pub.pem */; };
-		F442E0701EA7AB4E00BAD80C /* cat2html in Resources */ = {isa = PBXBuildFile; fileRef = F442E06F1EA7AB4E00BAD80C /* cat2html */; };
 		F45AFBD71C51950600953D8F /* CustomACEView.m in Sources */ = {isa = PBXBuildFile; fileRef = F45AFBD61C51950600953D8F /* CustomACEView.m */; };
 		F45AFBD91C52D04A00953D8F /* default.man in Resources */ = {isa = PBXBuildFile; fileRef = F45AFBD81C52D04A00953D8F /* default.man */; };
 		F45AFBDC1C53B9C000953D8F /* NSWorkspace+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = F45AFBDB1C53B9C000953D8F /* NSWorkspace+Additions.m */; };
@@ -28,6 +27,7 @@
 		F487F4D3141EAE730093D633 /* ManDrakeDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = F487F4D1141EAE730093D633 /* ManDrakeDocument.xib */; };
 		F487F506141EAF8A0093D633 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F487F505141EAF8A0093D633 /* WebKit.framework */; };
 		F487F535141EB2560093D633 /* ManDrakeApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F487F534141EB2560093D633 /* ManDrakeApplicationDelegate.m */; };
+		F4B7D9F8251004BE0025A779 /* cat2html in Resources */ = {isa = PBXBuildFile; fileRef = F4B7D9F7251004BE0025A779 /* cat2html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -71,7 +71,6 @@
 		F43557E81C553C8E009080DC /* update_appcast.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = update_appcast.sh; sourceTree = "<group>"; };
 		F43557E91C554132009080DC /* dsa_priv.pem */ = {isa = PBXFileReference; lastKnownFileType = text; path = dsa_priv.pem; sourceTree = "<group>"; };
 		F43557EA1C554132009080DC /* dsa_pub.pem */ = {isa = PBXFileReference; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
-		F442E06F1EA7AB4E00BAD80C /* cat2html */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = cat2html; path = "../../../dim/dim-clt/man/cat2html/cat2html"; sourceTree = "<group>"; };
 		F442E0711EA7AB5A00BAD80C /* build_cat2html.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = build_cat2html.sh; path = "../../../dim/dim-clt/man/cat2html/build_cat2html.sh"; sourceTree = "<group>"; };
 		F45AFBD31C5193A900953D8F /* mode-groff.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "mode-groff.js"; path = "Resources/mode-groff.js"; sourceTree = "<group>"; };
 		F45AFBD51C51950600953D8F /* CustomACEView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomACEView.h; sourceTree = "<group>"; };
@@ -106,6 +105,7 @@
 		F487F53A141EDD560093D633 /* cat2html.l */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.lex; path = cat2html.l; sourceTree = "<group>"; };
 		F4AFF3C8223EEC9100024B12 /* NSTask+Description.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTask+Description.h"; sourceTree = "<group>"; };
 		F4AFF3C9223EEC9100024B12 /* NSTask+Description.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTask+Description.m"; sourceTree = "<group>"; };
+		F4B7D9F7251004BE0025A779 /* cat2html */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = cat2html; sourceTree = "<group>"; };
 		F4FD5CA11C4D74F900C8D155 /* make_icons.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = make_icons.sh; sourceTree = "<group>"; };
 		F4FD5CA21C4D74F900C8D155 /* ManDrakeAppIcon.ai */ = {isa = PBXFileReference; lastKnownFileType = text; path = ManDrakeAppIcon.ai; sourceTree = "<group>"; };
 		F4FD5CA41C4D74F900C8D155 /* ManDrakeAppIcon1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ManDrakeAppIcon1024.png; sourceTree = "<group>"; };
@@ -248,7 +248,7 @@
 			children = (
 				F442E0711EA7AB5A00BAD80C /* build_cat2html.sh */,
 				F487F53A141EDD560093D633 /* cat2html.l */,
-				F442E06F1EA7AB4E00BAD80C /* cat2html */,
+				F4B7D9F7251004BE0025A779 /* cat2html */,
 			);
 			path = cat2html;
 			sourceTree = "<group>";
@@ -297,7 +297,7 @@
 		F487F49E141EADEF0093D633 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1160;
 				TargetAttributes = {
 					F487F4A6141EADEF0093D633 = {
 						DevelopmentTeam = 5WX26Y89JP;
@@ -334,8 +334,8 @@
 				F45AFBE21C53D53300953D8F /* License.html in Resources */,
 				F487F4D3141EAE730093D633 /* ManDrakeDocument.xib in Resources */,
 				F45AFBDE1C53BA9200953D8F /* mandoc in Resources */,
-				F442E0701EA7AB4E00BAD80C /* cat2html in Resources */,
 				F43557EB1C55413A009080DC /* dsa_pub.pem in Resources */,
+				F4B7D9F8251004BE0025A779 /* cat2html in Resources */,
 				F4796737224FFB5400CA0746 /* DocumentIcon.icns in Resources */,
 				F4796738224FFB5400CA0746 /* AppIcon.icns in Resources */,
 			);
@@ -884,7 +884,7 @@
 			baseConfigurationReference = 1D8C3EB843CFB4099FEB1A6F /* Pods-ManDrake.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 5WX26Y89JP;
@@ -912,7 +912,7 @@
 			baseConfigurationReference = 1765B518EC55CEC9D2FA5110 /* Pods-ManDrake.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 5WX26Y89JP;
