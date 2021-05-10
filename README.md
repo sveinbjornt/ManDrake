@@ -1,3 +1,6 @@
+[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
+[![Language](https://img.shields.io/badge/language-objective--c-lightgrey)]()
+
 <img align="right" src="images/mandrake_icon.png" style="float: right; margin-left: 30px;" alt="ManDrake Application Icon">
 
 # ManDrake
