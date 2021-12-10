@@ -32,7 +32,7 @@ For a recent web-based alternative to ManDrake, check out [Grapse](http://www.ro
 
 ## License
 
-Copyright (c) 2004-2019, Sveinbjorn Thordarson <a href="mailto: sveinbjorn@sveinbjorn.org">&lt;sveinbjorn@sveinbjorn.org&gt;</a>
+Copyright (c) 2004-2022, Sveinbjorn Thordarson <a href="mailto: sveinbjorn@sveinbjorn.org">&lt;sveinbjorn@sveinbjorn.org&gt;</a>
 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:

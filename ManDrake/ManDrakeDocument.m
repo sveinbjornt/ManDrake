@@ -427,7 +427,8 @@ originalContentsURL:(NSURL *)originalContentsURL
                 if ([status length]) {
                     [status appendString:@", "];
                 }
-                [status appendFormat:@"%d warnings", warnCount];
+                NSString *pluralSuffix = warnCount > 1 ? @"s" : @"";
+                [status appendFormat:@"%d warning%@", warnCount, pluralSuffix];
             }
             
             [warningsTextField setStringValue:status];

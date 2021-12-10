@@ -1,4 +1,4 @@
-Copyright © 2004-2019 Sveinbjorn Thordarson.
+Copyright © 2004-2022 Sveinbjorn Thordarson.
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 

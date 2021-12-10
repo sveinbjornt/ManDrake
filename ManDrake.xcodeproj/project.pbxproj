@@ -297,7 +297,7 @@
 		F487F49E141EADEF0093D633 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1160;
+				LastUpgradeCheck = 1310;
 				TargetAttributes = {
 					F487F4A6141EADEF0093D633 = {
 						DevelopmentTeam = 5WX26Y89JP;
@@ -368,7 +368,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ManDrake/Pods-ManDrake-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-ManDrake/Pods-ManDrake-resources.sh",
 				"${PODS_ROOT}/ACEView/ACEView/Dependencies/ace/src/ace.js",
 				"${PODS_ROOT}/ACEView/ACEView/Dependencies/ace/src/ext-beautify.js",
 				"${PODS_ROOT}/ACEView/ACEView/Dependencies/ace/src/ext-chromevox.js",
@@ -741,7 +741,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ManDrake/Pods-ManDrake-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ManDrake/Pods-ManDrake-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F4296FF91E06C57F002C25C4 /* Set CFBundleVersion to git commit count */ = {
@@ -829,7 +829,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				WARNING_CFLAGS = "-Wpartial-availability";
@@ -872,7 +872,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = macosx;
 				WARNING_CFLAGS = "-Wpartial-availability";
@@ -897,7 +897,8 @@
 				GENERATE_PKGINFO_FILE = NO;
 				INFOPLIST_FILE = "ManDrake/ManDrake-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MARKETING_VERSION = 3.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = org.sveinbjorn.ManDrake;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -925,7 +926,8 @@
 				GENERATE_PKGINFO_FILE = NO;
 				INFOPLIST_FILE = "ManDrake/ManDrake-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MARKETING_VERSION = 3.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = org.sveinbjorn.ManDrake;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
