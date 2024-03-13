@@ -314,7 +314,7 @@ originalContentsURL:(NSURL *)originalContentsURL
         
         // Run nroff task
         NSTask *nroffTask = [[NSTask alloc] init];
-        [nroffTask setLaunchPath:@"/usr/bin/nroff"];
+        [nroffTask setLaunchPath:@"/usr/bin/man"];
         [nroffTask setArguments:@[@"-mandoc", inFilePath]];
         [nroffTask setStandardOutput:[NSFileHandle fileHandleForWritingAtPath:outFilePath]];
         [nroffTask launch];
@@ -546,7 +546,7 @@ originalContentsURL:(NSURL *)originalContentsURL
     [sPanel setPrompt:@"Save"];
     [sPanel setNameFieldStringValue:defaultName];
     
-    if ([sPanel runModal] != NSFileHandlingPanelOKButton) {
+    if ([sPanel runModal] != NSModalResponseOK) {
         return;
     }
     
@@ -558,47 +558,48 @@ originalContentsURL:(NSURL *)originalContentsURL
 }
 
 - (IBAction)exportAsPDF:(id)sender {
-    NSString *defaultName = [NSString stringWithFormat:@"%@.pdf", [self displayName]];
-    
-    NSSavePanel *sPanel = [NSSavePanel savePanel];
-    [sPanel setTitle:@"Export as PDF"];
-    [sPanel setPrompt:@"Save"];
-    [sPanel setNameFieldStringValue:defaultName];
-    
-    if ([sPanel runModal] != NSFileHandlingPanelOKButton) {
-        return;
-    }
-    NSString *pdfOutputPath = [[sPanel URL] path];
-    
-    // groff -Tps -mandoc -c | pstopdf -i -o pdfOutputPath.pdf
-    
-    // Create groff task
-    NSTask *groffTask = [[NSTask alloc] init];
-    [groffTask setLaunchPath:@"/usr/bin/groff"];
-    [groffTask setArguments:@[@"-Tps", @"-mandoc", @"-c"]];
-    
-    NSPipe *groffOutputPipe = [NSPipe pipe];
-    NSPipe *groffInputPipe = [NSPipe pipe];
-    [groffTask setStandardOutput:groffOutputPipe];
-    [groffTask setStandardInput:groffInputPipe];
-    
-    NSFileHandle *writeHandle = [groffInputPipe fileHandleForWriting];
-    
-    // Create pstopdf task
-    NSTask *pstopdfTask = [[NSTask alloc] init];
-    [pstopdfTask setLaunchPath:@"/usr/bin/pstopdf"];
-    [pstopdfTask setArguments:@[@"-i", @"-o", pdfOutputPath]];
-    [pstopdfTask setStandardInput:groffOutputPipe];
-
-    [groffTask launch];
-    [pstopdfTask launch];
-    
-    // Write string to groff's stdin
-    [writeHandle writeData:[[aceView string] dataUsingEncoding:NSUTF8StringEncoding]];
-    [writeHandle closeFile];
-    
-    [groffTask waitUntilExit];
-    [pstopdfTask waitUntilExit];
+    NSBeep();
+//    NSString *defaultName = [NSString stringWithFormat:@"%@.pdf", [self displayName]];
+//    
+//    NSSavePanel *sPanel = [NSSavePanel savePanel];
+//    [sPanel setTitle:@"Export as PDF"];
+//    [sPanel setPrompt:@"Save"];
+//    [sPanel setNameFieldStringValue:defaultName];
+//    
+//    if ([sPanel runModal] != NSModalResponseOK) {
+//        return;
+//    }
+//    NSString *pdfOutputPath = [[sPanel URL] path];
+//    
+//    // groff -Tps -mandoc -c | pstopdf -i -o pdfOutputPath.pdf
+//    
+//    // Create groff task
+//    NSTask *groffTask = [[NSTask alloc] init];
+//    [groffTask setLaunchPath:@"/usr/bin/groff"];
+//    [groffTask setArguments:@[@"-Tps", @"-mandoc", @"-c"]];
+//    
+//    NSPipe *groffOutputPipe = [NSPipe pipe];
+//    NSPipe *groffInputPipe = [NSPipe pipe];
+//    [groffTask setStandardOutput:groffOutputPipe];
+//    [groffTask setStandardInput:groffInputPipe];
+//    
+//    NSFileHandle *writeHandle = [groffInputPipe fileHandleForWriting];
+//    
+//    // Create pstopdf task
+//    NSTask *pstopdfTask = [[NSTask alloc] init];
+//    [pstopdfTask setLaunchPath:@"/usr/bin/pstopdf"];
+//    [pstopdfTask setArguments:@[@"-i", @"-o", pdfOutputPath]];
+//    [pstopdfTask setStandardInput:groffOutputPipe];
+//
+//    [groffTask launch];
+//    [pstopdfTask launch];
+//    
+//    // Write string to groff's stdin
+//    [writeHandle writeData:[[aceView string] dataUsingEncoding:NSUTF8StringEncoding]];
+//    [writeHandle closeFile];
+//    
+//    [groffTask waitUntilExit];
+//    [pstopdfTask waitUntilExit];
 }
 
 @end

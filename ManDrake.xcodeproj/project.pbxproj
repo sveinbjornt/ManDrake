@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -28,7 +28,6 @@
 		F487F506141EAF8A0093D633 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F487F505141EAF8A0093D633 /* WebKit.framework */; };
 		F487F535141EB2560093D633 /* ManDrakeApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F487F534141EB2560093D633 /* ManDrakeApplicationDelegate.m */; };
 		F4B7D9F8251004BE0025A779 /* cat2html in Resources */ = {isa = PBXBuildFile; fileRef = F4B7D9F7251004BE0025A779 /* cat2html */; };
-		F4E41CF32B09052900F2897D /* groff in Resources */ = {isa = PBXBuildFile; fileRef = F4E41CF22B09052900F2897D /* groff */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -107,7 +106,6 @@
 		F4AFF3C8223EEC9100024B12 /* NSTask+Description.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTask+Description.h"; sourceTree = "<group>"; };
 		F4AFF3C9223EEC9100024B12 /* NSTask+Description.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTask+Description.m"; sourceTree = "<group>"; };
 		F4B7D9F7251004BE0025A779 /* cat2html */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = cat2html; sourceTree = "<group>"; };
-		F4E41CF22B09052900F2897D /* groff */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = groff; path = Resources/groff; sourceTree = "<group>"; };
 		F4FD5CA11C4D74F900C8D155 /* make_icons.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = make_icons.sh; sourceTree = "<group>"; };
 		F4FD5CA21C4D74F900C8D155 /* ManDrakeAppIcon.ai */ = {isa = PBXFileReference; lastKnownFileType = text; path = ManDrakeAppIcon.ai; sourceTree = "<group>"; };
 		F4FD5CA41C4D74F900C8D155 /* ManDrakeAppIcon1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ManDrakeAppIcon1024.png; sourceTree = "<group>"; };
@@ -233,7 +231,6 @@
 		F487F4B2141EADEF0093D633 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F4E41CF22B09052900F2897D /* groff */,
 				F4796736224FFB5400CA0746 /* AppIcon.icns */,
 				F4796735224FFB5300CA0746 /* DocumentIcon.icns */,
 				F487F4B3141EADEF0093D633 /* ManDrake-Info.plist */,
@@ -300,7 +297,8 @@
 		F487F49E141EADEF0093D633 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1410;
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					F487F4A6141EADEF0093D633 = {
 						DevelopmentTeam = 5WX26Y89JP;
@@ -331,7 +329,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4E41CF32B09052900F2897D /* groff in Resources */,
 				F45AFBD91C52D04A00953D8F /* default.man in Resources */,
 				F472E8A41F2A3A7B007F3EFC /* Credits.rtf in Resources */,
 				F487F4D2141EAE730093D633 /* MainMenu.xib in Resources */,
