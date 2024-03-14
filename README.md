@@ -19,8 +19,6 @@ man mdoc
 
 or read [this page](http://www.freebsd.org/cgi/man.cgi?query=mdoc.samples).
 
-For a recent web-based alternative to ManDrake, check out [Grapse](http://www.roperzh.com/grapse/).
-
 [ManDrake](https://sveinbjorn.org/mandrake) is free, open source software distributed under a BSD license. If you find it useful, feel free to [make a donation.](https://sveinbjorn.org/donations)
 
 ## Screenshots
