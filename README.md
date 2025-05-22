@@ -1,15 +1,19 @@
+[![macOS](https://img.shields.io/badge/macOS-000000?style=flat&logo=apple&logoColor=white)]()
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 [![Language](https://img.shields.io/badge/language-objective--c-lightgrey)]()
+[![Release](https://shields.io/github/v/release/sveinbjornt/mandrake?display_name=tag)]()
 
 <img align="right" src="images/mandrake_icon.png" style="float: right; margin-left: 30px;" alt="ManDrake Application Icon">
 
 # ManDrake
 
+***This software does not run on latest macOS versions and is no longer maintained. Caveat emptor!***
+
 ManDrake is a native <a href="https://en.wikipedia.org/wiki/Man_page">man page</a> editor for macOS with features such as syntax highlighting, live <a href="https://en.wikipedia.org/wiki/Mandoc">`mandoc`</a> syntax validation and a live-updating rendered preview of the man page during editing. It can also export man pages as PDF or HTML.
 
 Long story short, many years ago I was sick of writing man pages in an endless cycle of edit-view, edit-view so I decided to do something about it and created this editor. It's a bit rough around the edges, but it works really well for me. Perhaps it will also be of some use to you.
 
-* [**⇩ Download ManDrake 3.3**](http://sveinbjorn.org/files/software/mandrake/ManDrake-3.3.zip) (~1.9 MB, Intel 64-bit, 10.8 or later)
+* [**⬇ Download ManDrake 3.3**](http://sveinbjorn.org/files/software/mandrake/ManDrake-3.3.zip) (~1.9 MB, Intel 64-bit, 10.8 or later)
 
 To learn more about the `mandoc` man page format:
 
@@ -26,7 +30,6 @@ or read [this page](http://www.freebsd.org/cgi/man.cgi?query=mdoc.samples).
 <img src="images/mandrake_screenshot1.jpg" style="max-width:100%;" alt="ManDrake Screenshot 1">
 
 <img src="images/mandrake_screenshot2.jpg" style="max-width:100%;" alt="ManDrake Screenshot 2">
-
 
 ## License
 
@@ -68,7 +71,7 @@ If you want to build ManDrake yourself, you need the following components/tools:
 * Git
 * [CocoaPods](https://cocoapods.org)
 
-You may also need to install Xcode’s command line tools with the following command, if you want to re-build the included `cat2html` and `mandoc` binaries 
+You may also need to install Xcode’s command line tools with the following command, if you want to re-build the included `cat2html` and `mandoc` binaries
 
     xcode-select --install
 
