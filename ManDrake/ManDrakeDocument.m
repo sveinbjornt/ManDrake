@@ -328,7 +328,7 @@ originalContentsURL:(NSURL *)originalContentsURL
         [catTask setStandardOutput:catOutputPipe];
         NSFileHandle *catReadHandle = [catOutputPipe fileHandleForReading];
         [catTask launch];
-//        [catTask waitUntilExit];
+        [catTask waitUntilExit];
     
         // Read output from cat2html's stdout
         NSData *outData = [catReadHandle readDataToEndOfFile];
@@ -444,7 +444,7 @@ originalContentsURL:(NSURL *)originalContentsURL
     
     // run task "mandoc -T lint [tempFile]"
     NSTask *mandocTask = [[NSTask alloc] init];
-    [mandocTask setLaunchPath:[[NSBundle mainBundle] pathForResource:@"mandoc" ofType:nil]];
+    [mandocTask setLaunchPath:@"/usr/bin/mandoc"];
     [mandocTask setArguments:@[@"-T", @"lint"]];
     
     NSPipe *outputPipe = [NSPipe pipe];

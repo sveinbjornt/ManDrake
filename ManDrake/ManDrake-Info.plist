@@ -34,7 +34,7 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleGetInfoString</key>
-	<string>© 2004-2022 Sveinbjorn Thordarson. BSD license.</string>
+	<string>© 2004-2025 Sveinbjorn Thordarson. BSD license.</string>
 	<key>CFBundleIconFile</key>
 	<string>AppIcon</string>
 	<key>CFBundleIdentifier</key>
@@ -54,7 +54,7 @@
 	<key>LSMinimumSystemVersion</key>
 	<string>${MACOSX_DEPLOYMENT_TARGET}</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>© 2004-2022 Sveinbjorn Thordarson. BSD license.</string>
+	<string>© 2004-2025 Sveinbjorn Thordarson. BSD license.</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>

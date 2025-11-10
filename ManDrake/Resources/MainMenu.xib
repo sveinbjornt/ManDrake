@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="24412" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="24412"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -132,12 +132,6 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="exportAsHTML:" target="-1" id="pSz-Ti-dEC"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Export As PDF…" id="yrX-ac-vR2">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="exportAsPDF:" target="-1" id="CBX-Vw-Cec"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="xo2-By-AYD">
@@ -479,13 +473,6 @@
                                     <action selector="makePreviewTextSmaller:" target="-1" id="T4h-KF-MId"/>
                                 </connections>
                             </menuItem>
-                            <menuItem isSeparatorItem="YES" id="IzM-f3-Pyz"/>
-                            <menuItem title="Preview in Terminal" id="bSx-OC-f6W">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="previewInTerminal:" target="-1" id="97P-nJ-nXd"/>
-                                </connections>
-                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="EHi-Hn-Kej">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
@@ -493,12 +480,6 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="exportAsHTML:" target="-1" id="Dyk-QK-0Qx"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Export As PDF…" id="WMS-Ko-ReV">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="exportAsPDF:" target="-1" id="Jng-xL-as9"/>
                                 </connections>
                             </menuItem>
                         </items>
@@ -560,25 +541,25 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="7" y="451" width="307" height="269"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1536" height="935"/>
             <value key="minSize" type="size" width="213" height="107"/>
             <view key="contentView" id="597">
                 <rect key="frame" x="0.0" y="0.0" width="307" height="269"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <box title="Syntax Coloring:" id="599">
+                    <box fixedFrame="YES" title="Syntax Coloring:" translatesAutoresizingMaskIntoConstraints="NO" id="599">
                         <rect key="frame" x="17" y="154" width="273" height="100"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <view key="contentView" id="Ger-wY-yf6">
-                            <rect key="frame" x="3" y="3" width="267" height="82"/>
+                            <rect key="frame" x="4" y="5" width="265" height="80"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <colorWell id="614">
+                                <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="614">
                                     <rect key="frame" x="17" y="47" width="54" height="26"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </colorWell>
-                                <textField verticalHuggingPriority="750" id="613">
+                                <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="613">
                                     <rect key="frame" x="76" y="52" width="163" height="17"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Comments" id="615">
@@ -587,12 +568,12 @@
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                 </textField>
-                                <colorWell id="612">
+                                <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="612">
                                     <rect key="frame" x="17" y="13" width="54" height="26"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </colorWell>
-                                <textField verticalHuggingPriority="750" id="611">
+                                <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="611">
                                     <rect key="frame" x="76" y="18" width="163" height="17"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Macros" id="616">
@@ -604,19 +585,19 @@
                             </subviews>
                         </view>
                     </box>
-                    <box autoresizesSubviews="NO" borderType="line" title="Preview" id="633">
+                    <box autoresizesSubviews="NO" fixedFrame="YES" borderType="line" title="Preview" translatesAutoresizingMaskIntoConstraints="NO" id="633">
                         <rect key="frame" x="17" y="46" width="273" height="104"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <view key="contentView" id="7Q3-IQ-KV8">
-                            <rect key="frame" x="3" y="3" width="267" height="86"/>
+                            <rect key="frame" x="4" y="5" width="265" height="84"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <popUpButton verticalHuggingPriority="750" id="634">
-                                    <rect key="frame" x="137" y="38" width="100" height="26"/>
+                                <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="634">
+                                    <rect key="frame" x="137" y="36" width="100" height="26"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <popUpButtonCell key="cell" type="push" title="delayed" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="638" id="635">
                                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                        <font key="font" metaFont="menu"/>
+                                        <font key="font" metaFont="message"/>
                                         <menu key="menu" title="OtherViews" id="636">
                                             <items>
                                                 <menuItem title="live" id="637"/>
@@ -626,8 +607,8 @@
                                         </menu>
                                     </popUpButtonCell>
                                 </popUpButton>
-                                <textField verticalHuggingPriority="750" id="640">
-                                    <rect key="frame" x="30" y="44" width="105" height="17"/>
+                                <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="640">
+                                    <rect key="frame" x="30" y="42" width="105" height="17"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Default refresh:" id="641">
                                         <font key="font" metaFont="system"/>
@@ -638,7 +619,7 @@
                             </subviews>
                         </view>
                     </box>
-                    <button verticalHuggingPriority="750" id="642">
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="642">
                         <rect key="frame" x="197" y="12" width="96" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="Apply" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="643">

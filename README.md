@@ -33,7 +33,7 @@ or read [this page](http://www.freebsd.org/cgi/man.cgi?query=mdoc.samples).
 
 ## License
 
-Copyright (c) 2004-2022, Sveinbjorn Thordarson <a href="mailto: sveinbjorn@sveinbjorn.org">&lt;sveinbjorn@sveinbjorn.org&gt;</a>
+Copyright (c) 2004-2025, Sveinbjorn Thordarson <a href="mailto: sveinbjorn@sveinbjorn.org">&lt;sveinbjorn@sveinbjorn.org&gt;</a>
 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:

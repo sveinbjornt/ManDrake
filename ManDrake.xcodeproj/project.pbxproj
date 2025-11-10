@@ -13,7 +13,6 @@
 		F45AFBD71C51950600953D8F /* CustomACEView.m in Sources */ = {isa = PBXBuildFile; fileRef = F45AFBD61C51950600953D8F /* CustomACEView.m */; };
 		F45AFBD91C52D04A00953D8F /* default.man in Resources */ = {isa = PBXBuildFile; fileRef = F45AFBD81C52D04A00953D8F /* default.man */; };
 		F45AFBDC1C53B9C000953D8F /* NSWorkspace+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = F45AFBDB1C53B9C000953D8F /* NSWorkspace+Additions.m */; };
-		F45AFBDE1C53BA9200953D8F /* mandoc in Resources */ = {isa = PBXBuildFile; fileRef = F45AFBDD1C53BA9200953D8F /* mandoc */; };
 		F45AFBE21C53D53300953D8F /* License.html in Resources */ = {isa = PBXBuildFile; fileRef = F45AFBE01C53D53300953D8F /* License.html */; };
 		F472E8A41F2A3A7B007F3EFC /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = F472E8A31F2A3A7B007F3EFC /* Credits.rtf */; };
 		F4796732224FF75B00CA0746 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4796731224FF75B00CA0746 /* Sparkle.framework */; };
@@ -60,11 +59,13 @@
 		1D8C3EB843CFB4099FEB1A6F /* Pods-ManDrake.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ManDrake.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ManDrake/Pods-ManDrake.debug.xcconfig"; sourceTree = "<group>"; };
 		92873E6389F9DBEBB6841DEB /* libPods-ManDrake.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ManDrake.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F42AA7DA1C4EC5D0007E0ACE /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		F43557DD1C5429C8009080DC /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AppIcon.icns; sourceTree = "<group>"; };
-		F43557DE1C5429C8009080DC /* DocumentIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = DocumentIcon.icns; sourceTree = "<group>"; };
+		F43056582EC1E08800360103 /* OldAppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = OldAppIcon.icns; sourceTree = "<group>"; };
+		F43056592EC1E08800360103 /* OldDocumentIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = OldDocumentIcon.icns; sourceTree = "<group>"; };
+		F430565A2EC1E08800360103 /* OldManDrakeAppIcon.ai */ = {isa = PBXFileReference; lastKnownFileType = text; path = OldManDrakeAppIcon.ai; sourceTree = "<group>"; };
+		F430565B2EC1E08800360103 /* OldManDrakeAppIcon1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OldManDrakeAppIcon1024.png; sourceTree = "<group>"; };
 		F43557E01C543258009080DC /* mandrake_captain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mandrake_captain.jpg; sourceTree = "<group>"; };
 		F43557E11C543258009080DC /* mandrake_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mandrake_icon.png; sourceTree = "<group>"; };
-		F43557E31C54345B009080DC /* CHANGES.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CHANGES.txt; sourceTree = SOURCE_ROOT; };
+		F43557E31C54345B009080DC /* CHANGES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGES.md; sourceTree = SOURCE_ROOT; };
 		F43557E51C553C8E009080DC /* generate_keys.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = generate_keys.rb; sourceTree = "<group>"; };
 		F43557E61C553C8E009080DC /* ManDrakeAppcast.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ManDrakeAppcast.xml; sourceTree = "<group>"; };
 		F43557E71C553C8E009080DC /* sign_update.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = sign_update.rb; sourceTree = "<group>"; };
@@ -78,7 +79,6 @@
 		F45AFBD81C52D04A00953D8F /* default.man */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = default.man; path = Resources/default.man; sourceTree = "<group>"; };
 		F45AFBDA1C53B9C000953D8F /* NSWorkspace+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "NSWorkspace+Additions.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		F45AFBDB1C53B9C000953D8F /* NSWorkspace+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "NSWorkspace+Additions.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		F45AFBDD1C53BA9200953D8F /* mandoc */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = mandoc; path = Resources/mandoc; sourceTree = "<group>"; };
 		F45AFBE01C53D53300953D8F /* License.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; lineEnding = 0; name = License.html; path = ManDrake/Resources/License.html; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.html; };
 		F45AFBFB1C53FBD500953D8F /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = Common.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		F472E8A31F2A3A7B007F3EFC /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; name = Credits.rtf; path = ManDrake/Resources/Credits.rtf; sourceTree = SOURCE_ROOT; };
@@ -107,7 +107,6 @@
 		F4AFF3C9223EEC9100024B12 /* NSTask+Description.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTask+Description.m"; sourceTree = "<group>"; };
 		F4B7D9F7251004BE0025A779 /* cat2html */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = cat2html; sourceTree = "<group>"; };
 		F4FD5CA11C4D74F900C8D155 /* make_icons.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = make_icons.sh; sourceTree = "<group>"; };
-		F4FD5CA21C4D74F900C8D155 /* ManDrakeAppIcon.ai */ = {isa = PBXFileReference; lastKnownFileType = text; path = ManDrakeAppIcon.ai; sourceTree = "<group>"; };
 		F4FD5CA41C4D74F900C8D155 /* ManDrakeAppIcon1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ManDrakeAppIcon1024.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,7 +137,7 @@
 		F42AA7DC1C4EC624007E0ACE /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
-				F43557E31C54345B009080DC /* CHANGES.txt */,
+				F43557E31C54345B009080DC /* CHANGES.md */,
 				F43557DF1C543258009080DC /* images */,
 				F472E8A31F2A3A7B007F3EFC /* Credits.rtf */,
 				F486410C20CAE25D007E2BB6 /* LICENSE.txt */,
@@ -146,6 +145,17 @@
 				F42AA7DA1C4EC5D0007E0ACE /* README.md */,
 			);
 			name = Documentation;
+			sourceTree = "<group>";
+		};
+		F430565C2EC1E08800360103 /* Old */ = {
+			isa = PBXGroup;
+			children = (
+				F43056582EC1E08800360103 /* OldAppIcon.icns */,
+				F43056592EC1E08800360103 /* OldDocumentIcon.icns */,
+				F430565A2EC1E08800360103 /* OldManDrakeAppIcon.ai */,
+				F430565B2EC1E08800360103 /* OldManDrakeAppIcon1024.png */,
+			);
+			path = Old;
 			sourceTree = "<group>";
 		};
 		F43557DF1C543258009080DC /* images */ = {
@@ -238,7 +248,6 @@
 				F487F4D1141EAE730093D633 /* ManDrakeDocument.xib */,
 				F45AFBD31C5193A900953D8F /* mode-groff.js */,
 				F45AFBD81C52D04A00953D8F /* default.man */,
-				F45AFBDD1C53BA9200953D8F /* mandoc */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -256,10 +265,8 @@
 		F4FD5CA01C4D74F900C8D155 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
-				F43557DD1C5429C8009080DC /* AppIcon.icns */,
-				F43557DE1C5429C8009080DC /* DocumentIcon.icns */,
+				F430565C2EC1E08800360103 /* Old */,
 				F4FD5CA11C4D74F900C8D155 /* make_icons.sh */,
-				F4FD5CA21C4D74F900C8D155 /* ManDrakeAppIcon.ai */,
 				F4FD5CA41C4D74F900C8D155 /* ManDrakeAppIcon1024.png */,
 			);
 			path = Icons;
@@ -334,7 +341,6 @@
 				F487F4D2141EAE730093D633 /* MainMenu.xib in Resources */,
 				F45AFBE21C53D53300953D8F /* License.html in Resources */,
 				F487F4D3141EAE730093D633 /* ManDrakeDocument.xib in Resources */,
-				F45AFBDE1C53BA9200953D8F /* mandoc in Resources */,
 				F43557EB1C55413A009080DC /* dsa_pub.pem in Resources */,
 				F4B7D9F8251004BE0025A779 /* cat2html in Resources */,
 				F4796737224FFB5400CA0746 /* DocumentIcon.icns in Resources */,
@@ -890,6 +896,7 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEAD_CODE_STRIPPING = YES;
@@ -903,8 +910,10 @@
 				GCC_PREFIX_HEADER = "ManDrake/ManDrake-Prefix.pch";
 				GENERATE_PKGINFO_FILE = NO;
 				INFOPLIST_FILE = "ManDrake/ManDrake-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = ManDrake;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
 				MARKETING_VERSION = 3.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = org.sveinbjorn.ManDrake;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -921,6 +930,7 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEAD_CODE_STRIPPING = YES;
@@ -934,8 +944,10 @@
 				GCC_PREFIX_HEADER = "ManDrake/ManDrake-Prefix.pch";
 				GENERATE_PKGINFO_FILE = NO;
 				INFOPLIST_FILE = "ManDrake/ManDrake-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = ManDrake;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
 				MARKETING_VERSION = 3.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = org.sveinbjorn.ManDrake;
 				PRODUCT_NAME = "$(TARGET_NAME)";
