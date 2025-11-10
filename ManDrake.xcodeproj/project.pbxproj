@@ -63,6 +63,7 @@
 		F43056592EC1E08800360103 /* OldDocumentIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = OldDocumentIcon.icns; sourceTree = "<group>"; };
 		F430565A2EC1E08800360103 /* OldManDrakeAppIcon.ai */ = {isa = PBXFileReference; lastKnownFileType = text; path = OldManDrakeAppIcon.ai; sourceTree = "<group>"; };
 		F430565B2EC1E08800360103 /* OldManDrakeAppIcon1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OldManDrakeAppIcon1024.png; sourceTree = "<group>"; };
+		F430565D2EC2150B00360103 /* ManDrake.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ManDrake.entitlements; sourceTree = "<group>"; };
 		F43557E01C543258009080DC /* mandrake_captain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mandrake_captain.jpg; sourceTree = "<group>"; };
 		F43557E11C543258009080DC /* mandrake_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mandrake_icon.png; sourceTree = "<group>"; };
 		F43557E31C54345B009080DC /* CHANGES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGES.md; sourceTree = SOURCE_ROOT; };
@@ -241,6 +242,7 @@
 		F487F4B2141EADEF0093D633 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F430565D2EC2150B00360103 /* ManDrake.entitlements */,
 				F4796736224FFB5400CA0746 /* AppIcon.icns */,
 				F4796735224FFB5300CA0746 /* DocumentIcon.icns */,
 				F487F4B3141EADEF0093D633 /* ManDrake-Info.plist */,
@@ -305,7 +307,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 1530;
+				LastUpgradeCheck = 2610;
 				TargetAttributes = {
 					F487F4A6141EADEF0093D633 = {
 						DevelopmentTeam = 5WX26Y89JP;
@@ -822,6 +824,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 5WX26Y89JP;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -838,8 +841,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				ONLY_ACTIVE_ARCH = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = macosx;
 				WARNING_CFLAGS = "-Wpartial-availability";
 			};
@@ -870,6 +873,7 @@
 				COPY_PHASE_STRIP = YES;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 5WX26Y89JP;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -883,7 +887,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
 				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = macosx;
 				WARNING_CFLAGS = "-Wpartial-availability";
@@ -895,12 +899,12 @@
 			baseConfigurationReference = 1D8C3EB843CFB4099FEB1A6F /* Pods-ManDrake.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_ENTITLEMENTS = ManDrake/Resources/ManDrake.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = 5WX26Y89JP;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -913,7 +917,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = ManDrake;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 11.5;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				MARKETING_VERSION = 3.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = org.sveinbjorn.ManDrake;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -929,12 +933,12 @@
 			baseConfigurationReference = 1765B518EC55CEC9D2FA5110 /* Pods-ManDrake.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_ENTITLEMENTS = ManDrake/Resources/ManDrake.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = 5WX26Y89JP;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -947,7 +951,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = ManDrake;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 11.5;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				MARKETING_VERSION = 3.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = org.sveinbjorn.ManDrake;
 				PRODUCT_NAME = "$(TARGET_NAME)";
