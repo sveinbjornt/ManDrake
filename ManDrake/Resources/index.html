@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style type="text/css" media="screen">
+            body, html {
+                padding: 0;
+                margin: 0;
+            }
+            #editor {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+            }
+            </style>
+    </head>
+    <body>
+        <div id="editor"></div>
+        <script src="___ACE_VIEW_JAVASCRIPT_DIRECTORY___/emmet.js" type="text/javascript" charset="utf-8"></script>
+        <script src="___ACE_VIEW_JAVASCRIPT_DIRECTORY___/ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="___ACE_VIEW_JAVASCRIPT_DIRECTORY___/keybinding-vim.js" type="text/javascript" charset="utf-8"></script>
+        <script src="___ACE_VIEW_JAVASCRIPT_DIRECTORY___/keybinding-emacs.js" type="text/javascript" charset="utf-8"></script>
+        <script src="___ACE_VIEW_JAVASCRIPT_DIRECTORY___/ext-language_tools.js" type="text/javascript" charset="utf-8"></script>
+        <script src="___ACE_VIEW_JAVASCRIPT_DIRECTORY___/ext-emmet.js" type="text/javascript" charset="utf-8"></script>
+        <script>
+            ace.config.set("basePath", "___ACE_VIEW_JAVASCRIPT_DIRECTORY___");
+            ace.require("ace/ext/language_tools");
+            ace.require("ace/ext/emmet");
+            var editor = ace.edit("editor");
+            editor.commands.removeCommand('find');
+            editor.commands.removeCommand('replace');
+            var reportChanges = true;
+            editor.on('change', function(delta) {
+                if (reportChanges) {
+                    ACEView.aceTextDidChange();
+                }
+            });
+            var Range = require('ace/range').Range;
+        </script>
+    </body>
+</html>

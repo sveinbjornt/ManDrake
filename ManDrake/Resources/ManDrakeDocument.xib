@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="24412" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
-        <plugIn identifier="com.apple.WebKitIBPlugin" version="14460.31"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="24412"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="24412"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -24,29 +24,29 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="133" y="201" width="1060" height="580"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1536" height="935"/>
             <value key="minSize" type="size" width="550" height="250"/>
             <view key="contentView" id="6">
                 <rect key="frame" x="0.0" y="0.0" width="1060" height="580"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <splitView identifier="org.sveinbjorn.ManDrake.SplitView" autosaveName="ManDrakeDocumentSplitView" dividerStyle="paneSplitter" vertical="YES" id="100036">
+                    <splitView identifier="org.sveinbjorn.ManDrake.SplitView" fixedFrame="YES" autosaveName="ManDrakeDocumentSplitView" dividerStyle="paneSplitter" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="100036">
                         <rect key="frame" x="0.0" y="0.0" width="1060" height="580"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <customView id="100038">
+                            <customView fixedFrame="YES" id="100038">
                                 <rect key="frame" x="0.0" y="0.0" width="543" height="580"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <subviews>
-                                    <box verticalHuggingPriority="750" boxType="separator" id="100076">
+                                    <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="100076">
                                         <rect key="frame" x="0.0" y="546" width="543" height="5"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     </box>
-                                    <customView id="wnx-2g-I3Y" customClass="CustomACEView">
+                                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wnx-2g-I3Y" customClass="CustomACEView">
                                         <rect key="frame" x="0.0" y="0.0" width="543" height="549"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </customView>
-                                    <button verticalHuggingPriority="750" id="JVf-n4-Pph">
+                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JVf-n4-Pph">
                                         <rect key="frame" x="444" y="549" width="98" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="push" title="Check Syntax" bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Md0-yN-rg2">
@@ -57,8 +57,8 @@
                                             <action selector="checkSyntaxButtonPressed:" target="-2" id="Pxx-Ih-Adg"/>
                                         </connections>
                                     </button>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="FnO-X1-tAB">
-                                        <rect key="frame" x="59" y="557" width="384" height="14"/>
+                                    <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FnO-X1-tAB">
+                                        <rect key="frame" x="59" y="557" width="383" height="14"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" id="dN9-87-1BR">
                                             <font key="font" metaFont="smallSystem"/>
@@ -66,7 +66,7 @@
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <button verticalHuggingPriority="750" id="dJ2-Os-ONx">
+                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dJ2-Os-ONx">
                                         <rect key="frame" x="7" y="553" width="22" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSActionTemplate" imagePosition="overlaps" alignment="center" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2DW-bG-Y5T">
@@ -79,11 +79,11 @@
                                     </button>
                                 </subviews>
                             </customView>
-                            <customView id="100037">
+                            <customView fixedFrame="YES" id="100037">
                                 <rect key="frame" x="553" y="0.0" width="507" height="580"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <subviews>
-                                    <textField verticalHuggingPriority="750" id="100065">
+                                    <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="100065">
                                         <rect key="frame" x="252" y="556" width="48" height="14"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Refresh:" id="100074">
@@ -92,7 +92,7 @@
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <button verticalHuggingPriority="750" id="100067">
+                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="100067">
                                         <rect key="frame" x="378" y="548" width="49" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSRefreshTemplate" imagePosition="overlaps" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="100068">
@@ -103,15 +103,15 @@
                                             <action selector="refresh:" target="-2" id="100081"/>
                                         </connections>
                                     </button>
-                                    <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" id="100082">
+                                    <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="100082">
                                         <rect key="frame" x="229" y="555" width="16" height="16"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                     </progressIndicator>
-                                    <box verticalHuggingPriority="750" boxType="separator" id="100089">
+                                    <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="100089">
                                         <rect key="frame" x="-220" y="546" width="727" height="5"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
                                     </box>
-                                    <popUpButton verticalHuggingPriority="750" id="100066">
+                                    <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="100066">
                                         <rect key="frame" x="301" y="551" width="77" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                         <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="100069">
@@ -135,7 +135,7 @@
                                             </binding>
                                         </connections>
                                     </popUpButton>
-                                    <button verticalHuggingPriority="750" id="hkk-Zc-BCw">
+                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hkk-Zc-BCw">
                                         <rect key="frame" x="477" y="553" width="22" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSActionTemplate" imagePosition="overlaps" alignment="center" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="keG-Z3-D4y">
@@ -146,7 +146,7 @@
                                             <action selector="previewActionButtonPressed:" target="-1" id="FXf-7f-StM"/>
                                         </connections>
                                     </button>
-                                    <button verticalHuggingPriority="750" id="4N5-99-C8r">
+                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4N5-99-C8r">
                                         <rect key="frame" x="451" y="553" width="22" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Aeh-yX-NDA">
@@ -157,7 +157,7 @@
                                             <action selector="makePreviewTextLarger:" target="-2" id="6gU-un-Ogb"/>
                                         </connections>
                                     </button>
-                                    <button verticalHuggingPriority="750" id="Dea-3N-Ssb">
+                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dea-3N-Ssb">
                                         <rect key="frame" x="430" y="553" width="22" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="HKR-Lp-iit">
@@ -168,7 +168,7 @@
                                             <action selector="makePreviewTextSmaller:" target="-2" id="ZxT-u7-lhF"/>
                                         </connections>
                                     </button>
-                                    <webView maintainsBackForwardList="NO" id="PHv-Sh-qOi">
+                                    <webView fixedFrame="YES" maintainsBackForwardList="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PHv-Sh-qOi">
                                         <rect key="frame" x="0.0" y="0.0" width="507" height="548"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12" minimumFontSize="4" plugInsEnabled="NO" javaEnabled="NO" javaScriptCanOpenWindowsAutomatically="NO" loadsImagesAutomatically="NO" allowsAnimatedImages="NO" allowsAnimatedImageLooping="NO">
@@ -201,9 +201,9 @@
         <userDefaultsController representsSharedInstance="YES" id="gaD-lZ-q4w"/>
     </objects>
     <resources>
-        <image name="NSActionTemplate" width="14" height="14"/>
-        <image name="NSAddTemplate" width="11" height="11"/>
-        <image name="NSRefreshTemplate" width="11" height="15"/>
-        <image name="NSRemoveTemplate" width="11" height="11"/>
+        <image name="NSActionTemplate" width="20" height="20"/>
+        <image name="NSAddTemplate" width="18" height="17"/>
+        <image name="NSRefreshTemplate" width="18" height="21"/>
+        <image name="NSRemoveTemplate" width="18" height="5"/>
     </resources>
 </document>

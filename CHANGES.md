@@ -1,13 +1,14 @@
 # ManDrake Version History
 
-## 10/11/2025 - Version 3.3.1
+## 12/11/2025 - Version 3.3.1
 
 * Universal Intel/ARM 64-bit build
 * No longer relies on groff, which is no longer included in macOS
-* Now uses the mandoc binary shipping with macOS
+* Now uses the mandoc binary that ships with macOS
 * PDF export removed, since it relied on groff
 * App is now notarized by Apple
 * New application icon
+* Now requires macOS 13 Ventura or later
 
 ## 30/03/2019 - Version 3.3
 
