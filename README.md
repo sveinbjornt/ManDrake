@@ -2,6 +2,7 @@
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 [![Language](https://img.shields.io/badge/language-objective--c-lightgrey)]()
 [![Release](https://shields.io/github/v/release/sveinbjornt/mandrake?display_name=tag)]()
+[![Build](https://github.com/sveinbjornt/mandrake/actions/workflows/macos.yml/badge.svg)]()
 
 <img align="right" src="images/mandrake_icon.png" style="float: right; margin-left: 30px; width:192px; height:192px;" alt="ManDrake Application Icon" width="192" height="192">
 

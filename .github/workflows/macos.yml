@@ -1,0 +1,20 @@
+name: build
+
+on:
+  push:
+    branches: [ '*' ]
+  pull_request:
+    branches: [ '*' ]
+
+jobs:
+  build:
+    name: Build on macOS
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Install xcpretty
+        run: gem install xcpretty
+      - name: Build app
+        run: bash ./build.sh

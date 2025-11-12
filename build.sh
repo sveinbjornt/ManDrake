@@ -1,13 +1,11 @@
-# Build script for the Embla iOS app
-# Only used for Travis CI build tests.
+# Build script for the ManDrake macOS app
 #
 # Builds an unsigned app binary in debug mode.
 #
-# xcodebuild output is fed through xcpretty to reduce build log
-# verbosity and keep it within Travis log length limit.
+# xcodebuild output is fed through xcpretty to reduce build log verbosity
 
 xcodebuild  -parallelizeTargets \
-            -workspace "ManDrake.xcworkspace" \
+            -project "ManDrake.xcodeproj" \
             -scheme "ManDrake" \
             -configuration "Debug" \
             CODE_SIGN_IDENTITY="" \
