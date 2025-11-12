@@ -3,17 +3,15 @@
 [![Language](https://img.shields.io/badge/language-objective--c-lightgrey)]()
 [![Release](https://shields.io/github/v/release/sveinbjornt/mandrake?display_name=tag)]()
 
-<img align="right" src="images/mandrake_icon.png" style="float: right; margin-left: 30px;" alt="ManDrake Application Icon">
+<img align="right" src="images/mandrake_icon.png" style="float: right; margin-left: 30px; width:192px; height:192px;" alt="ManDrake Application Icon" width="192" height="192">
 
 # ManDrake
 
-***This software does not run on latest macOS versions and is no longer maintained. Caveat emptor!***
-
-ManDrake is a native <a href="https://en.wikipedia.org/wiki/Man_page">man page</a> editor for macOS with features such as syntax highlighting, live <a href="https://en.wikipedia.org/wiki/Mandoc">`mandoc`</a> syntax validation and a live-updating rendered preview of the man page during editing. It can also export man pages as PDF or HTML.
+ManDrake is a native <a href="https://en.wikipedia.org/wiki/Man_page">man page</a> editor for macOS with features such as syntax highlighting, live <a href="https://en.wikipedia.org/wiki/Mandoc">`mandoc`</a> syntax validation and a live-updating rendered preview of the man page during editing. It can also export man pages as HTML.
 
 Long story short, many years ago I was sick of writing man pages in an endless cycle of edit-view, edit-view so I decided to do something about it and created this editor. It's a bit rough around the edges, but it works really well for me. Perhaps it will also be of some use to you.
 
-* [**⬇ Download ManDrake 3.3**](http://sveinbjorn.org/files/software/mandrake/ManDrake-3.3.zip) (~1.9 MB, Intel 64-bit, 10.8 or later)
+* [**⬇ Download ManDrake 3.3**](http://sveinbjorn.org/files/software/mandrake/ManDrake-3.3.1.zip) (~3.6 MB, ARM/Intel 64-bit, 13.0 or later, Developer ID signed and notarized)
 
 To learn more about the `mandoc` man page format:
 
@@ -30,6 +28,23 @@ or read [this page](http://www.freebsd.org/cgi/man.cgi?query=mdoc.samples).
 <img src="images/mandrake_screenshot1.jpg" style="max-width:100%;" alt="ManDrake Screenshot 1">
 
 <img src="images/mandrake_screenshot2.jpg" style="max-width:100%;" alt="ManDrake Screenshot 2">
+
+## Building ManDrake
+
+### Requirements
+
+If you want to build ManDrake yourself, you need the following components/tools:
+
+* Apple's Xcode
+* macOS SDK (13.0 or later)
+
+## Captain Mandrake
+
+> **Do I look all rancid and clotted? You look at me, Jack. Eh? Look, eh? And I drink a lot of water, you know. I'm what you might call a water man, Jack - that's what I am. And I can swear to you, my boy, swear to you, that there's nothing wrong with my bodily fluids. Not a thing, Jackie.**
+
+Here's **Group Captain Lionel Mandrake** from Kubrick's wonderful [*Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb*](http://www.imdb.com/title/tt0057012/) in the intimidating company of Brigadier General Jack D. Ripper.
+
+<img src="images/mandrake_captain.jpg" alt="Group Captain Lionel Mandrake">
 
 ## License
 
@@ -59,34 +74,3 @@ PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY
 WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
-
-## Building ManDrake
-
-### Requirements
-
-If you want to build ManDrake yourself, you need the following components/tools:
-
-* Apple's Xcode
-* macOS SDK (10.8 or later)
-* Git
-* [CocoaPods](https://cocoapods.org)
-
-You may also need to install Xcode’s command line tools with the following command, if you want to re-build the included `cat2html` and `mandoc` binaries
-
-    xcode-select --install
-
-### Environment Setup
-
-After cloning the repository, run the following commands inside the repository root (i.e. the directory containing this `README.md` file):
-
-    pod install
-
-This installs all the dependencies required. ManDrake can then be built via the `xcworkspace`.
-
-## Captain Mandrake
-
-> **Do I look all rancid and clotted? You look at me, Jack. Eh? Look, eh? And I drink a lot of water, you know. I'm what you might call a water man, Jack - that's what I am. And I can swear to you, my boy, swear to you, that there's nothing wrong with my bodily fluids. Not a thing, Jackie.**
-
-Here's **Group Captain Lionel Mandrake** from Kubrick's wonderful [*Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb*](http://www.imdb.com/title/tt0057012/) in the intimidating company of Brigadier General Jack D. Ripper.
-
-<img src="images/mandrake_captain.jpg" alt="Group Captain Lionel Mandrake">

@@ -63,5 +63,7 @@
 	<string>https://sveinbjorn.org/files/appcasts/ManDrakeAppcast.xml</string>
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsa_pub.pem</string>
+    <key>SUPublicEDKey</key>
+    <string>XqfjBk0i1aF2FrZQfUIcpU+h7151345+3pSN9Bs7GwI=</string>
 </dict>
 </plist>

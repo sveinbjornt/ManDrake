@@ -37,7 +37,7 @@
                             <menuItem title="Check for Updates…" id="NXH-cK-BC8">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
-                                    <action selector="checkForUpdates:" target="Yj8-4H-gT2" id="kGA-o5-pFq"/>
+                                    <action selector="checkForUpdates:" target="uzq-kz-mhA" id="tnc-iP-OSi"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="143">
@@ -668,6 +668,6 @@
             </menu>
         </menuItem>
         <userDefaultsController representsSharedInstance="YES" id="PuS-3K-wCY"/>
-        <customObject id="Yj8-4H-gT2" customClass="SUUpdater"/>
+        <customObject id="uzq-kz-mhA" customClass="SPUStandardUpdaterController"/>
     </objects>
 </document>

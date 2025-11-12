@@ -6,16 +6,20 @@
         <description>Most recent release list for ManDrake, with links to updates.</description>
         <language>en</language>
         <item>
-            <title>Version 3.3</title>
-            <pubDate>Sat, 30 Oct 2019 19:52:00 +0000</pubDate>
-            <enclosure url="https://sveinbjorn.org/files/software/mandrake/ManDrake-3.3.zip" sparkle:version="99" sparkle:shortVersionString="3.3" length="1910835" type="application/octet-stream" sparkle:dsaSignature="MCwCFAqVOHnxJ6oXmsvfbYy4KExqzmxqAhQLqvbRxv93PaJLpkRHO9t/AeD5Bg=="/>
-            <sparkle:minimumSystemVersion>10.8.0</sparkle:minimumSystemVersion>
+            <title>Version 3.3.1</title>
+            <pubDate>Wed, 12 Nov 2025 09:56:00 +0000</pubDate>
+            <enclosure url="https://sveinbjorn.org/files/software/mandrake/ManDrake-3.3.1.zip" sparkle:version="115" sparkle:shortVersionString="3.3.1"  type="application/octet-stream" sparkle:edSignature="szrJOse/i3V97jdIZaWIbC64MfsbCR6h+d02LSnaCtA0hVgWYE8/NtcHyqPYD7xVJ2P4llnrZCYlo75KpGYLDw==" length="3720357"/>
+            <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
             <description><![CDATA[
-                <h2>New in Version 3.3</h2>
+                <h2>New in Version 3.3.1</h2>
                 <ul>
-                <li>Fixed issue with rendering preview for very large mdoc files</li>
-                <li>ManDrake is now a Developer ID signed application</li>
-                <li>Minor fixes to improve compatibility with Mojave's Dark Mode</li>
+                <li>Universal Intel/ARM 64-bit build</li>
+                <li>No longer relies on groff, which is no longer included in macOS</li>
+                <li>Now uses the mandoc binary that ships with macOS</li>
+                <li>PDF export removed, since it relied on groff</li>
+                <li>App is now notarized by Apple</li>
+                <li>New application icon</li>
+                <li>Now requires macOS 13 Ventura or later</li>
                 </ul>
             ]]></description>
         </item>
