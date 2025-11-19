@@ -12,6 +12,12 @@ ManDrake is a native <a href="https://en.wikipedia.org/wiki/Man_page">man page</
 
 Long story short, many years ago I was sick of writing man pages in an endless cycle of edit-view, edit-view so I decided to do something about it and created this editor. It's a bit rough around the edges, but it works really well for me. Perhaps it will also be of some use to you.
 
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BDT58J7HYKAEE">
+<img align="right" src="https://www.paypalobjects.com/WEBSCR-640-20110306-1/en_US/i/btn/btn_donate_LG.gif" >
+</a>
+
+ManDrake is free, open source software released under a BSD license. If you find it useful, feel free to [**make a donation.**](https://sveinbjorn.org/donations)
+
 * [**⬇ Download ManDrake 3.3.1**](http://sveinbjorn.org/files/software/mandrake/ManDrake-3.3.1.zip) (~3.6 MB, ARM/Intel 64-bit, 13.0 or later, Developer ID signed and notarized)
 
 To learn more about the `mandoc` man page format:
@@ -22,7 +28,6 @@ man mdoc
 
 or read [this page](http://www.freebsd.org/cgi/man.cgi?query=mdoc.samples).
 
-[ManDrake](https://sveinbjorn.org/mandrake) is free, open source software distributed under a BSD license. If you find it useful, feel free to [make a donation.](https://sveinbjorn.org/donations)
 
 ## Screenshots
 
