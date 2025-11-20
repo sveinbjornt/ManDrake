@@ -22,11 +22,15 @@
 				<string>mdoc</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>DocumentIcon</string>
+			<string></string>
+			<key>CFBundleTypeIconSystemGenerated</key>
+			<true/>
 			<key>CFBundleTypeName</key>
 			<string>Man Page Document</string>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
 			<key>NSDocumentClass</key>
 			<string>ManDrakeDocument</string>
 		</dict>
@@ -63,7 +67,7 @@
 	<string>https://sveinbjorn.org/files/appcasts/ManDrakeAppcast.xml</string>
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsa_pub.pem</string>
-    <key>SUPublicEDKey</key>
-    <string>XqfjBk0i1aF2FrZQfUIcpU+h7151345+3pSN9Bs7GwI=</string>
+	<key>SUPublicEDKey</key>
+	<string>XqfjBk0i1aF2FrZQfUIcpU+h7151345+3pSN9Bs7GwI=</string>
 </dict>
 </plist>

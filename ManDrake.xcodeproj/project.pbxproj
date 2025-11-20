@@ -73,7 +73,6 @@
 		F472E8A41F2A3A7B007F3EFC /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = F472E8A31F2A3A7B007F3EFC /* Credits.rtf */; };
 		F4796732224FF75B00CA0746 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4796731224FF75B00CA0746 /* Sparkle.framework */; };
 		F4796734224FF7EA00CA0746 /* Sparkle.framework in Copy Bundled Frameworks */ = {isa = PBXBuildFile; fileRef = F4796731224FF75B00CA0746 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		F4796737224FFB5400CA0746 /* DocumentIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = F4796735224FFB5300CA0746 /* DocumentIcon.icns */; };
 		F4796738224FFB5400CA0746 /* AppIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = F4796736224FFB5400CA0746 /* AppIcon.icns */; };
 		F487F4AC141EADEF0093D633 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F487F4AB141EADEF0093D633 /* Cocoa.framework */; };
 		F487F4B8141EADEF0093D633 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F487F4B7141EADEF0093D633 /* main.m */; };
@@ -184,7 +183,6 @@
 		F45AFBFB1C53FBD500953D8F /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = Common.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		F472E8A31F2A3A7B007F3EFC /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; name = Credits.rtf; path = ManDrake/Resources/Credits.rtf; sourceTree = SOURCE_ROOT; };
 		F4796731224FF75B00CA0746 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
-		F4796735224FFB5300CA0746 /* DocumentIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = DocumentIcon.icns; path = Resources/DocumentIcon.icns; sourceTree = "<group>"; };
 		F4796736224FFB5400CA0746 /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = AppIcon.icns; path = Resources/AppIcon.icns; sourceTree = "<group>"; };
 		F486410A20CADDD7007E2BB6 /* mandrake_screenshot2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mandrake_screenshot2.jpg; sourceTree = "<group>"; };
 		F486410B20CADDD7007E2BB6 /* mandrake_screenshot1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mandrake_screenshot1.jpg; sourceTree = "<group>"; };
@@ -336,7 +334,6 @@
 			children = (
 				F430565D2EC2150B00360103 /* ManDrake.entitlements */,
 				F4796736224FFB5400CA0746 /* AppIcon.icns */,
-				F4796735224FFB5300CA0746 /* DocumentIcon.icns */,
 				F487F4B3141EADEF0093D633 /* ManDrake-Info.plist */,
 				F487F4D0141EAE730093D633 /* MainMenu.xib */,
 				F487F4D1141EAE730093D633 /* ManDrakeDocument.xib */,
@@ -540,7 +537,6 @@
 				F487F4D3141EAE730093D633 /* ManDrakeDocument.xib in Resources */,
 				F43557EB1C55413A009080DC /* dsa_pub.pem in Resources */,
 				F4B7D9F8251004BE0025A779 /* cat2html in Resources */,
-				F4796737224FFB5400CA0746 /* DocumentIcon.icns in Resources */,
 				F4796738224FFB5400CA0746 /* AppIcon.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
