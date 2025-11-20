@@ -1,8 +1,8 @@
-[![macOS](https://img.shields.io/badge/macOS-000000?style=flat&logo=apple&logoColor=white)]()
+[![macOS](https://img.shields.io/badge/macOS-000000?style=flat&logo=apple&logoColor=white)](https://en.wikipedia.org/wiki/MacOS)
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
-[![Language](https://img.shields.io/badge/language-objective--c-lightgrey)]()
-[![Release](https://shields.io/github/v/release/sveinbjornt/mandrake?display_name=tag)]()
-[![Build](https://github.com/sveinbjornt/mandrake/actions/workflows/macos.yml/badge.svg)]()
+[![Language](https://img.shields.io/badge/language-objective--c-lightgrey)](https://en.wikipedia.org/wiki/Objective-C)
+[![Release](https://shields.io/github/v/release/sveinbjornt/mandrake?display_name=tag)](https://github.com/sveinbjornt/ManDrake/releases)
+[![Build](https://github.com/sveinbjornt/mandrake/actions/workflows/macos.yml/badge.svg)](https://github.com/sveinbjornt/mandrake/actions)
 
 <img align="right" src="images/mandrake_icon.png" style="float: right; margin-left: 30px; width:192px; height:192px;" alt="ManDrake Application Icon" width="192" height="192">
 
@@ -18,7 +18,7 @@ Long story short, many years ago I was sick of writing man pages in an endless c
 
 ManDrake is free, open source software released under a BSD license. If you find it useful, feel free to [**make a donation.**](https://sveinbjorn.org/donations)
 
-* [**⬇ Download ManDrake 3.3.1**](http://sveinbjorn.org/files/software/mandrake/ManDrake-3.3.1.zip) (~3.6 MB, ARM/Intel 64-bit, 13.0 or later, Developer ID signed and notarized)
+* [**⬇ Download ManDrake 3.3.1**](http://sveinbjorn.org/files/software/mandrake/ManDrake-3.3.1.zip) (~3.6 MB, ARM/Intel 64-bit, macOS 13.0 or later, Developer ID signed and notarized)
 
 To learn more about the `mandoc` man page format:
 

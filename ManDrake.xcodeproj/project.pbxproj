@@ -207,7 +207,8 @@
 		F4AFF3C8223EEC9100024B12 /* NSTask+Description.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTask+Description.h"; sourceTree = "<group>"; };
 		F4AFF3C9223EEC9100024B12 /* NSTask+Description.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTask+Description.m"; sourceTree = "<group>"; };
 		F4B7D9F7251004BE0025A779 /* cat2html */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = cat2html; sourceTree = "<group>"; };
-		F4FD5CA11C4D74F900C8D155 /* make_icons.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = make_icons.sh; sourceTree = "<group>"; };
+		F4DB1A062ECF2BFE00D16F98 /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
+		F4FD5CA11C4D74F900C8D155 /* make_iconset.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = make_iconset.sh; sourceTree = "<group>"; };
 		F4FD5CA41C4D74F900C8D155 /* ManDrakeAppIcon1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ManDrakeAppIcon1024.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -235,6 +236,7 @@
 				F486410C20CAE25D007E2BB6 /* LICENSE.txt */,
 				F45AFBE01C53D53300953D8F /* License.html */,
 				F42AA7DA1C4EC5D0007E0ACE /* README.md */,
+				F4DB1A062ECF2BFE00D16F98 /* TODO.md */,
 			);
 			name = Documentation;
 			sourceTree = "<group>";
@@ -414,7 +416,7 @@
 			isa = PBXGroup;
 			children = (
 				F430565C2EC1E08800360103 /* Old */,
-				F4FD5CA11C4D74F900C8D155 /* make_icons.sh */,
+				F4FD5CA11C4D74F900C8D155 /* make_iconset.sh */,
 				F4FD5CA41C4D74F900C8D155 /* ManDrakeAppIcon1024.png */,
 			);
 			path = Icons;
